@@ -1,0 +1,31 @@
+//Color Variables
+$white: #fff;
+$gray-100: #f8f9fc;
+$gray-200: #eaecf4;
+$gray-300: #dddfeb;
+$gray-400: #d1d3e2;
+$gray-500: #b7b9cc;
+$gray-600: #858796;
+$gray-700: #6e707e;
+$gray-800: #5a5c69;
+$gray-900: #3a3b45;
+$black: #000;
+
+$blue: #4e73df;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #e74a3b;
+$orange: #fd7e14;
+$yellow: #f6c23e;
+$green: #1cc88a;
+$teal: #20c9a6;
+$cyan: #36b9cc;
+
+//Box Shadow Variables
+.shadow-lg {
+   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+//Images
+$login-image: 'https://source.unsplash.com/K4mSJ7kc0As/600x800' !default;

@@ -1,7 +1,7 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
@@ -22,10 +22,11 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: "" },
-          },
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: { publicPath: "" },
+          // },
+          "style-loader",
           "css-loader",
           "postcss-loader",
           "sass-loader",
@@ -48,7 +49,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    // new MiniCssExtractPlugin(),
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, "..", "./src/index.html"),
     }),
