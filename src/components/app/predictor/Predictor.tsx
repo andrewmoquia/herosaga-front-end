@@ -1,9 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Predictor() {
   return (
-    <div>
-      <h1>Predictor</h1>
-    </div>
+    <nav>
+      <ul>
+        <Link to="/predictor/plant">
+          <li>Plant Predictor</li>
+        </Link>
+        <Link to="/predictor/weather">
+          <li>Weather Predictor</li>
+        </Link>
+      </ul>
+    </nav>
   );
 }
