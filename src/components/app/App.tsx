@@ -1,7 +1,9 @@
+import "../scss/main.scss";
+
 export default function App() {
   return (
     <div>
-      <h1>Hello World!</h1>
+      <h1 className="title">Hello World!</h1>
     </div>
   );
 }
