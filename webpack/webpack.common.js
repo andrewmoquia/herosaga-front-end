@@ -46,6 +46,7 @@ module.exports = {
     path: path.resolve(__dirname, "..", "./build"),
     assetModuleFilename: "images/[hash][ext][quesry]",
     filename: "bundle.js",
+    publicPath: "/",
   },
   plugins: [
     new CleanWebpackPlugin(),
