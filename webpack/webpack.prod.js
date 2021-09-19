@@ -3,6 +3,7 @@ let target = "browserslist";
 
 module.exports = {
   mode: "production",
+  target: target,
   optimization: {
     minimizer: [
       new TerserPlugin({
