@@ -1,4 +1,5 @@
 const TerserPlugin = require("terser-webpack-plugin");
+let target = "browserslist";
 
 module.exports = {
   mode: "production",
