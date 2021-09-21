@@ -12,7 +12,7 @@ export default function Nav() {
 
    const [activeLi, setActiveLi] = useState<LiElement>(liElement)
 
-   const mapObj = (route: string) => {
+   const mapLiObj = (route: string) => {
       const tempObj: any = activeLi
       Object.keys(tempObj).map((key) => {
          return route === key
@@ -27,40 +27,72 @@ export default function Nav() {
    }
 
    useEffect(() => {
-      mapObj(window.location.href.slice(22))
+      mapLiObj(window.location.href.slice(22))
       //eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
 
    const handleActiveNav = (route: string) => {
-      mapObj(route)
+      mapLiObj(route)
    }
 
    return (
       <nav id="main-nav">
-         <div id="game-logo"></div>
+         <div className="logo-icon">
+            <img
+               src="https://i.ibb.co/CVHL7MN/Spell-Book-Preface-14.png"
+               alt="Spell-Book-Preface-14"
+            />
+         </div>
+         <div className="game-logo d-none d-lg-flex">INCU MONSTERS</div>
          <ul>
             <Link to="/" className={activeLi.dashboard}>
                <li onClick={() => handleActiveNav('dashboard')}>
-                  <p>Dashboard</p>
+                  <div className="nav-icon">
+                     <img
+                        src="https://i.ibb.co/8c0hdC6/UI-Graphic-Resource-Gems.png"
+                        alt="UI-Graphic-Resource-Gems"
+                     />
+                  </div>
+                  <p className="d-none d-lg-block">Dashboard</p>
                </li>
             </Link>
             <Link to="/marketplace" className={activeLi.marketplace}>
                <li onClick={() => handleActiveNav('marketplace')}>
-                  <p>Marketplace</p>
+                  <div className="nav-icon">
+                     <img
+                        src="https://i.ibb.co/zNmxRH1/UI-Graphic-Resource-Coins.png"
+                        alt="UI-Graphic-Resource-Coins"
+                     />
+                  </div>
+                  <p className="d-none d-lg-block">Marketplace</p>
                </li>
             </Link>
             <Link to="/farm" className={activeLi.farm}>
                <li onClick={() => handleActiveNav('farm')}>
-                  <p>Farm</p>
+                  <div className="nav-icon">
+                     <img
+                        src="https://i.ibb.co/fDB1Tsf/UI-Graphic-Resource-Wood.png"
+                        alt="UI-Graphic-Resource-Wood"
+                     />
+                  </div>
+                  <p className="d-none d-lg-block">Farm</p>
                </li>
             </Link>
             <Link to="/myNFT" className={activeLi.myNFT}>
                <li onClick={() => handleActiveNav('myNFT')}>
-                  <p>My NFT</p>
+                  <div className="nav-icon">
+                     <img
+                        src="https://i.ibb.co/JydCdMs/UI-Graphic-Resource-Iron.png"
+                        alt="UI-Graphic-Resource-Iron"
+                     />
+                  </div>
+                  <p className="d-none d-lg-block">My NFT</p>
                </li>
             </Link>
          </ul>
-         <div id="profile"></div>
+         <div id="profile">
+            <img src="https://i.ibb.co/w41drH1/Electromancer16.png" alt="Electromancer16" />
+         </div>
       </nav>
    )
 }

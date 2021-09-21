@@ -1,14 +1,13 @@
 #main-nav {
+   width: 100%;
    height: 60px;
    background: rgb(53, 123, 149);
    background: linear-gradient(97deg, rgba(53, 123, 149, 1) 0%, rgba(43, 58, 119, 1) 100%);
    border-bottom: 5px solid #1a244d;
-   display: flex;
+   display: inline-flex;
    align-items: center;
-   justify-content: space-between;
    position: sticky;
    top: 0;
-   padding: 0px 10px;
    font-weight: 700;
    ul {
       height: 100%;
@@ -16,7 +15,7 @@
       align-items: center;
       padding: 0px 5px;
       li {
-         padding: 0px 15px;
+         padding: 0px 8px;
          height: 100%;
          display: flex;
          align-items: center;
@@ -27,39 +26,113 @@
          }
       }
       a {
-         height: 100%;
+         height: 45px;
+         border-radius: 40px;
          text-decoration: none;
-         color: black;
+         color: rgb(207, 247, 247);
+         p {
+            margin: 0px 10px;
+         }
       }
       li:hover {
          transition: background ease-in-out 0.2s;
-         color: white;
+         color: rgb(252, 246, 165);
       }
    }
 }
 
-#game-logo {
+.game-logo {
    width: 100px;
-   height: 40px;
+   height: 43px;
+   min-width: 100px;
+   min-height: 43px;
    border-radius: 40px;
-   background: white;
+   // background: white;
+   text-align: left;
+   align-items: center;
+   cursor: pointer;
+   color: rgb(189, 255, 102);
+   margin-right: 10px;
+   font-size: 1.1rem;
+}
+
+.logo-icon {
+   width: 40px;
+   height: 40px;
+   min-width: 40px;
+   min-height: 40px;
+   border-radius: 50%;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0px 15px;
+   img {
+      width: 100%;
+      height: 100%;
+      transform: scale(1);
+   }
+   box-shadow: 0px 0px 10px 2px rgba(236, 255, 154, 0.5);
 }
 
 #profile {
-   width: 45px;
-   height: 45px;
+   width: 40px;
+   height: 40px;
+   min-width: 40px;
+   min-height: 40px;
    background: white;
    border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 2rem;
+   cursor: pointer;
+   margin-left: auto;
+   margin-right: 15px;
+   overflow: hidden;
+   box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.3);
+   transition: box-shadow ease-in-out 0.2s;
+   img {
+      transform: scale(0.2);
+   }
+   &:hover {
+      box-shadow: 0px 0px 20px 2px rgba(223, 253, 114, 0.3);
+      transition: box-shadow ease-in-out 0.2s;
+   }
 }
 
 .active-nav {
-   background: #1a244d;
+   background: rgba(26, 36, 77, 0.6);
    li {
       color: white;
    }
    transition: background ease-in-out 0.2s;
+   z-index: -2;
 }
 .inactive-nav {
    background: none;
    transition: background ease-in-out 0.2s;
+}
+.nav-icon {
+   width: 43px;
+   height: 43px;
+   // background: rgba(255, 255, 255, 0.7);
+   border-radius: 17px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+   img {
+      transform: scale(0.07);
+   }
+}
+.nav-icon::before {
+   content: '';
+   width: 12px;
+   height: 12px;
+   background: white;
+   position: absolute;
+   z-index: -1;
+   border-radius: 50%;
+   box-shadow: 0px 0px 20px 2px rgba(255, 255, 255, 1);
 }
