@@ -11,3 +11,10 @@
 .shadow-lg {
    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 }
+
+.main-bg {
+   height: calc(100vh - 60px);
+   width: 100%;
+   background: rgb(128, 231, 195);
+   background: linear-gradient(97deg, rgba(128, 231, 195, 1) 0%, rgba(179, 224, 106, 1) 100%);
+}

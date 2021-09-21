@@ -9,6 +9,7 @@
    position: sticky;
    top: 0;
    padding: 0px 10px;
+   font-weight: 700;
    ul {
       height: 100%;
       display: inline-flex;
@@ -31,13 +32,34 @@
          color: black;
       }
       li:hover {
-         background: #1a244d;
+         transition: background ease-in-out 0.2s;
+         color: white;
       }
    }
 }
 
-#pvu-logo {
-   width: 20px;
-   height: 100%;
+#game-logo {
+   width: 100px;
+   height: 40px;
+   border-radius: 40px;
    background: white;
+}
+
+#profile {
+   width: 45px;
+   height: 45px;
+   background: white;
+   border-radius: 50%;
+}
+
+.active-nav {
+   background: #1a244d;
+   li {
+      color: white;
+   }
+   transition: background ease-in-out 0.2s;
+}
+.inactive-nav {
+   background: none;
+   transition: background ease-in-out 0.2s;
 }
