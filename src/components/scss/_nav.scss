@@ -1,0 +1,43 @@
+#main-nav {
+   height: 60px;
+   background: rgb(53, 123, 149);
+   background: linear-gradient(97deg, rgba(53, 123, 149, 1) 0%, rgba(43, 58, 119, 1) 100%);
+   border-bottom: 5px solid #1a244d;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: sticky;
+   top: 0;
+   padding: 0px 10px;
+   ul {
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      padding: 0px 5px;
+      li {
+         padding: 0px 15px;
+         height: 100%;
+         display: flex;
+         align-items: center;
+         span {
+            width: 100%;
+            height: 100%;
+            background: white;
+         }
+      }
+      a {
+         height: 100%;
+         text-decoration: none;
+         color: black;
+      }
+      li:hover {
+         background: #1a244d;
+      }
+   }
+}
+
+#pvu-logo {
+   width: 20px;
+   height: 100%;
+   background: white;
+}
