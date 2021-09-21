@@ -1,16 +1,17 @@
 import { createContext, useReducer } from 'react'
 import { AuthReducer } from './authReducer'
+import * as interfaces from '../interfaces/storeInterfaces'
 
-const initialState = {
-   isAuthenticated: false,
-   isAuthenticating: true,
+const initialState: interfaces.IInitialState = {
+   isAuthenticated: true,
+   isAuthenticating: false,
 }
 
 export const MainStore = createContext<any>(initialState)
 
 const combineReducers =
    (...reducers: Function[]) =>
-   (state: any = initialState, action: any) => {
+   (state: interfaces.IInitialState = initialState, action: interfaces.IAction) => {
       for (let i = 0; i < reducers.length; i++) {
          state = reducers[i](state, action)
          return state

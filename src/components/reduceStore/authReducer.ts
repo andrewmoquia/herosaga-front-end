@@ -6,10 +6,16 @@ export function AuthReducer(state: any, action: any) {
             isAuthenticated: true,
             isAuthenticating: false,
          }
+      case 'AUTH_PROCESSING':
+         return {
+            ...state,
+            isAuthenticated: false,
+            isAuthenticating: true,
+         }
       case 'AUTH_FAILED':
          return {
             ...state,
-            isAuthenticated: true,
+            isAuthenticated: false,
             isAuthenticating: false,
          }
       default:

@@ -1,13 +1,8 @@
 import { Link } from 'react-router-dom'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import { LiElement } from '../interfaces/navInterface'
-import { MainStore } from '../reduceStore/StoreProvider'
 
 export default function Nav() {
-   const { state, dispatch } = useContext(MainStore)
-
-   console.log(state, dispatch)
-
    const liElement: LiElement = {
       dashboard: '',
       marketplace: '',
