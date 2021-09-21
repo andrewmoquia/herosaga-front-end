@@ -7,14 +7,14 @@ export default function Nav() {
          <ul>
             <Link to="/">
                <li>
-                  <p>Home</p>
+                  <p>Dashboard</p>
                   <span></span>
                </li>
             </Link>
             <Link to="/predictor">
                <li>
                   <span></span>
-                  <p>Predictor</p>
+                  <p>Marketplace</p>
                </li>
             </Link>
             <Link to="/dictionary">
