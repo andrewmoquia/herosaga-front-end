@@ -11,7 +11,9 @@ export default function Dashboard() {
    return (
       <section className="main-bg">
          <h1>Dashboard</h1>
-         <button onClick={() => handleLogout()}>Logout</button>
+         <button type="button" onClick={() => handleLogout()}>
+            Logout
+         </button>
       </section>
    )
 }
