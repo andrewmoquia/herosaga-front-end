@@ -16,7 +16,7 @@ export default function App() {
                <Route path="/" exact component={Dashboard}></Route>
                <Route path="/marketplace" exact component={Marketplace}></Route>
                <Route path="/farm" exact component={Farm}></Route>
-               <Route path="/mynft" exact component={MyNFT}></Route>
+               <Route path="/myNFT" exact component={MyNFT}></Route>
             </Switch>
          </main>
       </BrowserRouter>

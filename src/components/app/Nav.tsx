@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { LiElement } from '../interfaces/navInterface'
+import { MainStore } from '../reduceStore/StoreProvider'
 
 export default function Nav() {
+   const { state, dispatch } = useContext(MainStore)
+
+   console.log(state, dispatch)
+
    const liElement: LiElement = {
-      dashboard: 'dashboard',
+      dashboard: '',
       marketplace: '',
       farm: '',
       myNFT: '',
@@ -12,16 +17,27 @@ export default function Nav() {
 
    const [activeLi, setActiveLi] = useState<LiElement>(liElement)
 
-   const handleActiveNav = (element: string) => {
+   const mapObj = (route: string) => {
       const tempObj: any = activeLi
       Object.keys(tempObj).map((key) => {
-         return key == element
+         return route === key
             ? (tempObj[`${key}`] = 'active-nav')
+            : route === ''
+            ? (tempObj[`dashboard`] = 'active-nav')
             : (tempObj[`${key}`] = 'inactive-nav')
       })
       setActiveLi((prevObj: LiElement) => {
          return { ...prevObj, ...tempObj }
       })
+   }
+
+   useEffect(() => {
+      mapObj(window.location.href.slice(22))
+      //eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [])
+
+   const handleActiveNav = (route: string) => {
+      mapObj(route)
    }
 
    return (
@@ -43,7 +59,7 @@ export default function Nav() {
                   <p>Farm</p>
                </li>
             </Link>
-            <Link to="/mynft" className={activeLi.myNFT}>
+            <Link to="/myNFT" className={activeLi.myNFT}>
                <li onClick={() => handleActiveNav('myNFT')}>
                   <p>My NFT</p>
                </li>
