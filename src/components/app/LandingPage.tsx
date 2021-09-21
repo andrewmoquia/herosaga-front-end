@@ -6,7 +6,7 @@ import Error404 from './Error404'
 
 export default function LandingPage() {
    const { state } = useContext(MainStore)
-   console.log(state)
+
    const { isAuthenticated, isAuthenticating } = state
    return (
       <Fragment>

@@ -5,9 +5,7 @@ export default function Login() {
    const { dispatch } = useContext(MainStore)
 
    const handleLogin = () => {
-      return dispatch({
-         type: 'AUTH_SUCCESS',
-      })
+      return dispatch({ type: 'AUTH_SUCCESS' })
    }
 
    return (
