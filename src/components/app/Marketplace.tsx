@@ -1,7 +1,7 @@
 export default function Marketplace() {
    return (
-      <div>
+      <section className="main-bg">
          <h1>Marketplace</h1>
-      </div>
+      </section>
    )
 }

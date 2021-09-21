@@ -1,7 +1,7 @@
 export default function Farm() {
    return (
-      <div>
+      <section className="main-bg">
          <h1>Farm</h1>
-      </div>
+      </section>
    )
 }

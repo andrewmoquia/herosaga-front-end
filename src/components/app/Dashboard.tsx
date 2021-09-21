@@ -1,6 +1,6 @@
 export default function Dashboard() {
    return (
-      <section id="home">
+      <section className="main-bg">
          <h1>Dashboard</h1>
       </section>
    )
