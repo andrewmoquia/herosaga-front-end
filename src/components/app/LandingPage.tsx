@@ -10,7 +10,7 @@ export default function LandingPage() {
    const { isAuthenticated, isAuthenticating } = state
    return (
       <Fragment>
-         {isAuthenticating ? (
+         {isAuthenticating && !isAuthenticated ? (
             <div>
                <h1>Loading...</h1>
             </div>
