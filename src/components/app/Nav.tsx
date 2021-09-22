@@ -37,13 +37,13 @@ export default function Nav() {
 
    return (
       <nav id="main-nav">
-         <div className="logo-icon">
+         <div className="logo-icon d-none d-sm-flex">
             <img
                src="https://i.ibb.co/CVHL7MN/Spell-Book-Preface-14.png"
                alt="Spell-Book-Preface-14"
             />
          </div>
-         <div className="game-logo d-none d-lg-flex">INCU MONSTERS</div>
+         <div className="game-logo d-none d-sm-flex">INCU MONSTERS</div>
          <ul>
             <Link to="/" className={activeLi.dashboard}>
                <li onClick={() => handleActiveNav('dashboard')}>

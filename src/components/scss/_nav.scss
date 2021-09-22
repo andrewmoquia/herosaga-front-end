@@ -4,7 +4,7 @@
    background: rgb(53, 123, 149);
    background: linear-gradient(97deg, rgba(53, 123, 149, 1) 0%, rgba(43, 58, 119, 1) 100%);
    border-bottom: 5px solid #1a244d;
-   display: inline-flex;
+   display: flex;
    align-items: center;
    position: sticky;
    top: 0;
@@ -63,7 +63,6 @@
    min-height: 40px;
    border-radius: 50%;
    overflow: hidden;
-   display: flex;
    align-items: center;
    justify-content: center;
    margin: 0px 15px;
