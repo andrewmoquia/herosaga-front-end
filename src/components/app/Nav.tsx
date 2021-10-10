@@ -154,6 +154,7 @@ export default function Nav() {
                   </li>
                </Link>
             </ul>
+            {/* Empty menu for animation purposes */}
             <ul className={activeMenu.class}> </ul>
          </div>
 
