@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { MainStore } from '../reduceStore/StoreProvider'
 
 export default function Login() {
-   const { state, dispatch } = useContext(MainStore)
+   const { dispatch } = useContext(MainStore)
    const userData = {
       user: {
          username: 'RQmPIIgAn8wMGOHBinjHmMzf1',
@@ -29,7 +29,6 @@ export default function Login() {
       },
    }
    const handleLogin = () => {
-      console.log(state)
       return dispatch({
          type: 'LOGIN_SUCCESS',
          payload: userData,
