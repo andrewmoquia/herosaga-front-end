@@ -1,6 +1,7 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -49,6 +50,7 @@ module.exports = {
       publicPath: '/',
    },
    plugins: [
+      new NodePolyfillPlugin(),
       new CleanWebpackPlugin(),
       // new MiniCssExtractPlugin(),
       new HTMLWebpackPlugin({
