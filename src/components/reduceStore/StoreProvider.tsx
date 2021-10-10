@@ -2,11 +2,9 @@ import { createContext, useReducer } from 'react'
 import { AuthReducer } from './authReducer'
 import { LogoutReducer } from './logoutReducer'
 import * as interfaces from '../interfaces/storeInterfaces'
+import * as state from './states'
 
-const initialState: interfaces.IInitialState = {
-   isAuthenticated: true,
-   isAuthenticating: false,
-}
+const initialState: any = Object.assign(state.userState, state.authState)
 
 export const MainStore = createContext<any>(initialState)
 
