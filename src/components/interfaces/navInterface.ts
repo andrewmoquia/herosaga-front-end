@@ -3,4 +3,6 @@ export interface LiElement {
    marketplace: string
    farm: string
    myNFT: string
+   profile: string
+   transactions: string
 }
