@@ -3,6 +3,7 @@ export function AuthReducer(state: any, action: any) {
       case 'AUTH_SUCCESS':
          return {
             ...state,
+            user: action.payload,
             isAuthenticated: true,
             isAuthenticating: false,
          }

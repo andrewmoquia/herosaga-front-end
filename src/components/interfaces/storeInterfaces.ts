@@ -1,4 +1,5 @@
 export interface IInitialState {
+   user: object
    isAuthenticated: boolean
    isAuthenticating: boolean
 }
