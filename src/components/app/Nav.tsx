@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { LiElement } from '../interfaces/navInterface'
+import { NavLiElement, NavMenus } from '../interfaces/navInterface'
 
 export default function Nav() {
-   const liElement: LiElement = {
+   const navLiElement: NavLiElement = {
       dashboard: '',
       marketplace: '',
       farm: '',
@@ -12,36 +12,45 @@ export default function Nav() {
       transactions: '',
    }
 
-   const changeMenu: any = {
+   const navMenus: NavMenus = {
       class: 'menu-change-to-main',
       status: true,
    }
 
-   const [activeLi, setActiveLi] = useState<LiElement>(liElement)
-   const [activeMenu, setActiveMenu] = useState<any>(changeMenu)
+   const [activeLi, setActiveLi] = useState<NavLiElement>(navLiElement)
+   const [activeMenu, setActiveMenu] = useState<NavMenus>(navMenus)
 
-   const mapLiObj = (route: string) => {
+   //Change Nav Li class when activated.
+   const mapLiElements = (route: string) => {
       // console.log('menu changed')
-      const tempObj: any = activeLi
-      Object.keys(tempObj).map((key) => {
+      const newObj: any = activeLi
+      Object.keys(newObj).map((key) => {
          return route === key
-            ? (tempObj[`${key}`] = 'active-nav')
+            ? (newObj[`${key}`] = 'active-nav')
             : route === ''
-            ? (tempObj[`dashboard`] = 'active-nav')
-            : (tempObj[`${key}`] = 'inactive-nav')
+            ? (newObj[`dashboard`] = 'active-nav')
+            : (newObj[`${key}`] = 'inactive-nav')
       })
-      setActiveLi((prevObj: LiElement) => {
-         return { ...prevObj, ...tempObj }
+      setActiveLi((prevObj: NavLiElement) => {
+         return { ...prevObj, ...newObj }
       })
    }
 
+   //Identify which page we are.
    useEffect(() => {
-      mapLiObj(window.location.href.slice(22))
+      mapLiElements(window.location.href.slice(22))
       //eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
 
    const handleActiveNav = (route: string) => {
-      mapLiObj(route)
+      mapLiElements(route)
+   }
+
+   const changeMenuClass = (newObj: NavMenus) => {
+      setActiveMenu((prevObj: NavMenus) => {
+         return { ...prevObj, ...newObj }
+      })
+      // console.log(activeMenu.class)
    }
 
    const handleChangeNavMenu = () => {
@@ -50,25 +59,20 @@ export default function Nav() {
             class: 'menu-change-to-profile',
             status: false,
          }
-         setActiveMenu((prevObj: any) => {
-            return { ...prevObj, ...newObj }
-         })
-         // console.log(activeMenu.class)
+         changeMenuClass(newObj)
       }
       if (activeMenu.status === false) {
          const newObj = {
             class: 'menu-change-to-main',
             status: true,
          }
-         setActiveMenu((prevObj: any) => {
-            return { ...prevObj, ...newObj }
-         })
-         // console.log(activeMenu.class)
+         changeMenuClass(newObj)
       }
    }
 
    return (
       <nav id="main-nav">
+         {/* Game Logo  */}
          <div className="logo-icon d-none d-sm-flex">
             <img
                src="https://i.ibb.co/CVHL7MN/Spell-Book-Preface-14.png"
@@ -125,7 +129,6 @@ export default function Nav() {
                </Link>
             </ul>
             {/* Main Menu  */}
-
             <ul className={`menu main`}>
                <Link to="/" className={activeLi.profile}>
                   <li onClick={() => handleActiveNav('profile')}>
@@ -157,7 +160,7 @@ export default function Nav() {
             {/* Empty menu for animation purposes */}
             <ul className={activeMenu.class}> </ul>
          </div>
-
+         {/* Profile Icon  */}
          <div id="profile" onClick={() => handleChangeNavMenu()}>
             <img src="https://i.ibb.co/w41drH1/Electromancer16.png" alt="Electromancer16" />
          </div>
