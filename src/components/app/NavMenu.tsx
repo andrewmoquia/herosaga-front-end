@@ -44,12 +44,16 @@ export default function NavMenu(props: any): any {
       <ul className={`menu main`}>
          {data.map((key: any) => {
             return (
-               <Link to={`/${key.type[0]}`} className={activeLi[key.type[0]]} key={key.type}>
-                  <li onClick={() => handleActiveNav(key.type)}>
+               <Link
+                  to={`/${key.type.route}`}
+                  className={activeLi[key.type.route]}
+                  key={key.type.route}
+               >
+                  <li onClick={() => handleActiveNav(key.type.route)}>
                      <div className="nav-icon">
                         <img src={key.img} alt={key.alt} />
                      </div>
-                     <p className="d-none d-lg-block">{key.type[1]}</p>
+                     <p className="d-none d-lg-block">{key.type.label}</p>
                   </li>
                </Link>
             )
