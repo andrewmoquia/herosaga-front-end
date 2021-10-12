@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavMenus } from '../interfaces/navInterface'
-import { navMenuLogoData } from '../data/navMenuLogo'
+import { navMenuLogoData } from '../data/navMenuData'
 import NavMenu from './NavMenu'
 
 export default function Nav() {
