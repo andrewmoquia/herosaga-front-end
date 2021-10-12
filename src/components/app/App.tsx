@@ -11,6 +11,7 @@ export default function App() {
          <main>
             <Switch>
                <Route path="/" exact component={LandingPage}></Route>
+               <Route path="/dashboard" exact component={LandingPage}></Route>
                <Route path="/login" exact component={Login}></Route>
                <Route path="/register" exact component={Register}></Route>
                <Route path="/marketplace" exact component={LandingPage}></Route>
