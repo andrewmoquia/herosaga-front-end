@@ -5,6 +5,7 @@ export interface NavLiElement {
    myNFT: string
    profile: string
    transactions: string
+   [key: string]: string
 }
 
 export interface NavMenus {
