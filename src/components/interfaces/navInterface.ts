@@ -1,4 +1,4 @@
-export interface NavLiElement {
+export interface INavLiElement {
    dashboard: string
    marketplace: string
    farm: string
