@@ -5,7 +5,6 @@ import { INavLiElement } from '../interfaces/navInterface'
 
 export default function NavMenu(props: any): any {
    const { data } = props
-
    const [activeLi, setActiveLi] = useState<INavLiElement>(navLiElement)
 
    // Change Nav Li class when activated.
@@ -34,23 +33,45 @@ export default function NavMenu(props: any): any {
    }
 
    return (
-      <ul className={`menu main`}>
-         {data.map((key: any) => {
-            return (
-               <Link
-                  to={`/${key.type.route}`}
-                  className={activeLi[key.type.route]}
-                  key={key.type.route}
-               >
-                  <li onClick={() => handleActiveNav(key.type.route)}>
-                     <div className="nav-icon">
-                        <img src={key.img} alt={key.alt} />
-                     </div>
-                     <p className="d-none d-lg-block">{key.type.label}</p>
-                  </li>
-               </Link>
-            )
-         })}
-      </ul>
+      <>
+         {/* Main Menu  */}
+         <ul className={`menu main`}>
+            {data.generalMenu.map((key: any) => {
+               return (
+                  <Link
+                     to={`/${key.type.route}`}
+                     className={activeLi[key.type.route]}
+                     key={key.type.route}
+                  >
+                     <li onClick={() => handleActiveNav(key.type.route)}>
+                        <div className="nav-icon">
+                           <img src={key.img} alt={key.alt} />
+                        </div>
+                        <p className="d-none d-lg-block">{key.type.label}</p>
+                     </li>
+                  </Link>
+               )
+            })}
+         </ul>
+         {/* Profile Menu  */}
+         <ul className={`menu main`}>
+            {data.profileMenu.map((key: any) => {
+               return (
+                  <Link
+                     to={`/${key.type.route}`}
+                     className={activeLi[key.type.route]}
+                     key={key.type.route}
+                  >
+                     <li onClick={() => handleActiveNav(key.type.route)}>
+                        <div className="nav-icon">
+                           <img src={key.img} alt={key.alt} />
+                        </div>
+                        <p className="d-none d-lg-block">{key.type.label}</p>
+                     </li>
+                  </Link>
+               )
+            })}
+         </ul>
+      </>
    )
 }

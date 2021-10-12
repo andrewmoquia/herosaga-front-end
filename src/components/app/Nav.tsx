@@ -34,12 +34,8 @@ export default function Nav() {
       }
    }
 
-   const generalMenuProps = {
-      data: navMenuLogoData.generalMenu,
-   }
-
-   const profileMenuProps = {
-      data: navMenuLogoData.profileMenu,
+   const props = {
+      data: navMenuLogoData,
    }
 
    return (
@@ -53,11 +49,9 @@ export default function Nav() {
          </div>
          <div className="game-logo d-none d-sm-flex">INCU MONSTERS</div>
          <div id="nav-menu">
-            {/* Main Menu  */}
-            <NavMenu {...generalMenuProps} />
-            {/* Profile Menu  */}
-            <NavMenu {...profileMenuProps} />
-            {/* Empty menu for animation purposes */}
+            {/* Menus */}
+            <NavMenu {...props} />
+            {/* Empty menu for animation purposes. */}
             <ul className={activeMenu.class}> </ul>
          </div>
          {/* Profile Icon  */}
