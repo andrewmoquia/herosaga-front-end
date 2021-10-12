@@ -1,3 +1,14 @@
+import { INavLiElement } from '../interfaces/navInterface'
+
+export const navLiElement: INavLiElement = {
+   dashboard: '',
+   marketplace: '',
+   farm: '',
+   myNFT: '',
+   profile: '',
+   transactions: '',
+}
+
 export const navMenuLogoData = {
    generalMenu: [
       {

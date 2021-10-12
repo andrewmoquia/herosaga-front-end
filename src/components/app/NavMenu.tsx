@@ -1,19 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { NavLiElement } from '../interfaces/navInterface'
+import { navLiElement } from '../data/navMenuData'
+import { INavLiElement } from '../interfaces/navInterface'
 
 export default function NavMenu(props: any): any {
    const { data } = props
 
-   const navLiElement: NavLiElement = {
-      dashboard: '',
-      marketplace: '',
-      farm: '',
-      myNFT: '',
-      profile: '',
-      transactions: '',
-   }
-   const [activeLi, setActiveLi] = useState<NavLiElement>(navLiElement)
+   const [activeLi, setActiveLi] = useState<INavLiElement>(navLiElement)
 
    // Change Nav Li class when activated.
    const mapLiElements = (route: string) => {
@@ -26,7 +19,7 @@ export default function NavMenu(props: any): any {
             ? (newObj[`dashboard`] = 'active-nav')
             : (newObj[`${key}`] = 'inactive-nav')
       })
-      setActiveLi((prevObj: NavLiElement) => {
+      setActiveLi((prevObj: INavLiElement) => {
          return { ...prevObj, ...newObj }
       })
    }
