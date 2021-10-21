@@ -1,7 +1,7 @@
 import { MainStore } from '../reduceStore/StoreProvider'
 import { useContext, Fragment } from 'react'
 import MainPage from './MainPage'
-import Login from './LoginPage'
+import NonLoginUserPage from './NonLoginUserPage'
 import Error404 from './Error404'
 
 export default function LandingPage() {
@@ -17,7 +17,7 @@ export default function LandingPage() {
          ) : !isAuthenticating && isAuthenticated ? (
             <MainPage />
          ) : !isAuthenticating && !isAuthenticated ? (
-            <Login />
+            <NonLoginUserPage />
          ) : (
             <Error404 />
          )}
