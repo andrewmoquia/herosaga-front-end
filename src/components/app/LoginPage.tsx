@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { MainStore } from '../reduceStore/StoreProvider'
 
 export default function Login() {
+   const { state, dispatch } = useContext(MainStore)
    const [csrfToken, setCsrfToken] = useState('')
 
    useEffect(() => {
@@ -20,13 +22,12 @@ export default function Login() {
 
    const handleLogin = (e: any) => {
       e.preventDefault()
-      console.log('log out trigger')
       axios
          .post(
             'http://localhost:5000/login',
             {
-               email: 'totoypogi123@gmail.com',
-               password: 'totoypogi123',
+               username: e.target.username.value,
+               password: e.target.password.value,
             },
             {
                withCredentials: true,
@@ -37,16 +38,27 @@ export default function Login() {
          )
          .then((response) => {
             console.log(response.data)
+            if (response.data.status === 401) {
+               return dispatch({
+                  type: 'NOT_VERIFIED',
+               })
+            }
+            if (response.data.status === 200) {
+               dispatch({
+                  type: 'VERIFIED_USER',
+               })
+               return (window.location.href = '/')
+            }
          })
          .catch((error) => {
             console.log(error)
          })
    }
 
-   const handleProtectedRoute = (e: any) => {
+   const handleVerifyEmail = (e: any) => {
       e.preventDefault()
       axios
-         .get('http://localhost:5000/protected', {
+         .get('http://localhost:5000/verify/email', {
             withCredentials: true,
          })
          .then((response) => {
@@ -57,19 +69,6 @@ export default function Login() {
          })
    }
 
-   const handleLogout = (e: any) => {
-      e.preventDefault()
-      axios
-         .get('http://localhost:5000/logout', {
-            withCredentials: true,
-         })
-         .then((response) => {
-            console.log(response.data)
-         })
-         .catch((error) => {
-            console.log(error)
-         })
-   }
    return (
       <div>
          <Link to="/">
@@ -77,10 +76,19 @@ export default function Login() {
          </Link>
          {/* <h1>Login</h1> */}
          <form action="/" onSubmit={(e) => handleLogin(e)}>
-            <button>Login</button>
+            <label htmlFor="username">Username </label>
+            <input type="text" name="username" id="username" required />
+            <label htmlFor="password">Password </label>
+            <input type="password" name="password" id="password" required />
+            <button type="submit">Login</button>
          </form>
-         <button onClick={(e) => handleProtectedRoute(e)}>Enter Protected Route</button>
-         <button onClick={(e) => handleLogout(e)}>Logout</button>
+         {state.isNotVerified ? (
+            <button onClick={(e) => handleVerifyEmail(e)}>Verify Email here!</button>
+         ) : null}
+
+         <Link to="/forgot-password">
+            <button>Forgot Password</button>
+         </Link>
       </div>
    )
 }
