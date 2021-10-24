@@ -8,6 +8,7 @@ export default function LandingPage() {
    const { state } = useContext(MainStore)
 
    const { isAuthenticated, isAuthenticating } = state
+
    return (
       <Fragment>
          {isAuthenticating && !isAuthenticated ? (
