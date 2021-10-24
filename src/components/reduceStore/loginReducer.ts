@@ -7,6 +7,16 @@ export function LoginReducer(state: any, action: any) {
             isAuthenticated: true,
             isAuthenticating: false,
          }
+      case 'NOT_VERIFIED':
+         return {
+            ...state,
+            isNotVerified: true,
+         }
+      case 'VERIFIED_USER':
+         return {
+            ...state,
+            isNotVerified: false,
+         }
       default:
          return state
    }
