@@ -111,7 +111,7 @@ export function VerificationReducer(state: any, action: any) {
             ...state,
             alertType: 'success',
             isAlertNotifOn: true,
-            isReqProcessing: false,
+            isReqProcessing: true,
             alertMsg: action.payload,
          }
       case 'VERIFICATION_IN_PROCESS':

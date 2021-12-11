@@ -16,6 +16,11 @@ export function GeneralReducer(state: any, action: any) {
             ...state,
             isReqProcessing: true,
          }
+      case 'REQ_PROCESSING_DONE':
+         return {
+            ...state,
+            isReqProcessing: false,
+         }
       case 'TEST_ALERT_SUCCESS':
          return {
             ...state,
