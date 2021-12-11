@@ -16,11 +16,19 @@ export function GeneralReducer(state: any, action: any) {
             ...state,
             isReqProcessing: true,
          }
-      case 'PROCESING_DONE':
+      case 'TEST_ALERT_SUCCESS':
          return {
             ...state,
-            respondMsg: action.payload,
-            isProcessing: false,
+            alertType: 'success',
+            isAlertNotifOn: true,
+            alertMsg: action.payload,
+         }
+      case 'TEST_ALERT_FAILED':
+         return {
+            ...state,
+            alertType: 'failed',
+            isAlertNotifOn: true,
+            alertMsg: action.payload,
          }
       default:
          return state

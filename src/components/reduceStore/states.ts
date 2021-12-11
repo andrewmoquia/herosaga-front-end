@@ -13,4 +13,10 @@ const csrfToken = {
    csrfToken: '',
 }
 
-export const state = Object.assign(userState, authState, csrfToken)
+const reqCooldown = {
+   isReqCooldown: false,
+   reqTimer: 60,
+   reqInterval: '',
+}
+
+export const state = Object.assign(userState, authState, csrfToken, reqCooldown)

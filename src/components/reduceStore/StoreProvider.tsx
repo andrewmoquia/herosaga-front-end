@@ -23,7 +23,8 @@ const allReducers = combineReducers(
    red.AuthReducer,
    red.VerificationReducer,
    red.RegisterVerification,
-   red.LoginReducer
+   red.LoginReducer,
+   red.ForgotPwReducer
 )
 
 //Provide store in all elements.
