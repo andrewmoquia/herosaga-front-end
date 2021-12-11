@@ -1,20 +1,23 @@
 import '../scss/main.scss'
-import Login from './LoginPage'
-import LandingPage from './LandingPage'
-import RegisterPage from './RegisterPage'
-import ForgotPasswordPage from './ForgotPasswordPage'
-import ResetPassword from './ResetPassword'
-import { MainStore } from '../reduceStore/StoreProvider'
-
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { useCallback, useContext, useEffect } from 'react'
-
 import axios from 'axios'
+import LandingPage from './LandingPage'
+import ForgotPasswordPage from './microsite/ForgotPasswordPage'
+import WelcomePage from './WelcomePage'
+import VerifyAcc from './microsite/VerifyForm'
+import { MainStore } from '../reduceStore/StoreProvider'
+import { Fragment, useCallback, useContext, useEffect } from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { getCsrfToken } from '../actions/getCsrfToken'
+import ResetPwForm from './microsite/ResetPwForm'
 
 export default function App() {
-   const { state, dispatch } = useContext(MainStore)
+   const { dispatch } = useContext(MainStore)
 
+   //TO-DO: Separate this function to another file and refractor.
    const readCookie = (dispatch: Function) => {
+      dispatch({
+         type: 'AUTH_PROCESSING',
+      })
       axios
          .get('http://localhost:5000/check-logged-in-user', {
             withCredentials: true,
@@ -27,16 +30,6 @@ export default function App() {
                   payload: response.data.user,
                })
             } else {
-               axios
-                  .get('http://localhost:5000/logout', {
-                     withCredentials: true,
-                  })
-                  .then((response) => {
-                     console.log(response.data)
-                  })
-                  .catch((error) => {
-                     console.log(error)
-                  })
                return dispatch({
                   type: 'AUTH_FAILED',
                })
@@ -62,24 +55,26 @@ export default function App() {
 
    useEffect(() => {
       fetchCookie()
-   }, [fetchCookie])
+      getCsrfToken(dispatch)
+   }, [fetchCookie, dispatch])
 
-   console.log(state)
    return (
       <BrowserRouter>
-         <main>
+         <Fragment>
             <Switch>
                <Route path="/" exact component={LandingPage}></Route>
-               <Route path="/dashboard" exact component={LandingPage}></Route>
-               <Route path="/login" exact component={Login}></Route>
-               <Route path="/register" exact component={RegisterPage}></Route>
+               <Route path="/welcome" exact component={WelcomePage}></Route>
+               {/*TO-DO: Change this dashboard route to mysteryshop*/}
+               <Route path="/mysteryshop" exact component={LandingPage}></Route>
                <Route path="/marketplace" exact component={LandingPage}></Route>
-               <Route path="/farm" exact component={LandingPage}></Route>
                <Route path="/myNFT" exact component={LandingPage}></Route>
-               <Route path="/forgot-password" exact component={ForgotPasswordPage}></Route>
-               <Route path="/reset-password/:token" exact component={ResetPassword}></Route>
+               <Route path="/forgot/password" exact component={ForgotPasswordPage}></Route>
+               <Route path="/reset/password/" exact component={ResetPwForm}></Route>
+               <Route path="/reset/password/:token" exact component={ResetPwForm}></Route>
+               <Route path="/verify/account" exact component={VerifyAcc}></Route>
+               <Route path="/verify/account/:token" exact component={VerifyAcc}></Route>
             </Switch>
-         </main>
+         </Fragment>
       </BrowserRouter>
    )
 }

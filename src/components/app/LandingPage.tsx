@@ -1,7 +1,7 @@
 import { MainStore } from '../reduceStore/StoreProvider'
 import { useContext, Fragment } from 'react'
 import MainPage from './MainPage'
-import NonLoginUserPage from './NonLoginUserPage'
+import WelcomePage from './WelcomePage'
 import Error404 from './Error404'
 
 export default function LandingPage() {
@@ -12,13 +12,13 @@ export default function LandingPage() {
    return (
       <Fragment>
          {isAuthenticating && !isAuthenticated ? (
-            <div>
+            <div className="loading-screen">
                <h1>Loading...</h1>
             </div>
          ) : !isAuthenticating && isAuthenticated ? (
             <MainPage />
          ) : !isAuthenticating && !isAuthenticated ? (
-            <NonLoginUserPage />
+            <WelcomePage />
          ) : (
             <Error404 />
          )}

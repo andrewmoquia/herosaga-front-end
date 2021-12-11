@@ -1,9 +1,8 @@
-import Nav from './Nav'
+import Nav from './microsite/Nav'
+import MysteryShop from './dashboards/MysteryShop'
+import Marketplace from './dashboards/Marketplace'
+import MyNFT from './dashboards/MyNFT'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Dashboard from './Dashboard'
-import Marketplace from './Marketplace'
-import Farm from './Farm'
-import MyNFT from './MyNFT'
 
 export default function MainPage() {
    return (
@@ -11,10 +10,9 @@ export default function MainPage() {
          <Nav />
          <section>
             <Switch>
-               <Route path="/" exact component={Dashboard}></Route>
-               <Route path="/dashboard" exact component={Dashboard}></Route>
+               <Route path="/" exact component={MysteryShop}></Route>
+               <Route path="/mysteryshop" exact component={MysteryShop}></Route>
                <Route path="/marketplace" exact component={Marketplace}></Route>
-               <Route path="/farm" exact component={Farm}></Route>
                <Route path="/myNFT" exact component={MyNFT}></Route>
             </Switch>
          </section>
