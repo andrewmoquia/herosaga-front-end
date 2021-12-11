@@ -72,13 +72,17 @@ export const checkVerificationToken = (token: string, dispatch: Function) => {
       })
       .then((res) => {
          console.log(res.data)
+         //Verification success.
+         if (res.data.status === 200) {
+            runDispatch(dispatch, 'VERIFICATION_SUCCESS', res.data.message)
+            return setTimeout(() => {
+               runDispatch(dispatch, 'REQ_PROCESSING_DONE', '')
+               window.open('/welcome', '_self')
+            }, 3000)
+         }
          //Expired token or server error.
          if (res.data.status === 400 || 500) {
             return runDispatch(dispatch, 'VERIFICATION_FAILED', res.data.message)
-         }
-         //Verification success.
-         if (res.data.status === 200) {
-            return runDispatch(dispatch, 'VERIFICATION_SUCCESS', res.data.message)
          }
       })
       //Failed verification, server fault or expired token.
