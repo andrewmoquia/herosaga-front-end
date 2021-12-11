@@ -69,16 +69,6 @@ export default function WelcomePage() {
                </div>
             </div>
             {/*-------------------*/}
-            <button
-               onClick={() => {
-                  dispatch({
-                     type: 'TEST_ALERT_SUCCESS',
-                     payload: 'Testing',
-                  })
-               }}
-            >
-               Show Alert
-            </button>
          </section>
       </main>
    )
