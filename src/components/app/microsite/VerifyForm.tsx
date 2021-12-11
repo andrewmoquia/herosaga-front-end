@@ -1,23 +1,18 @@
-import { useState, useCallback, useEffect, useRef, useContext } from 'react'
-import { CSSTransition } from 'react-transition-group'
+import { useCallback, useEffect, useRef, useContext } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { verifyUser, checkVerificationToken } from '../../actions/verifyUser'
 import { useParams } from 'react-router'
-import { runDispatch } from '../../actions/dispatch'
+import AlertNotif from './AlertNotif'
 
 export default function VerifyAcc() {
    const { state, dispatch } = useContext(MainStore)
 
-   //Not connected to the main store because of over complexity.
-   const [timer, setTimer] = useState(60)
-   const [isVerifying, setVerifying] = useState(false)
-
    //Allows us to direct modifying the dom element.
-   const intervalRef: any = useRef()
    const nodeRef: any = useRef()
 
    //Check verification token.
    const { token }: any = useParams()
+
    useEffect(() => {
       if (token) checkVerificationToken(token, dispatch)
    }, [token, dispatch])
@@ -31,42 +26,18 @@ export default function VerifyAcc() {
             username: e.target.unVerifiedUsername.value,
             password: e.target.unVerifiedPW.value,
             token: state.csrfToken,
-            isVerifying,
-            setVerifying,
          }
          //Process verifying of user
          verifyUser(props)
       },
-      [dispatch, isVerifying, state.csrfToken]
+      [dispatch, state.csrfToken]
    )
 
-   //TO-DO: Make one central function of this to avoid replication.
-   const handleShowAlert = () => {
-      if (state.isAlertNotifOn) {
-         return runDispatch(dispatch, 'CLEAR_ALERT_MSG', '')
-      }
-      //For testing.
-      if (!state.isAlertNotifOn) {
-         return runDispatch(dispatch, 'WRONG_CREDENTIALS', 'Testing')
-      }
+   const props: any = {
+      state,
+      nodeRef,
+      dispatch,
    }
-
-   //Run timer if verification link was sent to email.
-   useEffect(() => {
-      //Timer activated.
-      if (isVerifying && timer === 60) {
-         intervalRef.current = setInterval(() => {
-            setTimer((timer) => timer - 1)
-         }, 1000)
-      }
-      //Disable timer and set back to 60 the counter.
-      if (timer === 0) {
-         setVerifying(!isVerifying)
-         setTimer(60)
-         runDispatch(dispatch, 'VERIFICATION_TIMEOUT', '')
-         return clearInterval(intervalRef.current) //Stop the setInterval
-      }
-   }, [setVerifying, timer, isVerifying, dispatch])
 
    return (
       <section className="container posRel">
@@ -78,23 +49,7 @@ export default function VerifyAcc() {
                <p>Verify Account</p>
             </div>
             <div className="warn-container">
-               <CSSTransition
-                  in={state.isAlertNotifOn}
-                  timeout={300}
-                  classNames="alert"
-                  unmountOnExit
-                  nodeRef={nodeRef}
-               >
-                  <div
-                     className={`alert-notif ${state.alertType}`}
-                     ref={nodeRef}
-                     onClick={() => {
-                        handleShowAlert()
-                     }}
-                  >
-                     <h1>{state.alertMsg}</h1>
-                  </div>
-               </CSSTransition>
+               <AlertNotif {...props} />
             </div>
             <form
                action="/"
@@ -111,7 +66,7 @@ export default function VerifyAcc() {
                   required
                   id="unVerifiedUsername"
                   className="default-input"
-                  disabled={isVerifying || state.isReqProcessing}
+                  disabled={state.isReqCooldown || state.isReqProcessing}
                />
                <input
                   type="password"
@@ -121,19 +76,25 @@ export default function VerifyAcc() {
                   required
                   id="unVerifiedPW"
                   className="default-input"
-                  disabled={isVerifying || state.isReqProcessing}
+                  disabled={state.isReqCooldown || state.isReqProcessing}
                />
                <button
                   type="submit"
                   className="button-1"
-                  disabled={isVerifying || state.isReqProcessing}
+                  disabled={state.isReqCooldown || state.isReqProcessing}
                >
-                  {!isVerifying ? <p>Verify</p> : <p>Try again in: {timer}</p>}
+                  {!state.isReqCooldown && !state.isReqProcessing ? (
+                     <p>Verify</p>
+                  ) : !state.isReqCooldown && state.isReqProcessing ? (
+                     <p>Please wait processing...</p>
+                  ) : (
+                     <p>Try again in: {state.reqTimer}</p>
+                  )}
                </button>
                <button
                   className="button-transparent-1"
                   type="button"
-                  disabled={isVerifying || state.isReqProcessing}
+                  disabled={state.isReqCooldown || state.isReqProcessing}
                   onClick={() => {
                      window.open('/welcome', '_self')
                   }}

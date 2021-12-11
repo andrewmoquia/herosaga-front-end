@@ -1,29 +1,13 @@
 import { useState, useRef, useContext } from 'react'
 import RegisterForm from './microsite/RegisterForm'
 import LoginForm from './microsite/LoginForm'
-import { CSSTransition } from 'react-transition-group'
 import { MainStore } from '../reduceStore/StoreProvider'
+import AlertNotif from './microsite/AlertNotif'
 
 export default function WelcomePage() {
    const { state, dispatch } = useContext(MainStore)
-   const nodeRef = useRef(null)
+   const nodeRef: any = useRef()
    const [activeForm, setActiveForm] = useState('login')
-
-   //TO-DO: Make one central function of this to avoid replication.
-   const handleShowAlert = () => {
-      if (state.isAlertNotifOn) {
-         return dispatch({
-            type: 'CLEAR_ALERT_MSG',
-            payload: '',
-         })
-      }
-      if (!state.isAlertNotifOn) {
-         return dispatch({
-            type: 'REGISTRATION_FAILED',
-            payload: 'Invalid username or password.',
-         })
-      }
-   }
 
    const handleSwitchForms = (form: string) => {
       setActiveForm(form)
@@ -31,6 +15,12 @@ export default function WelcomePage() {
          type: 'CLEAR_ALERT_MSG',
          payload: '',
       })
+   }
+
+   const props: any = {
+      dispatch,
+      nodeRef,
+      state,
    }
 
    return (
@@ -66,23 +56,7 @@ export default function WelcomePage() {
             </div>
             {/*-------------------*/}
             <div className="warn-container">
-               <CSSTransition
-                  in={state.isAlertNotifOn}
-                  timeout={300}
-                  classNames="alert"
-                  unmountOnExit
-                  nodeRef={nodeRef}
-               >
-                  <div
-                     className={`alert-notif ${state.alertType}`}
-                     ref={nodeRef}
-                     onClick={() => {
-                        if (!state.isReqProcessing) handleShowAlert()
-                     }}
-                  >
-                     <h1>{state.alertMsg}</h1>
-                  </div>
-               </CSSTransition>
+               <AlertNotif {...props} />
             </div>
             {/*-------------------*/}
             <div className="login-register-forms">
@@ -97,7 +71,10 @@ export default function WelcomePage() {
             {/*-------------------*/}
             <button
                onClick={() => {
-                  handleShowAlert()
+                  dispatch({
+                     type: 'TEST_ALERT_SUCCESS',
+                     payload: 'Testing',
+                  })
                }}
             >
                Show Alert
