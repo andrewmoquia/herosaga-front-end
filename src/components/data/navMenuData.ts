@@ -1,7 +1,7 @@
 import { INavLiElement } from '../interfaces/navInterface'
 
 export const navLiElement: INavLiElement = {
-   dashboard: '',
+   mysteryshop: '',
    marketplace: '',
    farm: '',
    myNFT: '',
@@ -13,8 +13,8 @@ export const navMenuLogoData = {
    generalMenu: [
       {
          type: {
-            route: 'dashboard',
-            label: 'Dashboard',
+            route: 'mysteryshop',
+            label: 'Mystery Shop',
          },
          img: 'https://i.ibb.co/8c0hdC6/UI-Graphic-Resource-Gems.png',
          alt: 'Spell-Book-Preface-14',
@@ -29,19 +29,19 @@ export const navMenuLogoData = {
       },
       {
          type: {
-            route: 'farm',
-            label: 'Farm',
-         },
-         img: 'https://i.ibb.co/fDB1Tsf/UI-Graphic-Resource-Wood.png',
-         alt: 'UI-Graphic-Resource-Wood',
-      },
-      {
-         type: {
             route: 'myNFT',
             label: 'My NFT',
          },
          img: 'https://i.ibb.co/JydCdMs/UI-Graphic-Resource-Iron.png',
          alt: 'UI-Graphic-Resource-Iron',
+      },
+      {
+         type: {
+            route: 'transactions',
+            label: 'Transactions',
+         },
+         img: 'https://i.ibb.co/2y06sSm/Reload.png',
+         alt: 'Transaction logo.',
       },
    ],
    profileMenu: [
@@ -52,14 +52,6 @@ export const navMenuLogoData = {
          },
          img: 'https://i.ibb.co/thCCPfj/Menu.png',
          alt: 'Profile logo.',
-      },
-      {
-         type: {
-            route: 'transactions',
-            label: 'Transactions',
-         },
-         img: 'https://i.ibb.co/2y06sSm/Reload.png',
-         alt: 'Transaction logo.',
       },
       {
          type: {

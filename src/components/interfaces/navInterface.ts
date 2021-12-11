@@ -1,5 +1,5 @@
 export interface INavLiElement {
-   dashboard: string
+   mysteryshop: string
    marketplace: string
    farm: string
    myNFT: string
