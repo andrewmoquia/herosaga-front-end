@@ -26,10 +26,41 @@ export function AuthReducer(state: any, action: any) {
 
 export function ForgotPwReducer(state: any, action: any) {
    switch (action.type) {
-      case 'FORGOT_PASSWORD':
+      case 'FORGOT_PW_PROCESSING':
          return {
             ...state,
-            isFocusPanel: !state.isFocusPanel,
+            alertType: 'success',
+            isAlertNotifOn: true,
+            isReqCooldown: true,
+            isReqProcessing: true,
+            alertMsg: action.payload,
+         }
+      case 'FORGOT_PW_FAILED':
+         return {
+            ...state,
+            alertType: 'failed',
+            isAlertNotifOn: true,
+            isReqProcessing: false,
+            alertMsg: action.payload,
+         }
+      case 'FORGOT_PW_SUCCESS':
+         return {
+            ...state,
+            alertType: 'success',
+            isAlertNotifOn: true,
+            alertMsg: action.payload,
+         }
+      case 'RUN_REQ_TIMER':
+         return {
+            ...state,
+            reqTimer: state.reqTimer - 1,
+         }
+      case 'REQUEST_TIMEOUT':
+         return {
+            ...state,
+            isReqProcessing: false,
+            isReqCooldown: false,
+            reqTimer: 60,
          }
       default:
          return state
@@ -89,6 +120,7 @@ export function VerificationReducer(state: any, action: any) {
             alertType: 'success',
             isAlertNotifOn: true,
             isReqProcessing: true,
+            isReqCooldown: true,
             alertMsg: action.payload,
          }
       case 'VERIFICATION_TIMEOUT':

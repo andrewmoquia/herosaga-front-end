@@ -1,19 +1,30 @@
-import { useContext } from 'react'
+import { useCallback, useContext, useRef } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { sendReqChangePass } from '../../actions/forgotPw'
+import AlertNotif from './AlertNotif'
 
 export default function ForgotPasswordPage() {
+   const nodeRef: any = useRef()
    const { state, dispatch } = useContext(MainStore)
 
-   const handleForgotPassword = (e: any) => {
-      e.preventDefault()
-      const props = {
-         dispatch,
-         username: e.target.resetPwUsername.value,
-         token: state.csrfToken,
-      }
-      //Process changing of password.
-      sendReqChangePass(props)
+   const handleForgotPassword = useCallback(
+      (e: any) => {
+         e.preventDefault()
+         const props = {
+            dispatch,
+            username: e.target.resetPwUsername.value,
+            token: state.csrfToken,
+         }
+         //Process changing of password.
+         sendReqChangePass(props)
+      },
+      [dispatch, state]
+   )
+
+   const props: any = {
+      state,
+      nodeRef,
+      dispatch,
    }
 
    return (
@@ -24,6 +35,9 @@ export default function ForgotPasswordPage() {
          <div className="default-menu">
             <div className="def-menu-header">
                <p>Forgot Password</p>
+            </div>
+            <div className="warn-container">
+               <AlertNotif {...props} />
             </div>
             <form
                action="/"
@@ -40,15 +54,25 @@ export default function ForgotPasswordPage() {
                   required
                   id="resetPwUsername"
                   className="default-input"
-                  disabled={state.isReqProcessing}
+                  disabled={state.isReqProcessing || state.isReqCooldown}
                />
-               <button type="submit" className="button-1" disabled={state.isReqProcessing}>
-                  <p>Send Request</p>
+               <button
+                  type="submit"
+                  className="button-1"
+                  disabled={state.isReqProcessing || state.isReqCooldown}
+               >
+                  {!state.isReqCooldown && !state.isReqProcessing ? (
+                     <p>Send Request</p>
+                  ) : !state.isReqCooldown && state.isReqProcessing ? (
+                     <p>Please wait processing...</p>
+                  ) : (
+                     <p>Try again in: {state.reqTimer}</p>
+                  )}
                </button>
                <button
                   className="button-transparent-1"
                   type="button"
-                  disabled={state.isReqProcessing}
+                  disabled={state.isReqProcessing || state.isReqCooldown}
                   onClick={() => {
                      window.open('/welcome', '_self')
                   }}
