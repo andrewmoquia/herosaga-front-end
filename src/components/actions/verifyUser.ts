@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { runDispatch } from './dispatch'
+import { runDispatch, sixtySecTimer } from './dispatch'
 
 export const verifyUser = (props: any) => {
-   const { dispatch, username, password, token, setVerifying, isVerifying } = props
+   const { dispatch, username, password, token } = props
    //Activate processing to disable buttons.
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //Login the user to check if it's not verified.
@@ -33,7 +33,8 @@ export const verifyUser = (props: any) => {
                   //Run if verification is processing on the server.
                   if (res.data.status === 200) {
                      runDispatch(dispatch, 'VERIFICATION_IN_PROCESS', res.data.message)
-                     return setVerifying(!isVerifying)
+                     //Start 60s timer to make request again.
+                     return sixtySecTimer(dispatch)
                   }
                   if (res.data.status === 500) {
                      return runDispatch(dispatch, 'VERIFICATION_FAILED', res.data.message)
