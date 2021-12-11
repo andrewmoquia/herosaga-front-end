@@ -1,7 +1,16 @@
-export const userState = {}
+const userState = {}
 
-export const authState = {
+const authState = {
    isAuthenticated: false,
    isAuthenticating: false,
-   isNotVerified: false,
+   isReqProcessing: false,
+   isAlertNotifOn: false,
+   alertType: '',
+   alertMsg: '',
 }
+
+const csrfToken = {
+   csrfToken: '',
+}
+
+export const state = Object.assign(userState, authState, csrfToken)
