@@ -7,7 +7,6 @@
    }
 }
 
-//Box Shadow
 .shadow-lg {
    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 }
@@ -16,4 +15,182 @@
    height: 100vh;
    background: rgb(128, 231, 195);
    background: linear-gradient(97deg, rgba(128, 231, 195, 1) 0%, rgba(179, 224, 106, 1) 100%);
+}
+
+.backdrop {
+   width: 100vw;
+   height: 100vh;
+   position: absolute;
+   overflow: hidden;
+}
+
+.container {
+   @include size(100vw, 100vh);
+   @include flex(center, center, column);
+   &.oHidden {
+      overflow: hidden;
+   }
+   &.posAbs {
+      position: absolute;
+   }
+   &.posRel {
+      position: relative;
+   }
+}
+
+.bg-chess {
+   background: $bg-pattern-green no-repeat;
+   animation: bg-slide 35s linear infinite;
+   animation-delay: 1s;
+   position: absolute;
+   left: 0;
+   width: 200%;
+   height: 100%;
+   background-repeat: repeat;
+   background-size: 50% 100%;
+   z-index: -1;
+}
+
+@keyframes bg-slide {
+   0% {
+      transform: translateX(0) translateZ(0);
+   }
+   50% {
+      transform: translateX(-25%) translateZ(0);
+   }
+   100% {
+      transform: translateX(-50%) translateZ(0);
+   }
+}
+
+.default-menu {
+   @include size(95%, $max-width: 700px);
+   @include flex($flex-direction: column);
+   // @include bg-url($yellow, no-repeat, cover);
+   background: $circle-pattern-right 100% 100% repeat-y,
+      linear-gradient(
+         97deg,
+         rgba(247, 156, 111, 1) 0%,
+         rgba(246, 168, 60, 1) 100%,
+         rgba(249, 255, 173, 1) 100%
+      );
+   margin: 0px 5px;
+   position: relative;
+   overflow: hidden;
+   border-radius: 0px 5px 0px 5px;
+   clip-path: polygon(15px 0, 100% 0, 100% $slantSide, $slantSide 100%, 0 100%, 0 15px);
+   transition: all ease-in-out 0.2s;
+}
+
+.default-form {
+   margin: 0px 20px 20px 20px;
+   display: flex;
+   flex-direction: column;
+   a {
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+   }
+}
+
+.default-input {
+   background: $circle-dark-pattern-left 0% 0% no-repeat, $white;
+   background-size: 150px 150px;
+   padding: 15px 10px;
+   border: 2px solid $input-outline-2;
+   border-radius: 5px 0px 5px 0px;
+   font-family: $poppins;
+   font-weight: 700;
+   margin-top: 15px;
+   transition: all ease-in-out 0.2s;
+   //    border-radius: 0px 5px 0px 5px;
+   //    clip-path: polygon(15px 0, 100% 0, 100% $slantSide, $slantSide 100%, 0 100%, 0 15px);
+   clip-path: polygon($slantSide 0, 100% 15px, 100% 100%, 15px 100%, 0 $slantSide, 0 0);
+   &:not(:first-child) {
+      margin-top: 15px;
+   }
+   &:focus {
+      outline: 2px solid $black;
+      outline-offset: 5px;
+      clip-path: none;
+      border-radius: 5px;
+      border: 2px solid rgba(0, 0, 0, 0);
+      // background: rgb(169, 226, 248);
+      transition: all ease-in-out 0.2s;
+      &::placeholder {
+         color: black;
+      }
+   }
+}
+
+.def-menu-header {
+   width: 100%;
+   height: 60px;
+   @include flex(center, center);
+   font-weight: bold;
+   color: #fff;
+   background: linear-gradient(
+      90deg,
+      rgba(16, 9, 48, 1) 0%,
+      rgba(50, 56, 93, 1) 49%,
+      rgba(16, 9, 48, 1) 100%
+   );
+}
+
+.warn-container {
+   width: 100%;
+   height: auto;
+   @include flex(center, center);
+}
+
+.error-warn {
+   @include size(100%, 53px);
+   @include flex(center, center);
+   margin: 15px 23px 0px 23px;
+   background: $circle-red-pattern-left 0% 0% no-repeat, #fca4ad;
+   background-size: 150px 150px;
+   border: 2px solid rgb(110, 7, 7);
+   border-radius: 5px 0px 5px 0px;
+   font-weight: 700;
+   text-align: center;
+   clip-path: polygon(
+      calc(100% - 15px) 0,
+      100% 15px,
+      100% 100%,
+      15px 100%,
+      0 calc(100% - 15px),
+      0 0
+   );
+   &:hover {
+      cursor: pointer;
+   }
+}
+
+.alert-notif {
+   @include size(100%, 53px);
+   @include flex(center, center);
+   margin: 15px 23px 0px 23px;
+   background: $circle-red-pattern-left 0% 0% no-repeat, #fca4ad;
+   background-size: 150px 150px;
+   border: 2px solid rgb(110, 7, 7);
+   border-radius: 5px 0px 5px 0px;
+   font-weight: 700;
+   text-align: center;
+   clip-path: polygon(
+      calc(100% - 15px) 0,
+      100% 15px,
+      100% 100%,
+      15px 100%,
+      0 calc(100% - 15px),
+      0 0
+   );
+   &:hover {
+      cursor: pointer;
+   }
+   &.success {
+      background: $circle-green-pattern-left 0% 0% no-repeat, #85f08f;
+   }
+   &.failed {
+      background: $circle-red-2-pattern-left 0% 0% no-repeat, #fca4ad;
+   }
 }

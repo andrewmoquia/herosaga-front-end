@@ -1,4 +1,4 @@
-//Color Variables
+//Colors
 $white: #fff;
 $gray-100: #f8f9fc;
 $gray-200: #eaecf4;
@@ -10,7 +10,9 @@ $gray-700: #6e707e;
 $gray-800: #5a5c69;
 $gray-900: #3a3b45;
 $black: #000;
-
+$black-100: rgba(0, 0, 0, 0.1);
+$black-200: rgba(0, 0, 0, 0.2);
+$black-500: rgba(0, 0, 0, 0.5);
 $blue: #4e73df;
 $indigo: #6610f2;
 $purple: #6f42c1;
@@ -21,9 +23,41 @@ $yellow: #f6c23e;
 $green: #1cc88a;
 $teal: #20c9a6;
 $cyan: #36b9cc;
+$lemon: rgb(235, 235, 150);
+$skyblue: rgb(88, 236, 255);
 
+//Background linear gradients
+$linear-red-blue: linear-gradient(97deg, rgba(255, 134, 119, 1) 0%, rgba(106, 190, 224, 1) 100%);
+$linear-blue-violet: linear-gradient(97deg, rgba(106, 190, 224, 1) 0%, rgba(188, 107, 255, 1) 100%);
+$linear-green-yellow: linear-gradient(97deg, rgba(179, 224, 106, 1) 0%, rgba(230, 203, 51, 1) 100%);
+$linear-blue-green: linear-gradient(97deg, rgba(128, 231, 195, 1) 0%, rgba(179, 224, 106, 1) 100%);
+$linear-blue-darkblue: linear-gradient(
+   18deg,
+   rgba(71, 144, 176, 1) 0%,
+   rgba(111, 155, 214, 1) 100%
+);
+
+//Background images
+$futuristic-bg-1: url('https://image.freepik.com/free-vector/futuristic-technological-background_79603-1096.jpg');
+$futuristic-bg-2: url('https://image.freepik.com/free-vector/futuristic-technological-wallpaper_79603-1093.jpg');
+$futuristic-bg-3: url('https://image.freepik.com/free-vector/futuristic-technological-background_79603-1097.jpg');
+$circle-pattern-left: url('https://i.ibb.co/BsvwHS0/circle-pattern-left.png');
+$circle-pattern-right: url('https://i.ibb.co/3MQH9gr/circle-pattern-right.png');
+$circle-dark-pattern-left: url('https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png');
+$circle-dark-pattern-right: url('https://i.ibb.co/5KSMXgj/circle-dark-pattern-right.png');
+$circle-red-pattern-left: url('https://i.ibb.co/m5t76xG/circle-red-pattern-left.png');
+$circle-red-2-pattern-left: url('https://i.ibb.co/VJwZkG1/circle-red-2-pattern-left.png');
+$circle-green-pattern-left: url('https://i.ibb.co/XWh8RFK/circle-green-pattern-left.png');
+$bg-pattern-green: url('https://i.ibb.co/hx54g49/green-checkboard.png');
+
+//Calculations
 $slantSide: calc(100% - 15px);
 
+//Set
+$input-outline-1: $skyblue;
+$input-outline-2: $black;
+
+//Font
 $poppins: 'Poppins', sans-serif;
 
 //Images

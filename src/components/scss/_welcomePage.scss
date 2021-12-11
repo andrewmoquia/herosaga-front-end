@@ -1,0 +1,126 @@
+.welcome-logo-banner {
+   @include size(100%, 60px);
+   @include flex(center, center);
+   margin-bottom: 10px;
+}
+
+.login-register-buttons {
+   @include size(110%, 60px);
+   @include flex(center, none, row, nowrap);
+
+   .login-button {
+      @include size(50%, 100%);
+      background: linear-gradient(97deg, rgba(50, 56, 93, 1) 0%, rgba(16, 9, 48, 1) 100%);
+      position: relative;
+      transform: skew(-20deg) translateX(-7%);
+      &:hover {
+         cursor: pointer;
+      }
+      &::before {
+         position: absolute;
+         content: 'Login';
+         transform: skew(20deg) translate(-50%, -50%);
+         top: 50%;
+         left: 50%;
+         font-weight: bold;
+         color: $white;
+      }
+   }
+   .register-button {
+      @include size(50%, 100%);
+      position: relative;
+      transform: skew(-20deg) translateX(-7.3%);
+      background: linear-gradient(97deg, rgba(16, 9, 48, 1) 0%, rgba(50, 56, 93, 1) 100%);
+      &:hover {
+         cursor: pointer;
+      }
+      &::before {
+         position: absolute;
+         content: 'Register';
+         transform: skew(20deg) translate(-50%, -50%);
+         top: 50%;
+         left: 50%;
+         font-weight: bold;
+         color: $white;
+      }
+   }
+}
+
+.welcome-forms-button-anim {
+   @include size(110%, 60px);
+   @include flex(center, null, row, nowrap);
+   background: $black-100;
+   position: absolute;
+   pointer-events: none;
+   overflow: hidden;
+   left: -4%;
+   z-index: 1;
+
+   .login-button-active {
+      @include size(50%, 100%);
+      transition: width ease-in-out 0.3s;
+   }
+   .reg-button-active {
+      @include size(0%, 100%);
+      transition: width ease-in-out 0.3s;
+   }
+   & > div:last-child {
+      @include size(50%, 100%);
+      background: $black-500;
+      transform: skew(-20deg);
+   }
+}
+
+.login-register-forms {
+   @include size(100%);
+   display: inline-flex;
+   top: 60px;
+   right: 100%;
+
+   .login-active-form {
+      @include size(100%, 50%);
+      margin-right: 100%;
+      transition: margin-right ease-out 0.3s;
+   }
+   .reg-active-form {
+      @include size(100%, 50%);
+      margin-right: 0%;
+      transition: margin-right ease-out 0.3s;
+      & ~ .login-form-container {
+         left: -100%;
+         transition: left ease-in-out 0.3s;
+      }
+   }
+   .login-form-container {
+      @include size(100%, auto);
+      flex: 0 0 100%;
+      position: absolute;
+      left: 0%;
+      transition: left ease-in-out 0.3s;
+   }
+
+   .reg-form-container {
+      @include size(100%, auto);
+      flex: 0 0 100%;
+   }
+}
+
+.alert-enter {
+   opacity: 0;
+   width: 0;
+}
+.alert-enter-active {
+   opacity: 1;
+   width: 100%;
+   transform: translateX(0);
+   transition: opacity 300ms, transform 300ms, width 300ms;
+}
+.alert-exit {
+   opacity: 1;
+   width: 100%;
+}
+.alert-exit-active {
+   opacity: 0;
+   width: 0;
+   transition: opacity 300ms, transform 300ms, width 300ms;
+}

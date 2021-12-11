@@ -2,12 +2,18 @@
 @import 'normalize.scss';
 
 //Global attributes
-@import 'global.scss';
 @import 'variables.scss';
 @import 'font.scss';
 @import 'media.scss';
+@import 'mixins.scss';
+@import 'global.scss';
 
 //Components
 @import 'app.scss';
 @import 'nav.scss';
 @import 'home.scss';
+@import 'welcomePage.scss';
+@import 'buttons.scss';
+
+//Micro Components
+@import 'register.scss';

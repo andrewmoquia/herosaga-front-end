@@ -1,0 +1,64 @@
+.button-transparent-1 {
+   padding: 10px 48px;
+   min-width: 100px;
+   max-width: 300px;
+   margin: 15px auto;
+   border: 2px solid $black;
+   background: $circle-dark-pattern-left 0% 0% no-repeat;
+   background-size: 150px 150px;
+   font-family: $poppins;
+   font-weight: 700;
+   border-radius: 5px 0px 5px 0px;
+   clip-path: polygon($slantSide 0, 100% 15px, 100% 100%, 15px 100%, 0 $slantSide, 0 0);
+   transition: all ease-in-out 0.2s;
+   &:hover {
+      clip-path: none;
+      border-radius: 5px;
+      border: 2px solid rgba(0, 0, 0, 0);
+      outline: 2px solid $black;
+      outline-offset: 5px;
+      background: $circle-dark-pattern-left 0% 0% no-repeat, rgb(169, 226, 248);
+      background-size: 150px 150px, 100%;
+      transition: all ease-in-out 0.2s;
+      color: $black;
+   }
+   &:active {
+      outline: 2px solid black;
+      outline-offset: 0px;
+      clip-path: none;
+      transition: all ease-in-out 0.1s;
+   }
+}
+
+.button-1 {
+   box-sizing: border-box;
+   padding: 15px 90px;
+   min-width: 100px;
+   background: $circle-dark-pattern-left 0% 0% no-repeat, $white;
+   background-size: 150px 150px;
+   max-width: 300px;
+   margin: 15px auto 0px auto;
+   border: 2px solid black;
+   border-radius: 5px 0px 5px 0px;
+   clip-path: polygon($slantSide 0, 100% 15px, 100% 100%, 15px 100%, 0 $slantSide, 0 0);
+   font-family: $poppins;
+   font-weight: 700;
+   transition: all ease-in-out 0.2s;
+   &:hover {
+      cursor: pointer;
+      border: 2px solid rgba(0, 0, 0, 0);
+      background: $circle-dark-pattern-left 0% 0% no-repeat, rgb(169, 226, 248);
+      background-size: 150px 150px, 100%;
+      border-radius: 5px;
+      outline: 2px solid $black;
+      outline-offset: 5px;
+      clip-path: none;
+      transition: all ease-in-out 0.2s;
+   }
+   &:active {
+      outline: 2px solid black;
+      outline-offset: 0px;
+      clip-path: none;
+      transition: all ease-in-out 0.1s;
+   }
+}

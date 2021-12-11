@@ -1,5 +1,16 @@
-main {
+#root {
    width: 100%;
    height: auto;
    font-family: $poppins;
+   box-sizing: border-box;
+   position: relative;
+}
+
+.loading-screen {
+   width: 100vw;
+   height: 100vh;
+   position: absolute;
+   z-index: 99;
+   background: darkslategrey;
+   overflow: hidden;
 }
