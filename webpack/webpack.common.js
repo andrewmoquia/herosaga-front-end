@@ -2,7 +2,7 @@ const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
    entry: path.resolve(__dirname, '..', './src/index.tsx'),
@@ -24,17 +24,24 @@ module.exports = {
             test: /\.s[ac]ss$/i,
             use: [
                // {
-               //   loader: MiniCssExtractPlugin.loader,
-               //   options: { publicPath: "" },
+               //    loader: MiniCssExtractPlugin.loader,
+               //    // This is required for asset imports in CSS, such as url()
+               //    options: { publicPath: '' },
                // },
                'style-loader',
                'css-loader',
                'postcss-loader',
+               // according to the docs, sass-loader should be at the bottom, which
+               // loads it first to avoid prefixes in your sourcemaps and other issues.
                'sass-loader',
             ],
          },
          {
             test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+            loader: 'file-loader',
+            options: {
+               name: 'images/[name].[ext]',
+            },
             type: 'asset',
          },
          {
