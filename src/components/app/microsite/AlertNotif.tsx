@@ -1,7 +1,8 @@
 import { runDispatch } from '../../actions/dispatch'
 import { CSSTransition } from 'react-transition-group'
+import { IAlertProps } from '../../interfaces/interfaces'
 
-export default function AlertNotif(props: any) {
+export default function AlertNotif(props: IAlertProps) {
    const { state, nodeRef, dispatch } = props
 
    const handleShowAlert = () => {

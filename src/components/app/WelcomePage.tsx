@@ -1,7 +1,8 @@
-import { useState, useRef, useContext } from 'react'
-import RegisterForm from './microsite/RegisterForm'
-import LoginForm from './microsite/LoginForm'
+import { useState, useRef, useContext, lazy, Suspense } from 'react'
 import { MainStore } from '../reduceStore/StoreProvider'
+
+const RegisterForm = lazy(() => import('./microsite/RegisterForm'))
+const LoginForm = lazy(() => import('./microsite/LoginForm'))
 import AlertNotif from './microsite/AlertNotif'
 
 export default function WelcomePage() {
@@ -62,10 +63,14 @@ export default function WelcomePage() {
             <div className="login-register-forms">
                <div className={`${activeForm}-active-form`}></div>
                <div className="login-form-container">
-                  <LoginForm />
+                  <Suspense fallback={<div>Loading...</div>}>
+                     <LoginForm />
+                  </Suspense>
                </div>
                <div className="reg-form-container">
-                  <RegisterForm />
+                  <Suspense fallback={<div>Loading...</div>}>
+                     <RegisterForm />
+                  </Suspense>
                </div>
             </div>
             {/*-------------------*/}

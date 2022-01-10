@@ -1,0 +1,506 @@
+.vc-container {
+   width: 100%;
+   min-height: calc(100vh - 60px);
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   overflow: auto;
+   justify-content: center;
+   padding: 1em;
+   position: relative;
+}
+.vc-loading {
+   svg {
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      display: inline-block;
+   }
+}
+.vc-error {
+   width: auto;
+   height: 200px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+   font-size: 2rem;
+}
+.vc-sold {
+   width: auto;
+   height: 200px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+   font-size: 2rem;
+}
+.vc-back-button {
+   width: 100%;
+   max-width: 700px;
+   height: 50px;
+   min-height: 50px;
+   //    background: white;
+   a {
+      button {
+         width: 100px;
+         height: 100%;
+         background: linear-gradient(0deg, #ffe17f 0%, #fcc578 100%);
+         box-shadow: inset 0 -2px 0 #eead52;
+         border: 3px solid #333;
+         border-radius: 10px;
+         font-weight: 700;
+         font-size: 1.1rem;
+         font-family: $poppins;
+         color: #333;
+         cursor: pointer;
+         &:active {
+            box-shadow: inset 0 0px 0 #eead52;
+         }
+      }
+   }
+}
+.vc-nft-card-container {
+   width: 100%;
+   max-width: 700px;
+   height: auto;
+   position: relative;
+   margin-top: 20px;
+}
+
+[class*='vc-nft-header-'] {
+   width: 100%;
+   height: 100px;
+   border-radius: 15px 15px 0px 0px;
+   padding-bottom: 1em;
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   font-weight: 700;
+   color: #333;
+   p:nth-child(1) {
+      font-size: 2rem;
+   }
+   p:nth-child(2) {
+      font-size: 1.1rem;
+   }
+}
+
+.vc-nft-header {
+   &-common {
+      background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(181, 177, 177, 1) 100%);
+      box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px white;
+   }
+   &-uncommon {
+      background: radial-gradient(circle, rgba(247, 255, 103, 1) 0%, rgba(226, 187, 31, 1) 100%);
+      box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4),
+         0px -11px 32px -5px rgba(247, 255, 103, 1);
+   }
+   &-rare {
+      background: radial-gradient(circle, rgba(250, 166, 166, 1) 0%, rgba(213, 39, 39, 1) 100%);
+      box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4),
+         0px -11px 32px -5px rgba(250, 166, 166, 1);
+   }
+   &-epic {
+      background: radial-gradient(circle, rgba(241, 112, 255, 1) 0%, rgba(120, 29, 159, 1) 100%);
+      box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -9px 48px 1px #f49bfa;
+   }
+   &-legendary {
+      background: radial-gradient(circle, #99eff0 0%, #2095b4 100%);
+      box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px #99eff0;
+   }
+}
+
+[class*='vc-nft-content-'] {
+   width: 100%;
+   height: auto;
+   border-radius: 15px;
+   background: #333;
+   margin-top: 80px;
+   position: relative;
+   padding-top: 1.5em;
+}
+
+.vc-nft-content {
+   &-common {
+      box-shadow: inset 0px 16px 29px -24px white, 0px -1px 44px -5px;
+   }
+   &-uncommon {
+      box-shadow: inset 0px 16px 29px -24px rgba(247, 255, 103, 1), 0px -1px 44px -5px;
+   }
+   &-rare {
+      box-shadow: inset 0px 16px 29px -24px rgb(255, 145, 145), 0px -1px 44px -5px;
+   }
+   &-epic {
+      box-shadow: inset 0px 16px 29px -24px #f49bfa, 0px -1px 44px -5px;
+   }
+   &-legendary {
+      box-shadow: inset 0px 16px 29px -24px #99eff0, 0px -1px 44px -5px;
+   }
+}
+.vc-nft-hero-data {
+   width: 100%;
+   min-height: 200px;
+   //    background: white;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   .vc-nft-img {
+      width: 200px;
+      height: 200px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      span {
+         content: '';
+         position: absolute;
+         width: 1px;
+         height: 1px;
+         border-radius: 50%;
+         background: white;
+         transform: translate(-50%, -50%);
+         top: 50%;
+         left: 50%;
+         box-shadow: 0px 0px 42px 35px white;
+      }
+   }
+   .vc-nft-stats {
+      width: calc(100% - 250px);
+      min-width: 230px;
+      min-height: 200px;
+      //   background: rgba(151, 20, 81, 0.5);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: auto;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 1em 1em;
+      .vc-nft-stat {
+         display: flex;
+         width: 40%;
+         min-width: 180px;
+         height: 50px;
+         //  background: white;
+         position: relative;
+         &::before {
+            position: absolute;
+            content: '';
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 12%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            box-shadow: 0px 0px 48px 10px white;
+         }
+      }
+      .nft-stat-desc {
+         color: white;
+         font-weight: 700;
+         margin-left: 10px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         p:nth-child(1) {
+            font-size: 1.7rem;
+         }
+      }
+      [class*='nft-stat-img-'] {
+         width: 50px;
+         height: 100%;
+         border-radius: 10px;
+         z-index: 1;
+      }
+      .nft-stat-img {
+         &-pAttack {
+            //    background: url('http://localhost:3000/images/sword.png');
+            background: url('http://localhost:3000/images/Icon37.png');
+            //    background: url('http://localhost:3000/images/Iron Sword.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+         }
+         &-mAttack {
+            //    background: url('http://localhost:3000/images/hp.png');
+            background: url('http://localhost:3000/images/Icon45.png');
+            //    background: url('http://localhost:3000/images/Heart.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+         }
+         &-health {
+            //    background: url('http://localhost:3000/images/book.png');
+            background: url('http://localhost:3000/images/Icon10.png');
+            //    background: url('http://localhost:3000/images/Sapphire Staff.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+         }
+         &-defence {
+            //    background: url('http://localhost:3000/images/shield.png');
+            background: url('http://localhost:3000/images/Icon12.png');
+            //    background: url('http://localhost:3000/images/Wooden Shield.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+         }
+         &-speed {
+            //    background: url('http://localhost:3000/images/boots.png');
+            background: url('http://localhost:3000/images/Icon35.png');
+            //    background: url('http://localhost:3000/images/Leather Boot.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+         }
+      }
+   }
+}
+
+.vc-nft-auction-data {
+   width: 100%;
+   min-height: 100px;
+   //    background: rgb(250, 178, 178);
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   height: auto;
+   .vc-auction-price {
+      width: 200px;
+      min-height: 100px;
+      height: 100%;
+      //   background: white;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 0.7em;
+      .vc-auction-input {
+         color: white;
+         font-weight: 700;
+         margin-left: 10px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         position: relative;
+         input {
+            position: absolute;
+            top: -2%;
+            left: -16%;
+            width: 150px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 4px;
+            text-indent: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1.7rem;
+            font-family: $poppins;
+            background: none;
+            color: white;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+               -webkit-appearance: none;
+               margin: 0;
+            }
+            &:active,
+            &:focus {
+               border: none;
+               outline: none;
+            }
+            &::placeholder {
+               /* Chrome, Firefox, Opera, Safari 10.1+ */
+               color: white;
+               opacity: 1; /* Firefox */
+               text-indent: 5px;
+               font-weight: 700;
+            }
+            &:-ms-input-placeholder {
+               /* Internet Explorer 10-11 */
+               color: white;
+               text-indent: 5px;
+               font-weight: 700;
+            }
+            &::-ms-input-placeholder {
+               /* Microsoft Edge */
+               color: white;
+               text-indent: 5px;
+               font-weight: 700;
+            }
+         }
+         p:nth-child(1) {
+            font-size: 1.7rem;
+         }
+         p:nth-child(2) {
+            margin-top: 27px;
+            margin-left: 1px;
+         }
+      }
+
+      div:nth-child(1) {
+         width: 50px;
+         min-width: 50px;
+         min-height: 50px;
+         height: 50px;
+         background: url('http://localhost:3000/images/Icon47.png');
+         background-size: 100%;
+         background-repeat: no-repeat;
+         border-radius: 10px;
+      }
+      .vc-auction-price-text {
+         color: white;
+         font-weight: 700;
+         margin-left: 10px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         p:nth-child(1) {
+            font-size: 1.7rem;
+         }
+         p:nth-child(2) {
+            margin-left: 1px;
+         }
+      }
+   }
+   .vc-auction-button {
+      width: 200px;
+      height: 100px;
+      //   background: rgb(236, 108, 108);
+      width: calc(100% - 250px);
+      min-width: 230px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+         height: 50px;
+         width: 90%;
+         min-width: 140px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-family: $poppins;
+         border-radius: 10px;
+         background: linear-gradient(0deg, #ffe17f 0%, #fcc578 100%);
+         box-shadow: inset 0 -2px 0 #eead52;
+         border: 3px solid rgb(160, 160, 160);
+         border-radius: 10px;
+         font-weight: 700;
+         font-size: 1.5rem;
+         color: #333;
+         cursor: pointer;
+         &:active {
+            box-shadow: inset 0 0px 0 #eead52;
+         }
+      }
+   }
+}
+
+[class*='hero-halo-'] {
+   &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      filter: brightness(80%) contrast(200%);
+      mix-blend-mode: color-dodge;
+      box-shadow: inset 0px 0px 22px 20px #333;
+   }
+}
+
+.hero-halo {
+   &-bahamut::before {
+      background: url('http://localhost:3000/images/bg-bahamut.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-common1::before {
+      background: url('http://localhost:3000/images/Shaman17.png') no-repeat;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-uncommon1::before {
+      background: url('http://localhost:3000/images/SpellBookPreface19.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-uncommon2::before {
+      background: url('http://localhost:3000/images/Electromancer16.png') no-repeat;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-rare::before {
+      background: url('http://localhost:3000/images/Necromancer3.png') no-repeat;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-epic::before {
+      background: url('http://localhost:3000/images/Necromancer3.png') no-repeat;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-phoenix::before {
+      background: url('http://localhost:3000/images/bg-phoenix.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-bahamut::before {
+      background: url('http://localhost:3000/images/bg-bahamut.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-siren::before {
+      background: url('http://localhost:3000/images/bg-siren.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-leviathan::before {
+      background: url('http://localhost:3000/images/Deathknight14.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-titan::before {
+      background: url('http://localhost:3000/images/Geomancer5.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-shiva::before {
+      background: url('http://localhost:3000/images/SpellBookPreface15.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-scarletangel::before {
+      background: url('http://localhost:3000/images/Enchanter2.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-darklord::before {
+      background: url('http://localhost:3000/images/SpellBookPreface01.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-herald::before {
+      background: url('http://localhost:3000/images/Cultist12.png') no-repeat;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-magician::before {
+      background: url('http://localhost:3000/images/bg-leviathan.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-monk::before {
+      background: url('http://localhost:3000/images/Berserker10.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   &-vampire::before {
+      background: url('http://localhost:3000/images/Necromancer3.png') no-repeat center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+}

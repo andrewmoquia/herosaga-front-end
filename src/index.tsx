@@ -1,12 +1,15 @@
-import App from './components/app/App'
+// import App from
 import ReactDOM from 'react-dom'
-import { StrictMode } from 'react'
+import { lazy, StrictMode, Suspense } from 'react'
 import { StoreProvider } from './components/reduceStore/StoreProvider'
+const App = lazy(() => import('./components/app/App'))
 
 ReactDOM.render(
    <StrictMode>
       <StoreProvider>
-         <App />
+         <Suspense fallback={<div>Loading...</div>}>
+            <App />
+         </Suspense>
       </StoreProvider>
    </StrictMode>,
    document.getElementById('root')

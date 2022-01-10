@@ -1,39 +1,46 @@
-import { useCallback, useEffect, useRef, useContext } from 'react'
+import { useEffect, useRef, useContext, useMemo } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { verifyUser, checkVerificationToken } from '../../actions/verifyUser'
-import { useParams } from 'react-router'
 import AlertNotif from './AlertNotif'
+import { useLocation } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { IAlertProps } from '../../interfaces/interfaces'
 
 export default function VerifyAcc() {
    const { state, dispatch } = useContext(MainStore)
 
+   //Returns the location object that represents the current URL.
+   const { search } = useLocation()
+
+   const useQuary = () => {
+      //Use memo = Only recompute the memoized value when one of the dependencies has changed
+      //URLSearchParams = Utility methods to work with the query string of a URL.
+      return useMemo(() => new URLSearchParams(search), [])
+   }
+
+   const quary = useQuary()
+
    //Allows us to direct modifying the dom element.
    const nodeRef: any = useRef()
 
-   //Check verification token.
-   const { token }: any = useParams()
-
    useEffect(() => {
-      if (token) checkVerificationToken(token, dispatch)
-   }, [token, dispatch])
+      if (quary.get('first-step')) {
+         const jwtToken = quary.get('first-step') //Get the query of first-step
+         Cookies.set('jwt', `${jwtToken}`, { path: '' }) //Create cookie
+      }
+      if (quary.get('second-step')) {
+         const token = quary.get('second-step') //Get the query of second-step
+         Cookies.remove('jwt', { path: '' }) //Remove the cookie
+         checkVerificationToken(token, dispatch) //Final verification process
+      }
+   }, [dispatch, quary])
 
-   //UseCallBack was used to trigger useEffect on button click.
-   const handleVerifyUser = useCallback(
-      (e: any) => {
-         e.preventDefault()
-         const props: any = {
-            dispatch,
-            username: e.target.unVerifiedUsername.value,
-            password: e.target.unVerifiedPW.value,
-            token: state.csrfToken,
-         }
-         //Process verifying of user
-         verifyUser(props)
-      },
-      [dispatch, state.csrfToken]
-   )
+   const handleVerifyUser = (e: any) => {
+      e.preventDefault()
+      verifyUser(dispatch) //Process verifying of user
+   }
 
-   const props: any = {
+   const alertProps: IAlertProps = {
       state,
       nodeRef,
       dispatch,
@@ -49,7 +56,7 @@ export default function VerifyAcc() {
                <p>Verify Account</p>
             </div>
             <div className="warn-container">
-               <AlertNotif {...props} />
+               <AlertNotif {...alertProps} />
             </div>
             <form
                action="/"
@@ -58,26 +65,6 @@ export default function VerifyAcc() {
                   handleVerifyUser(e)
                }}
             >
-               <input
-                  type="text"
-                  name="unVerifiedUsername"
-                  placeholder="Username"
-                  autoComplete="off"
-                  required
-                  id="unVerifiedUsername"
-                  className="default-input"
-                  disabled={state.isReqCooldown || state.isReqProcessing}
-               />
-               <input
-                  type="password"
-                  name="unVerifiedPW"
-                  placeholder="Password"
-                  autoComplete="off"
-                  required
-                  id="unVerifiedPW"
-                  className="default-input"
-                  disabled={state.isReqCooldown || state.isReqProcessing}
-               />
                <button
                   type="submit"
                   className="button-1"

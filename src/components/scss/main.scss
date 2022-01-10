@@ -1,19 +1,24 @@
 //Reset web browsers pre-defined css attributes
-@import 'normalize.scss';
+@import '_normalize.scss';
 
 //Global attributes
-@import 'variables.scss';
-@import 'font.scss';
-@import 'media.scss';
-@import 'mixins.scss';
-@import 'global.scss';
+@import '_variables.scss';
+@import '_font.scss';
+@import '_media.scss';
+@import '_mixins.scss';
+@import '_global.scss';
 
 //Components
-@import 'app.scss';
-@import 'nav.scss';
-@import 'home.scss';
-@import 'welcomePage.scss';
-@import 'buttons.scss';
+@import '_app.scss';
+@import '_nav.scss';
+@import '_home.scss';
+@import '_welcomePage.scss';
+@import '_buttons.scss';
 
 //Micro Components
-@import 'register.scss';
+@import '_register.scss';
+@import '_mysteryShop.scss';
+@import '_myNFT.scss';
+@import '_marketplace.scss';
+@import '_nftCard.scss';
+@import '_viewNFT.scss';

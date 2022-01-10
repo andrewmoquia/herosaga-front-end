@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { navLiElement } from '../../data/navMenuData'
 import { INavLiElement } from '../../interfaces/navInterface'
+import { runDispatch } from '../../actions/dispatch'
+import { MainStore } from '../../reduceStore/StoreProvider'
 
 export default function NavMenu(props: any): any {
+   const { dispatch } = useContext(MainStore)
    const { data } = props
    const [activeDashboard, setActiveDashboard] = useState<INavLiElement>(navLiElement)
 
@@ -38,6 +41,11 @@ export default function NavMenu(props: any): any {
 
    //Focus animation and style on selected dashboard.
    const handleChangeDashboard = (dashboard: string) => {
+      if (dashboard === 'marketplace' || dashboard === 'myNFT') {
+         runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
+            isFetchingNFT: true,
+         })
+      }
       mapDashboards(dashboard)
    }
 
@@ -49,10 +57,10 @@ export default function NavMenu(props: any): any {
                return (
                   <Link
                      to={`/${key.type.route}`}
-                     className={activeDashboard[key.type.route]}
+                     className={activeDashboard[key.type.class]}
                      key={key.type.route}
                   >
-                     <li onClick={() => handleChangeDashboard(key.type.route)}>
+                     <li onClick={() => handleChangeDashboard(key.type.class)}>
                         <div className="nav-icon">
                            <img src={key.img} alt={key.alt} />
                         </div>

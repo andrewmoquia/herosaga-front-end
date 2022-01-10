@@ -1,8 +1,8 @@
 import { MainStore } from '../reduceStore/StoreProvider'
-import { useContext, Fragment } from 'react'
-import MainPage from './MainPage'
-import WelcomePage from './WelcomePage'
-import Error404 from './Error404'
+import { useContext, Fragment, lazy, Suspense } from 'react'
+const MainPage = lazy(() => import('./MainPage'))
+const WelcomePage = lazy(() => import('./WelcomePage'))
+const Error404 = lazy(() => import('./Error404'))
 
 export default function LandingPage() {
    const { state } = useContext(MainStore)
@@ -16,11 +16,17 @@ export default function LandingPage() {
                <h1>Loading...</h1>
             </div>
          ) : !isAuthenticating && isAuthenticated ? (
-            <MainPage />
+            <Suspense fallback={<div>Loading....</div>}>
+               <MainPage />
+            </Suspense>
          ) : !isAuthenticating && !isAuthenticated ? (
-            <WelcomePage />
+            <Suspense fallback={<div>Loading....</div>}>
+               <WelcomePage />
+            </Suspense>
          ) : (
-            <Error404 />
+            <Suspense fallback={<div>Loading....</div>}>
+               <Error404 />
+            </Suspense>
          )}
       </Fragment>
    )

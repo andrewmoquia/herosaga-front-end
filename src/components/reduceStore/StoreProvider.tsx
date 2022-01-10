@@ -1,6 +1,6 @@
 import { createContext, useReducer } from 'react'
 import * as red from './authReducer'
-import { GeneralReducer } from './generalReducer'
+import { GeneralReducer, NFTActionReducer } from './generalReducer'
 import * as interfaces from '../interfaces/storeInterfaces'
 import { state } from './states'
 
@@ -20,6 +20,7 @@ const combineReducers =
 
 const allReducers = combineReducers(
    GeneralReducer,
+   NFTActionReducer,
    red.AuthReducer,
    red.VerificationReducer,
    red.RegisterVerification,

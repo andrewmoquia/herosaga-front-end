@@ -1,14 +1,15 @@
 import '../scss/main.scss'
 import axios from 'axios'
-import LandingPage from './LandingPage'
-import ForgotPasswordPage from './microsite/ForgotPasswordPage'
-import WelcomePage from './WelcomePage'
-import VerifyAcc from './microsite/VerifyForm'
+import { Fragment, useCallback, useContext, useEffect, lazy, Suspense } from 'react'
 import { MainStore } from '../reduceStore/StoreProvider'
-import { Fragment, useCallback, useContext, useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { getCsrfToken } from '../actions/getCsrfToken'
-import ResetPwForm from './microsite/ResetPwForm'
+
+const LandingPage = lazy(() => import('./LandingPage'))
+const ForgotPasswordPage = lazy(() => import('./microsite/ForgotPasswordPage'))
+const WelcomePage = lazy(() => import('./WelcomePage'))
+const VerifyAcc = lazy(() => import('./microsite/VerifyForm'))
+const ResetPwForm = lazy(() => import('./microsite/ResetPwForm'))
 
 export default function App() {
    const { dispatch } = useContext(MainStore)
@@ -62,17 +63,21 @@ export default function App() {
       <BrowserRouter>
          <Fragment>
             <Switch>
-               <Route path="/" exact component={LandingPage}></Route>
-               <Route path="/welcome" exact component={WelcomePage}></Route>
-               {/*TO-DO: Change this dashboard route to mysteryshop*/}
-               <Route path="/mysteryshop" exact component={LandingPage}></Route>
-               <Route path="/marketplace" exact component={LandingPage}></Route>
-               <Route path="/myNFT" exact component={LandingPage}></Route>
-               <Route path="/forgot/password" exact component={ForgotPasswordPage}></Route>
-               <Route path="/reset/password/" exact component={ResetPwForm}></Route>
-               <Route path="/reset/password/:token" exact component={ResetPwForm}></Route>
-               <Route path="/verify/account" exact component={VerifyAcc}></Route>
-               <Route path="/verify/account/:token" exact component={VerifyAcc}></Route>
+               <Suspense fallback={<div>Loading.....</div>}>
+                  <Route path="/" exact component={LandingPage}></Route>
+                  <Route path="/welcome" exact component={WelcomePage}></Route>
+                  <Route path="/mysteryshop" exact component={LandingPage}></Route>
+                  <Route path="/marketplace" exact component={LandingPage}></Route>
+                  <Route path="/myNFT" exact component={LandingPage}></Route>
+                  <Route path="/myNFT/query" exact component={LandingPage}></Route>
+                  <Route path="/marketplace/nft/:id" exact component={LandingPage}></Route>
+                  <Route path="/myNFT/nft/:id" exact component={LandingPage}></Route>
+                  <Route path="/forgot/password" exact component={ForgotPasswordPage}></Route>
+                  <Route path="/reset/password/" exact component={ResetPwForm}></Route>
+                  <Route path="/reset/password/:token" exact component={ResetPwForm}></Route>
+                  <Route path="/verify/account" exact component={VerifyAcc}></Route>
+                  <Route path="/verify/account/:token" exact component={VerifyAcc}></Route>
+               </Suspense>
             </Switch>
          </Fragment>
       </BrowserRouter>

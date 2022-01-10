@@ -1,4 +1,6 @@
-const userState = {}
+const userState = {
+   usersNFT: '',
+}
 
 const authState = {
    isAuthenticated: false,
@@ -7,16 +9,53 @@ const authState = {
    isAlertNotifOn: false,
    alertType: '',
    alertMsg: '',
-}
-
-const csrfToken = {
    csrfToken: '',
-}
-
-const reqCooldown = {
    isReqCooldown: false,
    reqTimer: 60,
    reqInterval: '',
 }
+const mintingState = {
+   isMinting: false,
+   isMintingSuccess: false,
+   mintedNFT: '',
+}
 
-export const state = Object.assign(userState, authState, csrfToken, reqCooldown)
+const nftState = {
+   pages: [],
+   pageLimit: 5,
+   minPage: 1,
+   maxPage: 5,
+   currPage: 1,
+   filters: {
+      rarity: '',
+      sort: '',
+      page: '',
+   },
+   queryFilters: {},
+   isFetchingNFT: false,
+   updateURLSearchParams: false,
+   searchParamsOnLoad: true,
+   userQueryFilters: {
+      rarity: 'all',
+      sort: 'latest',
+      page: 1,
+   },
+   mpQueryFilters: {
+      priceFilter: '',
+      rarity: 'all',
+      sort: 'latest',
+      page: 1,
+      heroes: 'all',
+   },
+   mpNFTs: {},
+   userNFTs: {},
+   searchMPParamsOnLoad: true,
+   nft: undefined,
+   isSold: false,
+   isFetching: true,
+   isFetchingProcessing: true,
+   isFetchingFailed: false,
+   isBuySuccessful: false,
+}
+
+export const state = Object.assign(userState, authState, mintingState, nftState)

@@ -13,6 +13,7 @@ export const navMenuLogoData = {
    generalMenu: [
       {
          type: {
+            class: 'mysteryshop',
             route: 'mysteryshop',
             label: 'Mystery Shop',
          },
@@ -21,6 +22,7 @@ export const navMenuLogoData = {
       },
       {
          type: {
+            class: 'marketplace',
             route: 'marketplace',
             label: 'Marketplace',
          },
@@ -29,7 +31,8 @@ export const navMenuLogoData = {
       },
       {
          type: {
-            route: 'myNFT',
+            class: 'myNFT',
+            route: 'myNFT/query',
             label: 'My NFT',
          },
          img: 'https://i.ibb.co/JydCdMs/UI-Graphic-Resource-Iron.png',
@@ -37,6 +40,7 @@ export const navMenuLogoData = {
       },
       {
          type: {
+            class: 'transactions',
             route: 'transactions',
             label: 'Transactions',
          },
@@ -47,6 +51,7 @@ export const navMenuLogoData = {
    profileMenu: [
       {
          type: {
+            class: 'profile',
             route: 'profile',
             label: 'Profile',
          },
@@ -55,6 +60,7 @@ export const navMenuLogoData = {
       },
       {
          type: {
+            class: 'logout',
             route: 'logout',
             label: 'Logout',
          },

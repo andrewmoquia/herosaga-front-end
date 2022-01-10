@@ -1,0 +1,599 @@
+.mint-boxes {
+   width: 100%;
+   height: auto;
+   min-height: calc(100vh - 60px);
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 100px;
+   align-items: center;
+   padding-bottom: 20px;
+   padding-top: 20px;
+}
+
+.mint-box {
+   width: 250px;
+   height: 550px;
+   // background: grey;
+   .mint-box-img-cont {
+      width: 100%;
+      height: 100px;
+      // background: honeydew;
+      position: relative;
+      z-index: 2;
+      img {
+         position: absolute;
+         top: 80%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+   }
+   .mint-box-tile-cont {
+      width: 100%;
+      height: 140px;
+      // background: rgb(154, 160, 154);
+      position: relative;
+      z-index: 1;
+      img {
+         width: 300px;
+         position: absolute;
+         top: 45%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+   }
+   .mint-box-buy-cont {
+      width: 100%;
+      height: 100px;
+      // background: rgb(109, 255, 109);
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-top: 10px;
+      .mint-button {
+         border: 3px solid #333;
+         width: 80px;
+         height: 80px;
+         background: linear-gradient(0deg, rgba(255, 225, 127, 1) 0%, rgba(252, 197, 120, 1) 100%);
+         border-radius: 15px;
+         position: relative;
+         display: flex;
+         align-items: center;
+         font-family: $poppins;
+         justify-content: center;
+         z-index: 2;
+         // box-shadow: 0 5px 0 rgb(0 0 0 / 20%), inset 0 -5px 0 #eb994d, inset 0 5px 0 #f5ed5d;
+         box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgb(238, 173, 82);
+         transition: all 0.2s ease-in-out;
+         &:hover {
+            cursor: pointer;
+            box-shadow: -5px 5px 0 rgba(0, 0, 0, 0.2), inset 0 -3px 0 #cfa255;
+            transition: all 0.3s ease-in-out;
+         }
+         &:active {
+            box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 -5px 0 #eb994d, inset 0 5px 0 #f5ed5d;
+            transition: all 0.3s ease-in-out;
+         }
+         p {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #333;
+         }
+      }
+      .mint-desc {
+         position: absolute;
+         width: 80%;
+         margin-left: 30px;
+         height: 60px;
+         background: #333;
+         background-size: 100px 100px;
+         border-radius: 10px;
+         top: 50%;
+         transform: skewX(-25deg) translate(0, -50%);
+         z-index: 1;
+         overflow: hidden;
+         p {
+            transform: skewX(25deg);
+            z-index: 1;
+         }
+         p:nth-child(1) {
+            margin: 8px 0px 0px 35px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+         }
+         p:nth-child(2) {
+            margin: 2px 0px 0px 47px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+         }
+         &::before {
+            content: '';
+            height: 60px;
+            width: 90%;
+            position: absolute;
+            background: $circle-orange-pattern-right 100% 0% no-repeat;
+            background-size: 100px;
+            opacity: 0.2;
+            top: 0%;
+            right: -20%;
+            transform: skewX(25deg);
+            z-index: 0;
+         }
+      }
+   }
+   .mint-box-desc-cont {
+      margin-top: 5px;
+      width: 100%;
+      height: 180px;
+      // background: tomato;
+      position: relative;
+      overflow: visible;
+      margin-top: 12px;
+      .chances-desc-header {
+         content: '';
+         position: absolute;
+         width: 60%;
+         height: 50px;
+         border-radius: 10px;
+         background: linear-gradient(0deg, rgba(180, 243, 255, 1) 0%, rgba(120, 225, 252, 1) 100%);
+         right: 5%;
+         top: -12%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border: 3px solid #333;
+         // box-shadow: 0px 0px 0 rgb(0 0 0 / 20%), inset 0 -5px 0 #27a480, inset 0 5px 0 #70eee2;
+         box-shadow: inset 0 -3px 0 #57b1a8;
+         p {
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: $poppins;
+            color: #333;
+         }
+      }
+      .chances-perc-cont {
+         width: 100%;
+         border-radius: 7px;
+         height: 100%;
+         background: #333;
+         box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+         padding-top: 27px;
+         .chances-perc {
+            height: 35px;
+            width: 100%;
+            // background: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: white;
+            font-weight: 600;
+            .chances-percentage {
+               height: 30px;
+               width: 30px;
+               margin: 0px 15px 0px 20px;
+               border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               color: black;
+            }
+         }
+      }
+   }
+}
+.common {
+   background: white;
+   font-size: 0.78rem;
+   font-weight: 600;
+}
+.uncommon {
+   background: rgb(247, 218, 126);
+   font-size: 0.78rem;
+   font-weight: 600;
+}
+.rare {
+   background: gold;
+   font-size: 0.78rem;
+   font-weight: 600;
+}
+.epic {
+   background: rgb(244, 118, 248);
+   font-size: 0.78rem;
+   font-weight: 600;
+}
+.legendary {
+   background: rgb(42, 218, 224);
+   font-size: 0.78rem;
+   font-weight: 600;
+}
+
+//Minting box animation
+.mint-anim-cont {
+   width: 100%;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.7);
+   position: fixed;
+   z-index: 100;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+   .mint-frame-cont {
+      width: 400px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      .mint-frame-img {
+         transform: scale(0.4);
+         // opacity: 0.4;
+      }
+      .mint-box-star {
+         position: absolute;
+         transform: translate(-50%, -50%);
+         width: 22px;
+         height: 22px;
+         z-index: 2;
+      }
+      .s-ct-left {
+         top: 25.6%;
+         left: 36%;
+      }
+      .s-ct-right {
+         top: 25.6%;
+         right: 32%;
+      }
+      .s-cb-left {
+         bottom: 23%;
+         left: 36.4%;
+      }
+      .s-cr-top {
+         top: 37.6%;
+         right: 23%;
+      }
+      .s-cr-bottom {
+         bottom: 34.6%;
+         right: 23%;
+      }
+      .s-cl-top {
+         top: 37.6%;
+         left: 25.4%;
+      }
+      .s-cl-bottom {
+         bottom: 34.6%;
+         left: 25.4%;
+      }
+      .s-cb-right {
+         bottom: 23%;
+         right: 33.4%;
+      }
+      .s-l-top {
+         top: 37.6%;
+         left: -29.8%;
+      }
+      .s-l-bottom {
+         bottom: 34.6%;
+         left: -29.8%;
+      }
+      .s-lt-left {
+         top: 32%;
+         left: -12.6%;
+      }
+      .s-lt-right {
+         top: 32%;
+         left: 8.4%;
+      }
+      .s-lb-left {
+         bottom: 29.5%;
+         left: -12.6%;
+      }
+      .s-lb-right {
+         bottom: 29.5%;
+         left: 8.4%;
+      }
+      .s-r-top {
+         top: 37.6%;
+         right: -32.8%;
+      }
+      .s-r-bottom {
+         bottom: 33.6%;
+         right: -32.8%;
+      }
+      .s-rt-left {
+         top: 32%;
+         right: 4.2%;
+      }
+      .s-rt-right {
+         top: 32%;
+         right: -15.8%;
+      }
+      .s-rb-left {
+         bottom: 29.5%;
+
+         right: 4.2%;
+      }
+      .s-rb-right {
+         bottom: 29.5%;
+         right: -15.8%;
+      }
+   }
+
+   .star-glow-anim-1::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+      position: absolute;
+      overflow: hidden;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      animation: star-glow-1 3s linear;
+   }
+   @keyframes star-glow-1 {
+      0% {
+         box-shadow: 0px 0px 30px 15px white;
+      }
+      20% {
+         box-shadow: 0px 0px 30px 15px rgb(36, 123, 238);
+      }
+      40% {
+         box-shadow: 0px 0px 30px 15px rgb(255, 31, 31);
+      }
+      60% {
+         box-shadow: 0px 0px 30px 15px rgb(207, 16, 182);
+      }
+      80% {
+         box-shadow: 0px 0px 30px 15px rgb(243, 245, 111);
+      }
+      100% {
+         box-shadow: 0px 0px 30px 15px white;
+      }
+   }
+   .star-glow-anim-2::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgb(255, 255, 255);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      animation: star-glow-2 3s linear;
+   }
+   @keyframes star-glow-2 {
+      0% {
+         box-shadow: 0px 0px 30px 15px rgb(207, 16, 182);
+      }
+      20% {
+         box-shadow: 0px 0px 30px 15px rgb(243, 245, 111);
+      }
+      40% {
+         box-shadow: 0px 0px 30px 15px white;
+      }
+      60% {
+         box-shadow: 0px 0px 30px 15px rgb(255, 31, 31);
+      }
+      80% {
+         box-shadow: 0px 0px 30px 15px rgb(36, 123, 238);
+      }
+      100% {
+         box-shadow: 0px 0px 30px 15px rgb(207, 16, 182);
+      }
+   }
+   .star-glow-common::before {
+      box-shadow: 0px 0px 30px 15px white;
+   }
+   .star-glow-uncommon::before {
+      box-shadow: 0px 0px 30px 15px rgb(243, 245, 111);
+   }
+   .star-glow-rare::before {
+      box-shadow: 0px 0px 30px 30px rgb(255, 31, 31);
+   }
+   .star-glow-epic::before {
+      box-shadow: 0px 0px 30px 25px rgb(207, 16, 182);
+   }
+   .star-glow-legendary::before {
+      box-shadow: 0px 0px 20px 4px rgb(64, 124, 202), 0px 0px 30px 25px rgb(162, 202, 255);
+   }
+}
+
+.mint-hero-char-cont {
+   width: 640px;
+   height: 150px;
+   background: #3b2f4b;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   padding-bottom: 20px;
+   overflow: hidden;
+   .mint-hero-char-cards {
+      width: 200%;
+      height: 80px;
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      gap: 7px;
+      animation: marquee 3s ease-in-out;
+      left: -110%;
+   }
+   .mint-hero-char-card {
+      min-width: 90px;
+      min-height: 90px;
+      max-width: 90px;
+      max-height: 90px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .minted-card {
+      background: red;
+   }
+   @keyframes marquee {
+      0% {
+         left: 0;
+      }
+      100% {
+         left: -110%;
+      }
+   }
+}
+.mint-anim-back-button {
+   width: 176px;
+   height: 49px;
+   background: #e82b3f;
+   position: absolute;
+   top: 76%;
+   transform: translate(0%, -50%);
+   border-radius: 10px;
+   border: 6px solid #ff5650;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   animation: mint-button-fade-in 3s linear;
+}
+
+@keyframes mint-button-fade-in {
+   0% {
+      top: 50%;
+      z-index: -1;
+   }
+   95% {
+      top: 50%;
+      z-index: -1;
+   }
+   100% {
+      top: 76%;
+   }
+}
+
+.mint-char-roulette {
+   position: absolute;
+   width: 152px;
+   height: 152px;
+   // background: black;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+}
+
+.char-roulette-anim {
+   position: absolute;
+   top: 50%;
+   left: 47%;
+   transform: translate(-50%, -50%) scale(1.5);
+}
+
+@keyframes roulette {
+   0% {
+      top: -50%;
+   }
+   95% {
+      top: -50%;
+   }
+   100% {
+      top: 50%;
+   }
+}
+
+@keyframes sprite-idle-s {
+   from {
+      background-position-x: 0;
+   }
+   to {
+      background-position-x: -128px;
+   }
+}
+
+@keyframes sprite-idle-m {
+   from {
+      background-position-x: 0;
+   }
+   to {
+      background-position-x: -160px;
+   }
+}
+
+@keyframes sprite-idle-l {
+   from {
+      background-position-x: 0;
+   }
+   to {
+      background-position-x: -168px;
+   }
+}
+
+@keyframes sprite-idle-xl {
+   from {
+      background-position-x: 0;
+   }
+   to {
+      background-position-x: -192px;
+   }
+}
+
+@keyframes sprite-idle-xxl {
+   from {
+      background-position-x: 0;
+   }
+   to {
+      background-position-x: -312px;
+   }
+}
+
+@keyframes sprite-idle-xxxl {
+   from {
+      background-position-x: 0;
+   }
+   to {
+      background-position-x: -384px;
+   }
+}
+
+.mint-hero-rarity {
+   position: absolute;
+   content: '';
+   top: 22%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   animation: rarity-text-fade-in 3s linear;
+   .rarity-img {
+      width: 30vw;
+      min-width: 320px;
+   }
+}
+
+@keyframes rarity-text-fade-in {
+   0% {
+      top: 50%;
+   }
+   95% {
+      top: 50%;
+   }
+   100% {
+      top: 22%;
+   }
+}
