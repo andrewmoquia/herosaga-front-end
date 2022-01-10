@@ -1,20 +1,30 @@
 {
-  "presets": [
-    "@babel/preset-env",
-    [
-      "@babel/preset-react",
-      {
-        "runtime": "automatic"
-      }
-    ],
-    "@babel/preset-typescript"
-  ],
-  "plugins": [
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "regenarator": true
-      }
-    ]
-  ]
+   "presets": [
+      [
+         "@babel/preset-env",
+         {
+            "targets": {
+               "esmodules": true
+            }, //Target of websites to load polyfill
+            "corejs": "2.6.12",
+            "shippedProposals": true,
+            "useBuiltIns": "usage" //Transpile codes when it requires
+         }
+      ],
+      [
+         "@babel/preset-react",
+         {
+            "runtime": "automatic"
+         }
+      ],
+      "@babel/preset-typescript"
+   ],
+   "plugins": [
+      [
+         "@babel/plugin-transform-runtime",
+         {
+            "regenarator": true
+         }
+      ]
+   ]
 }
