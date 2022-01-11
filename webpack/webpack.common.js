@@ -3,6 +3,13 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// entry: {
+//    index: { import: './src/index.tsx', dependOn: 'shared' },
+//    mainPage: { import: './src/components/app/MainPage.tsx', dependOn: 'shared' },
+//    landingPage: { import: './src/components/app/LandingPage.tsx', dependOn: 'shared' },
+//    welcomePage: { import: './src/components/app/WelcomePage.tsx', dependOn: 'shared' },
+//    shared: 'lodash',
+// },
 
 module.exports = {
    entry: path.resolve(__dirname, '..', './src/index.tsx'),
@@ -56,6 +63,11 @@ module.exports = {
       filename: 'bundle.js',
       publicPath: '/',
    },
+   // optimization: {
+   //    splitChunks: {
+   //       chunks: 'async',
+   //    },
+   // },
    plugins: [
       new NodePolyfillPlugin(),
       new CleanWebpackPlugin(),
