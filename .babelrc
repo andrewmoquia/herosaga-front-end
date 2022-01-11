@@ -6,7 +6,7 @@
             "targets": {
                "esmodules": true
             }, //Target of websites to load polyfill
-            "corejs": "2.6.12",
+            "corejs": "3.20.2",
             "shippedProposals": true,
             "useBuiltIns": "usage" //Transpile codes when it requires
          }
