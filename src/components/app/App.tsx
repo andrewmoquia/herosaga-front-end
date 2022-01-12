@@ -1,4 +1,3 @@
-import '../scss/main.scss'
 import axios from 'axios'
 import { Fragment, useCallback, useContext, useEffect, lazy, Suspense } from 'react'
 import { MainStore } from '../reduceStore/StoreProvider'
@@ -10,6 +9,8 @@ const ForgotPasswordPage = lazy(() => import('./microsite/ForgotPasswordPage'))
 const WelcomePage = lazy(() => import('./WelcomePage'))
 const VerifyAcc = lazy(() => import('./microsite/VerifyForm'))
 const ResetPwForm = lazy(() => import('./microsite/ResetPwForm'))
+
+import entry from '../../../scss/entry.css'
 
 export default function App() {
    const { dispatch } = useContext(MainStore)
@@ -28,7 +29,7 @@ export default function App() {
             if (response.data.status === 200) {
                return dispatch({
                   type: 'AUTH_SUCCESS',
-                  payload: response.data.user,
+                  payload: response.data,
                })
             } else {
                return dispatch({
@@ -63,9 +64,12 @@ export default function App() {
       <BrowserRouter>
          <Fragment>
             <Switch>
-               <Suspense fallback={<div>Loading.....</div>}>
+               <Suspense
+                  fallback={<div className={entry.loading_screen}>Spawning monsters...</div>}
+               >
                   <Route path="/" exact component={LandingPage}></Route>
                   <Route path="/welcome" exact component={WelcomePage}></Route>
+                  <Route path="/transactions" exact component={LandingPage}></Route>
                   <Route path="/mysteryshop" exact component={LandingPage}></Route>
                   <Route path="/marketplace" exact component={LandingPage}></Route>
                   <Route path="/myNFT" exact component={LandingPage}></Route>

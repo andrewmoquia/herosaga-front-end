@@ -2,6 +2,8 @@ import { useContext } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { registerUser } from '../../actions/registerUser'
 
+import s from '../../../../scss/main.css'
+
 export default function RegisterForm() {
    const { state, dispatch } = useContext(MainStore)
 
@@ -20,7 +22,7 @@ export default function RegisterForm() {
    }
 
    return (
-      <form action="/" onSubmit={(e) => handleRegister(e)} className="default-form">
+      <form action="/" onSubmit={(e) => handleRegister(e)} className={s.default_form}>
          <input
             type="text"
             name="regUsername"
@@ -28,7 +30,7 @@ export default function RegisterForm() {
             autoComplete="on"
             required
             id="regUsername"
-            className="default-input"
+            className={s.default_input}
             disabled={state.isReqProcessing}
          />
          <input
@@ -38,10 +40,10 @@ export default function RegisterForm() {
             autoComplete="on"
             required
             id="regEmail"
-            className="default-input"
+            className={s.default_input}
             disabled={state.isReqProcessing}
          />
-         <div className="reg-password-container">
+         <div className={s.reg_password_container}>
             <input
                type="password"
                name="regPassword"
@@ -49,7 +51,7 @@ export default function RegisterForm() {
                autoComplete="off"
                id="regPassword"
                required
-               className="default-input"
+               className={s.default_input}
                disabled={state.isReqProcessing}
             />
             <input
@@ -59,12 +61,16 @@ export default function RegisterForm() {
                autoComplete="off"
                id="regConfirmPassword"
                required
-               className="default-input"
+               className={s.default_input}
                disabled={state.isReqProcessing}
             />
          </div>
 
-         <button type="submit" className="button-1 reg-button" disabled={state.isReqProcessing}>
+         <button
+            type="submit"
+            className={`${s.button_1} ${s.reg_button}`}
+            disabled={state.isReqProcessing}
+         >
             <p>Register</p>
          </button>
       </form>

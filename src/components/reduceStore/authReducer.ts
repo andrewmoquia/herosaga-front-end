@@ -9,7 +9,15 @@ export function AuthReducer(state: any, action: any) {
       case 'AUTH_SUCCESS':
          return {
             ...state,
-            user: action.payload,
+            user: action.payload.user,
+            mintBoxData: action.payload.mintBoxData,
+            navMenuLogoData: action.payload.navMenuLogoData,
+            userNFTfilterData: action.payload.userNFTfilterData,
+            marketFilterData: action.payload.marketFilterData,
+            filterBrightness: action.payload.filterBrightness,
+            spriteBg: action.payload.spriteBg,
+            heroesData: action.payload.heroesData,
+            starStyleOnRoulette: action.payload.starStyleOnRoulette,
             isAuthenticated: true,
             isAuthenticating: false,
          }

@@ -1,13 +1,13 @@
-// import App from
 import ReactDOM from 'react-dom'
-import { lazy, StrictMode, Suspense } from 'react'
+import { StrictMode, Suspense, lazy } from 'react'
 import { StoreProvider } from './components/reduceStore/StoreProvider'
 const App = lazy(() => import('./components/app/App'))
+import entry from '../scss/entry.css'
 
 ReactDOM.render(
    <StrictMode>
       <StoreProvider>
-         <Suspense fallback={<div>Loading...</div>}>
+         <Suspense fallback={<div className={entry.loading_screen}>Creating universe..</div>}>
             <App />
          </Suspense>
       </StoreProvider>

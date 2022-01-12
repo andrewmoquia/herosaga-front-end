@@ -1,4 +1,4 @@
-.user-nfts-card {
+.user_nfts_card {
    width: 180px;
    height: 250px;
    min-width: 180px;
@@ -23,7 +23,7 @@
          margin-left: 0px;
       }
    }
-   .user-nfts-card-hero {
+   .user_nfts_card_hero {
       position: absolute;
       width: 100%;
       height: 85%;
@@ -33,25 +33,25 @@
       // background: rgb(86, 91, 95);
       background: linear-gradient(0deg, rgba(24, 63, 103, 1) 0%, rgba(16, 15, 82, 1) 100%);
       z-index: 2;
-      .hero-card-bg {
-         &-common::before,
-         &-uncommon1::before,
-         &-uncommon2::before,
-         &-rare::before,
-         &-magician::before,
-         &-herald::before,
-         &-vampire::before,
-         &-monk::before,
-         &-epic::before,
-         &-darklord::before,
-         &-scarletangel::before,
-         &-shiva::before,
-         &-titan::before,
-         &-bahamut::before,
-         &-unrare::before,
-         &-leviathan::before,
-         &-siren::before,
-         &-phoenix::before {
+      .hero_card_bg {
+         &_common::before,
+         &_uncommon1::before,
+         &_uncommon2::before,
+         &_rare::before,
+         &_magician::before,
+         &_herald::before,
+         &_vampire::before,
+         &_monk::before,
+         &_epic::before,
+         &_darklord::before,
+         &_scarletangel::before,
+         &_shiva::before,
+         &_titan::before,
+         &_bahamut::before,
+         &_unrare::before,
+         &_leviathan::before,
+         &_siren::before,
+         &_phoenix::before {
             content: '';
             position: absolute;
             width: 100%;
@@ -61,112 +61,94 @@
             mix-blend-mode: color-dodge;
             z-index: -1;
          }
-         &-common::before {
-            background: url('http://localhost:3000/images/Shaman17.png') no-repeat;
+         &_common::before {
+            background: url('https://i.ibb.co/bFgjTfH/Shaman17.png') no-repeat;
             background-size: 100%;
             top: 50%;
             left: 50%;
          }
-         &-uncommon1::before {
-            background: url('http://localhost:3000/images/SpellBookPreface19.png') no-repeat center;
+         &_uncommon1::before {
+            background: url('https://i.ibb.co/59y6rcv/Electromancer16.png') no-repeat center;
             background-size: 100%;
             top: 50%;
             left: 50%;
          }
-         &-uncommon2::before {
-            background: url('http://localhost:3000/images/Electromancer16.png') no-repeat;
-            background-size: 100%;
-            top: 50%;
-            left: 50%;
-         }
-         &-rare::before {
-            background: url('http://localhost:3000/images/Necromancer3.png') no-repeat;
-            background-size: 100%;
-            top: 50%;
-            left: 50%;
-         }
-         &-epic::before {
-            background: url('http://localhost:3000/images/Necromancer3.png') no-repeat;
-            background-size: 100%;
-            top: 50%;
-            left: 50%;
-         }
-         &-phoenix::before {
-            background: url('http://localhost:3000/images/bg-phoenix.png') no-repeat center;
+         &_phoenix::before {
+            background: url('https://i.ibb.co/7bjZC3b/bg-phoenix.png') no-repeat center;
             background-size: 100%;
             top: 40%;
             left: 50%;
          }
-         &-bahamut::before {
-            background: url('http://localhost:3000/images/bg-bahamut.png') no-repeat center;
+         &_bahamut::before {
+            background: url('https://i.ibb.co/VBpKJdD/bg-bahamut.png') no-repeat center;
             background-size: 100%;
             transform: rotate(138deg);
             transform-origin: top left;
             top: 38%;
             left: 117%;
          }
-         &-siren::before {
-            background: url('http://localhost:3000/images/bg-siren.png') no-repeat center;
+         &_siren::before {
+            background: url('https://i.ibb.co/qyMXMnh/bg-siren.png') no-repeat center;
             background-size: 110%;
             top: 50%;
             left: 50%;
          }
-         &-leviathan::before {
-            background: url('http://localhost:3000/images/Deathknight14.png') no-repeat center;
+         &_leviathan::before {
+            background: url('https://i.ibb.co/F0W61qg/Deathknight14.png') no-repeat center;
             background-size: 110%;
             top: 50%;
             left: 50%;
          }
-         &-titan::before {
-            background: url('http://localhost:3000/images/Geomancer5.png') no-repeat center;
+         &_titan::before {
+            background: url('https://i.ibb.co/zFmC08h/Geomancer5.png') no-repeat center;
             background-size: 110%;
             top: 50%;
             left: 50%;
          }
-         &-shiva::before {
-            background: url('http://localhost:3000/images/SpellBookPreface15.png') no-repeat center;
+         &_shiva::before {
+            background: url('https://i.ibb.co/1Q6CC1R/Spell-Book-Preface15.png') no-repeat center;
             background-size: 110%;
             top: 50%;
             left: 50%;
          }
-         &-scarletangel::before {
-            background: url('http://localhost:3000/images/Enchanter2.png') no-repeat center;
+         &_scarletangel::before {
+            background: url('https://i.ibb.co/5kb7fvD/Enchanter2.png') no-repeat center;
             background-size: 110%;
             top: 50%;
             left: 50%;
          }
-         &-darklord::before {
-            background: url('http://localhost:3000/images/SpellBookPreface01.png') no-repeat center;
+         &_darklord::before {
+            background: url('https://i.ibb.co/JmkQ7Bx/Spell-Book-Preface01.png') no-repeat center;
             background-size: 110%;
             top: 50%;
             left: 50%;
          }
-         &-herald::before {
-            background: url('http://localhost:3000/images/Cultist12.png') no-repeat;
+         &_herald::before {
+            background: url('https://i.ibb.co/DW18wyw/Cultist12.png') no-repeat;
             background-size: 100%;
             top: 50%;
             left: 50%;
          }
-         &-magician::before {
-            background: url('http://localhost:3000/images/bg-leviathan.png') no-repeat center;
+         &_magician::before {
+            background: url('https://i.ibb.co/wrhwh8V/bg-leviathan.png') no-repeat center;
             background-size: 100%;
             top: 50%;
             left: 50%;
          }
-         &-monk::before {
-            background: url('http://localhost:3000/images/Berserker10.png') no-repeat center;
+         &_monk::before {
+            background: url('https://i.ibb.co/8xMtvP1/Berserker10.png') no-repeat center;
             background-size: 110%;
             top: 50%;
             left: 50%;
          }
-         &-vampire::before {
-            background: url('http://localhost:3000/images/Necromancer3.png') no-repeat center;
+         &_vampire::before {
+            background: url('https://i.ibb.co/NNtx7yc/Necromancer3.png') no-repeat center;
             background-size: 110%;
             top: 50%;
             left: 50%;
          }
       }
-      .hero-card-img {
+      .hero_card_img {
          width: 100%;
          height: 64%;
          overflow: hidden;
@@ -177,7 +159,7 @@
          justify-content: center;
          position: relative;
       }
-      .hero-card-desc {
+      .hero_card_desc {
          width: 100%;
          height: 15%;
          // background: rgba(0, 0, 0, 0.1);
@@ -189,7 +171,7 @@
          font-size: 1.2rem;
          font-weight: 700;
       }
-      .hero-card-sell-button {
+      .hero_card_sell_button {
          width: 100%;
          height: 21%;
          display: flex;
@@ -211,7 +193,7 @@
             cursor: pointer;
             height: 70%;
             border: none;
-            font-family: $poppins;
+            font-family: 'Poppins', sans-serif;
             // background: linear-gradient(
             //    0deg,
             //    rgba(179, 177, 177, 1) 0%,
@@ -229,15 +211,15 @@
          }
       }
    }
-   &:active > .user-nfts-card-hero > .hero-card-sell-button > button {
+   &:active > .user_nfts_card_hero > .hero_card_sell_button > button {
       box-shadow: inset 0px 0px 0px #aaaaaa;
    }
-   .nfts-card-header {
-      &-common,
-      &-uncommon,
-      &-rare,
-      &-epic,
-      &-legendary {
+   .nfts_card_header {
+      &_common,
+      &_uncommon,
+      &_rare,
+      &_epic,
+      &_legendary {
          position: absolute;
          width: 100%;
          height: 30%;
@@ -250,7 +232,7 @@
          z-index: 1;
          border-radius: 0px 0px 10px 10px;
       }
-      &-common {
+      &_common {
          background: radial-gradient(
             circle,
             rgba(255, 255, 255, 1) 0%,
@@ -258,19 +240,19 @@
          );
          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
       }
-      &-uncommon {
+      &_uncommon {
          background: radial-gradient(circle, rgba(247, 255, 103, 1) 0%, rgba(226, 187, 31, 1) 100%);
          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
       }
-      &-rare {
+      &_rare {
          background: radial-gradient(circle, rgba(250, 166, 166, 1) 0%, rgba(213, 39, 39, 1) 100%);
          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
       }
-      &-epic {
+      &_epic {
          background: radial-gradient(circle, rgba(241, 112, 255, 1) 0%, rgba(120, 29, 159, 1) 100%);
          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
       }
-      &-legendary {
+      &_legendary {
          background: radial-gradient(circle, rgba(153, 239, 240, 1) 0%, rgba(32, 149, 180, 1) 100%);
          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4), 0px 20px 0px red;
       }

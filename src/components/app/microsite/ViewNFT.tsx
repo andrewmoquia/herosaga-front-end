@@ -1,15 +1,22 @@
 import axios from 'axios'
-import { useCallback, useEffect, useContext } from 'react'
+import { useCallback, useEffect, useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { runDispatch } from '../../actions/dispatch'
-import { heroesData } from '../../data/imagesData'
+import s from '../../../../scss/main.css'
 
 function CreateNFTCard(props: any) {
-   const { nftData, userData, dispatch }: any = props
+   const { nftData, userData, dispatch, heroesData, isFetchingProcessing }: any = props
    const { name, rarity, attributes, sellPrice, isForSale, ownerID, _id } = nftData
    const { physicalAttack, magicAttack, health, defense, speed } = attributes
    const url = window.location.href
+   const [isProcessing, setIsProcessing] = useState(false)
+
+   useEffect(() => {
+      if (isFetchingProcessing) {
+         setIsProcessing(true)
+      }
+   }, [isFetchingProcessing, isProcessing])
 
    //Sell nft
    const handleSellNFt = (e: any) => {
@@ -29,6 +36,7 @@ function CreateNFTCard(props: any) {
                })
             }
          })
+      setIsProcessing(!isProcessing)
    }
 
    //Buy nft
@@ -52,6 +60,7 @@ function CreateNFTCard(props: any) {
                })
             }
          })
+      setIsProcessing(!isProcessing)
    }
 
    //Cancel sell of nft
@@ -70,24 +79,25 @@ function CreateNFTCard(props: any) {
                })
             }
          })
-      console.log('cancel sell nft')
+      setIsProcessing(!isProcessing)
    }
 
+   const headerRarityCSS = `vc_nft_header_${rarity}`
+   const headerContentCSS = `vc_nft_content_${rarity}`
+   const heroHaloCSS = `hero_halo_${
+      rarity === 'common' || rarity === 'uncommon' ? rarity + '1 ' : name.toLowerCase()
+   }`
+
+   console.log(headerContentCSS)
    return (
-      <div className="vc-nft-card-container">
-         <div className={`vc-nft-header-${rarity}`}>
+      <div className={s.vc_nft_card_container}>
+         <div className={s[headerRarityCSS]}>
             <p>{name}</p>
             <p>{rarity.charAt(0).toUpperCase() + rarity.slice(1)}</p>
          </div>
-         <div className={`vc-nft-content-${rarity}`}>
-            <div className="vc-nft-hero-data">
-               <div
-                  className={`vc-nft-img hero-halo-${
-                     rarity === 'common' || rarity === 'uncommon'
-                        ? rarity + '1 '
-                        : name.charAt(0).toLowerCase() + name.slice(1)
-                  }`}
-               >
+         <div className={s[headerContentCSS]}>
+            <div className={s.vc_nft_hero_data}>
+               <div className={`${s.vc_nft_img} ${heroHaloCSS}`}>
                   <span></span>
                   {heroesData.map((hero: any) => {
                      if (hero.name == name) {
@@ -100,38 +110,38 @@ function CreateNFTCard(props: any) {
                      }
                   })}
                </div>
-               <div className="vc-nft-stats">
-                  <div className="vc-nft-stat">
-                     <div className="nft-stat-img-pAttack"></div>
-                     <div className="nft-stat-desc">
+               <div className={s.vc_nft_stats}>
+                  <div className={s.vc_nft_stat}>
+                     <div className={s.nft_stat_img_pAttack}></div>
+                     <div className={s.nft_stat_desc}>
                         <p>{physicalAttack}</p>
                         <p>Attack</p>
                      </div>
                   </div>
-                  <div className="vc-nft-stat">
-                     <div className="nft-stat-img-mAttack"></div>
-                     <div className="nft-stat-desc">
+                  <div className={s.vc_nft_stat}>
+                     <div className={s.nft_stat_img_mAttack}></div>
+                     <div className={s.nft_stat_desc}>
                         <p>{magicAttack}</p>
                         <p>Magic</p>
                      </div>
                   </div>
-                  <div className="vc-nft-stat">
-                     <div className="nft-stat-img-health"></div>
-                     <div className="nft-stat-desc">
+                  <div className={s.vc_nft_stat}>
+                     <div className={s.nft_stat_img_health}></div>
+                     <div className={s.nft_stat_desc}>
                         <p>{health}</p>
                         <p>Health</p>
                      </div>
                   </div>
-                  <div className="vc-nft-stat">
-                     <div className="nft-stat-img-defence"></div>
-                     <div className="nft-stat-desc">
+                  <div className={s.vc_nft_stat}>
+                     <div className={s.nft_stat_img_defence}></div>
+                     <div className={s.nft_stat_desc}>
                         <p>{defense}</p>
                         <p>Defense</p>
                      </div>
                   </div>
-                  <div className="vc-nft-stat">
-                     <div className="nft-stat-img-speed"></div>
-                     <div className="nft-stat-desc">
+                  <div className={s.vc_nft_stat}>
+                     <div className={s.nft_stat_img_speed}></div>
+                     <div className={s.nft_stat_desc}>
                         <p>{speed}</p>
                         <p>Speed</p>
                      </div>
@@ -139,29 +149,30 @@ function CreateNFTCard(props: any) {
                </div>
             </div>
             {isForSale && (
-               <div className="vc-nft-auction-data">
-                  <div className="vc-auction-price">
+               <div className={s.vc_nft_auction_data}>
+                  <div className={s.vc_auction_price}>
                      <div></div>
-                     <div className="vc-auction-price-text">
+                     <div className={s.vc_auction_price_text}>
                         <p>{sellPrice}</p>
                         <p>Price</p>
                      </div>
                   </div>
-                  <div className="vc-auction-button">
-                     {isForSale && ownerID !== userData.id && (
+                  <div className={s.vc_auction_button}>
+                     {isProcessing && <button>Processing....</button>}
+                     {!isProcessing && isForSale && ownerID !== userData.id && (
                         <button onClick={() => handleBuyNFT()}>Buy</button>
                      )}
-                     {isForSale && ownerID == userData.id && (
+                     {!isProcessing && isForSale && ownerID == userData.id && (
                         <button onClick={() => handleCancelSellNFT()}>Cancel Sell</button>
                      )}
                   </div>
                </div>
             )}
             {!isForSale && ownerID == userData.id && (
-               <form className="vc-nft-auction-data" action="" onSubmit={(e) => handleSellNFt(e)}>
-                  <div className="vc-auction-price">
+               <form className={s.vc_nft_auction_data} action="" onSubmit={(e) => handleSellNFt(e)}>
+                  <div className={s.vc_auction_price}>
                      <div></div>
-                     <div className="vc-auction-input">
+                     <div className={s.vc_auction_input}>
                         <input
                            type="number"
                            placeholder="Set price"
@@ -172,8 +183,9 @@ function CreateNFTCard(props: any) {
                         <p>Price</p>
                      </div>
                   </div>
-                  <div className="vc-auction-button">
-                     <button type="submit">Sell</button>
+                  <div className={s.vc_auction_button}>
+                     {isProcessing && <button disabled>Processing....</button>}
+                     {!isProcessing && <button type="submit">Sell</button>}
                   </div>
                </form>
             )}
@@ -187,6 +199,7 @@ export default function ViewNFT() {
    const {
       nft,
       isFetching,
+      heroesData,
       isSold,
       isFetchingFailed,
       user,
@@ -251,15 +264,15 @@ export default function ViewNFT() {
    }, [getNFTData, dispatch, isFetching, nft])
 
    return (
-      <section className="main-bg">
-         <div className="vc-container">
-            <div className="vc-back-button">
+      <section className={s.main_bg}>
+         <div className={s.vc_container}>
+            <div className={s.vc_back_button}>
                <Link to={`/${currDashboard}`}>
                   <button onClick={() => handleBackToDashbord()}>Back</button>
                </Link>
             </div>
             {isFetching || isFetchingProcessing ? (
-               <div className="vc-loading">
+               <div className={s.vc_loading}>
                   <svg
                      version="1.1"
                      id="L4"
@@ -301,13 +314,19 @@ export default function ViewNFT() {
                   </svg>
                </div>
             ) : isBuySuccessful ? (
-               <div className="vc-sold">Successfully purchased. Check your inventory.</div>
+               <div className={s.vc_sold}>Successfully purchased. Check your inventory.</div>
             ) : !isFetching && isSold ? (
-               <div className="vc-sold">Sold or not for sale.</div>
+               <div className={s.vc_sold}>Sold or not for sale.</div>
             ) : !isFetching && isFetchingFailed ? (
-               <div className="vc-error">Not found, error occured.</div>
+               <div className={s.vc_error}>Not found, error occured.</div>
             ) : !isFetching && !isSold && nft && !isFetchingProcessing ? (
-               <CreateNFTCard nftData={nft} userData={user} dispatch={dispatch} />
+               <CreateNFTCard
+                  nftData={nft}
+                  userData={user}
+                  dispatch={dispatch}
+                  heroesData={heroesData}
+                  isFetchingProcessing={isFetchingProcessing}
+               />
             ) : null}
             {/* {nft ? <CreateNFTCard data={nft} /> : <div className="vc-sold">Sold</div>} */}
          </div>

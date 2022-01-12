@@ -1,4 +1,4 @@
-.mynft-container {
+.mynft_container {
    min-height: 100%;
    width: 100%;
    display: flex;
@@ -9,7 +9,7 @@
    padding-top: 0.6em;
 }
 
-.loading-container-for-myNFT {
+.loading_container_for_myNFT {
    width: 100px;
    height: 520px;
    margin-left: 50px;
@@ -18,7 +18,7 @@
    justify-content: center;
 }
 
-.loading-container {
+.loading_container {
    width: 100px;
    height: 520px;
    margin-left: 50px;
@@ -27,7 +27,7 @@
    justify-content: center;
 }
 
-.pagination-control {
+.pagination_control {
    width: 100%;
    height: 50px;
    // background: grey;
@@ -40,7 +40,7 @@
    -moz-user-select: -moz-none;
    -o-user-select: none;
    user-select: none;
-   .pagi-num {
+   .pagi_num {
       width: 35px;
       height: 35px;
       margin: 0 5px;
@@ -73,7 +73,7 @@
          transition: all 0.1s ease-in-out;
       }
    }
-   .pagi-button {
+   .pagi_button {
       width: 30px;
       height: 30px;
       border-radius: 50%;
@@ -95,20 +95,20 @@
          transition: all 0.1s ease-in-out;
       }
    }
-   .active-page {
+   .active_page {
       background: linear-gradient(0deg, rgba(24, 63, 103, 1) 0%, rgba(16, 15, 82, 1) 100%);
       color: white;
       transition: all 0.2s ease-in-out;
    }
 }
 
-.user-nfts-cont {
+.user_nfts_cont {
    width: 100%;
    height: auto;
    // background: white;
    display: flex;
    justify-content: center;
-   .user-nfts-cards {
+   .user_nfts_cards {
       width: 1200px;
       height: auto;
       min-height: 500px;
@@ -122,7 +122,7 @@
    }
 }
 
-.user-nfts-filter-cont {
+.user_nfts_filter_cont {
    width: 100%;
    min-height: 50px;
    height: auto;
@@ -132,7 +132,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   .user-nfts-filter {
+   .user_nfts_filter {
       width: 1200px;
       height: auto;
       // background: rgba(0, 0, 0, 0.2);
@@ -140,7 +140,7 @@
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
-      .filter-selection {
+      .filter_selection {
          width: auto;
          min-width: 220px;
          height: auto;
@@ -159,7 +159,7 @@
          z-index: 5;
          padding: 0.4em 0em;
          margin-right: 10px;
-         .filter-selection-cont {
+         .filter_selection_cont {
             width: 100%;
             height: 100%;
             transform: skewX(-25deg);
@@ -177,16 +177,16 @@
             color: white;
             font-size: 1.2rem;
          }
-         .custom-select:nth-child(1) {
+         .custom_select:nth-child(1) {
             z-index: 5;
          }
-         .custom-select:nth-child(2) {
+         .custom_select:nth-child(2) {
             z-index: 4;
          }
-         .custom-select:nth-child(3) {
+         .custom_select:nth-child(3) {
             z-index: 3;
          }
-         .custom-select {
+         .custom_select {
             // transform: skewX(-25deg);
             min-width: 50px;
             height: 38px;
@@ -205,7 +205,7 @@
             -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
-            .custom-option-selected {
+            .custom_option_selected {
                width: 100%;
                border-radius: 10px;
                height: 100%;
@@ -227,7 +227,7 @@
             //    background: grey;
             //    margin-left: 10px;
             // }
-            .custom-select-options {
+            .custom_select_options {
                min-width: 90px;
                overflow: hidden;
                border-radius: 10px;
@@ -240,11 +240,11 @@
                top: 90%;
                transition: all 0.15s linear;
                z-index: -1;
-               .custom-select-option:nth-child(1) {
+               .custom_select_option:nth-child(1) {
                   margin-top: 2px;
                   border-radius: 10px 10px 0px 0px;
                }
-               .custom-select-option {
+               .custom_select_option {
                   background: white;
                   padding: 0.7em;
                   cursor: pointer;
@@ -289,14 +289,14 @@
                position: absolute;
                left: -41px;
                transform: skewX(-25deg);
-               background: url(http://localhost:3000/images/circle-orange-pattern-right.png) 100% 0%
-                  no-repeat;
+               background: url('http://localhost:3000/images/circle-orange-pattern-right.png') 100%
+                  0% no-repeat;
                opacity: 0.4;
                background-size: 100%;
             }
          }
       }
-      .filter-total-heroes {
+      .filter_total_heroes {
          width: 220px;
          height: 50px;
          background: #333;
@@ -348,7 +348,7 @@
    }
 }
 
-.nft-link {
+.nft_link {
    text-decoration: none;
    color: black;
 }

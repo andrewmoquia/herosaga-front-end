@@ -1,9 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
-import { navLiElement } from '../../data/navMenuData'
 import { INavLiElement } from '../../interfaces/navInterface'
 import { runDispatch } from '../../actions/dispatch'
 import { MainStore } from '../../reduceStore/StoreProvider'
+
+import s from '../../../../scss/main.css'
+
+const navLiElement: INavLiElement = {
+   mysteryshop: '',
+   marketplace: '',
+   farm: '',
+   myNFT: '',
+   profile: '',
+   transactions: '',
+}
 
 export default function NavMenu(props: any): any {
    const { dispatch } = useContext(MainStore)
@@ -20,10 +30,10 @@ export default function NavMenu(props: any): any {
       Object.keys(newObj).map((key) => {
          //Set selected dashboard to active.
          return selectedDashboard === key
-            ? (newObj[`${key}`] = 'active-nav')
+            ? (newObj[`${key}`] = s.active_nav)
             : selectedDashboard === '' //If no selected dashboard set mysteryshop to active.
-            ? (newObj[`mysteryshop`] = 'active-nav')
-            : (newObj[`${key}`] = 'inactive-nav') //Inactive all dashboard that is not selected.
+            ? (newObj[`mysteryshop`] = s.active_nav)
+            : (newObj[`${key}`] = s.inactive_nav) //Inactive all dashboard that is not selected.
       })
       //Change the classnames of the dashboards.
       setActiveDashboard((prevObj: INavLiElement) => {
@@ -52,7 +62,7 @@ export default function NavMenu(props: any): any {
    return (
       <>
          {/* Main Menu  */}
-         <ul className={`menu main`}>
+         <ul className={`${s.menu} ${s.main}`}>
             {data.generalMenu.map((key: any) => {
                return (
                   <Link
@@ -61,17 +71,17 @@ export default function NavMenu(props: any): any {
                      key={key.type.route}
                   >
                      <li onClick={() => handleChangeDashboard(key.type.class)}>
-                        <div className="nav-icon">
+                        <div className={s.nav_icon}>
                            <img src={key.img} alt={key.alt} />
                         </div>
-                        <p className="d-none d-lg-block">{key.type.label}</p>
+                        <p className={`${s.d_none} ${s.d_lg_block}`}>{key.type.label}</p>
                      </li>
                   </Link>
                )
             })}
          </ul>
          {/* Profile Menu  */}
-         <ul className={`menu main`}>
+         <ul className={`${s.menu} ${s.main}`}>
             {data.profileMenu.map((key: any) => {
                return (
                   <Link
@@ -80,10 +90,10 @@ export default function NavMenu(props: any): any {
                      key={key.type.route}
                   >
                      <li onClick={() => handleChangeDashboard(key.type.route)}>
-                        <div className="nav-icon">
+                        <div className={s.nav_icon}>
                            <img src={key.img} alt={key.alt} />
                         </div>
-                        <p className="d-none d-lg-block">{key.type.label}</p>
+                        <p className={`${s.d_none} ${s.d_lg_block}`}>{key.type.label}</p>
                      </li>
                   </Link>
                )

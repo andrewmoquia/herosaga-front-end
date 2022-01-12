@@ -1,18 +1,22 @@
+body {
+   font-family: $poppins;
+}
+
 .dflex {
    display: flex;
-   &-i {
+   &_i {
       display: inline-flex;
    }
-   &-flex {
+   &_flex {
       display: flex;
    }
 }
 
-.shadow-lg {
+.shadow_lg {
    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 }
 
-.main-bg {
+.main_bg {
    width: 100%;
    height: auto;
    min-height: calc(100vh - 60px);
@@ -42,7 +46,7 @@
    }
 }
 
-.bg-chess {
+.bg_chess {
    background: $bg-pattern-green no-repeat;
    animation: bg-slide 35s linear infinite;
    animation-delay: 1s;
@@ -55,7 +59,7 @@
    z-index: -1;
 }
 
-@keyframes bg-slide {
+@keyframes bg_slide {
    0% {
       transform: translateX(0) translateZ(0);
    }
@@ -67,7 +71,7 @@
    }
 }
 
-.default-menu {
+.default_menu {
    @include size(95%, $max-width: 700px);
    @include flex($flex-direction: column);
    // @include bg-url($yellow, no-repeat, cover);
@@ -86,7 +90,7 @@
    transition: all ease-in-out 0.2s;
 }
 
-.default-form {
+.default_form {
    margin: 0px 20px 20px 20px;
    display: flex;
    flex-direction: column;
@@ -97,7 +101,7 @@
    }
 }
 
-.default-input {
+.default_input {
    background: $circle-dark-pattern-left 0% 0% no-repeat, $white;
    background-size: 150px 150px;
    padding: 15px 10px;
@@ -127,7 +131,7 @@
    }
 }
 
-.def-menu-header {
+.def_menu_header {
    width: 100%;
    height: 60px;
    @include flex(center, center);
@@ -141,13 +145,13 @@
    );
 }
 
-.warn-container {
+.warn_container {
    width: 100%;
    height: auto;
    @include flex(center, center);
 }
 
-.error-warn {
+.error_warn {
    @include size(100%, 53px);
    @include flex(center, center);
    margin: 15px 23px 0px 23px;
@@ -170,7 +174,7 @@
    }
 }
 
-.alert-notif {
+.alert_notif {
    @include size(100%, 53px);
    @include flex(center, center);
    margin: 15px 23px 0px 23px;

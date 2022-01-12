@@ -1,4 +1,4 @@
-.mp-container {
+.mp_container {
    height: calc(100vh - 60px);
    padding-top: 0.5em;
    width: 100%;
@@ -11,7 +11,7 @@
    flex-direction: row;
    overflow: hidden;
 }
-.no-nft-found-for-myNFT {
+.no_nft_found_for_myNFT {
    height: 520px;
    width: 100%;
    display: flex;
@@ -21,7 +21,7 @@
    font-weight: 700;
    font-size: 1.5rem;
 }
-.no-nft-found {
+.no_nft_found {
    height: 510px;
    width: 100%;
    display: flex;
@@ -31,7 +31,7 @@
    font-weight: 700;
    font-size: 1.5rem;
 }
-.mp-filters-1 {
+.mp_filters_1 {
    /* width: 320px; */
    /* min-width: 200px; */
    /* height: auto; */
@@ -51,7 +51,7 @@
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
    }
-   .mp-filter-mobile {
+   .mp_filter_mobile {
       width: 100%;
       min-height: 50px;
       background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(179, 177, 177, 1) 100%);
@@ -69,14 +69,14 @@
       -ms-user-select: none;
       user-select: none;
    }
-   .mp-filter-1-input {
+   .mp_filter_1_input {
       position: absolute;
       opacity: 0;
-      &:checked ~ .mp-filters-container {
+      &:checked ~ .mp_filters_container {
          height: calc(100vh - 80px);
       }
    }
-   .mp-filters-header {
+   .mp_filters_header {
       width: 100%;
       height: 60px;
       min-height: 60px;
@@ -113,7 +113,7 @@
       }
    }
 }
-.mp-content {
+.mp_content {
    width: 100%;
    max-width: 1200px;
    height: 100%;
@@ -129,7 +129,7 @@
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
    }
-   .mp-cards {
+   .mp_cards {
       // width: 100%;
       // min-height: 500px;
       // height: auto;
@@ -146,7 +146,7 @@
       gap: 20px 40px;
       padding: 10px 20px 7px 20px;
    }
-   .mp-filters-2 {
+   .mp_filters_2 {
       width: 100%;
       height: 60px;
       // background: rgba(0, 0, 0, 0.1);
@@ -186,14 +186,14 @@
    }
 }
 
-.mp-price-filter {
+.mp_price_filter {
    display: flex;
    align-items: center;
    flex-direction: row;
    justify-content: space-between;
    flex-wrap: wrap;
    margin-bottom: 5px;
-   font-family: $poppins;
+   font-family: 'Poppins', sans-serif;
    p {
       width: 100%;
       margin-left: 2px;
@@ -208,7 +208,7 @@
       border: 3px solid #333;
       font-weight: 700;
       color: black;
-      font-family: $poppins;
+      font-family: 'Poppins', sans-serif;
       font-size: 1rem;
       text-indent: 7px;
       &::placeholder {
@@ -230,7 +230,7 @@
       height: 48px;
       border-radius: 10px;
       border: 3px solid #333;
-      font-family: $poppins;
+      font-family: 'Poppins', sans-serif;
       font-weight: 700;
       background: linear-gradient(0deg, #b4f3ff 0%, #78e1fc 100%);
       box-shadow: inset 0 -2px 0 #57b1a8;
@@ -247,7 +247,7 @@
    }
 }
 
-.mp-filter-container {
+.mp_filter_container {
    width: 100%;
    height: auto;
    display: flex;
@@ -258,7 +258,7 @@
    -ms-user-select: none;
    user-select: none;
    margin-bottom: 6px;
-   .mp-filter-selections {
+   .mp_filter_selections {
       width: 100%;
       height: 0px;
       background: white;
@@ -270,7 +270,7 @@
       opacity: 0;
       overflow: hidden;
       //  transition: all 0.1s linear;
-      .mp-filter-option {
+      .mp_filter_option {
          width: 100%;
          height: 30px;
          display: flex;
@@ -313,14 +313,14 @@
          }
       }
    }
-   .mp-dropdown-input {
+   .mp_dropdown_input {
       position: absolute;
       opacity: 0;
-      &:checked ~ .mp-filter-selections > .mp-filter-option {
+      &:checked ~ .mp_filter_selections > .mp_filter_option {
          opacity: 1;
          // transition: all 0.2s linear;
       }
-      &:checked ~ .mp-filter-selections {
+      &:checked ~ .mp_filter_selections {
          height: calc(100% - 60px);
          padding: 0.2em 0;
          border: 3px solid #333;
@@ -329,7 +329,7 @@
          // transition: all 0.1s linear;
       }
    }
-   .mp-filter-button {
+   .mp_filter_button {
       width: 100%;
       height: 50px;
       min-height: 50px;
@@ -359,10 +359,10 @@
 }
 
 @media only screen and (max-width: 768px) {
-   .mp-container {
+   .mp_container {
       flex-direction: column;
    }
-   .mp-filters-container {
+   .mp_filters_container {
       width: 100%;
       height: 0px;
       overflow: scroll;
@@ -379,7 +379,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-   .mp-filters-container {
+   .mp_filters_container {
       height: calc(100vh - 80px);
    }
 }

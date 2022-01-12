@@ -1,18 +1,18 @@
 const path = require('path')
+const webpack = require('webpack')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// entry: {
-//    index: { import: './src/index.tsx', dependOn: 'shared' },
-//    mainPage: { import: './src/components/app/MainPage.tsx', dependOn: 'shared' },
-//    landingPage: { import: './src/components/app/LandingPage.tsx', dependOn: 'shared' },
-//    welcomePage: { import: './src/components/app/WelcomePage.tsx', dependOn: 'shared' },
-//    shared: 'lodash',
-// },
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-   entry: path.resolve(__dirname, '..', './src/index.tsx'),
+   // entry: path.resolve(__dirname, '..', './src/index.tsx'),
+   entry: {
+      //Code split
+      // css: { import: './scss/main.css', dependOn: 'shared' }, //Separate css to index.js
+      index: { import: './src/index.tsx', dependOn: 'shared' },
+      shared: 'lodash',
+   },
    resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx'],
    },
@@ -28,15 +28,26 @@ module.exports = {
             ],
          },
          {
-            test: /\.s[ac]ss$/i,
+            test: /\.(s[ac]ss|css)$/i,
             use: [
                // {
                //    loader: MiniCssExtractPlugin.loader,
                //    // This is required for asset imports in CSS, such as url()
-               //    options: { publicPath: '' },
+               //    options: { esModule: false },
                // },
-               'style-loader',
-               'css-loader',
+               MiniCssExtractPlugin.loader,
+               // 'style-loader',
+               {
+                  loader: 'css-loader',
+                  options: {
+                     // esModule: false,
+                     // modules: true,
+                     modules: {
+                        localIdentName: '[local]_[hash:base64:5]',
+                     },
+                  },
+               },
+               // 'css-loader',
                'postcss-loader',
                // according to the docs, sass-loader should be at the bottom, which
                // loads it first to avoid prefixes in your sourcemaps and other issues.
@@ -59,20 +70,23 @@ module.exports = {
    },
    output: {
       path: path.resolve(__dirname, '..', './build'),
-      assetModuleFilename: 'images/[hash][ext][quesry]',
-      filename: 'bundle.js',
+      assetModuleFilename: 'images/[hash][ext][quesry]', //Hash images name
+      filename: '[name].js', //Hash bundle name
       publicPath: '/',
    },
-   // optimization: {
-   //    splitChunks: {
-   //       chunks: 'async',
-   //    },
-   // },
+   optimization: {
+      splitChunks: {
+         chunks: 'all',
+      },
+   },
    plugins: [
       new NodePolyfillPlugin(),
       new CleanWebpackPlugin(),
-      // new MiniCssExtractPlugin(),
+      new MiniCssExtractPlugin(),
+      new webpack.optimize.AggressiveMergingPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       new HTMLWebpackPlugin({
+         favicon: './favicon/231asaa3ff433112d.png',
          template: path.resolve(__dirname, '..', './src/index.html'),
       }),
    ],

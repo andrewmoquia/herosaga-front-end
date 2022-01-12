@@ -13,7 +13,7 @@
    max-height: $max-height;
 }
 
-@mixin bg-url($url, $bg-repeat: null, $bg-size: null) {
+@mixin bg_url($url, $bg-repeat: null, $bg-size: null) {
    background: $url;
    background-repeat: $bg-repeat;
    background-size: $bg-size;

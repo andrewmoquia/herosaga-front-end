@@ -1,5 +1,13 @@
 const userState = {
    usersNFT: '',
+   mintBoxData: {},
+   navMenuLogoData: {},
+   userNFTfilterData: [],
+   marketFilterData: [],
+   filterBrightness: {},
+   spriteBg: {},
+   heroesData: [],
+   starStyleOnRoulette: {},
 }
 
 const authState = {

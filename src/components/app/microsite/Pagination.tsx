@@ -1,6 +1,7 @@
 import { useContext, useEffect, useCallback } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { runDispatch } from '../../actions/dispatch'
+import s from '../../../../scss/main.css'
 
 export default function Pagination(props: any) {
    const { state, dispatch } = useContext(MainStore)
@@ -38,13 +39,13 @@ export default function Pagination(props: any) {
    }, [handleSetPages, nfts])
 
    return (
-      <div className="pagination-control">
-         <button className="pagi-button" onClick={() => handlePagiMovePage('back')}>
+      <div className={s.pagination_control}>
+         <button className={s.pagi_button} onClick={() => handlePagiMovePage('back')}>
             &#60;
          </button>
          <div
             key={1}
-            className={`pagi-num ${page == 1 ? 'active-page' : ''}`}
+            className={`${s.pagi_num} ${page == 1 ? s.active_page : ''}`}
             onClick={() => handleSetFilter({ page: 1 })}
          >
             1
@@ -55,7 +56,7 @@ export default function Pagination(props: any) {
                return (
                   <div
                      key={pageNum}
-                     className={`pagi-num ${page == pageNum ? 'active-page' : ''}`}
+                     className={`${s.pagi_num} ${page == pageNum ? s.active_page : ''}`}
                      onClick={() => handleSetFilter({ page: pageNum })}
                   >
                      {pageNum}
@@ -63,7 +64,7 @@ export default function Pagination(props: any) {
                )
             }
          })}
-         <button className="pagi-button" onClick={() => handlePagiMovePage('next')}>
+         <button className={s.pagi_button} onClick={() => handlePagiMovePage('next')}>
             &#62;
          </button>
       </div>

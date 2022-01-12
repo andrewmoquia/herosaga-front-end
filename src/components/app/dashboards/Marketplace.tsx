@@ -2,30 +2,30 @@ import { runDispatch } from '../../actions/dispatch'
 import { useContext, useEffect, useCallback, useState, useMemo } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import axios from 'axios'
-import { marketFilterData } from '../../data/filtersData'
 import { useLocation, useHistory } from 'react-router'
 import NFTCard from '../microsite/NFTCard'
 import Pagination from '../microsite/Pagination'
 import { Link } from 'react-router-dom'
+import s from '../../../../scss/main.css'
 
 function CustomDropdown(props: any) {
    const { title, options, value, onClick } = props
    return (
-      <div className="mp-filter-container">
-         <label className="mp-filter-button" htmlFor={title}>
+      <div className={s.mp_filter_container}>
+         <label className={s.mp_filter_button} htmlFor={title}>
             <p>{title.charAt(0).toUpperCase() + title.slice(1)}</p>
             <span></span>
          </label>
          <input
             type="checkbox"
-            name={`${title}-checkbox`}
+            name={`${title}_checkbox`}
             id={title}
-            className="mp-dropdown-input"
+            className={s.mp_dropdown_input}
          />
-         <div className="mp-filter-selections">
+         <div className={s.mp_filter_selections}>
             {options.map((option: any) => {
                return (
-                  <label className="mp-filter-option" key={option}>
+                  <label className={s.mp_filter_option} key={option}>
                      {option.charAt(0).toUpperCase() + option.slice(1)}
                      {option == 'all' && !value ? (
                         <input
@@ -51,7 +51,7 @@ function CustomDropdown(props: any) {
                            value={option}
                         />
                      )}
-                     <span className="checkmark"></span>
+                     <span className={s.checkmark}></span>
                   </label>
                )
             })}
@@ -67,7 +67,7 @@ function CustomPriceFilter(props: any) {
       onClick(e)
    }
    return (
-      <form className="mp-price-filter" onSubmit={(e) => handleOnClick(e)} action="">
+      <form className={s.mp_price_filter} onSubmit={(e) => handleOnClick(e)} action="">
          <p>Price Range</p>
          <input
             type="number"
@@ -153,8 +153,15 @@ export default function Marketplace() {
    const { state, dispatch } = useContext(MainStore)
    const location = useLocation()
    const history = useHistory()
-   const { mpQueryFilters, isFetchingNFT, user, mpNFTs, searchMPParamsOnLoad, isFetchingFailed } =
-      state
+   const {
+      mpQueryFilters,
+      isFetchingNFT,
+      user,
+      mpNFTs,
+      searchMPParamsOnLoad,
+      isFetchingFailed,
+      marketFilterData,
+   } = state
    const { nftTotal, nfts, totalPage, page } = mpNFTs
    const { balance } = user
 
@@ -348,38 +355,37 @@ export default function Marketplace() {
    }
 
    return (
-      <section className="main-bg">
-         <div className="mp-container">
-            <div className="mp-filters-1">
+      <section className={s.main_bg}>
+         <div className={s.mp_container}>
+            <div className={s.mp_filters_1}>
                <label
-                  htmlFor="mp-filter-mobile-checkbox"
-                  className="mp-filter-mobile d-flex d-md-none"
+                  htmlFor="mp_filter_mobile_checkbox"
+                  className={`${s.mp_filter_mobile} ${s.d_flex} ${s.d_md_none}`}
                >
                   Open Filter Menu
                </label>
                <input
                   type="checkbox"
-                  className="mp-filter-1-input"
-                  id="mp-filter-mobile-checkbox"
-                  defaultChecked={true}
+                  className={s.mp_filter_1_input}
+                  id="mp_filter_mobile_checkbox"
                />
-               <div className="mp-filters-container">
-                  <div className="mp-filters-header">
+               <div className={s.mp_filters_container}>
+                  <div className={s.mp_filters_header}>
                      <span>Filters:</span>
                      <span onClick={() => handleResetMPFilter()}>Reset</span>
                   </div>
                   {resetFilter && <CreateFilter {...filterProps} />}
                </div>
             </div>
-            <div className="mp-content">
-               <div className="mp-filters-2">
+            <div className={s.mp_content}>
+               <div className={s.mp_filters_2}>
                   <span>Heroes Found: {nftTotal}</span>
                   <span>Balance: {balance}</span>
                </div>
-               <div className="mp-cards">
-                  {isFetchingFailed && <div className="no-nft-found">No NFT found.</div>}
+               <div className={s.mp_cards}>
+                  {isFetchingFailed && <div className={s.no_nft_found}>No NFT found.</div>}
                   {isFetchingNFT && (
-                     <div className="loading-container">
+                     <div className={s.loading_container}>
                         <svg
                            version="1.1"
                            id="L4"
@@ -427,7 +433,7 @@ export default function Marketplace() {
                              <Link
                                 key={nft._id}
                                 to={`/marketplace/nft/${nft._id}`}
-                                className="nft-link"
+                                className={s.nft_link}
                              >
                                 <NFTCard type="Buy" data={nft} />
                              </Link>
@@ -435,7 +441,7 @@ export default function Marketplace() {
                        })
                      : null}
                </div>
-               <div className="mp-pagination">
+               <div className={s.mp_pagination}>
                   <Pagination {...paginationProps} />
                </div>
             </div>

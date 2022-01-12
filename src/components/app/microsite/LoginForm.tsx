@@ -1,6 +1,7 @@
 import { useContext, Fragment } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { loginUser } from '../../actions/loginUser'
+import s from '../../../../scss/main.css'
 
 export default function LoginForm() {
    const { state, dispatch } = useContext(MainStore)
@@ -19,7 +20,7 @@ export default function LoginForm() {
 
    return (
       <Fragment>
-         <form action="/" onSubmit={(e) => handleLogin(e)} className="default-form">
+         <form action="/" onSubmit={(e) => handleLogin(e)} className={s.default_form}>
             <input
                type="text"
                name="loginUsername"
@@ -27,7 +28,7 @@ export default function LoginForm() {
                autoComplete="on"
                required
                id="loginUsername"
-               className="default-input"
+               className={s.default_input}
                disabled={state.isReqProcessing}
             />
             <input
@@ -37,14 +38,14 @@ export default function LoginForm() {
                autoComplete="off"
                id="loginPassword"
                required
-               className="default-input"
+               className={s.default_input}
                disabled={state.isReqProcessing}
             />
-            <button type="submit" className="button-1" disabled={state.isReqProcessing}>
+            <button type="submit" className={s.button_1} disabled={state.isReqProcessing}>
                <p>Login</p>
             </button>
             <button
-               className="button-transparent-1"
+               className={s.button_transparent_1}
                type="button"
                disabled={state.isReqProcessing}
                onClick={() => {

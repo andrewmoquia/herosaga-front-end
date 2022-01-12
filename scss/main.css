@@ -1,0 +1,4270 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*----------------------------------
+Media Queries
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+-----------------------------------*/
+/* For mobile phones: */
+[class*='col_'] {
+  width: 100%;
+}
+
+.d_none {
+  display: none;
+}
+
+.d_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.d_block {
+  display: block;
+}
+
+@media only screen and (min-width: 600px) {
+  .d_sm_none {
+    display: none;
+  }
+  .d_sm_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .d_sm_block {
+    display: block;
+  }
+  .col_12_less_side_nav {
+    width: calc(100% - 60px);
+  }
+  /* For tablets: */
+  .col_s_1 {
+    width: 8.33%;
+  }
+  .col_s_2 {
+    width: 16.66%;
+  }
+  .col_s_3 {
+    width: 25%;
+  }
+  .col_s_4 {
+    width: 33.33%;
+  }
+  .col_s_5 {
+    width: 41.66%;
+  }
+  .col_s_6 {
+    width: 50%;
+  }
+  .col_s_7 {
+    width: 58.33%;
+  }
+  .col_s_8 {
+    width: 66.66%;
+  }
+  .col_s_9 {
+    width: 75%;
+  }
+  .col_s_10 {
+    width: 83.33%;
+  }
+  .col_s_11 {
+    width: 91.66%;
+  }
+  .col_s_12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .d_md_none {
+    display: none;
+  }
+  .d_md_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .d_md_block {
+    display: block;
+  }
+  .col_1 {
+    width: 8.33%;
+  }
+  .col_2 {
+    width: 16.66%;
+  }
+  .col_3 {
+    width: 25%;
+  }
+  .col_4 {
+    width: 33.33%;
+  }
+  .col_5 {
+    width: 41.66%;
+  }
+  .col_6 {
+    width: 50%;
+  }
+  .col_7 {
+    width: 58.33%;
+  }
+  .col_8 {
+    width: 66.66%;
+  }
+  .col_9 {
+    width: 75%;
+  }
+  .col_10 {
+    width: 83.33%;
+  }
+  .col_11 {
+    width: 91.66%;
+  }
+  .col_12 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .d_lg_none {
+    display: none;
+  }
+  .d_lg_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .d_lg_block {
+    display: block;
+  }
+  .col_lg_1 {
+    width: 8.33%;
+  }
+  .col_lg_2 {
+    width: 16.66%;
+  }
+  .col_lg_3 {
+    width: 25%;
+  }
+  .col_lg_4 {
+    width: 33.33%;
+  }
+  .col_lg_5 {
+    width: 41.66%;
+  }
+  .col_lg_6 {
+    width: 50%;
+  }
+  .col_lg_7 {
+    width: 58.33%;
+  }
+  .col_lg_8 {
+    width: 66.66%;
+  }
+  .col_lg_9 {
+    width: 75%;
+  }
+  .col_lg_10 {
+    width: 83.33%;
+  }
+  .col_lg_11 {
+    width: 91.66%;
+  }
+  .col_lg_12 {
+    width: 100%;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.dflex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dflex_i {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.dflex_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.shadow_lg {
+  -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+          box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.main_bg {
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - 60px);
+  overflow: hidden;
+  background: linear-gradient(97deg, #80e7c3 0%, #b3e06a 100%);
+  position: relative;
+}
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container.oHidden {
+  overflow: hidden;
+}
+
+.container.posAbs {
+  position: absolute;
+}
+
+.container.posRel {
+  position: relative;
+}
+
+.bg_chess {
+  background: url("https://i.ibb.co/hx54g49/green-checkboard.png") no-repeat;
+  -webkit-animation: bg-slide 35s linear infinite;
+          animation: bg-slide 35s linear infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  position: absolute;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat;
+  background-size: 50% 100%;
+  z-index: -1;
+}
+
+@-webkit-keyframes bg_slide {
+  0% {
+    -webkit-transform: translateX(0) translateZ(0);
+            transform: translateX(0) translateZ(0);
+  }
+  50% {
+    -webkit-transform: translateX(-25%) translateZ(0);
+            transform: translateX(-25%) translateZ(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) translateZ(0);
+            transform: translateX(-50%) translateZ(0);
+  }
+}
+
+@keyframes bg_slide {
+  0% {
+    -webkit-transform: translateX(0) translateZ(0);
+            transform: translateX(0) translateZ(0);
+  }
+  50% {
+    -webkit-transform: translateX(-25%) translateZ(0);
+            transform: translateX(-25%) translateZ(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) translateZ(0);
+            transform: translateX(-50%) translateZ(0);
+  }
+}
+
+.default_menu {
+  width: 95%;
+  max-width: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: url("https://i.ibb.co/3MQH9gr/circle-pattern-right.png") 100% 100% repeat-y, linear-gradient(97deg, #f79c6f 0%, #f6a83c 100%, #f9ffad 100%);
+  margin: 0px 5px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0px 5px 0px 5px;
+  -webkit-clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+          clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+
+.default_form {
+  margin: 0px 20px 20px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.default_form a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+}
+
+.default_input {
+  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat, #fff;
+  background-size: 150px 150px;
+  padding: 15px 10px;
+  border: 2px solid #000;
+  border-radius: 5px 0px 5px 0px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin-top: 15px;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+          clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+}
+
+.default_input:not(:first-child) {
+  margin-top: 15px;
+}
+
+.default_input:focus {
+  outline: 2px solid #000;
+  outline-offset: 5px;
+  -webkit-clip-path: none;
+          clip-path: none;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+
+.default_input:focus::-webkit-input-placeholder {
+  color: black;
+}
+
+.default_input:focus:-ms-input-placeholder {
+  color: black;
+}
+
+.default_input:focus::-ms-input-placeholder {
+  color: black;
+}
+
+.default_input:focus::placeholder {
+  color: black;
+}
+
+.def_menu_header {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+  color: #fff;
+  background: -webkit-gradient(linear, left top, right top, from(#100930), color-stop(49%, #32385d), to(#100930));
+  background: linear-gradient(90deg, #100930 0%, #32385d 49%, #100930 100%);
+}
+
+.warn_container {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.error_warn {
+  width: 100%;
+  height: 53px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 15px 23px 0px 23px;
+  background: url("https://i.ibb.co/m5t76xG/circle-red-pattern-left.png") 0% 0% no-repeat, #fca4ad;
+  background-size: 150px 150px;
+  border: 2px solid #6e0707;
+  border-radius: 5px 0px 5px 0px;
+  font-weight: 700;
+  text-align: center;
+  -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+          clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+}
+
+.error_warn:hover {
+  cursor: pointer;
+}
+
+.alert_notif {
+  width: 100%;
+  height: 53px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 15px 23px 0px 23px;
+  background: url("https://i.ibb.co/m5t76xG/circle-red-pattern-left.png") 0% 0% no-repeat, #fca4ad;
+  background-size: 150px 150px;
+  border: 2px solid #6e0707;
+  border-radius: 5px 0px 5px 0px;
+  font-weight: 700;
+  text-align: center;
+  -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+          clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+}
+
+.alert_notif:hover {
+  cursor: pointer;
+}
+
+.alert_notif.success {
+  background: url("https://i.ibb.co/XWh8RFK/circle-green-pattern-left.png") 0% 0% no-repeat, #85f08f;
+}
+
+.alert_notif.failed {
+  background: url("https://i.ibb.co/VJwZkG1/circle-red-2-pattern-left.png") 0% 0% no-repeat, #fca4ad;
+}
+
+#main_nav {
+  width: 100%;
+  height: 60px;
+  background: #357b95;
+  background: linear-gradient(97deg, #357b95 0%, #2b3a77 100%);
+  border-bottom: 5px solid #1a244d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-weight: 700;
+  overflow: hidden;
+  z-index: 99;
+}
+
+#nav_menu {
+  width: auto;
+  height: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 0px;
+}
+
+#nav_menu #menu_changer {
+  width: 100%;
+}
+
+#nav_menu .menu_change_to_profile {
+  height: 60px;
+  background: yellow;
+  -webkit-transition: height ease 1s;
+  transition: height ease 1s;
+}
+
+#nav_menu .menu_change_to_main {
+  height: 0px;
+  -webkit-transition: height ease 1s;
+  transition: height ease 1s;
+}
+
+#nav_menu .menu {
+  min-height: 60px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 5px;
+}
+
+#nav_menu .menu li {
+  padding: 0px 8px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#nav_menu .menu li span {
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+#nav_menu .menu a {
+  height: 45px;
+  border-radius: 0px 3px;
+  -webkit-clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+          clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  text-decoration: none;
+  color: #cff7f7;
+}
+
+#nav_menu .menu a p {
+  margin: 0px 10px;
+}
+
+#nav_menu .menu li:hover {
+  -webkit-transition: background ease-in-out 0.2s;
+  transition: background ease-in-out 0.2s;
+  color: #fcf6a5;
+}
+
+.game_logo {
+  width: 100px;
+  height: 43px;
+  min-width: 100px;
+  min-height: 43px;
+  border-radius: 40px;
+  text-align: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  color: #bdff66;
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.logo_icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0px 15px;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(236, 255, 154, 0.5);
+          box-shadow: 0px 0px 10px 2px rgba(236, 255, 154, 0.5);
+}
+
+.logo_icon img {
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#profile {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 15px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.3);
+  -webkit-transition: -webkit-box-shadow ease-in-out 0.2s;
+  transition: -webkit-box-shadow ease-in-out 0.2s;
+  transition: box-shadow ease-in-out 0.2s;
+  transition: box-shadow ease-in-out 0.2s, -webkit-box-shadow ease-in-out 0.2s;
+}
+
+#profile img {
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2);
+}
+
+#profile:hover {
+  -webkit-box-shadow: 0px 0px 20px 2px rgba(223, 253, 114, 0.3);
+          box-shadow: 0px 0px 20px 2px rgba(223, 253, 114, 0.3);
+  -webkit-transition: -webkit-box-shadow ease-in-out 0.2s;
+  transition: -webkit-box-shadow ease-in-out 0.2s;
+  transition: box-shadow ease-in-out 0.2s;
+  transition: box-shadow ease-in-out 0.2s, -webkit-box-shadow ease-in-out 0.2s;
+}
+
+.active_nav {
+  background: rgba(26, 36, 77, 0.6);
+  -webkit-transition: background ease-in-out 0.2s;
+  transition: background ease-in-out 0.2s;
+  z-index: -2;
+}
+
+.active_nav li {
+  color: white;
+}
+
+.inactive_nav {
+  background: none;
+  -webkit-transition: background ease-in-out 0.2s;
+  transition: background ease-in-out 0.2s;
+}
+
+.nav_icon {
+  width: 43px;
+  height: 43px;
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.nav_icon img {
+  -webkit-transform: scale(0.07);
+          transform: scale(0.07);
+}
+
+.nav_icon::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0px 0px 15px 2px white;
+          box-shadow: 0px 0px 15px 2px white;
+}
+
+.button_transparent_1 {
+  padding: 10px 48px;
+  min-width: 100px;
+  max-width: 300px;
+  margin: 15px auto;
+  border: 2px solid #000;
+  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat;
+  background-size: 150px 150px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  border-radius: 5px 0px 5px 0px;
+  -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+          clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+
+.button_transparent_1:hover {
+  -webkit-clip-path: none;
+          clip-path: none;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  outline: 2px solid #000;
+  outline-offset: 5px;
+  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat, #a9e2f8;
+  background-size: 150px 150px, 100%;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  color: #000;
+}
+
+.button_transparent_1:active {
+  outline: 2px solid black;
+  outline-offset: 0px;
+  -webkit-clip-path: none;
+          clip-path: none;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+}
+
+.button_1 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 15px 90px;
+  min-width: 100px;
+  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat, #fff;
+  background-size: 150px 150px;
+  max-width: 300px;
+  margin: 15px auto 0px auto;
+  border: 2px solid black;
+  border-radius: 5px 0px 5px 0px;
+  -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+          clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+
+.button_1:hover {
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0);
+  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat, #a9e2f8;
+  background-size: 150px 150px, 100%;
+  border-radius: 5px;
+  outline: 2px solid #000;
+  outline-offset: 5px;
+  -webkit-clip-path: none;
+          clip-path: none;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+
+.button_1:active {
+  outline: 2px solid black;
+  outline-offset: 0px;
+  -webkit-clip-path: none;
+          clip-path: none;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+}
+
+.mp_container {
+  height: calc(100vh - 60px);
+  padding-top: 0.5em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  overflow: hidden;
+}
+
+.no_nft_found_for_myNFT {
+  height: 520px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.no_nft_found {
+  height: 510px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.mp_filters_1 {
+  /* width: 320px; */
+  /* min-width: 200px; */
+  /* height: auto; */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 0.5em;
+  overflow: scroll;
+  min-height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* align-items: center;
+   //    background: rgba(0, 0, 0, 0.1);
+   /* Hide scrollbar for Chrome, Safari and Opera */
+  /* Hide scrollbar for IE, Edge and Firefox */
+}
+
+.mp_filters_1::-webkit-scrollbar {
+  display: none;
+}
+
+.mp_filters_1 {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.mp_filters_1 .mp_filter_mobile {
+  width: 100%;
+  min-height: 50px;
+  background: -webkit-gradient(linear, left bottom, left top, from(white), to(#b3b1b1));
+  background: linear-gradient(0deg, white 0%, #b3b1b1 100%);
+  border-radius: 10px;
+  border: 3px solid #333;
+  -webkit-box-shadow: inset 0px -2px 0px #b3b1b1;
+          box-shadow: inset 0px -2px 0px #b3b1b1;
+  font-weight: 700;
+  font-size: 1.3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.mp_filters_1 .mp_filter_1_input {
+  position: absolute;
+  opacity: 0;
+}
+
+.mp_filters_1 .mp_filter_1_input:checked ~ .mp_filters_container {
+  height: calc(100vh - 80px);
+}
+
+.mp_filters_1 .mp_filters_header {
+  width: 100%;
+  height: 60px;
+  min-height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 2px solid #333;
+  margin-bottom: 5px;
+  padding-bottom: 0.3em;
+}
+
+.mp_filters_1 .mp_filters_header span:nth-child(1) {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-left: 2px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mp_filters_1 .mp_filters_header span:nth-child(2) {
+  height: 50px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffe17f), to(#fcc578));
+  background: linear-gradient(0deg, #ffe17f 0%, #fcc578 100%);
+  -webkit-box-shadow: inset 0 -2px 0 #eead52;
+          box-shadow: inset 0 -2px 0 #eead52;
+  border: 3px solid #333;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0.5em;
+  border-radius: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.mp_filters_1 .mp_filters_header span:nth-child(2):active {
+  -webkit-box-shadow: inset 0 0px 0 #eead52;
+          box-shadow: inset 0 0px 0 #eead52;
+}
+
+.mp_content {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  overflow-y: auto;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  /* Hide scrollbar for IE, Edge and Firefox */
+}
+
+.mp_content::-webkit-scrollbar {
+  display: none;
+}
+
+.mp_content {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.mp_content .mp_cards {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px 40px;
+  padding: 10px 20px 7px 20px;
+}
+
+.mp_content .mp_filters_2 {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  padding: 0 0.5em;
+}
+
+.mp_content .mp_filters_2 span {
+  padding: 0 0.9em 0 0.7em;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: 3px solid #333;
+  min-width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mp_content .mp_filters_2 span:nth-child(1) {
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffe17f), to(#fcc578));
+  background: linear-gradient(0deg, #ffe17f 0%, #fcc578 100%);
+  -webkit-box-shadow: inset 0 -2px 0 #eead52;
+          box-shadow: inset 0 -2px 0 #eead52;
+}
+
+.mp_content .mp_filters_2 span:nth-child(1):active {
+  -webkit-box-shadow: inset 0 0px 0 #eead52;
+          box-shadow: inset 0 0px 0 #eead52;
+}
+
+.mp_content .mp_filters_2 span:nth-child(2) {
+  background: -webkit-gradient(linear, left bottom, left top, from(#83edd4), to(#49dd4a));
+  background: linear-gradient(0deg, #83edd4 0%, #49dd4a 100%);
+  -webkit-box-shadow: inset 0 -2px 0 #37b837;
+          box-shadow: inset 0 -2px 0 #37b837;
+}
+
+.mp_content .mp_filters_2 span:nth-child(2):active {
+  -webkit-box-shadow: inset 0 0px 0 #37b837;
+          box-shadow: inset 0 0px 0 #37b837;
+}
+
+.mp_price_filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.mp_price_filter p {
+  width: 100%;
+  margin-left: 2px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.mp_price_filter input {
+  width: 60px;
+  height: 40px;
+  border-radius: 10px;
+  border: 3px solid #333;
+  font-weight: 700;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  text-indent: 7px;
+}
+
+.mp_price_filter input::-webkit-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #333;
+  opacity: 1;
+  /* Firefox */
+}
+
+.mp_price_filter input:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #333;
+  opacity: 1;
+  /* Firefox */
+}
+
+.mp_price_filter input::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #333;
+  opacity: 1;
+  /* Firefox */
+}
+
+.mp_price_filter input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #333;
+  opacity: 1;
+  /* Firefox */
+}
+
+.mp_price_filter input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #333;
+}
+
+.mp_price_filter input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #333;
+}
+
+.mp_price_filter button {
+  width: 65px;
+  height: 48px;
+  border-radius: 10px;
+  border: 3px solid #333;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  background: -webkit-gradient(linear, left bottom, left top, from(#b4f3ff), to(#78e1fc));
+  background: linear-gradient(0deg, #b4f3ff 0%, #78e1fc 100%);
+  -webkit-box-shadow: inset 0 -2px 0 #57b1a8;
+          box-shadow: inset 0 -2px 0 #57b1a8;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.mp_price_filter button:active {
+  -webkit-box-shadow: inset 0 0px 0 #57b1a8;
+          box-shadow: inset 0 0px 0 #57b1a8;
+}
+
+.mp_price_filter input::-webkit-outer-spin-button,
+.mp_price_filter input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mp_filter_container {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 6px;
+}
+
+.mp_filter_container .mp_filter_selections {
+  width: 100%;
+  height: 0px;
+  background: white;
+  border: 0px solid #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 0;
+  border-radius: 10px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.mp_filter_container .mp_filter_selections .mp_filter_option {
+  width: 100%;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  padding-left: 2.7em;
+  opacity: 0;
+  font-weight: 600;
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
+}
+
+.mp_filter_container .mp_filter_selections .mp_filter_option .checkmark {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  height: 22px;
+  width: 22px;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.mp_filter_container .mp_filter_selections .mp_filter_option .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.mp_filter_container .mp_filter_selections .mp_filter_option:hover input ~ .checkmark {
+  background: #ccc;
+}
+
+.mp_filter_container .mp_filter_selections .mp_filter_option input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  /* When the radio button is checked, add a blue background */
+}
+
+.mp_filter_container .mp_filter_selections .mp_filter_option input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.mp_filter_container .mp_dropdown_input {
+  position: absolute;
+  opacity: 0;
+}
+
+.mp_filter_container .mp_dropdown_input:checked ~ .mp_filter_selections > .mp_filter_option {
+  opacity: 1;
+}
+
+.mp_filter_container .mp_dropdown_input:checked ~ .mp_filter_selections {
+  height: calc(100% - 60px);
+  padding: 0.2em 0;
+  border: 3px solid #333;
+  opacity: 1;
+  margin-top: 6px;
+}
+
+.mp_filter_container .mp_filter_button {
+  width: 100%;
+  height: 50px;
+  min-height: 50px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#b4f3ff), to(#78e1fc));
+  background: linear-gradient(0deg, #b4f3ff 0%, #78e1fc 100%);
+  -webkit-box-shadow: inset 0 -2px 0 #57b1a8;
+          box-shadow: inset 0 -2px 0 #57b1a8;
+  border: 3px solid #333;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mp_filter_container .mp_filter_button:active {
+  -webkit-box-shadow: inset 0 0px 0 #57b1a8;
+          box-shadow: inset 0 0px 0 #57b1a8;
+}
+
+.mp_filter_container .mp_filter_button p {
+  margin-left: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.mp_filter_container .mp_filter_button span {
+  width: 20px;
+  margin-right: 10px;
+  height: 20px;
+  background: #333;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .mp_container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mp_filters_container {
+    width: 100%;
+    height: 0px;
+    overflow: scroll;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    /* Hide scrollbar for IE, Edge and Firefox */
+  }
+  .mp_filters_container::-webkit-scrollbar {
+    display: none;
+  }
+  .mp_filters_container {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mp_filters_container {
+    height: calc(100vh - 80px);
+  }
+}
+
+.mynft_container {
+  min-height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  padding-top: 0.6em;
+}
+
+.loading_container_for_myNFT {
+  width: 100px;
+  height: 520px;
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loading_container {
+  width: 100px;
+  height: 520px;
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pagination_control {
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+}
+
+.pagination_control .pagi_num {
+  width: 35px;
+  height: 35px;
+  margin: 0 5px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-animation: fade-in-up 0.3s ease-in-out;
+          animation: fade-in-up 0.3s ease-in-out;
+}
+
+@-webkit-keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    margin-top: 5px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    margin-top: 5px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+.pagination_control .pagi_num:hover {
+  background: #333;
+  color: white;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination_control .pagi_num:active {
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.pagination_control .pagi_button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  font-weight: 1000;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+          box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.pagination_control .pagi_button:hover {
+  background: #333;
+  color: white;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination_control .pagi_button:active {
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.pagination_control .active_page {
+  background: -webkit-gradient(linear, left bottom, left top, from(#183f67), to(#100f52));
+  background: linear-gradient(0deg, #183f67 0%, #100f52 100%);
+  color: white;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.user_nfts_cont {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.user_nfts_cont .user_nfts_cards {
+  width: 1200px;
+  height: auto;
+  min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px 40px;
+  padding: 10px 20px 7px 20px;
+}
+
+.user_nfts_filter_cont {
+  width: 100%;
+  min-height: 50px;
+  height: auto;
+  margin-top: 10px;
+  padding: 0px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user_nfts_filter_cont .user_nfts_filter {
+  width: 1200px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection {
+  width: auto;
+  min-width: 220px;
+  height: auto;
+  min-height: 40px;
+  background: #333;
+  -webkit-transform: skewX(25deg);
+          transform: skewX(25deg);
+  border-radius: 10px;
+  margin-left: auto;
+  gap: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  z-index: 5;
+  padding: 0.4em 0em;
+  margin-right: 10px;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .filter_selection_cont {
+  width: 100%;
+  height: 100%;
+  -webkit-transform: skewX(-25deg);
+          transform: skewX(-25deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 15px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection p {
+  margin-left: 15px;
+  font-weight: 700;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select:nth-child(1) {
+  z-index: 5;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select:nth-child(2) {
+  z-index: 4;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select:nth-child(3) {
+  z-index: 3;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select {
+  min-width: 50px;
+  height: 38px;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  cursor: pointer;
+  position: relative;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select-active {
+  overflow: hidden;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select .custom_option_selected {
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+  background: white;
+  -webkit-box-shadow: inset 0 -2px 0 #d3d3d3;
+          box-shadow: inset 0 -2px 0 #d3d3d3;
+  padding-right: 1.3em;
+  padding-left: 0.7em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 500;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select .custom_select_options {
+  min-width: 90px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 0px;
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 90%;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  z-index: -1;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select .custom_select_options .custom_select_option:nth-child(1) {
+  margin-top: 2px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select .custom_select_options .custom_select_option {
+  background: white;
+  padding: 0.7em;
+  cursor: pointer;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select .custom_select_options .custom_select_option:hover {
+  background: #333;
+  color: white;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection .custom_select .custom_select_options.active {
+  height: auto;
+  opacity: 1;
+  top: 100%;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection::before {
+  content: '';
+  width: 100px;
+  height: 100%;
+  background: #333;
+  border-radius: 10px;
+  -webkit-transform: skewX(-25deg);
+          transform: skewX(-25deg);
+  right: -23px;
+  position: absolute;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection span:nth-child(1) {
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  left: 0px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_selection span:nth-child(1)::before {
+  content: '';
+  width: 120px;
+  height: 100%;
+  position: absolute;
+  left: -41px;
+  -webkit-transform: skewX(-25deg);
+          transform: skewX(-25deg);
+  background: url("http://localhost:3000/images/circle-orange-pattern-right.png") 100% 0% no-repeat;
+  opacity: 0.4;
+  background-size: 100%;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_total_heroes {
+  width: 220px;
+  height: 50px;
+  background: #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  -webkit-transform: skewX(-25deg);
+          transform: skewX(-25deg);
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_total_heroes::before {
+  content: '';
+  width: 40px;
+  height: 100%;
+  background: #333;
+  border-radius: 10px;
+  -webkit-transform: skewX(25deg);
+          transform: skewX(25deg);
+  left: -12px;
+  position: absolute;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_total_heroes span:nth-child(1) {
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  right: 0;
+  overflow: hidden;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_total_heroes span:nth-child(1)::before {
+  content: '';
+  width: 120px;
+  height: 100%;
+  position: absolute;
+  right: -41px;
+  -webkit-transform: skewX(25deg);
+          transform: skewX(25deg);
+  background: url("http://localhost:3000/images/circle-orange-pattern-left.png") 100% 0% no-repeat;
+  opacity: 0.4;
+  background-size: 100%;
+}
+
+.user_nfts_filter_cont .user_nfts_filter .filter_total_heroes p {
+  margin-left: 10px;
+  -webkit-transform: skewX(25deg);
+          transform: skewX(25deg);
+}
+
+.nft_link {
+  text-decoration: none;
+  color: black;
+}
+
+.reg_password_container {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.reg_button {
+  padding: 15px 82px;
+}
+
+.reg_pass_input {
+  margin-top: 15px;
+}
+
+.forgot_pass_container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: grey;
+  z-index: 2;
+}
+
+.mint_boxes {
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - 60px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
+.mint_box {
+  width: 250px;
+  height: 550px;
+}
+
+.mint_box .mint_box_img_cont {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.mint_box .mint_box_img_cont img {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.mint_box .mint_box_tile_cont {
+  width: 100%;
+  height: 140px;
+  position: relative;
+  z-index: 1;
+}
+
+.mint_box .mint_box_tile_cont img {
+  width: 300px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.mint_box .mint_box_buy_cont {
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-top: 10px;
+}
+
+.mint_box .mint_box_buy_cont .mint_button {
+  border: 3px solid #333;
+  width: 80px;
+  height: 80px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffe17f), to(#fcc578));
+  background: linear-gradient(0deg, #ffe17f 0%, #fcc578 100%);
+  border-radius: 15px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Poppins', sans-serif;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 2;
+  -webkit-box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 -3px 0 #eead52;
+          box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 -3px 0 #eead52;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.mint_box .mint_box_buy_cont .mint_button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: -5px 5px 0 rgba(0, 0, 0, 0.2), inset 0 -3px 0 #cfa255;
+          box-shadow: -5px 5px 0 rgba(0, 0, 0, 0.2), inset 0 -3px 0 #cfa255;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.mint_box .mint_box_buy_cont .mint_button:active {
+  -webkit-box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 -5px 0 #eb994d, inset 0 5px 0 #f5ed5d;
+          box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 -5px 0 #eb994d, inset 0 5px 0 #f5ed5d;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.mint_box .mint_box_buy_cont .mint_button p {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #333;
+}
+
+.mint_box .mint_box_buy_cont .mint_desc {
+  position: absolute;
+  width: 80%;
+  margin-left: 30px;
+  height: 60px;
+  background: #333;
+  background-size: 100px 100px;
+  border-radius: 10px;
+  top: 50%;
+  -webkit-transform: skewX(-25deg) translate(0, -50%);
+          transform: skewX(-25deg) translate(0, -50%);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.mint_box .mint_box_buy_cont .mint_desc p {
+  -webkit-transform: skewX(25deg);
+          transform: skewX(25deg);
+  z-index: 1;
+}
+
+.mint_box .mint_box_buy_cont .mint_desc p:nth-child(1) {
+  margin: 8px 0px 0px 35px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.mint_box .mint_box_buy_cont .mint_desc p:nth-child(2) {
+  margin: 2px 0px 0px 47px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.mint_box .mint_box_buy_cont .mint_desc::before {
+  content: '';
+  height: 60px;
+  width: 90%;
+  position: absolute;
+  background: url("https://i.ibb.co/4MX0mvq/circle-orange-pattern-left.png") 100% 0% no-repeat;
+  background-size: 100px;
+  opacity: 0.2;
+  top: 0%;
+  right: -20%;
+  -webkit-transform: skewX(25deg);
+          transform: skewX(25deg);
+  z-index: 0;
+}
+
+.mint_box .mint_box_desc_cont {
+  margin-top: 5px;
+  width: 100%;
+  height: 180px;
+  position: relative;
+  overflow: visible;
+  margin-top: 12px;
+}
+
+.mint_box .mint_box_desc_cont .chances_desc_header {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 50px;
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#b4f3ff), to(#78e1fc));
+  background: linear-gradient(0deg, #b4f3ff 0%, #78e1fc 100%);
+  right: 5%;
+  top: -12%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 3px solid #333;
+  -webkit-box-shadow: inset 0 -3px 0 #57b1a8;
+          box-shadow: inset 0 -3px 0 #57b1a8;
+}
+
+.mint_box .mint_box_desc_cont .chances_desc_header p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.mint_box .mint_box_desc_cont .chances_perc_cont {
+  width: 100%;
+  border-radius: 7px;
+  height: 100%;
+  background: #333;
+  -webkit-box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+  padding-top: 27px;
+}
+
+.mint_box .mint_box_desc_cont .chances_perc_cont .chances_perc {
+  height: 35px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-weight: 600;
+}
+
+.mint_box .mint_box_desc_cont .chances_perc_cont .chances_perc .chances_percentage {
+  height: 30px;
+  width: 30px;
+  margin: 0px 15px 0px 20px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+}
+
+.common {
+  background: white;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.uncommon {
+  background: #f7da7e;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.rare {
+  background: gold;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.epic {
+  background: #f476f8;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.legendary {
+  background: #2adae0;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.mint_anim_cont {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.mint_anim_cont .mint_frame_cont {
+  width: 400px;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.mint_anim_cont .mint_frame_cont .mint_frame_img {
+  -webkit-transform: scale(0.4);
+          transform: scale(0.4);
+}
+
+.mint_anim_cont .mint_frame_cont .mint_box_star {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+}
+
+.mint_anim_cont .mint_frame_cont .s_ct_left {
+  top: 25.6%;
+  left: 36%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_ct_right {
+  top: 25.6%;
+  right: 32%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_cb_left {
+  bottom: 23%;
+  left: 36.4%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_cr_top {
+  top: 37.6%;
+  right: 23%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_cr_bottom {
+  bottom: 34.6%;
+  right: 23%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_cl_top {
+  top: 37.6%;
+  left: 25.4%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_cl_bottom {
+  bottom: 34.6%;
+  left: 25.4%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_cb_right {
+  bottom: 23%;
+  right: 33.4%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_l_top {
+  top: 37.6%;
+  left: -29.8%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_l_bottom {
+  bottom: 34.6%;
+  left: -29.8%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_lt_left {
+  top: 32%;
+  left: -12.6%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_lt_right {
+  top: 32%;
+  left: 8.4%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_lb_left {
+  bottom: 29.5%;
+  left: -12.6%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_lb_right {
+  bottom: 29.5%;
+  left: 8.4%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_r_top {
+  top: 37.6%;
+  right: -32.8%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_r_bottom {
+  bottom: 33.6%;
+  right: -32.8%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_rt_left {
+  top: 32%;
+  right: 4.2%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_rt_right {
+  top: 32%;
+  right: -15.8%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_rb_left {
+  bottom: 29.5%;
+  right: 4.2%;
+}
+
+.mint_anim_cont .mint_frame_cont .s_rb_right {
+  bottom: 29.5%;
+  right: -15.8%;
+}
+
+.mint_anim_cont .star_glow_anim_1::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: -1;
+  -webkit-animation: star_glow_1 3s linear;
+          animation: star_glow_1 3s linear;
+}
+
+@-webkit-keyframes star_glow_1 {
+  0% {
+    -webkit-box-shadow: 0px 0px 30px 15px white;
+            box-shadow: 0px 0px 30px 15px white;
+  }
+  20% {
+    -webkit-box-shadow: 0px 0px 30px 15px #247bee;
+            box-shadow: 0px 0px 30px 15px #247bee;
+  }
+  40% {
+    -webkit-box-shadow: 0px 0px 30px 15px #ff1f1f;
+            box-shadow: 0px 0px 30px 15px #ff1f1f;
+  }
+  60% {
+    -webkit-box-shadow: 0px 0px 30px 15px #cf10b6;
+            box-shadow: 0px 0px 30px 15px #cf10b6;
+  }
+  80% {
+    -webkit-box-shadow: 0px 0px 30px 15px #f3f56f;
+            box-shadow: 0px 0px 30px 15px #f3f56f;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 30px 15px white;
+            box-shadow: 0px 0px 30px 15px white;
+  }
+}
+
+@keyframes star_glow_1 {
+  0% {
+    -webkit-box-shadow: 0px 0px 30px 15px white;
+            box-shadow: 0px 0px 30px 15px white;
+  }
+  20% {
+    -webkit-box-shadow: 0px 0px 30px 15px #247bee;
+            box-shadow: 0px 0px 30px 15px #247bee;
+  }
+  40% {
+    -webkit-box-shadow: 0px 0px 30px 15px #ff1f1f;
+            box-shadow: 0px 0px 30px 15px #ff1f1f;
+  }
+  60% {
+    -webkit-box-shadow: 0px 0px 30px 15px #cf10b6;
+            box-shadow: 0px 0px 30px 15px #cf10b6;
+  }
+  80% {
+    -webkit-box-shadow: 0px 0px 30px 15px #f3f56f;
+            box-shadow: 0px 0px 30px 15px #f3f56f;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 30px 15px white;
+            box-shadow: 0px 0px 30px 15px white;
+  }
+}
+
+.mint_anim_cont .star_glow_anim_2::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: -1;
+  -webkit-animation: star_glow_2 3s linear;
+          animation: star_glow_2 3s linear;
+}
+
+@-webkit-keyframes star_glow_2 {
+  0% {
+    -webkit-box-shadow: 0px 0px 30px 15px #cf10b6;
+            box-shadow: 0px 0px 30px 15px #cf10b6;
+  }
+  20% {
+    -webkit-box-shadow: 0px 0px 30px 15px #f3f56f;
+            box-shadow: 0px 0px 30px 15px #f3f56f;
+  }
+  40% {
+    -webkit-box-shadow: 0px 0px 30px 15px white;
+            box-shadow: 0px 0px 30px 15px white;
+  }
+  60% {
+    -webkit-box-shadow: 0px 0px 30px 15px #ff1f1f;
+            box-shadow: 0px 0px 30px 15px #ff1f1f;
+  }
+  80% {
+    -webkit-box-shadow: 0px 0px 30px 15px #247bee;
+            box-shadow: 0px 0px 30px 15px #247bee;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 30px 15px #cf10b6;
+            box-shadow: 0px 0px 30px 15px #cf10b6;
+  }
+}
+
+@keyframes star_glow_2 {
+  0% {
+    -webkit-box-shadow: 0px 0px 30px 15px #cf10b6;
+            box-shadow: 0px 0px 30px 15px #cf10b6;
+  }
+  20% {
+    -webkit-box-shadow: 0px 0px 30px 15px #f3f56f;
+            box-shadow: 0px 0px 30px 15px #f3f56f;
+  }
+  40% {
+    -webkit-box-shadow: 0px 0px 30px 15px white;
+            box-shadow: 0px 0px 30px 15px white;
+  }
+  60% {
+    -webkit-box-shadow: 0px 0px 30px 15px #ff1f1f;
+            box-shadow: 0px 0px 30px 15px #ff1f1f;
+  }
+  80% {
+    -webkit-box-shadow: 0px 0px 30px 15px #247bee;
+            box-shadow: 0px 0px 30px 15px #247bee;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 30px 15px #cf10b6;
+            box-shadow: 0px 0px 30px 15px #cf10b6;
+  }
+}
+
+.mint_anim_cont .star_glow_common::before {
+  -webkit-box-shadow: 0px 0px 30px 15px white;
+          box-shadow: 0px 0px 30px 15px white;
+}
+
+.mint_anim_cont .star_glow_uncommon::before {
+  -webkit-box-shadow: 0px 0px 30px 15px #f3f56f;
+          box-shadow: 0px 0px 30px 15px #f3f56f;
+}
+
+.mint_anim_cont .star_glow_rare::before {
+  -webkit-box-shadow: 0px 0px 30px 30px #ff1f1f;
+          box-shadow: 0px 0px 30px 30px #ff1f1f;
+}
+
+.mint_anim_cont .star_glow_epic::before {
+  -webkit-box-shadow: 0px 0px 30px 25px #cf10b6;
+          box-shadow: 0px 0px 30px 25px #cf10b6;
+}
+
+.mint_anim_cont .star_glow_legendary::before {
+  -webkit-box-shadow: 0px 0px 20px 4px #407cca, 0px 0px 30px 25px #a2caff;
+          box-shadow: 0px 0px 20px 4px #407cca, 0px 0px 30px 25px #a2caff;
+}
+
+.mint_hero_char_cont {
+  width: 640px;
+  height: 150px;
+  background: #3b2f4b;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+.mint_hero_char_cont .mint_hero_char_cards {
+  width: 200%;
+  height: 80px;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 7px;
+  -webkit-animation: marquee 3s ease-in-out;
+          animation: marquee 3s ease-in-out;
+  left: -110%;
+}
+
+.mint_hero_char_cont .mint_hero_char_card {
+  min-width: 90px;
+  min-height: 90px;
+  max-width: 90px;
+  max-height: 90px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mint_hero_char_cont .minted_card {
+  background: red;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -110%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -110%;
+  }
+}
+
+.mint_anim_back_button {
+  width: 176px;
+  height: 49px;
+  background: #e82b3f;
+  position: absolute;
+  top: 76%;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  border-radius: 10px;
+  border: 6px solid #ff5650;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  -webkit-animation: mint_button_fade_in 3s linear;
+          animation: mint_button_fade_in 3s linear;
+}
+
+@-webkit-keyframes mint_button_fade_in {
+  0% {
+    top: 50%;
+    z-index: -1;
+  }
+  95% {
+    top: 50%;
+    z-index: -1;
+  }
+  100% {
+    top: 76%;
+  }
+}
+
+@keyframes mint_button_fade_in {
+  0% {
+    top: 50%;
+    z-index: -1;
+  }
+  95% {
+    top: 50%;
+    z-index: -1;
+  }
+  100% {
+    top: 76%;
+  }
+}
+
+.mint_char_roulette {
+  position: absolute;
+  width: 152px;
+  height: 152px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.char_roulette_anim {
+  position: absolute;
+  top: 50%;
+  left: 47%;
+  -webkit-transform: translate(-50%, -50%) scale(1.5);
+          transform: translate(-50%, -50%) scale(1.5);
+}
+
+@-webkit-keyframes roulette {
+  0% {
+    top: -50%;
+  }
+  95% {
+    top: -50%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@keyframes roulette {
+  0% {
+    top: -50%;
+  }
+  95% {
+    top: -50%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@-webkit-keyframes sprite_idle_s {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -128px;
+  }
+}
+
+@keyframes sprite_idle_s {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -128px;
+  }
+}
+
+@-webkit-keyframes sprite_idle_m {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -160px;
+  }
+}
+
+@keyframes sprite_idle_m {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -160px;
+  }
+}
+
+@-webkit-keyframes sprite_idle_l {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -168px;
+  }
+}
+
+@keyframes sprite_idle_l {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -168px;
+  }
+}
+
+@-webkit-keyframes sprite_idle_xl {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -192px;
+  }
+}
+
+@keyframes sprite_idle_xl {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -192px;
+  }
+}
+
+@-webkit-keyframes sprite_idle_xxl {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -312px;
+  }
+}
+
+@keyframes sprite_idle_xxl {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -312px;
+  }
+}
+
+@-webkit-keyframes sprite_idle_xxxl {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -384px;
+  }
+}
+
+@keyframes sprite_idle_xxxl {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -384px;
+  }
+}
+
+.mint_hero_rarity {
+  position: absolute;
+  content: '';
+  top: 22%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation: rarity_text_fade_in 3s linear;
+          animation: rarity_text_fade_in 3s linear;
+}
+
+.mint_hero_rarity .rarity_img {
+  width: 30vw;
+  min-width: 320px;
+}
+
+@-webkit-keyframes rarity_text_fade_in {
+  0% {
+    top: 50%;
+  }
+  95% {
+    top: 50%;
+  }
+  100% {
+    top: 22%;
+  }
+}
+
+@keyframes rarity_text_fade_in {
+  0% {
+    top: 50%;
+  }
+  95% {
+    top: 50%;
+  }
+  100% {
+    top: 22%;
+  }
+}
+
+.user_nfts_card {
+  width: 180px;
+  height: 250px;
+  min-width: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  -webkit-animation: fade-in-center 0.3s ease-in-out;
+          animation: fade-in-center 0.3s ease-in-out;
+}
+
+@-webkit-keyframes fade-in-center {
+  0% {
+    opacity: 0;
+    margin-left: 5px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+
+@keyframes fade-in-center {
+  0% {
+    opacity: 0;
+    margin-left: 5px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+
+.user_nfts_card .user_nfts_card_hero {
+  position: absolute;
+  width: 100%;
+  height: 85%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.9);
+          box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.9);
+  background: -webkit-gradient(linear, left bottom, left top, from(#183f67), to(#100f52));
+  background: linear-gradient(0deg, #183f67 0%, #100f52 100%);
+  z-index: 2;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_common::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_uncommon1::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_uncommon2::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_rare::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_magician::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_herald::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_vampire::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_monk::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_epic::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_darklord::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_scarletangel::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_shiva::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_titan::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_bahamut::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_unrare::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_leviathan::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_siren::before, .user_nfts_card .user_nfts_card_hero .hero_card_bg_phoenix::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-filter: brightness(80%) contrast(200%);
+          filter: brightness(80%) contrast(200%);
+  mix-blend-mode: color-dodge;
+  z-index: -1;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_common::before {
+  background: url("https://i.ibb.co/bFgjTfH/Shaman17.png") no-repeat;
+  background-size: 100%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_uncommon1::before {
+  background: url("https://i.ibb.co/59y6rcv/Electromancer16.png") no-repeat center;
+  background-size: 100%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_phoenix::before {
+  background: url("https://i.ibb.co/7bjZC3b/bg-phoenix.png") no-repeat center;
+  background-size: 100%;
+  top: 40%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_bahamut::before {
+  background: url("https://i.ibb.co/VBpKJdD/bg-bahamut.png") no-repeat center;
+  background-size: 100%;
+  -webkit-transform: rotate(138deg);
+          transform: rotate(138deg);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  top: 38%;
+  left: 117%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_siren::before {
+  background: url("https://i.ibb.co/qyMXMnh/bg-siren.png") no-repeat center;
+  background-size: 110%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_leviathan::before {
+  background: url("https://i.ibb.co/F0W61qg/Deathknight14.png") no-repeat center;
+  background-size: 110%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_titan::before {
+  background: url("https://i.ibb.co/zFmC08h/Geomancer5.png") no-repeat center;
+  background-size: 110%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_shiva::before {
+  background: url("https://i.ibb.co/1Q6CC1R/Spell-Book-Preface15.png") no-repeat center;
+  background-size: 110%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_scarletangel::before {
+  background: url("https://i.ibb.co/5kb7fvD/Enchanter2.png") no-repeat center;
+  background-size: 110%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_darklord::before {
+  background: url("https://i.ibb.co/JmkQ7Bx/Spell-Book-Preface01.png") no-repeat center;
+  background-size: 110%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_herald::before {
+  background: url("https://i.ibb.co/DW18wyw/Cultist12.png") no-repeat;
+  background-size: 100%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_magician::before {
+  background: url("https://i.ibb.co/wrhwh8V/bg-leviathan.png") no-repeat center;
+  background-size: 100%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_monk::before {
+  background: url("https://i.ibb.co/8xMtvP1/Berserker10.png") no-repeat center;
+  background-size: 110%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_bg_vampire::before {
+  background: url("https://i.ibb.co/NNtx7yc/Necromancer3.png") no-repeat center;
+  background-size: 110%;
+  top: 50%;
+  left: 50%;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_img {
+  width: 100%;
+  height: 64%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_desc {
+  width: 100%;
+  height: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-left: 10px;
+  color: #b5f6ff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_sell_button {
+  width: 100%;
+  height: 21%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_sell_button p {
+  color: white;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_sell_button button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  padding: 0.5em;
+  cursor: pointer;
+  height: 70%;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  background: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 2px 2px 10px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 2px 2px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.user_nfts_card .user_nfts_card_hero .hero_card_sell_button button:active {
+  -webkit-box-shadow: inset 0px 0px 0px #aaaaaa;
+          box-shadow: inset 0px 0px 0px #aaaaaa;
+}
+
+.user_nfts_card:active > .user_nfts_card_hero > .hero_card_sell_button > button {
+  -webkit-box-shadow: inset 0px 0px 0px #aaaaaa;
+          box-shadow: inset 0px 0px 0px #aaaaaa;
+}
+
+.user_nfts_card .nfts_card_header_common, .user_nfts_card .nfts_card_header_uncommon, .user_nfts_card .nfts_card_header_rare, .user_nfts_card .nfts_card_header_epic, .user_nfts_card .nfts_card_header_legendary {
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: -10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 10px;
+  font-weight: 700;
+  z-index: 1;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.user_nfts_card .nfts_card_header_common {
+  background: radial-gradient(circle, white 0%, #b5b1b1 100%);
+  -webkit-box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
+          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
+}
+
+.user_nfts_card .nfts_card_header_uncommon {
+  background: radial-gradient(circle, #f7ff67 0%, #e2bb1f 100%);
+  -webkit-box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
+          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
+}
+
+.user_nfts_card .nfts_card_header_rare {
+  background: radial-gradient(circle, #faa6a6 0%, #d52727 100%);
+  -webkit-box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
+          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
+}
+
+.user_nfts_card .nfts_card_header_epic {
+  background: radial-gradient(circle, #f170ff 0%, #781d9f 100%);
+  -webkit-box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
+          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4);
+}
+
+.user_nfts_card .nfts_card_header_legendary {
+  background: radial-gradient(circle, #99eff0 0%, #2095b4 100%);
+  -webkit-box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4), 0px 20px 0px red;
+          box-shadow: inset 0px -26px 0px rgba(255, 255, 255, 0.4), 0px 20px 0px red;
+}
+
+.transac {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.2);
+  color: red;
+}
+
+.vc_container {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1em;
+  position: relative;
+}
+
+.vc_loading svg {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  display: inline-block;
+}
+
+.vc_error {
+  width: auto;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.vc_sold {
+  width: auto;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.vc_back_button {
+  width: 100%;
+  max-width: 700px;
+  height: 50px;
+  min-height: 50px;
+}
+
+.vc_back_button a button {
+  width: 100px;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffe17f), to(#fcc578));
+  background: linear-gradient(0deg, #ffe17f 0%, #fcc578 100%);
+  -webkit-box-shadow: inset 0 -2px 0 #eead52;
+          box-shadow: inset 0 -2px 0 #eead52;
+  border: 3px solid #333;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  cursor: pointer;
+}
+
+.vc_back_button a button:active {
+  -webkit-box-shadow: inset 0 0px 0 #eead52;
+          box-shadow: inset 0 0px 0 #eead52;
+}
+
+.vc_nft_card_container {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  position: relative;
+  margin-top: 20px;
+}
+
+[class*='vc_nft_header_'] {
+  width: 100%;
+  height: 100px;
+  border-radius: 15px 15px 0px 0px;
+  padding-bottom: 1em;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-weight: 700;
+  color: #333;
+}
+
+[class*='vc_nft_header_'] p:nth-child(1) {
+  font-size: 2rem;
+}
+
+[class*='vc_nft_header_'] p:nth-child(2) {
+  font-size: 1.1rem;
+}
+
+.vc_nft_header_common {
+  background: radial-gradient(circle, white 0%, #b5b1b1 100%);
+  -webkit-box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px white;
+          box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px white;
+}
+
+.vc_nft_header_uncommon {
+  background: radial-gradient(circle, #f7ff67 0%, #e2bb1f 100%);
+  -webkit-box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px #f7ff67;
+          box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px #f7ff67;
+}
+
+.vc_nft_header_rare {
+  background: radial-gradient(circle, #faa6a6 0%, #d52727 100%);
+  -webkit-box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px #faa6a6;
+          box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px #faa6a6;
+}
+
+.vc_nft_header_epic {
+  background: radial-gradient(circle, #f170ff 0%, #781d9f 100%);
+  -webkit-box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -9px 48px 1px #f49bfa;
+          box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -9px 48px 1px #f49bfa;
+}
+
+.vc_nft_header_legendary {
+  background: radial-gradient(circle, #99eff0 0%, #2095b4 100%);
+  -webkit-box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px #99eff0;
+          box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px #99eff0;
+}
+
+[class*='vc_nft_content_'] {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  background: #333;
+  margin-top: 80px;
+  position: relative;
+  padding-top: 1.5em;
+}
+
+.vc_nft_content_common {
+  -webkit-box-shadow: inset 0px 16px 29px -24px white, 0px -1px 44px -5px;
+          box-shadow: inset 0px 16px 29px -24px white, 0px -1px 44px -5px;
+}
+
+.vc_nft_content_uncommon {
+  -webkit-box-shadow: inset 0px 16px 29px -24px #f7ff67, 0px -1px 44px -5px;
+          box-shadow: inset 0px 16px 29px -24px #f7ff67, 0px -1px 44px -5px;
+}
+
+.vc_nft_content_rare {
+  -webkit-box-shadow: inset 0px 16px 29px -24px #ff9191, 0px -1px 44px -5px;
+          box-shadow: inset 0px 16px 29px -24px #ff9191, 0px -1px 44px -5px;
+}
+
+.vc_nft_content_epic {
+  -webkit-box-shadow: inset 0px 16px 29px -24px #f49bfa, 0px -1px 44px -5px;
+          box-shadow: inset 0px 16px 29px -24px #f49bfa, 0px -1px 44px -5px;
+}
+
+.vc_nft_content_legendary {
+  -webkit-box-shadow: inset 0px 16px 29px -24px #99eff0, 0px -1px 44px -5px;
+          box-shadow: inset 0px 16px 29px -24px #99eff0, 0px -1px 44px -5px;
+}
+
+.vc_nft_hero_data {
+  width: 100%;
+  min-height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.vc_nft_hero_data .vc_nft_img {
+  width: 200px;
+  height: 200px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.vc_nft_hero_data .vc_nft_img span {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: white;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  -webkit-box-shadow: 0px 0px 42px 35px white;
+          box-shadow: 0px 0px 42px 35px white;
+}
+
+.vc_nft_hero_data .vc_nft_stats {
+  width: calc(100% - 250px);
+  min-width: 230px;
+  min-height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  padding: 1em 1em;
+}
+
+.vc_nft_hero_data .vc_nft_stats .vc_nft_stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40%;
+  min-width: 180px;
+  height: 50px;
+  position: relative;
+}
+
+.vc_nft_hero_data .vc_nft_stats .vc_nft_stat::before {
+  position: absolute;
+  content: '';
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 12%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 0;
+  -webkit-box-shadow: 0px 0px 48px 10px white;
+          box-shadow: 0px 0px 48px 10px white;
+}
+
+.vc_nft_hero_data .vc_nft_stats .nft_stat_desc {
+  color: white;
+  font-weight: 700;
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.vc_nft_hero_data .vc_nft_stats .nft_stat_desc p:nth-child(1) {
+  font-size: 1.7rem;
+}
+
+.vc_nft_hero_data .vc_nft_stats [class*='nft_stat_img_'] {
+  width: 50px;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.vc_nft_hero_data .vc_nft_stats .nft_stat_img_pAttack {
+  background: url("https://i.ibb.co/2WNXVB0/Icon37.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.vc_nft_hero_data .vc_nft_stats .nft_stat_img_mAttack {
+  background: url("https://i.ibb.co/f8tV2B4/Icon45.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.vc_nft_hero_data .vc_nft_stats .nft_stat_img_health {
+  background: url("https://i.ibb.co/rMG1RKV/Icon10.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.vc_nft_hero_data .vc_nft_stats .nft_stat_img_defence {
+  background: url("https://i.ibb.co/1m3JKxK/Icon12.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.vc_nft_hero_data .vc_nft_stats .nft_stat_img_speed {
+  background: url("https://i.ibb.co/XtfR3bg/Icon35.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.vc_nft_auction_data {
+  width: 100%;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: auto;
+}
+
+.vc_nft_auction_data .vc_auction_price {
+  width: 200px;
+  min-height: 100px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0.7em;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input {
+  color: white;
+  font-weight: 700;
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input input {
+  position: absolute;
+  top: -2%;
+  left: -16%;
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 4px;
+  text-indent: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1.7rem;
+  font-family: 'Poppins', sans-serif;
+  background: none;
+  color: white;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input input::-webkit-outer-spin-button, .vc_nft_auction_data .vc_auction_price .vc_auction_input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input input:active, .vc_nft_auction_data .vc_auction_price .vc_auction_input input:focus {
+  border: none;
+  outline: none;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input input::-webkit-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1;
+  /* Firefox */
+  text-indent: 5px;
+  font-weight: 700;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input input:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1;
+  /* Firefox */
+  text-indent: 5px;
+  font-weight: 700;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input input::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1;
+  /* Firefox */
+  text-indent: 5px;
+  font-weight: 700;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1;
+  /* Firefox */
+  text-indent: 5px;
+  font-weight: 700;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+  text-indent: 5px;
+  font-weight: 700;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+  text-indent: 5px;
+  font-weight: 700;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input p:nth-child(1) {
+  font-size: 1.7rem;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_input p:nth-child(2) {
+  margin-top: 27px;
+  margin-left: 1px;
+}
+
+.vc_nft_auction_data .vc_auction_price div:nth-child(1) {
+  width: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  height: 50px;
+  background: url("https://i.ibb.co/HTLhh2N/Icon47.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_price_text {
+  color: white;
+  font-weight: 700;
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_price_text p:nth-child(1) {
+  font-size: 1.7rem;
+}
+
+.vc_nft_auction_data .vc_auction_price .vc_auction_price_text p:nth-child(2) {
+  margin-left: 1px;
+}
+
+.vc_nft_auction_data .vc_auction_button {
+  width: 200px;
+  height: 100px;
+  width: calc(100% - 250px);
+  min-width: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.vc_nft_auction_data .vc_auction_button button {
+  height: 50px;
+  width: 90%;
+  min-width: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffe17f), to(#fcc578));
+  background: linear-gradient(0deg, #ffe17f 0%, #fcc578 100%);
+  -webkit-box-shadow: inset 0 -2px 0 #eead52;
+          box-shadow: inset 0 -2px 0 #eead52;
+  border: 3px solid #a0a0a0;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.vc_nft_auction_data .vc_auction_button button:active {
+  -webkit-box-shadow: inset 0 0px 0 #eead52;
+          box-shadow: inset 0 0px 0 #eead52;
+}
+
+[class*='hero_halo_']::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: brightness(80%) contrast(200%);
+          filter: brightness(80%) contrast(200%);
+  mix-blend-mode: color-dodge;
+  -webkit-box-shadow: inset 0px 0px 22px 20px #333;
+          box-shadow: inset 0px 0px 22px 20px #333;
+}
+
+.hero_halo_common1::before {
+  background: url("https://i.ibb.co/bFgjTfH/Shaman17.png") no-repeat;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_uncommon1::before {
+  background: url("https://i.ibb.co/59y6rcv/Electromancer16.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_phoenix::before {
+  background: url("https://i.ibb.co/7bjZC3b/bg-phoenix.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_bahamut::before {
+  background: url("https://i.ibb.co/VBpKJdD/bg-bahamut.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_siren::before {
+  background: url("https://i.ibb.co/qyMXMnh/bg-siren.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_leviathan::before {
+  background: url("https://i.ibb.co/F0W61qg/Deathknight14.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_titan::before {
+  background: url("https://i.ibb.co/zFmC08h/Geomancer5.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_shiva::before {
+  background: url("https://i.ibb.co/1Q6CC1R/Spell-Book-Preface15.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_scarletangel::before {
+  background: url("https://i.ibb.co/5kb7fvD/Enchanter2.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_darklord::before {
+  background: url("https://i.ibb.co/JmkQ7Bx/Spell-Book-Preface01.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_herald::before {
+  background: url("https://i.ibb.co/DW18wyw/Cultist12.png") no-repeat;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_magician::before {
+  background: url("https://i.ibb.co/wrhwh8V/bg-leviathan.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_monk::before {
+  background: url("https://i.ibb.co/8xMtvP1/Berserker10.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero_halo_vampire::before {
+  background: url("https://i.ibb.co/NNtx7yc/Necromancer3.png") no-repeat center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.welcome_logo_banner {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 10px;
+}
+
+.login_register_buttons {
+  width: 110%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.login_register_buttons .login_button {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(97deg, #32385d 0%, #100930 100%);
+  position: relative;
+  -webkit-transform: skew(-20deg) translateX(-7%);
+          transform: skew(-20deg) translateX(-7%);
+}
+
+.login_register_buttons .login_button:hover {
+  cursor: pointer;
+}
+
+.login_register_buttons .login_button::before {
+  position: absolute;
+  content: 'Login';
+  -webkit-transform: skew(20deg) translate(-50%, -50%);
+          transform: skew(20deg) translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.login_register_buttons .register_button {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  -webkit-transform: skew(-20deg) translateX(-7.3%);
+          transform: skew(-20deg) translateX(-7.3%);
+  background: linear-gradient(97deg, #100930 0%, #32385d 100%);
+}
+
+.login_register_buttons .register_button:hover {
+  cursor: pointer;
+}
+
+.login_register_buttons .register_button::before {
+  position: absolute;
+  content: 'Register';
+  -webkit-transform: skew(20deg) translate(-50%, -50%);
+          transform: skew(20deg) translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.welcome_forms_button_anim {
+  width: 110%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  pointer-events: none;
+  overflow: hidden;
+  left: -4%;
+  z-index: 1;
+}
+
+.welcome_forms_button_anim .login_button_active {
+  width: 50%;
+  height: 100%;
+  -webkit-transition: width ease-in-out 0.3s;
+  transition: width ease-in-out 0.3s;
+}
+
+.welcome_forms_button_anim .reg_button_active {
+  width: 0%;
+  height: 100%;
+  -webkit-transition: width ease-in-out 0.3s;
+  transition: width ease-in-out 0.3s;
+}
+
+.welcome_forms_button_anim > div:last-child {
+  width: 50%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transform: skew(-20deg);
+          transform: skew(-20deg);
+}
+
+.login_register_forms {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  top: 60px;
+  right: 100%;
+}
+
+.login_register_forms .login_active_form {
+  width: 100%;
+  height: 50%;
+  margin-right: 100%;
+  -webkit-transition: margin-right ease-out 0.3s;
+  transition: margin-right ease-out 0.3s;
+}
+
+.login_register_forms .reg_active_form {
+  width: 100%;
+  height: 50%;
+  margin-right: 0%;
+  -webkit-transition: margin-right ease-out 0.3s;
+  transition: margin-right ease-out 0.3s;
+}
+
+.login_register_forms .reg_active_form ~ .login_form_container {
+  left: -100%;
+  -webkit-transition: left ease-in-out 0.3s;
+  transition: left ease-in-out 0.3s;
+}
+
+.login_register_forms .login_form_container {
+  width: 100%;
+  height: auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  position: absolute;
+  left: 0%;
+  -webkit-transition: left ease-in-out 0.3s;
+  transition: left ease-in-out 0.3s;
+}
+
+.login_register_forms .reg_form_container {
+  width: 100%;
+  height: auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+}
+
+.alert_enter {
+  opacity: 0;
+  width: 0;
+}
+
+.alert_enter_active {
+  opacity: 1;
+  width: 100%;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: opacity 300ms, width 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, width 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms, width 300ms;
+  transition: opacity 300ms, transform 300ms, width 300ms, -webkit-transform 300ms;
+}
+
+.alert_exit {
+  opacity: 1;
+  width: 100%;
+}
+
+.alert_exit_active {
+  opacity: 0;
+  width: 0;
+  -webkit-transition: opacity 300ms, width 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, width 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms, width 300ms;
+  transition: opacity 300ms, transform 300ms, width 300ms, -webkit-transform 300ms;
+}
+/*# sourceMappingURL=main.css.map */

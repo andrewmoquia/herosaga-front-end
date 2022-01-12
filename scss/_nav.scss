@@ -1,4 +1,4 @@
-#main-nav {
+#main_nav {
    width: 100%;
    height: 60px;
    background: rgb(53, 123, 149);
@@ -12,7 +12,7 @@
    overflow: hidden;
    z-index: 99;
 }
-#nav-menu {
+#nav_menu {
    width: auto;
    height: 180px;
    display: flex;
@@ -22,15 +22,15 @@
    // background: red;
    // border: 1px solid black;
    // overflow: hidden;
-   #menu-changer {
+   #menu_changer {
       width: 100%;
    }
-   .menu-change-to-profile {
+   .menu_change_to_profile {
       height: 60px;
       background: yellow;
       transition: height ease 1s;
    }
-   .menu-change-to-main {
+   .menu_change_to_main {
       height: 0px;
       transition: height ease 1s;
    }
@@ -67,7 +67,7 @@
    }
 }
 
-.game-logo {
+.game_logo {
    width: 100px;
    height: 43px;
    min-width: 100px;
@@ -82,7 +82,7 @@
    font-size: 1.1rem;
 }
 
-.logo-icon {
+.logo_icon {
    width: 40px;
    height: 40px;
    min-width: 40px;
@@ -126,7 +126,7 @@
    }
 }
 
-.active-nav {
+.active_nav {
    background: rgba(26, 36, 77, 0.6);
    li {
       color: white;
@@ -134,11 +134,11 @@
    transition: background ease-in-out 0.2s;
    z-index: -2;
 }
-.inactive-nav {
+.inactive_nav {
    background: none;
    transition: background ease-in-out 0.2s;
 }
-.nav-icon {
+.nav_icon {
    width: 43px;
    height: 43px;
    background: none;
@@ -153,7 +153,7 @@
       transform: scale(0.07);
    }
 }
-.nav-icon::before {
+.nav_icon::before {
    content: '';
    width: 12px;
    height: 12px;

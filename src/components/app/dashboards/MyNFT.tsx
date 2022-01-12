@@ -5,8 +5,8 @@ import { runDispatch } from '../../actions/dispatch'
 import { useLocation, useHistory } from 'react-router'
 import Pagination from '../microsite/Pagination'
 import NFTCard from '../microsite/NFTCard'
-import { filterData } from '../../data/filtersData'
 import { Link } from 'react-router-dom'
+import s from '../../../../scss/main.css'
 
 function CreateNFTFIlter(props: any) {
    const {
@@ -20,22 +20,22 @@ function CreateNFTFIlter(props: any) {
    } = props
 
    return (
-      <div className="user-nfts-filter-cont">
-         <div className="user-nfts-filter">
-            <div className="filter-total-heroes">
+      <div className={s.user_nfts_filter_cont}>
+         <div className={s.user_nfts_filter}>
+            <div className={s.filter_total_heroes}>
                <span></span>
                <p>{`Heroes Owned: ${nftTotal ? nftTotal : 0}`}</p>
             </div>
-            <div className="filter-selection">
+            <div className={s.filter_selection}>
                <span></span>
-               <div className="filter-selection-cont">
+               <div className={s.filter_selection_cont}>
                   <p>Filter:</p>
                   {filterData.map((filterSelect: any) => {
                      const { filterType, options } = filterSelect
                      return (
-                        <div className="custom-select" key={filterType}>
+                        <div className={s.custom_select} key={filterType}>
                            <div
-                              className="custom-option-selected"
+                              className={s.custom_option_selected}
                               onClick={() => handleDDFilterAnim(filterType)}
                            >
                               {!filters[filterType]
@@ -43,14 +43,14 @@ function CreateNFTFIlter(props: any) {
                                  : filters[filterType]}
                            </div>
                            <div
-                              className={`custom-select-options ${
-                                 currDDFilter === filterType && activeDropdownFilter ? 'active' : ''
+                              className={`${s.custom_select_options} ${
+                                 currDDFilter === filterType && activeDropdownFilter ? s.active : ''
                               }`}
                            >
                               {options.map((option: any) => {
                                  return (
                                     <div
-                                       className="custom-select-option"
+                                       className={s.custom_select_option}
                                        onClick={() => handleSetFilter({ [filterType]: option })}
                                        key={option}
                                     >
@@ -59,7 +59,7 @@ function CreateNFTFIlter(props: any) {
                                  )
                               })}
                            </div>
-                           <div className="custom-arrow"></div>
+                           <div className={s.custom_arrow}></div>
                         </div>
                      )
                   })}
@@ -78,6 +78,7 @@ export default function MyNFT() {
       userQueryFilters,
       isFetchingNFT,
       searchParamsOnLoad,
+      userNFTfilterData,
       isFetchingFailed,
    } = state
    const { nfts, nftTotal, totalPage, page } = userNFTs
@@ -260,8 +261,8 @@ export default function MyNFT() {
             e.stopImmediatePropagation()
             e.stopPropagation()
             if (
-               e.target.className === 'custom-select-options' ||
-               e.target.className === 'custom-select-options active'
+               e.target.className === 'custom_select_options' ||
+               e.target.className === 'custom_select_options active'
             ) {
             } else {
                setActiveDropdownFilter(!activeDropdownFilter)
@@ -281,7 +282,7 @@ export default function MyNFT() {
       nftTotal,
       totalPage,
       page,
-      filterData,
+      filterData: userNFTfilterData,
       currDDFilter,
       activeDropdownFilter,
       filters,
@@ -290,14 +291,16 @@ export default function MyNFT() {
    }
 
    return (
-      <section className="main-bg">
-         <div className="mynft-container">
+      <section className={s.main_bg}>
+         <div className={s.mynft_container}>
             <CreateNFTFIlter {...props} />
-            <div className="user-nfts-cont">
-               <div className="user-nfts-cards">
-                  {isFetchingFailed && <div className="no-nft-found-for-myNFT ">No NFT found.</div>}
+            <div className={s.user_nfts_cont}>
+               <div className={s.user_nfts_cards}>
+                  {isFetchingFailed && (
+                     <div className={s.no_nft_found_for_myNFT}>No NFT found.</div>
+                  )}
                   {isFetchingNFT && (
-                     <div className="loading-container-for-myNFT">
+                     <div className={s.loading_container_for_myNFT}>
                         <svg
                            version="1.1"
                            id="L4"
@@ -342,7 +345,11 @@ export default function MyNFT() {
                   {nfts && !isFetchingNFT
                      ? nfts.map((nft: any) => {
                           return (
-                             <Link key={nft._id} to={`/myNFT/nft/${nft._id}`} className="nft-link">
+                             <Link
+                                key={nft._id}
+                                to={`/myNFT/nft/${nft._id}`}
+                                className={s.nft_link}
+                             >
                                 <NFTCard type="Sell" data={nft} />
                              </Link>
                           )

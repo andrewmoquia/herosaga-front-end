@@ -1,4 +1,4 @@
-.vc-container {
+.vc_container {
    width: 100%;
    min-height: calc(100vh - 60px);
    height: auto;
@@ -10,7 +10,7 @@
    padding: 1em;
    position: relative;
 }
-.vc-loading {
+.vc_loading {
    svg {
       width: 100px;
       height: 100px;
@@ -18,7 +18,7 @@
       display: inline-block;
    }
 }
-.vc-error {
+.vc_error {
    width: auto;
    height: 200px;
    display: flex;
@@ -27,7 +27,7 @@
    font-weight: 700;
    font-size: 2rem;
 }
-.vc-sold {
+.vc_sold {
    width: auto;
    height: 200px;
    display: flex;
@@ -36,7 +36,7 @@
    font-weight: 700;
    font-size: 2rem;
 }
-.vc-back-button {
+.vc_back_button {
    width: 100%;
    max-width: 700px;
    height: 50px;
@@ -52,7 +52,7 @@
          border-radius: 10px;
          font-weight: 700;
          font-size: 1.1rem;
-         font-family: $poppins;
+         font-family: 'Poppins', sans-serif;
          color: #333;
          cursor: pointer;
          &:active {
@@ -61,7 +61,7 @@
       }
    }
 }
-.vc-nft-card-container {
+.vc_nft_card_container {
    width: 100%;
    max-width: 700px;
    height: auto;
@@ -69,7 +69,7 @@
    margin-top: 20px;
 }
 
-[class*='vc-nft-header-'] {
+[class*='vc_nft_header_'] {
    width: 100%;
    height: 100px;
    border-radius: 15px 15px 0px 0px;
@@ -89,32 +89,32 @@
    }
 }
 
-.vc-nft-header {
-   &-common {
+.vc_nft_header {
+   &_common {
       background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(181, 177, 177, 1) 100%);
       box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px white;
    }
-   &-uncommon {
+   &_uncommon {
       background: radial-gradient(circle, rgba(247, 255, 103, 1) 0%, rgba(226, 187, 31, 1) 100%);
       box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4),
          0px -11px 32px -5px rgba(247, 255, 103, 1);
    }
-   &-rare {
+   &_rare {
       background: radial-gradient(circle, rgba(250, 166, 166, 1) 0%, rgba(213, 39, 39, 1) 100%);
       box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4),
          0px -11px 32px -5px rgba(250, 166, 166, 1);
    }
-   &-epic {
+   &_epic {
       background: radial-gradient(circle, rgba(241, 112, 255, 1) 0%, rgba(120, 29, 159, 1) 100%);
       box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -9px 48px 1px #f49bfa;
    }
-   &-legendary {
+   &_legendary {
       background: radial-gradient(circle, #99eff0 0%, #2095b4 100%);
       box-shadow: inset 0px 4px 0px rgba(255, 255, 255, 0.4), 0px -11px 32px -5px #99eff0;
    }
 }
 
-[class*='vc-nft-content-'] {
+[class*='vc_nft_content_'] {
    width: 100%;
    height: auto;
    border-radius: 15px;
@@ -124,24 +124,24 @@
    padding-top: 1.5em;
 }
 
-.vc-nft-content {
-   &-common {
+.vc_nft_content {
+   &_common {
       box-shadow: inset 0px 16px 29px -24px white, 0px -1px 44px -5px;
    }
-   &-uncommon {
+   &_uncommon {
       box-shadow: inset 0px 16px 29px -24px rgba(247, 255, 103, 1), 0px -1px 44px -5px;
    }
-   &-rare {
+   &_rare {
       box-shadow: inset 0px 16px 29px -24px rgb(255, 145, 145), 0px -1px 44px -5px;
    }
-   &-epic {
+   &_epic {
       box-shadow: inset 0px 16px 29px -24px #f49bfa, 0px -1px 44px -5px;
    }
-   &-legendary {
+   &_legendary {
       box-shadow: inset 0px 16px 29px -24px #99eff0, 0px -1px 44px -5px;
    }
 }
-.vc-nft-hero-data {
+.vc_nft_hero_data {
    width: 100%;
    min-height: 200px;
    //    background: white;
@@ -149,7 +149,7 @@
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: center;
-   .vc-nft-img {
+   .vc_nft_img {
       width: 200px;
       height: 200px;
       background-size: 100%;
@@ -171,7 +171,7 @@
          box-shadow: 0px 0px 42px 35px white;
       }
    }
-   .vc-nft-stats {
+   .vc_nft_stats {
       width: calc(100% - 250px);
       min-width: 230px;
       min-height: 200px;
@@ -184,7 +184,7 @@
       justify-content: center;
       gap: 20px;
       padding: 1em 1em;
-      .vc-nft-stat {
+      .vc_nft_stat {
          display: flex;
          width: 40%;
          min-width: 180px;
@@ -205,7 +205,7 @@
             box-shadow: 0px 0px 48px 10px white;
          }
       }
-      .nft-stat-desc {
+      .nft_stat_desc {
          color: white;
          font-weight: 700;
          margin-left: 10px;
@@ -216,45 +216,35 @@
             font-size: 1.7rem;
          }
       }
-      [class*='nft-stat-img-'] {
+      [class*='nft_stat_img_'] {
          width: 50px;
          height: 100%;
          border-radius: 10px;
          z-index: 1;
       }
-      .nft-stat-img {
-         &-pAttack {
-            //    background: url('http://localhost:3000/images/sword.png');
-            background: url('http://localhost:3000/images/Icon37.png');
-            //    background: url('http://localhost:3000/images/Iron Sword.png');
+      .nft_stat_img {
+         &_pAttack {
+            background: url('https://i.ibb.co/2WNXVB0/Icon37.png');
             background-repeat: no-repeat;
             background-size: 100%;
          }
-         &-mAttack {
-            //    background: url('http://localhost:3000/images/hp.png');
-            background: url('http://localhost:3000/images/Icon45.png');
-            //    background: url('http://localhost:3000/images/Heart.png');
+         &_mAttack {
+            background: url('https://i.ibb.co/f8tV2B4/Icon45.png');
             background-repeat: no-repeat;
             background-size: 100%;
          }
-         &-health {
-            //    background: url('http://localhost:3000/images/book.png');
-            background: url('http://localhost:3000/images/Icon10.png');
-            //    background: url('http://localhost:3000/images/Sapphire Staff.png');
+         &_health {
+            background: url('https://i.ibb.co/rMG1RKV/Icon10.png');
             background-repeat: no-repeat;
             background-size: 100%;
          }
-         &-defence {
-            //    background: url('http://localhost:3000/images/shield.png');
-            background: url('http://localhost:3000/images/Icon12.png');
-            //    background: url('http://localhost:3000/images/Wooden Shield.png');
+         &_defence {
+            background: url('https://i.ibb.co/1m3JKxK/Icon12.png');
             background-repeat: no-repeat;
             background-size: 100%;
          }
-         &-speed {
-            //    background: url('http://localhost:3000/images/boots.png');
-            background: url('http://localhost:3000/images/Icon35.png');
-            //    background: url('http://localhost:3000/images/Leather Boot.png');
+         &_speed {
+            background: url('https://i.ibb.co/XtfR3bg/Icon35.png');
             background-repeat: no-repeat;
             background-size: 100%;
          }
@@ -262,7 +252,7 @@
    }
 }
 
-.vc-nft-auction-data {
+.vc_nft_auction_data {
    width: 100%;
    min-height: 100px;
    //    background: rgb(250, 178, 178);
@@ -270,7 +260,7 @@
    justify-content: center;
    flex-wrap: wrap;
    height: auto;
-   .vc-auction-price {
+   .vc_auction_price {
       width: 200px;
       min-height: 100px;
       height: 100%;
@@ -279,7 +269,7 @@
       flex-direction: row;
       align-items: center;
       padding: 0 0.7em;
-      .vc-auction-input {
+      .vc_auction_input {
          color: white;
          font-weight: 700;
          margin-left: 10px;
@@ -300,7 +290,7 @@
             font-weight: 700;
             cursor: pointer;
             font-size: 1.7rem;
-            font-family: $poppins;
+            font-family: 'Poppins', sans-serif;
             background: none;
             color: white;
             &::-webkit-outer-spin-button,
@@ -347,12 +337,12 @@
          min-width: 50px;
          min-height: 50px;
          height: 50px;
-         background: url('http://localhost:3000/images/Icon47.png');
+         background: url('https://i.ibb.co/HTLhh2N/Icon47.png');
          background-size: 100%;
          background-repeat: no-repeat;
          border-radius: 10px;
       }
-      .vc-auction-price-text {
+      .vc_auction_price_text {
          color: white;
          font-weight: 700;
          margin-left: 10px;
@@ -367,7 +357,7 @@
          }
       }
    }
-   .vc-auction-button {
+   .vc_auction_button {
       width: 200px;
       height: 100px;
       //   background: rgb(236, 108, 108);
@@ -383,7 +373,7 @@
          display: flex;
          align-items: center;
          justify-content: center;
-         font-family: $poppins;
+         font-family: 'Poppins', sans-serif;
          border-radius: 10px;
          background: linear-gradient(0deg, #ffe17f 0%, #fcc578 100%);
          box-shadow: inset 0 -2px 0 #eead52;
@@ -400,7 +390,7 @@
    }
 }
 
-[class*='hero-halo-'] {
+[class*='hero_halo_'] {
    &::before {
       content: '';
       position: absolute;
@@ -412,94 +402,74 @@
    }
 }
 
-.hero-halo {
-   &-bahamut::before {
-      background: url('http://localhost:3000/images/bg-bahamut.png');
+.hero_halo {
+   &_common1::before {
+      background: url('https://i.ibb.co/bFgjTfH/Shaman17.png') no-repeat;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-common1::before {
-      background: url('http://localhost:3000/images/Shaman17.png') no-repeat;
+   &_uncommon1::before {
+      background: url('https://i.ibb.co/59y6rcv/Electromancer16.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-uncommon1::before {
-      background: url('http://localhost:3000/images/SpellBookPreface19.png') no-repeat center;
+   &_phoenix::before {
+      background: url('https://i.ibb.co/7bjZC3b/bg-phoenix.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-uncommon2::before {
-      background: url('http://localhost:3000/images/Electromancer16.png') no-repeat;
+   &_bahamut::before {
+      background: url('https://i.ibb.co/VBpKJdD/bg-bahamut.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-rare::before {
-      background: url('http://localhost:3000/images/Necromancer3.png') no-repeat;
+   &_siren::before {
+      background: url('https://i.ibb.co/qyMXMnh/bg-siren.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-epic::before {
-      background: url('http://localhost:3000/images/Necromancer3.png') no-repeat;
+   &_leviathan::before {
+      background: url('https://i.ibb.co/F0W61qg/Deathknight14.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-phoenix::before {
-      background: url('http://localhost:3000/images/bg-phoenix.png') no-repeat center;
+   &_titan::before {
+      background: url('https://i.ibb.co/zFmC08h/Geomancer5.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-bahamut::before {
-      background: url('http://localhost:3000/images/bg-bahamut.png') no-repeat center;
+   &_shiva::before {
+      background: url('https://i.ibb.co/1Q6CC1R/Spell-Book-Preface15.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-siren::before {
-      background: url('http://localhost:3000/images/bg-siren.png') no-repeat center;
+   &_scarletangel::before {
+      background: url('https://i.ibb.co/5kb7fvD/Enchanter2.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-leviathan::before {
-      background: url('http://localhost:3000/images/Deathknight14.png') no-repeat center;
+   &_darklord::before {
+      background: url('https://i.ibb.co/JmkQ7Bx/Spell-Book-Preface01.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-titan::before {
-      background: url('http://localhost:3000/images/Geomancer5.png') no-repeat center;
+   &_herald::before {
+      background: url('https://i.ibb.co/DW18wyw/Cultist12.png') no-repeat;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-shiva::before {
-      background: url('http://localhost:3000/images/SpellBookPreface15.png') no-repeat center;
+   &_magician::before {
+      background: url('https://i.ibb.co/wrhwh8V/bg-leviathan.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-scarletangel::before {
-      background: url('http://localhost:3000/images/Enchanter2.png') no-repeat center;
+   &_monk::before {
+      background: url('https://i.ibb.co/8xMtvP1/Berserker10.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }
-   &-darklord::before {
-      background: url('http://localhost:3000/images/SpellBookPreface01.png') no-repeat center;
-      background-size: 100%;
-      background-repeat: no-repeat;
-   }
-   &-herald::before {
-      background: url('http://localhost:3000/images/Cultist12.png') no-repeat;
-      background-size: 100%;
-      background-repeat: no-repeat;
-   }
-   &-magician::before {
-      background: url('http://localhost:3000/images/bg-leviathan.png') no-repeat center;
-      background-size: 100%;
-      background-repeat: no-repeat;
-   }
-   &-monk::before {
-      background: url('http://localhost:3000/images/Berserker10.png') no-repeat center;
-      background-size: 100%;
-      background-repeat: no-repeat;
-   }
-   &-vampire::before {
-      background: url('http://localhost:3000/images/Necromancer3.png') no-repeat center;
+   &_vampire::before {
+      background: url('https://i.ibb.co/NNtx7yc/Necromancer3.png') no-repeat center;
       background-size: 100%;
       background-repeat: no-repeat;
    }

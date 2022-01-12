@@ -1,11 +1,10 @@
-import { mintBoxData } from '../../data/mintBoxData'
 import { useContext } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
-import { heroesData, starStyleOnRoulette } from '../../data/imagesData'
 import { runDispatch } from '../../actions/dispatch'
 import axios from 'axios'
+import s from '../../../../scss/main.css'
 
-const generateHeroes = (mintedNFT: any) => {
+const generateHeroes = (mintedNFT: any, heroesData: any) => {
    const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
    const totalNumOfHero = heroesData.length
    const generatedHeroes = cards.map((card) => {
@@ -23,22 +22,32 @@ const generateHeroes = (mintedNFT: any) => {
 }
 
 function MintBoxAnim(props: any) {
-   const { handleExitMinting, mintedNFT } = props
-   const heroes = generateHeroes(mintedNFT)
+   const { handleExitMinting, mintedNFT, starStyleOnRoulette, heroesData } = props
+   const heroes = generateHeroes(mintedNFT, heroesData)
    return (
-      <div className="mint-anim-cont">
-         <div className="mint-hero-rarity">
+      <div className={s.mint_anim_cont}>
+         <div className={s.mint_hero_rarity}>
             <img
-               src={`http://localhost:3000/images/you-got-${mintedNFT.rarity}.png`}
+               src={
+                  mintedNFT.rarity == 'common'
+                     ? 'https://i.ibb.co/YX3c3CY/you-got-common.png'
+                     : mintedNFT.rarity == 'uncommon'
+                     ? 'https://i.ibb.co/XWcnTdv/you-got-uncommon.png'
+                     : mintedNFT.rarity == 'rare'
+                     ? 'https://i.ibb.co/3Nwrcs3/you-got-rare.png'
+                     : mintedNFT.rarity == 'epic'
+                     ? 'https://i.ibb.co/bFkCvYt/you-got-epic.png'
+                     : 'https://i.ibb.co/CbfYFsP/you-got-legendary.png'
+               }
                alt="Rarity text."
-               className="rarity-img"
+               className={s.rarity_img}
             />
          </div>
-         <div className="mint-hero-char-cont">
-            <div className="mint-hero-char-cards">
+         <div className={s.mint_hero_char_cont}>
+            <div className={s.mint_hero_char_cards}>
                {heroes.map((hero: any, index: any) => {
                   return (
-                     <div className="mint-hero-char-card" key={`${hero.name}-${index}`}>
+                     <div className={s.mint_hero_char_card} key={`${hero.name}-${index}`}>
                         <div
                            style={
                               hero.name === 'Bahamut' || hero.name === 'Leviathan'
@@ -51,25 +60,33 @@ function MintBoxAnim(props: any) {
                })}
             </div>
          </div>
-         <div className="mint-frame-cont">
+         <div className={s.mint_frame_cont}>
             <img
-               src="http://localhost:3000/images/mint-frame.png"
+               src="https://i.ibb.co/0Vkbrbj/mint-frame.png"
                alt="Mint Frame"
-               className="mint-frame-img"
+               className={s.mint_frame_img}
             />
-            {starStyleOnRoulette.map((style, index) => {
+            {starStyleOnRoulette.map((style: any, index: any) => {
+               const starCSS = style.split(' ')[0].split('-').join('_')
+               const starPosCSS = style.split(' ')[1].split('-').join('_')
+               const starAnimCSS = style.split(' ')[2].split('-').join('_')
+               const starFinalAnimCSS = `star_glow_${mintedNFT.rarity}`
+
                return (
-                  <div className={`${style} star-glow-${mintedNFT.rarity}`} key={index}>
-                     <img src="http://localhost:3000/images/star.png" alt="Star" width={22} />
+                  <div
+                     className={`${s[starCSS]} ${s[starPosCSS]} ${s[starAnimCSS]} ${s[starFinalAnimCSS]}`}
+                     key={index}
+                  >
+                     <img src="https://i.ibb.co/svqGsXc/star.png" alt="Star" width={22} />
                   </div>
                )
             })}
          </div>
-         <div className="mint-char-roulette">
-            <div className={`char-roulette-anim`} style={{ ...heroes[10].sprite.wAnim }} />
+         <div className={s.mint_char_roulette}>
+            <div className={s.char_roulette_anim} style={{ ...heroes[10].sprite.wAnim }} />
          </div>
-         <div className="mint-anim-back-button" onClick={() => handleExitMinting()}>
-            <img src="http://localhost:3000/images/BACK.png" alt="Back" width={90} />
+         <div className={s.mint_anim_back_button} onClick={() => handleExitMinting()}>
+            <img src="https://i.ibb.co/YXrfGdk/BACK.png" alt="Back" width={90} />
          </div>
       </div>
    )
@@ -80,38 +97,41 @@ function CreateMintBoxes(props: any) {
    return data.map((box: any) => {
       const { image, tile, type, chances, price } = box
       return (
-         <div className="mint-box" key={type[1]}>
-            <div className="mint-box-img-cont">
+         <div className={s.mint_box} key={type[1]}>
+            <div className={s.mint_box_img_cont}>
                <img src={image} alt={type[0]} />
             </div>
-            <div className="mint-box-tile-cont">
+            <div className={s.mint_box_tile_cont}>
                <img src={tile} alt={type[0]} />
             </div>
-            <div className="mint-box-buy-cont">
+            <div className={s.mint_box_buy_cont}>
                {isMinting ? (
-                  <button className="mint-button" disabled>
+                  <button className={s.mint_button} disabled>
                      <p>BUY</p>
                   </button>
                ) : (
-                  <button className="mint-button" onClick={() => handleMinting(type[1])}>
+                  <button className={s.mint_button} onClick={() => handleMinting(type[1])}>
                      <p>BUY</p>
                   </button>
                )}
-               <div className="mint-desc">
+               <div className={s.mint_desc}>
                   <p>{type[0]}</p>
                   <p>Price: {price} INMS</p>
                </div>
             </div>
-            <div className="mint-box-desc-cont">
-               <div className="chances-desc-header">
+            <div className={s.mint_box_desc_cont}>
+               <div className={s.chances_desc_header}>
                   <p>Chances</p>
                </div>
-               <div className="chances-perc-cont">
+               <div className={s.chances_perc_cont}>
                   {chances.map((chances: any) => {
                      const { chance, percentage } = chances
+                     const chanceCSS = chance[1]
                      return (
-                        <div className="chances-perc" key={chance}>
-                           <div className={`chances-percentage ${chance[1]}`}>{percentage}%</div>
+                        <div className={s.chances_perc} key={chance}>
+                           <div className={`${s.chances_percentage} ${s[chanceCSS]}`}>
+                              {percentage}%
+                           </div>
                            <p>{chance[0]}</p>
                         </div>
                      )
@@ -125,7 +145,8 @@ function CreateMintBoxes(props: any) {
 
 export default function MysteryShop(): JSX.Element {
    const { state, dispatch } = useContext(MainStore)
-   const { isMintingSuccess, mintedNFT, isMinting } = state
+   const { isMintingSuccess, mintedNFT, isMinting, mintBoxData, heroesData, starStyleOnRoulette } =
+      state
 
    const handleMinting = (boxType: any) => {
       if (!isMinting) {
@@ -154,6 +175,8 @@ export default function MysteryShop(): JSX.Element {
    const props: any = {
       data: mintBoxData,
       handleMinting,
+      heroesData,
+      starStyleOnRoulette,
       handleExitMinting,
       mintedNFT,
       isMinting,
@@ -163,8 +186,8 @@ export default function MysteryShop(): JSX.Element {
    return (
       <>
          {isMintingSuccess && <MintBoxAnim {...props} />}
-         <section className="main-bg">
-            <div className="mint-boxes">
+         <section className={s.main_bg}>
+            <div className={s.mint_boxes}>
                <CreateMintBoxes {...props} />
             </div>
          </section>

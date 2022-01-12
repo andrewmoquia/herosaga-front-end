@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { NavMenus } from '../../interfaces/navInterface'
-import { navMenuLogoData } from '../../data/navMenuData'
+import { MainStore } from '../../reduceStore/StoreProvider'
 import NavMenu from './NavMenu'
 
+import s from '../../../../scss/main.css'
+
 export default function Nav() {
+   const { state } = useContext(MainStore)
+   const { navMenuLogoData } = state
    const navMenus: NavMenus = {
-      class: 'menu-change-to-main',
+      class: s.menu_change_to_main,
       status: true,
    }
 
@@ -23,14 +27,14 @@ export default function Nav() {
    const handleChangeNavMenu = () => {
       if (activeMenu.status === true) {
          const newObj = {
-            class: 'menu-change-to-profile',
+            class: s.menu_change_to_profile,
             status: false,
          }
          changeMenuClass(newObj)
       }
       if (activeMenu.status === false) {
          const newObj = {
-            class: 'menu-change-to-main',
+            class: s.menu_change_to_main,
             status: true,
          }
          changeMenuClass(newObj)
@@ -42,23 +46,23 @@ export default function Nav() {
    }
 
    return (
-      <nav id="main-nav">
+      <nav id={s.main_nav}>
          {/* Game Logo  */}
-         <div className="logo-icon d-none d-sm-flex">
+         <div className={`${s.logo_icon} ${s.d_none} ${s.d_sm_flex}`}>
             <img
                src="https://i.ibb.co/CVHL7MN/Spell-Book-Preface-14.png"
                alt="Spell-Book-Preface-14"
             />
          </div>
-         <div className="game-logo d-none d-sm-flex">INCU MONSTERS</div>
-         <div id="nav-menu">
+         <div className={`${s.game_logo} ${s.d_none} ${s.d_sm_flex}`}>INCU MONSTERS</div>
+         <div id={s.nav_menu}>
             {/* Menus */}
             <NavMenu {...props} />
             {/* Empty menu for animation purposes. */}
             <ul className={activeMenu.class}> </ul>
          </div>
          {/* Profile Icon  */}
-         <div id="profile" onClick={() => handleChangeNavMenu()}>
+         <div id={s.profile} onClick={() => handleChangeNavMenu()}>
             <img src="https://i.ibb.co/w41drH1/Electromancer16.png" alt="Electromancer16" />
          </div>
       </nav>
