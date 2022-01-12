@@ -1,4 +1,5 @@
 let target = 'web'
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
    mode: 'development',
@@ -12,4 +13,5 @@ module.exports = {
          disableDotRule: true,
       },
    },
+   plugins: [new BundleAnalyzerPlugin()],
 }
