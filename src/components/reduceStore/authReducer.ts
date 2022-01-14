@@ -3,12 +3,14 @@ export function AuthReducer(state: any, action: any) {
       case 'AUTH_PROCESSING':
          return {
             ...state,
+            isAuthDone: true,
             isAuthenticated: false,
             isAuthenticating: true,
          }
       case 'AUTH_SUCCESS':
          return {
             ...state,
+            isAuthDone: true,
             user: action.payload.user,
             mintBoxData: action.payload.mintBoxData,
             navMenuLogoData: action.payload.navMenuLogoData,
@@ -24,6 +26,7 @@ export function AuthReducer(state: any, action: any) {
       case 'AUTH_FAILED':
          return {
             ...state,
+            isAuthDone: true,
             isAuthenticated: false,
             isAuthenticating: false,
          }
