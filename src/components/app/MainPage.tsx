@@ -19,12 +19,14 @@ export default function MainPage() {
                <Route path="/" exact component={MysteryShop}></Route>
                <Route path="/mysteryshop" exact component={MysteryShop}></Route>
                <Route path="/transactions" exact component={Transactions}></Route>
+               <Route path="/transactions/query" exact component={Transactions}></Route>
                <Route path="/marketplace" exact component={Marketplace}></Route>
-               <Route path="/marketplace/nft/:id" exact component={ViewNFT}></Route>
+               <Route path="/marketplace/query" exact component={Marketplace}></Route>
                <Route path="/myNFT" exact component={MyNFT}></Route>
                <Route path="/myNFT/query" exact component={MyNFT}></Route>
+               <Route path="/marketplace/nft/:id" exact component={ViewNFT}></Route>
                <Route path="/myNFT/nft/:id" exact component={ViewNFT}></Route>
-               <Route path="/view/nft/:id" exact component={ViewNFT}></Route>
+               <Route path="/transactions/nft/:id" exact component={ViewNFT}></Route>
             </Suspense>
          </Switch>
       </BrowserRouter>

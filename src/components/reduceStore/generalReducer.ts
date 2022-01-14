@@ -78,7 +78,7 @@ export function NFTActionReducer(state: any, action: any) {
       case 'SET_USER_NFT_PAGES':
          return {
             ...state,
-            pages: action.payload,
+            ...action.payload,
          }
       case 'RESET_USER_NFT_PAGES':
          return {
@@ -90,14 +90,16 @@ export function NFTActionReducer(state: any, action: any) {
       case 'DEC_USER_NFT_PAGES':
          return {
             ...state,
-            minPage: state.minPage - state.pageLimit,
-            maxPage: state.maxPage - state.pageLimit,
+            ...action.payload,
+            // minPage: state.minPage - state.pageLimit,
+            // maxPage: state.maxPage - state.pageLimit,
          }
       case 'INC_USER_NFT_PAGES':
          return {
             ...state,
-            minPage: state.minPage + state.pageLimit,
-            maxPage: state.maxPage + state.pageLimit,
+            ...action.payload,
+            // minPage: state.minPage + state.pageLimit,
+            // maxPage: state.maxPage + state.pageLimit,
          }
       case 'GETTING_USER_NFT_PAGES':
          return {
@@ -160,11 +162,17 @@ export function NFTActionReducer(state: any, action: any) {
             ...state,
             ...action.payload,
          }
+      case 'UPDATE_TRANSAC_FETCH_STATUS':
+         return {
+            ...state,
+            ...action.payload,
+         }
       case 'UPDATE_QUERY_FILTER':
          return {
             ...state,
             ...action.payload,
          }
+
       default:
          return state
    }

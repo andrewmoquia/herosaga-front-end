@@ -12,6 +12,7 @@ const userState = {
 
 const authState = {
    isAuthenticated: false,
+   isAuthDone: false,
    isAuthenticating: false,
    isReqProcessing: false,
    isAlertNotifOn: false,
@@ -34,6 +35,11 @@ const nftState = {
    minPage: 1,
    maxPage: 5,
    currPage: 1,
+   myNFTPages: [],
+   myNFTPageLimit: 5,
+   myNFTMinPage: 1,
+   myNFTMaxPage: 5,
+   myNFTCurrPage: 1,
    filters: {
       rarity: '',
       sort: '',
@@ -66,4 +72,20 @@ const nftState = {
    isBuySuccessful: false,
 }
 
-export const state = Object.assign(userState, authState, mintingState, nftState)
+const transactionsState = {
+   transacQueryFilters: {
+      isCompleted: 'isCompleted',
+      createdAt: '-createdAt',
+      page: 1,
+   },
+   isFetchingTransacs: false,
+   isFetchingTransacsFailed: false,
+   transacsData: {},
+   searchTransacParamsOnLoad: true,
+   transacsPages: [],
+   transacsPageLimit: 5,
+   transacsMinPage: 1,
+   transacsMaxPage: 5,
+}
+
+export const state = Object.assign(userState, authState, mintingState, nftState, transactionsState)

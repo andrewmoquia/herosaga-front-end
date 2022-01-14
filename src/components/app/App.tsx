@@ -70,8 +70,11 @@ export default function App() {
                   <Route path="/" exact component={LandingPage}></Route>
                   <Route path="/welcome" exact component={WelcomePage}></Route>
                   <Route path="/transactions" exact component={LandingPage}></Route>
+                  <Route path="/transactions/query" exact component={LandingPage}></Route>
+                  <Route path="/transactions/nft/:id" exact component={LandingPage}></Route>
                   <Route path="/mysteryshop" exact component={LandingPage}></Route>
                   <Route path="/marketplace" exact component={LandingPage}></Route>
+                  <Route path="/marketplace/query" exact component={LandingPage}></Route>
                   <Route path="/myNFT" exact component={LandingPage}></Route>
                   <Route path="/myNFT/query" exact component={LandingPage}></Route>
                   <Route path="/marketplace/nft/:id" exact component={LandingPage}></Route>
