@@ -4,17 +4,38 @@ import { runDispatch } from '../../actions/dispatch'
 import s from '../../../../scss/main.css'
 
 export default function Pagination(props: any) {
-   const { state, dispatch } = useContext(MainStore)
-   const { minPage, maxPage, pages } = state
-   const { handleSetFilter, totalPage, nfts, page } = props
+   const { dispatch } = useContext(MainStore)
+   const { handleSetFilter, totalPage, nfts, page, minPage, maxPage, pages, dashboard } = props
 
    //Control the next and back of pagination
    const handlePagiMovePage = (action: string) => {
-      if (action === 'next' && maxPage < pages[pages.length - 1]) {
-         return runDispatch(dispatch, 'INC_USER_NFT_PAGES', '')
+      if (dashboard == 'marketplace') {
+         if (action === 'next' && maxPage < pages[pages.length - 1]) {
+            return runDispatch(dispatch, 'INC_USER_NFT_PAGES', {
+               minPage: minPage + 5,
+               maxPage: maxPage + 5,
+            })
+         }
+         if (action === 'back' && minPage > 1) {
+            return runDispatch(dispatch, 'DEC_USER_NFT_PAGES', {
+               minPage: minPage - 5,
+               maxPage: maxPage - 5,
+            })
+         }
       }
-      if (action === 'back' && minPage > 1) {
-         return runDispatch(dispatch, 'DEC_USER_NFT_PAGES', '')
+      if (dashboard == 'myNFT') {
+         if (action === 'next' && maxPage < pages[pages.length - 1]) {
+            return runDispatch(dispatch, 'INC_USER_NFT_PAGES', {
+               myNFTMinPage: minPage + 5,
+               myNFTMaxPage: maxPage + 5,
+            })
+         }
+         if (action === 'back' && minPage > 1) {
+            return runDispatch(dispatch, 'DEC_USER_NFT_PAGES', {
+               myNFTMinPage: minPage - 5,
+               myNFTMaxPage: maxPage - 5,
+            })
+         }
       }
    }
 
@@ -26,10 +47,16 @@ export default function Pagination(props: any) {
             tempPages.push(i)
          }
       }
+
       if (tempPages.length === totalPage) {
-         runDispatch(dispatch, 'SET_USER_NFT_PAGES', tempPages)
+         if (dashboard == 'marketplace') {
+            runDispatch(dispatch, 'SET_USER_NFT_PAGES', { pages: tempPages })
+         }
+         if (dashboard == 'myNFT') {
+            runDispatch(dispatch, 'SET_USER_NFT_PAGES', { myNFTPages: tempPages })
+         }
       }
-   }, [dispatch, pages.length, totalPage])
+   }, [dispatch, pages.length, totalPage, dashboard])
 
    //If new nfts data were loaded, update page array data for pagination
    useEffect(() => {

@@ -24,6 +24,12 @@ const generateHeroes = (mintedNFT: any, heroesData: any) => {
 function MintBoxAnim(props: any) {
    const { handleExitMinting, mintedNFT, starStyleOnRoulette, heroesData } = props
    const heroes = generateHeroes(mintedNFT, heroesData)
+   const heroIdleAnimCSS = heroes[10].sprite.wAnim.animation
+      .split(',')[0]
+      .split(' ')[0]
+      .split('-')
+      .join('_')
+   const heroFadeInCSS = heroes[10].sprite.wAnim.animation.split(',')[1].split(' ')[1]
    return (
       <div className={s.mint_anim_cont}>
          <div className={s.mint_hero_rarity}>
@@ -83,7 +89,13 @@ function MintBoxAnim(props: any) {
             })}
          </div>
          <div className={s.mint_char_roulette}>
-            <div className={s.char_roulette_anim} style={{ ...heroes[10].sprite.wAnim }} />
+            <div
+               className={s.char_roulette_anim}
+               style={{
+                  ...heroes[10].sprite.wAnim,
+                  animation: `${s[heroIdleAnimCSS]} 0.5s steps(4) infinite, ${s[heroFadeInCSS]} 3s linear`,
+               }}
+            />
          </div>
          <div className={s.mint_anim_back_button} onClick={() => handleExitMinting()}>
             <img src="https://i.ibb.co/YXrfGdk/BACK.png" alt="Back" width={90} />

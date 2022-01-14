@@ -80,6 +80,9 @@ export default function MyNFT() {
       searchParamsOnLoad,
       userNFTfilterData,
       isFetchingFailed,
+      myNFTPages,
+      myNFTMinPage,
+      myNFTMaxPage,
    } = state
    const { nfts, nftTotal, totalPage, page } = userNFTs
 
@@ -152,10 +155,20 @@ export default function MyNFT() {
                  })
          }
          if (page) {
-            runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
-               filters: { page: page },
-               userQueryFilters: { ...userQueryFilters, page },
-            })
+            if (page == 1) {
+               runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
+                  filters: { page: page },
+                  myNFTPages: [1, 2, 3, 4, 5],
+                  myNFTMinPage: 1,
+                  myNFTMaxPage: 5,
+                  userQueryFilters: { ...userQueryFilters, page },
+               })
+            } else {
+               runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
+                  filters: { page: page },
+                  userQueryFilters: { ...userQueryFilters, page },
+               })
+            }
          }
          return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
       },
@@ -288,6 +301,10 @@ export default function MyNFT() {
       filters,
       handleDDFilterAnim,
       handleSetFilter,
+      minPage: myNFTMinPage,
+      maxPage: myNFTMaxPage,
+      pages: myNFTPages,
+      dashboard: 'myNFT',
    }
 
    return (

@@ -161,6 +161,9 @@ export default function Marketplace() {
       searchMPParamsOnLoad,
       isFetchingFailed,
       marketFilterData,
+      minPage,
+      maxPage,
+      pages,
    } = state
    const { nftTotal, nfts, totalPage, page } = mpNFTs
    const { balance } = user
@@ -240,9 +243,19 @@ export default function Marketplace() {
    //Update page filter
    const handleGoToPage = (props: any) => {
       const { page } = props
-      runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
-         mpQueryFilters: { ...mpQueryFilters, page },
-      })
+      if (page == 1) {
+         runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
+            pages: [1, 2, 3, 4, 5],
+            minPage: 1,
+            maxPage: 5,
+            mpQueryFilters: { ...mpQueryFilters, page },
+         })
+      } else {
+         runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
+            mpQueryFilters: { ...mpQueryFilters, page },
+         })
+      }
+
       return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
    }
 
@@ -281,6 +294,7 @@ export default function Marketplace() {
          })
          .then((res) => {
             const { status, payload } = res.data
+            console.log(payload)
             if (status === 200) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetchingNFT: false,
@@ -343,6 +357,10 @@ export default function Marketplace() {
       totalPage,
       nfts,
       page,
+      minPage,
+      maxPage,
+      pages,
+      dashboard: 'marketplace',
    }
 
    const filterProps = {
