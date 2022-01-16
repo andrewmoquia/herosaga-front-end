@@ -13,5 +13,7 @@ module.exports = {
          disableDotRule: true,
       },
    },
+   //Fixed ChunkLoadError: Loading hot update chunk app failed.
+   optimization: { runtimeChunk: 'single' },
    plugins: [new BundleAnalyzerPlugin()],
 }

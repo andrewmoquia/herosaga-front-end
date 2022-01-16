@@ -1,33 +1,37 @@
 const TerserPlugin = require('terser-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+
 let target = 'browserslist'
 
 module.exports = {
    mode: 'production',
    target: target,
    optimization: {
+      minimize: true,
       minimizer: [
+         new CssMinimizerPlugin({
+            parallel: true,
+            minimizerOptions: [
+               {
+                  preset: ['default'],
+               },
+            ],
+            minify: [CssMinimizerPlugin.cssnanoMinify],
+         }),
          new TerserPlugin({
-            extractComments: false,
+            parallel: true,
+            extractComments: 'all',
             terserOptions: {
-               // Eliminate comments
                compress: {
-                  pure_funcs: [
-                     'console.log',
-                     // 'console.error',
-                     // 'console.warn',
-                     // ...
-                  ],
+                  defaults: true,
+                  arguments: true,
+                  drop_console: true,
                },
-               // Make sure symbols under `pure_funcs`,
-               // are also under `mangle.reserved` to avoid mangling.
-               mangle: {
-                  reserved: [
-                     'console.log',
-                     // 'console.error',
-                     // 'console.warn',
-                     // ...
-                  ],
-               },
+               sourceMap: false,
+               // ecma: 5,
+               // format: {
+               //    ecma: 5,
+               // },
             },
          }),
       ],
