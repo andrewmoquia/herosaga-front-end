@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html,
 body,
 div,
@@ -447,7 +446,7 @@ Media Queries
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .dflex {
@@ -611,9 +610,9 @@ body {
   padding: 15px 10px;
   border: 2px solid #000;
   border-radius: 5px 0px 5px 0px;
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
   margin-top: 15px;
+  font-family: 'Poppins', sans-serif;
   -webkit-transition: all ease-in-out 0.2s;
   transition: all ease-in-out 0.2s;
   -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
@@ -936,7 +935,7 @@ body {
   z-index: -2;
 }
 
-.active_nav li {
+.active_nav li p {
   color: white;
 }
 
@@ -947,7 +946,7 @@ body {
 }
 
 .nav_icon {
-  width: 43px;
+  width: 40px;
   height: 43px;
   background: none;
   display: -webkit-box;
@@ -963,18 +962,19 @@ body {
 }
 
 .nav_icon img {
-  -webkit-transform: scale(0.07);
-          transform: scale(0.07);
+  -webkit-transform: scale(0.09);
+          transform: scale(0.09);
 }
 
 .nav_icon::before {
   content: '';
   width: 1px;
   height: 1px;
+  border-radius: 50%;
   position: absolute;
   z-index: -1;
-  -webkit-box-shadow: 0px 0px 20px 7px white;
-          box-shadow: 0px 0px 20px 7px white;
+  -webkit-box-shadow: 0px 0px 17px 8px white;
+          box-shadow: 0px 0px 17px 8px white;
 }
 
 .button_transparent_1 {
@@ -985,8 +985,8 @@ body {
   border: 2px solid #000;
   background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat;
   background-size: 150px 150px;
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
+  font-family: 'Poppins', sans-serif;
   border-radius: 5px 0px 5px 0px;
   -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
           clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
@@ -1025,12 +1025,12 @@ body {
   background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat, #fff;
   background-size: 150px 150px;
   max-width: 300px;
+  font-family: 'Poppins', sans-serif;
   margin: 15px auto 0px auto;
   border: 2px solid black;
   border-radius: 5px 0px 5px 0px;
   -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
           clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
   -webkit-transition: all ease-in-out 0.2s;
   transition: all ease-in-out 0.2s;
@@ -2056,7 +2056,7 @@ body {
   left: -41px;
   -webkit-transform: skewX(-25deg);
           transform: skewX(-25deg);
-  background: url("http://localhost:3000/images/circle-orange-pattern-right.png") 100% 0% no-repeat;
+  background: url("https://i.ibb.co/mcGWtkb/circle-orange-pattern-right.webp") 100% 0% no-repeat;
   opacity: 0.4;
   background-size: 100%;
 }
@@ -2109,7 +2109,7 @@ body {
   right: -41px;
   -webkit-transform: skewX(25deg);
           transform: skewX(25deg);
-  background: url("http://localhost:3000/images/circle-orange-pattern-left.png") 100% 0% no-repeat;
+  background: url("https://i.ibb.co/JH2TGzG/circle-orange-pattern-left.webp") 100% 0% no-repeat;
   opacity: 0.4;
   background-size: 100%;
 }
@@ -2240,7 +2240,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: 'Poppins', sans-serif;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -2284,24 +2283,25 @@ body {
   -webkit-transform: skewX(-25deg) translate(0, -50%);
           transform: skewX(-25deg) translate(0, -50%);
   z-index: 1;
+  padding-left: 2.1em;
+  padding-top: 0.4em;
   overflow: hidden;
 }
 
 .mint_box .mint_box_buy_cont .mint_desc p {
   -webkit-transform: skewX(25deg);
           transform: skewX(25deg);
-  z-index: 1;
 }
 
 .mint_box .mint_box_buy_cont .mint_desc p:nth-child(1) {
-  margin: 8px 0px 0px 35px;
+  /* margin: 8px 0px 0px 35px; */
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
 .mint_box .mint_box_buy_cont .mint_desc p:nth-child(2) {
-  margin: 2px 0px 0px 47px;
+  margin: 2px 0px 0px 13px;
   color: white;
   font-size: 1rem;
   font-weight: 600;
@@ -2312,7 +2312,7 @@ body {
   height: 60px;
   width: 90%;
   position: absolute;
-  background: url("https://i.ibb.co/4MX0mvq/circle-orange-pattern-left.png") 100% 0% no-repeat;
+  background: url("https://i.ibb.co/JH2TGzG/circle-orange-pattern-left.webp") 100% 0% no-repeat;
   background-size: 100px;
   opacity: 0.2;
   top: 0%;
@@ -2358,7 +2358,6 @@ body {
 .mint_box .mint_box_desc_cont .chances_desc_header p {
   font-size: 1.1rem;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
   color: #333;
 }
 
@@ -3152,28 +3151,28 @@ body {
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_common::before {
-  background: url("https://i.ibb.co/bFgjTfH/Shaman17.png") no-repeat;
+  background: url("https://i.ibb.co/0s0LGSN/Shaman17.webp") no-repeat;
   background-size: 100%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_uncommon1::before {
-  background: url("https://i.ibb.co/59y6rcv/Electromancer16.png") no-repeat center;
+  background: url("https://i.ibb.co/LZqgXTc/Electromancer16-1.webp") no-repeat center;
   background-size: 100%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_phoenix::before {
-  background: url("https://i.ibb.co/7bjZC3b/bg-phoenix.png") no-repeat center;
+  background: url("https://i.ibb.co/R3zvs1w/bg-phoenix.webp") no-repeat center;
   background-size: 100%;
   top: 40%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_bahamut::before {
-  background: url("https://i.ibb.co/VBpKJdD/bg-bahamut.png") no-repeat center;
+  background: url("https://i.ibb.co/Qf7G8yW/bg-bahamut.webp") no-repeat center;
   background-size: 100%;
   -webkit-transform: rotate(138deg);
           transform: rotate(138deg);
@@ -3184,70 +3183,70 @@ body {
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_siren::before {
-  background: url("https://i.ibb.co/qyMXMnh/bg-siren.png") no-repeat center;
+  background: url("https://i.ibb.co/TthG1X4/bg-siren.webp") no-repeat center;
   background-size: 110%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_leviathan::before {
-  background: url("https://i.ibb.co/F0W61qg/Deathknight14.png") no-repeat center;
+  background: url("https://i.ibb.co/sjm6BcS/Deathknight14.webp") no-repeat center;
   background-size: 110%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_titan::before {
-  background: url("https://i.ibb.co/zFmC08h/Geomancer5.png") no-repeat center;
+  background: url("https://i.ibb.co/dGJScTT/Geomancer5.webp") no-repeat center;
   background-size: 110%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_shiva::before {
-  background: url("https://i.ibb.co/1Q6CC1R/Spell-Book-Preface15.png") no-repeat center;
+  background: url("https://i.ibb.co/71zHshh/Spell-Book-Preface15.webp") no-repeat center;
   background-size: 110%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_scarletangel::before {
-  background: url("https://i.ibb.co/5kb7fvD/Enchanter2.png") no-repeat center;
+  background: url("https://i.ibb.co/gFHpFvW/Enchanter2.webp") no-repeat center;
   background-size: 110%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_darklord::before {
-  background: url("https://i.ibb.co/JmkQ7Bx/Spell-Book-Preface01.png") no-repeat center;
+  background: url("https://i.ibb.co/jDs5BBB/Spell-Book-Preface01.webp") no-repeat center;
   background-size: 110%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_herald::before {
-  background: url("https://i.ibb.co/DW18wyw/Cultist12.png") no-repeat;
+  background: url("https://i.ibb.co/n3DbKVv/Cultist12.webp") no-repeat;
   background-size: 100%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_magician::before {
-  background: url("https://i.ibb.co/wrhwh8V/bg-leviathan.png") no-repeat center;
+  background: url("https://i.ibb.co/ZSBt0JQ/bg-leviathan.webp") no-repeat center;
   background-size: 100%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_monk::before {
-  background: url("https://i.ibb.co/8xMtvP1/Berserker10.png") no-repeat center;
+  background: url("https://i.ibb.co/B21DJS8/Berserker10.webp") no-repeat center;
   background-size: 110%;
   top: 50%;
   left: 50%;
 }
 
 .user_nfts_card .user_nfts_card_hero .hero_card_bg_vampire::before {
-  background: url("https://i.ibb.co/NNtx7yc/Necromancer3.png") no-repeat center;
+  background: url("https://i.ibb.co/1fqjPQ1/Necromancer3.webp") no-repeat center;
   background-size: 110%;
   top: 50%;
   left: 50%;
@@ -4028,31 +4027,31 @@ body {
 }
 
 .vc_nft_hero_data .vc_nft_stats .nft_stat_img_pAttack {
-  background: url("https://i.ibb.co/2WNXVB0/Icon37.png");
+  background: url("https://i.ibb.co/SXXD6Cg/Icon37.webp");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .vc_nft_hero_data .vc_nft_stats .nft_stat_img_mAttack {
-  background: url("https://i.ibb.co/f8tV2B4/Icon45.png");
+  background: url("https://i.ibb.co/55g6TWT/Icon45.webp");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .vc_nft_hero_data .vc_nft_stats .nft_stat_img_health {
-  background: url("https://i.ibb.co/rMG1RKV/Icon10.png");
+  background: url("https://i.ibb.co/L0RbNNt/Icon10.webp");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .vc_nft_hero_data .vc_nft_stats .nft_stat_img_defence {
-  background: url("https://i.ibb.co/1m3JKxK/Icon12.png");
+  background: url("https://i.ibb.co/fXcvV3f/Icon12.webp");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .vc_nft_hero_data .vc_nft_stats .nft_stat_img_speed {
-  background: url("https://i.ibb.co/XtfR3bg/Icon35.png");
+  background: url("https://i.ibb.co/vjB5bJk/Icon35.webp");
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -4197,7 +4196,7 @@ body {
   min-width: 50px;
   min-height: 50px;
   height: 50px;
-  background: url("https://i.ibb.co/HTLhh2N/Icon47.png");
+  background: url("https://i.ibb.co/G5GXrHB/Icon47.webp");
   background-size: 100%;
   background-repeat: no-repeat;
   border-radius: 10px;
@@ -4288,85 +4287,85 @@ body {
 }
 
 .hero_halo_common1::before {
-  background: url("https://i.ibb.co/bFgjTfH/Shaman17.png") no-repeat;
+  background: url("https://i.ibb.co/0s0LGSN/Shaman17.webp") no-repeat;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_uncommon1::before {
-  background: url("https://i.ibb.co/59y6rcv/Electromancer16.png") no-repeat center;
+  background: url("https://i.ibb.co/LZqgXTc/Electromancer16-1.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_phoenix::before {
-  background: url("https://i.ibb.co/7bjZC3b/bg-phoenix.png") no-repeat center;
+  background: url("https://i.ibb.co/R3zvs1w/bg-phoenix.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_bahamut::before {
-  background: url("https://i.ibb.co/VBpKJdD/bg-bahamut.png") no-repeat center;
+  background: url("https://i.ibb.co/Qf7G8yW/bg-bahamut.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_siren::before {
-  background: url("https://i.ibb.co/qyMXMnh/bg-siren.png") no-repeat center;
+  background: url("https://i.ibb.co/TthG1X4/bg-siren.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_leviathan::before {
-  background: url("https://i.ibb.co/F0W61qg/Deathknight14.png") no-repeat center;
+  background: url("https://i.ibb.co/sjm6BcS/Deathknight14.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_titan::before {
-  background: url("https://i.ibb.co/zFmC08h/Geomancer5.png") no-repeat center;
+  background: url("https://i.ibb.co/dGJScTT/Geomancer5.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_shiva::before {
-  background: url("https://i.ibb.co/1Q6CC1R/Spell-Book-Preface15.png") no-repeat center;
+  background: url("https://i.ibb.co/71zHshh/Spell-Book-Preface15.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_scarletangel::before {
-  background: url("https://i.ibb.co/5kb7fvD/Enchanter2.png") no-repeat center;
+  background: url("https://i.ibb.co/gFHpFvW/Enchanter2.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_darklord::before {
-  background: url("https://i.ibb.co/JmkQ7Bx/Spell-Book-Preface01.png") no-repeat center;
+  background: url("https://i.ibb.co/jDs5BBB/Spell-Book-Preface01.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_herald::before {
-  background: url("https://i.ibb.co/DW18wyw/Cultist12.png") no-repeat;
+  background: url("https://i.ibb.co/n3DbKVv/Cultist12.webp") no-repeat;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_magician::before {
-  background: url("https://i.ibb.co/wrhwh8V/bg-leviathan.png") no-repeat center;
+  background: url("https://i.ibb.co/ZSBt0JQ/bg-leviathan.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_monk::before {
-  background: url("https://i.ibb.co/8xMtvP1/Berserker10.png") no-repeat center;
+  background: url("https://i.ibb.co/B21DJS8/Berserker10.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .hero_halo_vampire::before {
-  background: url("https://i.ibb.co/NNtx7yc/Necromancer3.png") no-repeat center;
+  background: url("https://i.ibb.co/1fqjPQ1/Necromancer3.webp") no-repeat center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -4413,6 +4412,7 @@ body {
   position: relative;
   -webkit-transform: skew(-20deg) translateX(-7%);
           transform: skew(-20deg) translateX(-7%);
+  font-family: 'Poppins', sans-serif;
 }
 
 .login_register_buttons .login_button:hover {
@@ -4434,6 +4434,7 @@ body {
   width: 50%;
   height: 100%;
   position: relative;
+  font-family: 'Poppins', sans-serif;
   -webkit-transform: skew(-20deg) translateX(-7.3%);
           transform: skew(-20deg) translateX(-7.3%);
   background: linear-gradient(97deg, #100930 0%, #32385d 100%);
@@ -4578,5 +4579,344 @@ body {
   transition: opacity 300ms, width 300ms, -webkit-transform 300ms;
   transition: opacity 300ms, transform 300ms, width 300ms;
   transition: opacity 300ms, transform 300ms, width 300ms, -webkit-transform 300ms;
+}
+
+.lg_container {
+  height: calc(100vh - 60px);
+  padding: 1em;
+  width: 100%;
+}
+
+.lg_form {
+  min-width: 250px;
+  width: 500px;
+  height: auto;
+  min-height: 300px;
+  border: 3px solid #333;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffe17f), to(#fcc578));
+  background: linear-gradient(0deg, #ffe17f, #fcc578);
+  -webkit-box-shadow: inset 0 -2px 0 #eead52;
+          box-shadow: inset 0 -2px 0 #eead52;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.lg_header {
+  width: 100%;
+  height: 100px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.lg_body {
+  width: 100%;
+  height: 100px;
+}
+
+.lg_button {
+  width: 100px;
+  height: 50px;
+  font-size: 1.5em;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+.lg_button:hover {
+  background: black;
+  color: white;
+}
+
+.lg_button:active {
+  background: none;
+  color: black;
+}
+
+.lg_button,
+.lg_form,
+.lg_container,
+.lg_header,
+.lg_body {
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none;
+  /* Standard syntax */
+}
+
+.prf_container {
+  min-height: calc(100vh - 60px);
+  padding: 3em 1em 1em 1em;
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 15px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.prf_details {
+  width: 250px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 200px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.prf_details .prf_picture {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: #787878;
+}
+
+.prf_details .prf_username {
+  width: 230px;
+  padding: 1.2em 0em;
+  font-weight: 700;
+  font-size: 1.1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.prf_details .prf_balance {
+  width: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.prf_details .prf_balance p {
+  padding-left: 0.4em;
+}
+
+.prf_details .prf_balance span {
+  padding: 1em 0.4em;
+  background: #73ff9e;
+  border-radius: 10px;
+  margin-top: 5px;
+  font-size: 1.2em;
+}
+
+.prf_body {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em;
+  gap: 15px;
+}
+
+.prf_email {
+  width: 100%;
+  background: #fff191;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.prf_email p:nth-child(1) {
+  font-size: 1.3em;
+  word-break: break-word;
+  padding: 0em 0em 0.3em 0em;
+}
+
+.prf_email p:nth-child(2) {
+  color: #333;
+}
+
+.prf_changePass {
+  width: 100%;
+  min-height: 200px;
+  background: #7cece7;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+}
+
+.prf_changePass form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  padding: 1em;
+}
+
+.prf_changePass .prf_input {
+  position: relative;
+  max-width: 330px;
+  width: 100%;
+  height: auto;
+  padding-right: 1em;
+}
+
+.prf_changePass .prf_input span {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: -0.6%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.prf_changePass .prf_input span:hover {
+  cursor: pointer;
+}
+
+.prf_changePass input {
+  width: calc(100% - 28.6px);
+  max-width: 300px;
+  padding: 1em 2.5em 1em 1em;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Poppins';
+  color: black;
+  border: 2px solid rgba(0, 0, 0, 0);
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.prf_changePass input:focus {
+  outline: none;
+  border: 2px solid black;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.prf_changePass button {
+  max-width: 200px;
+  padding: 1em;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  font-family: 'Poppins';
+  cursor: pointer;
+}
+
+.prf_pw_validations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.prf_validation {
+  width: auto;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 0.5em;
+}
+
+.prf_validation p {
+  padding-left: 0.5em;
+}
+
+.prf_validation span {
+  min-width: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .prf_container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1em;
+  }
+  .prf_email > p:nth-child(1) {
+    font-size: 1.1em;
+  }
 }
 /*# sourceMappingURL=main.css.map */

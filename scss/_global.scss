@@ -1,5 +1,5 @@
 body {
-   font-family: $poppins;
+   font-family: 'Poppins', sans-serif;
 }
 
 .dflex {
@@ -107,9 +107,9 @@ body {
    padding: 15px 10px;
    border: 2px solid $input-outline-2;
    border-radius: 5px 0px 5px 0px;
-   font-family: $poppins;
    font-weight: 700;
    margin-top: 15px;
+   font-family: 'Poppins', sans-serif;
    transition: all ease-in-out 0.2s;
    //    border-radius: 0px 5px 0px 5px;
    //    clip-path: polygon(15px 0, 100% 0, 100% $slantSide, $slantSide 100%, 0 100%, 0 15px);

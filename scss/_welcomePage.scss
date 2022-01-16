@@ -13,6 +13,7 @@
       background: linear-gradient(97deg, rgba(50, 56, 93, 1) 0%, rgba(16, 9, 48, 1) 100%);
       position: relative;
       transform: skew(-20deg) translateX(-7%);
+      font-family: 'Poppins', sans-serif;
       &:hover {
          cursor: pointer;
       }
@@ -29,6 +30,7 @@
    .register_button {
       @include size(50%, 100%);
       position: relative;
+      font-family: 'Poppins', sans-serif;
       transform: skew(-20deg) translateX(-7.3%);
       background: linear-gradient(97deg, rgba(16, 9, 48, 1) 0%, rgba(50, 56, 93, 1) 100%);
       &:hover {

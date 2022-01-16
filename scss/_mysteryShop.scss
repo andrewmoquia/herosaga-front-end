@@ -59,7 +59,6 @@
          position: relative;
          display: flex;
          align-items: center;
-         font-family: 'Poppins', sans-serif;
          justify-content: center;
          z-index: 2;
          // box-shadow: 0 5px 0 rgb(0 0 0 / 20%), inset 0 -5px 0 #eb994d, inset 0 5px 0 #f5ed5d;
@@ -91,19 +90,22 @@
          top: 50%;
          transform: skewX(-25deg) translate(0, -50%);
          z-index: 1;
+         padding-left: 2.1em;
+         padding-top: 0.4em;
          overflow: hidden;
          p {
             transform: skewX(25deg);
-            z-index: 1;
          }
          p:nth-child(1) {
-            margin: 8px 0px 0px 35px;
+            // padding-top: 0.2em;
+            // padding-left: 1.4em;
+            /* margin: 8px 0px 0px 35px; */
             color: white;
             font-size: 1.5rem;
             font-weight: 600;
          }
          p:nth-child(2) {
-            margin: 2px 0px 0px 47px;
+            margin: 2px 0px 0px 13px;
             color: white;
             font-size: 1rem;
             font-weight: 600;
@@ -113,7 +115,7 @@
             height: 60px;
             width: 90%;
             position: absolute;
-            background: url('https://i.ibb.co/4MX0mvq/circle-orange-pattern-left.png') 100% 0%
+            background: url('https://i.ibb.co/JH2TGzG/circle-orange-pattern-left.webp') 100% 0%
                no-repeat;
             background-size: 100px;
             opacity: 0.2;
@@ -150,7 +152,6 @@
          p {
             font-size: 1.1rem;
             font-weight: 700;
-            font-family: 'Poppins', sans-serif;
             color: #333;
          }
       }

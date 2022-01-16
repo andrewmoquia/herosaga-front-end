@@ -129,7 +129,9 @@
 .active_nav {
    background: rgba(26, 36, 77, 0.6);
    li {
-      color: white;
+      p {
+         color: white;
+      }
    }
    transition: background ease-in-out 0.2s;
    z-index: -2;
@@ -139,7 +141,7 @@
    transition: background ease-in-out 0.2s;
 }
 .nav_icon {
-   width: 43px;
+   width: 40px;
    height: 43px;
    background: none;
    // background: rgba(255, 255, 255, 0.7);
@@ -150,16 +152,15 @@
    // overflow: hidden;
    position: relative;
    img {
-      transform: scale(0.07);
+      transform: scale(0.09);
    }
 }
 .nav_icon::before {
    content: '';
    width: 1px;
    height: 1px;
-   // background: white;
+   border-radius: 50%;
    position: absolute;
    z-index: -1;
-   // border-radius: 50%;
-   box-shadow: 0px 0px 20px 7px white;
+   box-shadow: 0px 0px 17px 8px white;
 }

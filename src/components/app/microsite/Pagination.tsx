@@ -5,7 +5,8 @@ import s from '../../../../scss/main.css'
 
 export default function Pagination(props: any) {
    const { dispatch } = useContext(MainStore)
-   const { handleSetFilter, totalPage, nfts, page, minPage, maxPage, pages, dashboard } = props
+   const { handleGoToPage, nftData, minPage, maxPage, pages, dashboard } = props
+   const { totalPage, page } = nftData
 
    //Control the next and back of pagination
    const handlePagiMovePage = (action: string) => {
@@ -60,10 +61,10 @@ export default function Pagination(props: any) {
 
    //If new nfts data were loaded, update page array data for pagination
    useEffect(() => {
-      if (nfts) {
+      if (nftData) {
          handleSetPages()
       }
-   }, [handleSetPages, nfts])
+   }, [handleSetPages, nftData])
 
    return (
       <div className={s.pagination_control}>
@@ -73,7 +74,7 @@ export default function Pagination(props: any) {
          <div
             key={1}
             className={`${s.pagi_num} ${page == 1 ? s.active_page : ''}`}
-            onClick={() => handleSetFilter({ page: 1 })}
+            onClick={() => handleGoToPage({ page: 1 })}
          >
             1
          </div>
@@ -84,7 +85,7 @@ export default function Pagination(props: any) {
                   <div
                      key={pageNum}
                      className={`${s.pagi_num} ${page == pageNum ? s.active_page : ''}`}
-                     onClick={() => handleSetFilter({ page: pageNum })}
+                     onClick={() => handleGoToPage({ page: pageNum })}
                   >
                      {pageNum}
                   </div>

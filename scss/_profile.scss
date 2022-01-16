@@ -1,0 +1,170 @@
+.prf_container {
+   min-height: calc(100vh - 60px);
+   padding: 3em 1em 1em 1em;
+   width: 100%;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   gap: 15px;
+   user-select: none;
+}
+
+.prf_details {
+   width: 250px;
+   background: white;
+   display: flex;
+   min-height: 200px;
+   flex-direction: column;
+   align-items: center;
+   padding: 1em;
+   border-radius: 10px;
+   .prf_picture {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: #787878;
+   }
+   .prf_username {
+      width: 230px;
+      padding: 1.2em 0em;
+      font-weight: 700;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .prf_balance {
+      width: 230px;
+      display: flex;
+      flex-direction: column;
+      p {
+         padding-left: 0.4em;
+      }
+      span {
+         padding: 1em 0.4em;
+         background: #73ff9e;
+         border-radius: 10px;
+         margin-top: 5px;
+         font-size: 1.2em;
+      }
+   }
+}
+
+.prf_body {
+   width: 100%;
+   background: white;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   padding: 1em;
+   gap: 15px;
+}
+
+.prf_email {
+   width: 100%;
+   background: #fff191;
+   border-radius: 10px;
+   padding: 1em;
+   p:nth-child(1) {
+      font-size: 1.3em;
+      word-break: break-word;
+      padding: 0em 0em 0.3em 0em;
+   }
+   p:nth-child(2) {
+      color: #333;
+   }
+}
+.prf_changePass {
+   width: 100%;
+   min-height: 200px;
+   background: #7cece7;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   height: auto;
+   form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 1em;
+   }
+   .prf_input {
+      position: relative;
+      max-width: 330px;
+      width: 100%;
+      height: auto;
+      padding-right: 1em;
+      span {
+         position: absolute;
+         width: 16px;
+         height: 16px;
+         right: -0.6%;
+         top: 50%;
+         transform: translate(-50%, -50%);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         &:hover {
+            cursor: pointer;
+         }
+      }
+   }
+
+   input {
+      width: calc(100% - 28.6px);
+      max-width: 300px;
+      padding: 1em 2.5em 1em 1em;
+      border-radius: 10px;
+      border: none;
+      font-family: 'Poppins';
+      color: black;
+      border: 2px solid rgba(0, 0, 0, 0);
+      transition: all 0.2s linear;
+      &:focus {
+         outline: none;
+         border: 2px solid rgba(0, 0, 0, 1);
+         transition: all 0.2s linear;
+      }
+   }
+   button {
+      max-width: 200px;
+      padding: 1em;
+      border-radius: 10px;
+      border: none;
+      background: white;
+      font-family: 'Poppins';
+      cursor: pointer;
+   }
+}
+
+.prf_pw_validations {
+   display: flex;
+   flex-direction: column;
+}
+.prf_validation {
+   width: auto;
+   height: auto;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   flex-direction: row;
+   padding: 0.5em;
+   p {
+      padding-left: 0.5em;
+   }
+   span {
+      min-width: 16px;
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   .prf_container {
+      flex-direction: column;
+      align-items: center;
+      padding: 1em;
+   }
+   .prf_email > p:nth-child(1) {
+      font-size: 1.1em;
+   }
+}
