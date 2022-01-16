@@ -109,11 +109,15 @@ export default function MyNFT() {
                        ...userQueryFilters,
                        rarity: rarity.toLowerCase(),
                        page: 1,
+                       myNFTMinPage: 1,
+                       myNFTMaxPage: 5,
                     },
                  })
                : runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
                     filters: { rarity: rarity.charAt(0).toUpperCase() + rarity.slice(1) },
                     userQueryFilters: { ...userQueryFilters, rarity: 'all', page: 1 },
+                    myNFTMinPage: 1,
+                    myNFTMaxPage: 5,
                  })
          }
          if (sort) {

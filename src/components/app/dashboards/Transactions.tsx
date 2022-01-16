@@ -100,6 +100,8 @@ function TransacFilters() {
       return runDispatch(dispatch, 'UPDATE_TRANSAC_FETCH_STATUS', {
          isFetchingTransacs: true,
          isFetchingTransacsFailed: false,
+         transacsMinPage: 1,
+         transacsMaxPage: 5,
       })
    }
 
