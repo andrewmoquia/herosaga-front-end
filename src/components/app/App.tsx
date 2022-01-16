@@ -79,6 +79,8 @@ export default function App() {
                   <Route path="/myNFT/query" exact component={LandingPage}></Route>
                   <Route path="/marketplace/nft/:id" exact component={LandingPage}></Route>
                   <Route path="/myNFT/nft/:id" exact component={LandingPage}></Route>
+                  <Route path="/logout" exact component={LandingPage}></Route>
+                  <Route path="/profile" exact component={LandingPage}></Route>
                   <Route path="/forgot/password" exact component={ForgotPasswordPage}></Route>
                   <Route path="/reset/password/" exact component={ResetPwForm}></Route>
                   <Route path="/reset/password/:token" exact component={ResetPwForm}></Route>

@@ -9,6 +9,8 @@ const MyNFT = lazy(() => import('./dashboards/MyNFT'))
 const ViewNFT = lazy(() => import('./microsite/ViewNFT'))
 
 import entry from '../../../scss/entry.css'
+import Logout from './Logout'
+import Profile from './Profile'
 
 export default function MainPage() {
    return (
@@ -27,6 +29,8 @@ export default function MainPage() {
                <Route path="/marketplace/nft/:id" exact component={ViewNFT}></Route>
                <Route path="/myNFT/nft/:id" exact component={ViewNFT}></Route>
                <Route path="/transactions/nft/:id" exact component={ViewNFT}></Route>
+               <Route path="/logout" exact component={Logout}></Route>
+               <Route path="/profile" exact component={Profile}></Route>
             </Suspense>
          </Switch>
       </BrowserRouter>
