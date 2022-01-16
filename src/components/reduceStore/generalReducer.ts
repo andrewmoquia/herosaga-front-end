@@ -172,7 +172,6 @@ export function NFTActionReducer(state: any, action: any) {
             ...state,
             ...action.payload,
          }
-
       default:
          return state
    }

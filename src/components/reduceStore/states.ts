@@ -10,6 +10,10 @@ const userState = {
    starStyleOnRoulette: {},
 }
 
+const notifState = {
+   notifs: [],
+}
+
 const authState = {
    isAuthenticated: false,
    isAuthDone: false,
@@ -34,7 +38,6 @@ const nftState = {
    pageLimit: 5,
    minPage: 1,
    maxPage: 5,
-   currPage: 1,
    myNFTPages: [],
    myNFTPageLimit: 5,
    myNFTMinPage: 1,
@@ -88,4 +91,11 @@ const transactionsState = {
    transacsMaxPage: 5,
 }
 
-export const state = Object.assign(userState, authState, mintingState, nftState, transactionsState)
+export const state = Object.assign(
+   userState,
+   authState,
+   mintingState,
+   nftState,
+   transactionsState,
+   notifState
+)

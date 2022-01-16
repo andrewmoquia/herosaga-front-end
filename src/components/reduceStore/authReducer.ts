@@ -30,6 +30,11 @@ export function AuthReducer(state: any, action: any) {
             isAuthenticated: false,
             isAuthenticating: false,
          }
+      case 'UPDATE_AUTH_STATUS':
+         return {
+            ...state,
+            ...action.payload,
+         }
       default:
          return state
    }
