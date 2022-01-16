@@ -51,6 +51,8 @@ function TransacFilters() {
       return runDispatch(dispatch, 'UPDATE_TRANSAC_FETCH_STATUS', {
          isFetchingTransacs: true,
          isFetchingTransacsFailed: false,
+         transacsMinPage: 1,
+         transacsMaxPage: 5,
       })
    }
 
@@ -68,6 +70,8 @@ function TransacFilters() {
       return runDispatch(dispatch, 'UPDATE_TRANSAC_FETCH_STATUS', {
          isFetchingTransacs: true,
          isFetchingTransacsFailed: false,
+         transacsMinPage: 1,
+         transacsMaxPage: 5,
       })
    }
 
@@ -120,7 +124,6 @@ function TransacFilters() {
          })
          .then((res) => {
             const { status, payload } = res.data
-            console.log(payload)
             if (status === 200) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetchingTransacs: false,
@@ -318,10 +321,8 @@ function TransacPagination() {
 
    const handleGoToPage = (props: any) => {
       const { page } = props
-      console.log(page)
       if (page == 1) {
          runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
-            transacsPages: [1, 2, 3, 4, 5],
             transacsMinPage: 1,
             transacsMaxPage: 5,
             transacQueryFilters: { ...transacQueryFilters, page },
@@ -345,10 +346,16 @@ function TransacPagination() {
       }
 
       //If pages array match to the totalPage from the request set it
+      const calculateMaxPage = Math.ceil(page / 5) * 5
+      const calculateMinPage = calculateMaxPage - 5
       if (tempPages.length === totalPage) {
-         runDispatch(dispatch, 'SET_USER_NFT_PAGES', { transacsPages: tempPages })
+         runDispatch(dispatch, 'SET_USER_NFT_PAGES', {
+            transacsPages: tempPages,
+            transacsMinPage: calculateMinPage + 1,
+            transacsMaxPage: calculateMaxPage,
+         })
       }
-   }, [dispatch, totalPage, transacsPages.length])
+   }, [dispatch, totalPage, transacsPages.length, page])
 
    //If new nfts data were loaded, update page array data for pagination
    useEffect(() => {

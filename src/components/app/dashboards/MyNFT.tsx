@@ -1,9 +1,8 @@
-import { useEffect, useCallback, useContext, useState, useMemo } from 'react'
+import { useEffect, useCallback, useContext, useState } from 'react'
 import axios from 'axios'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { runDispatch } from '../../actions/dispatch'
 import { useLocation, useHistory } from 'react-router'
-import Pagination from '../microsite/Pagination'
 import NFTCard from '../microsite/NFTCard'
 import { Link } from 'react-router-dom'
 import s from '../../../../scss/main.css'
@@ -86,22 +85,6 @@ export default function MyNFT() {
    } = state
    const { nfts, nftTotal, totalPage, page } = userNFTs
 
-   const emptyNFTs = useMemo(() => {
-      return {
-         nbhits: 0,
-         nftTotal: 0,
-         nfts: [],
-         totalPage: 1,
-      }
-   }, [])
-
-   const fetchingStart = useMemo(() => {
-      return {
-         isFetchingNFT: true,
-         updateURLSearchParams: true,
-      }
-   }, [])
-
    const history = useHistory()
    const location = useLocation()
 
@@ -127,12 +110,10 @@ export default function MyNFT() {
                        rarity: rarity.toLowerCase(),
                        page: 1,
                     },
-                    userNFTs: emptyNFTs,
                  })
                : runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
                     filters: { rarity: rarity.charAt(0).toUpperCase() + rarity.slice(1) },
                     userQueryFilters: { ...userQueryFilters, rarity: 'all', page: 1 },
-                    userNFTs: emptyNFTs,
                  })
          }
          if (sort) {
@@ -140,25 +121,27 @@ export default function MyNFT() {
                ? runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
                     filters: { sort: 'For Sale' },
                     userQueryFilters: { ...userQueryFilters, sort: '-isForSale', page: 1 },
-                    userNFTs: emptyNFTs,
+                    myNFTMinPage: 1,
+                    myNFTMaxPage: 5,
                  })
                : sort === 'Not For Sale' || sort === 'isForSale'
                ? runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
                     filters: { sort: 'Not For Sale' },
                     userQueryFilters: { ...userQueryFilters, sort: 'isForSale', page: 1 },
-                    userNFTs: emptyNFTs,
+                    myNFTMinPage: 1,
+                    myNFTMaxPage: 5,
                  })
                : runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
                     filters: { sort: 'All' },
                     userQueryFilters: { ...userQueryFilters, sort: 'all', page: 1 },
-                    userNFTs: emptyNFTs,
+                    myNFTMinPage: 1,
+                    myNFTMaxPage: 5,
                  })
          }
          if (page) {
             if (page == 1) {
                runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
                   filters: { page: page },
-                  myNFTPages: [1, 2, 3, 4, 5],
                   myNFTMinPage: 1,
                   myNFTMaxPage: 5,
                   userQueryFilters: { ...userQueryFilters, page },
@@ -170,9 +153,11 @@ export default function MyNFT() {
                })
             }
          }
-         return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
+         return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
+            isFetchingNFT: true,
+         })
       },
-      [dispatch, emptyNFTs, fetchingStart, userQueryFilters]
+      [dispatch, userQueryFilters]
    )
 
    //Create url query
@@ -220,7 +205,7 @@ export default function MyNFT() {
             if (status === 204) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetchingNFT: false,
-                  userNFTs: emptyNFTs,
+
                   isFetchingFailed: true,
                })
             }
@@ -229,7 +214,7 @@ export default function MyNFT() {
             console.log(err)
          })
       return handleSetURLSearchParams()
-   }, [dispatch, handleSetURLSearchParams, createURLSearchParams, emptyNFTs])
+   }, [dispatch, handleSetURLSearchParams, createURLSearchParams])
 
    //If query is updated fetch the data based on changes
    useEffect(() => {
@@ -259,12 +244,12 @@ export default function MyNFT() {
             })
             runDispatch(dispatch, 'SEARCH_PARAMS_ON_L0AD_DONE', '')
             runDispatch(dispatch, 'UPDATE_QUERY_FILTER', { userQueryFilters: queriesFilter })
-            return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
+            return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
          } else {
             getUserNFTs()
          }
       }
-   }, [dispatch, fetchingStart, getUserNFTs, location.search, searchParamsOnLoad])
+   }, [dispatch, getUserNFTs, location.search, searchParamsOnLoad])
 
    //Close dropdown when click to other elem when dropdown is open
    useEffect(() => {
@@ -374,8 +359,110 @@ export default function MyNFT() {
                      : null}
                </div>
             </div>
-            <Pagination {...props} />
+            <CreateCustomPagination />
          </div>
       </section>
+   )
+}
+
+function CreateCustomPagination() {
+   const { state, dispatch } = useContext(MainStore)
+   const { userNFTs, myNFTPages, myNFTMinPage, myNFTMaxPage, userQueryFilters } = state
+   const { totalPage, page } = userNFTs
+
+   console.log(userNFTs)
+
+   const handlePagiMovePage = (action: any) => {
+      if (action === 'next' && myNFTMaxPage < myNFTPages[myNFTPages.length - 1]) {
+         return runDispatch(dispatch, 'INC_USER_NFT_PAGES', {
+            myNFTMinPage: myNFTMinPage + 5,
+            myNFTMaxPage: myNFTMaxPage + 5,
+         })
+      }
+      if (action === 'back' && myNFTMinPage > 1) {
+         return runDispatch(dispatch, 'DEC_USER_NFT_PAGES', {
+            myNFTMinPage: myNFTMinPage - 5,
+            myNFTMaxPage: myNFTMaxPage - 5,
+         })
+      }
+   }
+
+   const handleGoToPage = (props: any) => {
+      const { page } = props
+      if (page == 1) {
+         runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
+            myNFTMinPage: 1,
+            myNFTMaxPage: 5,
+            userQueryFilters: { ...userQueryFilters, page },
+         })
+      } else {
+         runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
+            userQueryFilters: { ...userQueryFilters, page },
+         })
+      }
+      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
+   }
+
+   //Create an array of page num for pagination to make
+   const handleSetPages = useCallback(() => {
+      const tempPages: any = []
+      //Add page to the pages array
+      for (let i = 1; i <= totalPage; i++) {
+         if (myNFTPages.length != totalPage) {
+            tempPages.push(i)
+         }
+      }
+
+      //If pages array match to the totalPage from the request set it
+      const calculateMaxPage = Math.ceil(page / 5) * 5
+      const calculateMinPage = calculateMaxPage - 5
+      if (tempPages.length === totalPage) {
+         runDispatch(dispatch, 'SET_USER_NFT_PAGES', {
+            myNFTPages: tempPages,
+            myNFTMaxPage: calculateMaxPage,
+            myNFTMinPage: calculateMinPage + 1,
+         })
+      }
+   }, [dispatch, myNFTPages.length, page, totalPage])
+
+   console.log(myNFTMaxPage, myNFTMinPage)
+
+   //If new nfts data were loaded, update page array data for pagination
+   useEffect(() => {
+      if (userNFTs) {
+         handleSetPages()
+      }
+   }, [userNFTs, handleSetPages])
+
+   return (
+      <div className={s.pagination_control}>
+         <button className={s.pagi_button} onClick={() => handlePagiMovePage('back')}>
+            &#60;
+         </button>
+         <div
+            key={1}
+            className={`${s.pagi_num} ${page == 1 ? s.active_page : ''}`}
+            onClick={() => handleGoToPage({ page: 1 })}
+         >
+            1
+         </div>
+         {myNFTMinPage > 5 && <div>...</div>}
+         {myNFTPages.map((pageNum: any) => {
+            if (pageNum >= myNFTMinPage && pageNum <= myNFTMaxPage && pageNum !== 1) {
+               return (
+                  <div
+                     key={pageNum}
+                     className={`${s.pagi_num} ${page == pageNum ? s.active_page : ''}`}
+                     onClick={() => handleGoToPage({ page: pageNum })}
+                  >
+                     {pageNum}
+                  </div>
+               )
+            }
+         })}
+         <button className={s.pagi_button} onClick={() => handlePagiMovePage('next')}>
+            &#62;
+         </button>
+      </div>
    )
 }

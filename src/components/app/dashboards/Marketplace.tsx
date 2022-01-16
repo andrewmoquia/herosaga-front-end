@@ -4,7 +4,6 @@ import { MainStore } from '../../reduceStore/StoreProvider'
 import axios from 'axios'
 import { useLocation, useHistory } from 'react-router'
 import NFTCard from '../microsite/NFTCard'
-import Pagination from '../microsite/Pagination'
 import { Link } from 'react-router-dom'
 import s from '../../../../scss/main.css'
 
@@ -161,11 +160,8 @@ export default function Marketplace() {
       searchMPParamsOnLoad,
       isFetchingFailed,
       marketFilterData,
-      minPage,
-      maxPage,
-      pages,
    } = state
-   const { nftTotal, nfts, totalPage, page } = mpNFTs
+   const { nftTotal, nfts } = mpNFTs
    const { balance } = user
 
    const emptyNFTs = useMemo(() => {
@@ -174,13 +170,7 @@ export default function Marketplace() {
          nftTotal: 0,
          nfts: [],
          totalPage: 1,
-      }
-   }, [])
-
-   const fetchingStart = useMemo(() => {
-      return {
-         isFetchingNFT: true,
-         updateURLSearchParams: true,
+         page: 1,
       }
    }, [])
 
@@ -189,9 +179,8 @@ export default function Marketplace() {
       const { value, name } = e.target
       runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
          mpQueryFilters: { ...mpQueryFilters, [name]: value, page: 1, heroes: 'all' },
-         mpNFTs: emptyNFTs,
       })
-      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
+      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
    }
 
    //Update sort filter
@@ -199,9 +188,8 @@ export default function Marketplace() {
       const { value, name } = e.target
       runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
          mpQueryFilters: { ...mpQueryFilters, [name]: value, page: 1 },
-         mpNFTs: emptyNFTs,
       })
-      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
+      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
    }
 
    //Update heroes filter
@@ -209,9 +197,8 @@ export default function Marketplace() {
       const { value, name } = e.target
       runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
          mpQueryFilters: { ...mpQueryFilters, [name]: value, page: 1, rarity: 'all' },
-         mpNFTs: emptyNFTs,
       })
-      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
+      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
    }
 
    //Update price filter
@@ -223,40 +210,22 @@ export default function Marketplace() {
       const priceFilter = `sellPrice>=${x}<=${y}`
       runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
          mpQueryFilters: { ...mpQueryFilters, priceFilter, page: 1 },
-         mpNFTs: emptyNFTs,
       })
-      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
+      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
    }
 
    //Reset all filters value
    const handleResetMPFilter = () => {
       runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
          mpQueryFilters: { priceFilter: '', rarity: 'all', sort: 'latest', page: 1, heroes: 'all' },
+         minPage: 1,
+         maxPage: 5,
       })
       setTimeout(() => {
          setResetFilter(!resetFilter)
          setResetFilter(true)
       }, 500)
-      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
-   }
-
-   //Update page filter
-   const handleGoToPage = (props: any) => {
-      const { page } = props
-      if (page == 1) {
-         runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
-            pages: [1, 2, 3, 4, 5],
-            minPage: 1,
-            maxPage: 5,
-            mpQueryFilters: { ...mpQueryFilters, page },
-         })
-      } else {
-         runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
-            mpQueryFilters: { ...mpQueryFilters, page },
-         })
-      }
-
-      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
+      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
    }
 
    //Create url query
@@ -345,23 +314,12 @@ export default function Marketplace() {
             })
             runDispatch(dispatch, 'SEARCH_MP_PARAMS_ON_L0AD_DONE', '')
             runDispatch(dispatch, 'UPDATE_MP_FILTERS', { mpQueryFilters: queriesFilter })
-            return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', fetchingStart)
+            return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
          } else {
             getMPNfts()
          }
       }
-   }, [dispatch, searchMPParamsOnLoad, location.search, getMPNfts, fetchingStart])
-
-   const paginationProps = {
-      handleSetFilter: handleGoToPage,
-      totalPage,
-      nfts,
-      page,
-      minPage,
-      maxPage,
-      pages,
-      dashboard: 'marketplace',
-   }
+   }, [dispatch, searchMPParamsOnLoad, location.search, getMPNfts])
 
    const filterProps = {
       mpQueryFilters,
@@ -460,10 +418,108 @@ export default function Marketplace() {
                      : null}
                </div>
                <div className={s.mp_pagination}>
-                  <Pagination {...paginationProps} />
+                  <CreateCustomPagination />
                </div>
             </div>
          </div>
       </section>
+   )
+}
+
+function CreateCustomPagination() {
+   const { state, dispatch } = useContext(MainStore)
+   const { mpNFTs, pages, minPage, maxPage, mpQueryFilters } = state
+   const { totalPage, page } = mpNFTs
+
+   const handlePagiMovePage = (action: any) => {
+      if (action === 'next' && maxPage < pages[pages.length - 1]) {
+         return runDispatch(dispatch, 'INC_USER_NFT_PAGES', {
+            minPage: minPage + 5,
+            maxPage: maxPage + 5,
+         })
+      }
+      if (action === 'back' && minPage > 1) {
+         return runDispatch(dispatch, 'DEC_USER_NFT_PAGES', {
+            minPage: minPage - 5,
+            maxPage: maxPage - 5,
+         })
+      }
+   }
+
+   const handleGoToPage = (props: any) => {
+      const { page } = props
+      if (page == 1) {
+         runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
+            minPage: 1,
+            maxPage: 5,
+            mpQueryFilters: { ...mpQueryFilters, page },
+         })
+      } else {
+         runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
+            mpQueryFilters: { ...mpQueryFilters, page },
+         })
+      }
+      return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
+   }
+
+   //Create an array of page num for pagination to make
+   const handleSetPages = useCallback(() => {
+      const tempPages: any = []
+      //Add page to the pages array
+      for (let i = 1; i <= totalPage; i++) {
+         if (pages.length != totalPage) {
+            tempPages.push(i)
+         }
+      }
+
+      //If pages array match to the totalPage from the request set it
+      const calculateMaxPage = Math.ceil(page / 5) * 5
+      const calculateMinPage = calculateMaxPage - 5
+      if (tempPages.length === totalPage) {
+         runDispatch(dispatch, 'SET_USER_NFT_PAGES', {
+            pages: tempPages,
+            maxPage: calculateMaxPage,
+            minPage: calculateMinPage + 1,
+         })
+      }
+   }, [dispatch, totalPage, pages.length, page])
+
+   //If new nfts data were loaded, update page array data for pagination
+   useEffect(() => {
+      if (mpNFTs) {
+         handleSetPages()
+      }
+   }, [mpNFTs, handleSetPages])
+
+   return (
+      <div className={s.pagination_control}>
+         <button className={s.pagi_button} onClick={() => handlePagiMovePage('back')}>
+            &#60;
+         </button>
+         <div
+            key={1}
+            className={`${s.pagi_num} ${page == 1 ? s.active_page : ''}`}
+            onClick={() => handleGoToPage({ page: 1 })}
+         >
+            1
+         </div>
+         {minPage > 5 && <div>...</div>}
+         {pages.map((pageNum: any) => {
+            if (pageNum >= minPage && pageNum <= maxPage && pageNum !== 1) {
+               return (
+                  <div
+                     key={pageNum}
+                     className={`${s.pagi_num} ${page == pageNum ? s.active_page : ''}`}
+                     onClick={() => handleGoToPage({ page: pageNum })}
+                  >
+                     {pageNum}
+                  </div>
+               )
+            }
+         })}
+         <button className={s.pagi_button} onClick={() => handlePagiMovePage('next')}>
+            &#62;
+         </button>
+      </div>
    )
 }

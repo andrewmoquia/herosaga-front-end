@@ -3,6 +3,7 @@ import { MainStore } from '../../reduceStore/StoreProvider'
 import { runDispatch } from '../../actions/dispatch'
 import axios from 'axios'
 import s from '../../../../scss/main.css'
+// const s = lazy(() => import('../../../../scss/main.css'))
 
 const generateHeroes = (mintedNFT: any, heroesData: any) => {
    const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
