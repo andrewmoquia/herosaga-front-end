@@ -13,6 +13,7 @@ const navLiElement: INavLiElement = {
    myNFT: '',
    profile: '',
    transactions: '',
+   logout: '',
 }
 
 export default function NavMenu(props: any): any {
@@ -62,7 +63,7 @@ export default function NavMenu(props: any): any {
    return (
       <>
          {/* Main Menu  */}
-         <ul className={`${s.menu} ${s.main}`}>
+         <ul className={`${s.menu}`}>
             {data.generalMenu.map((key: any) => {
                return (
                   <Link
@@ -72,7 +73,7 @@ export default function NavMenu(props: any): any {
                   >
                      <li onClick={() => handleChangeDashboard(key.type.class)}>
                         <div className={s.nav_icon}>
-                           <img src={key.img} alt={key.alt} />
+                           <img src={key.img} alt={key.alt} width={400} height={400} />
                         </div>
                         <p className={`${s.d_none} ${s.d_lg_block}`}>{key.type.label}</p>
                      </li>
@@ -81,7 +82,7 @@ export default function NavMenu(props: any): any {
             })}
          </ul>
          {/* Profile Menu  */}
-         <ul className={`${s.menu} ${s.main}`}>
+         <ul className={`${s.menu}`}>
             {data.profileMenu.map((key: any) => {
                return (
                   <Link
@@ -91,7 +92,7 @@ export default function NavMenu(props: any): any {
                   >
                      <li onClick={() => handleChangeDashboard(key.type.route)}>
                         <div className={s.nav_icon}>
-                           <img src={key.img} alt={key.alt} />
+                           <img src={key.img} alt={key.alt} width={400} height={400} />
                         </div>
                         <p className={`${s.d_none} ${s.d_lg_block}`}>{key.type.label}</p>
                      </li>
