@@ -5,6 +5,7 @@ import AlertNotif from './AlertNotif'
 import { useLocation } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { IAlertProps } from '../../interfaces/interfaces'
+import s from '../../../../scss/main.css'
 
 export default function VerifyAcc() {
    const { state, dispatch } = useContext(MainStore)
@@ -47,27 +48,27 @@ export default function VerifyAcc() {
    }
 
    return (
-      <section className="container posRel">
-         <div className="container oHidden posAbs">
-            <div className="bg-chess"></div>
+      <section className={`${s.container} ${s.posRel}`}>
+         <div className={`${s.container} ${s.oHidden} ${s.posAbs}`}>
+            <div className={s.bg_chess}></div>
          </div>
-         <div className="default-menu">
-            <div className="def-menu-header">
+         <div className={s.default_menu}>
+            <div className={s.def_menu_header}>
                <p>Verify Account</p>
             </div>
-            <div className="warn-container">
+            <div className={s.warn_container}>
                <AlertNotif {...alertProps} />
             </div>
             <form
                action="/"
-               className="default-form"
+               className={s.default_form}
                onSubmit={(e) => {
                   handleVerifyUser(e)
                }}
             >
                <button
                   type="submit"
-                  className="button-1"
+                  className={s.button_1}
                   disabled={state.isReqCooldown || state.isReqProcessing}
                >
                   {!state.isReqCooldown && !state.isReqProcessing ? (
@@ -79,7 +80,7 @@ export default function VerifyAcc() {
                   )}
                </button>
                <button
-                  className="button-transparent-1"
+                  className={s.button_transparent_1}
                   type="button"
                   disabled={state.isReqCooldown || state.isReqProcessing}
                   onClick={() => {

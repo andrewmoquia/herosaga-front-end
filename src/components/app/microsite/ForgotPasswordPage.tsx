@@ -2,6 +2,7 @@ import { useCallback, useContext, useRef } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { sendReqChangePass } from '../../actions/forgotPw'
 import AlertNotif from './AlertNotif'
+import s from '../../../../scss/main.css'
 
 export default function ForgotPasswordPage() {
    const nodeRef: any = useRef()
@@ -28,20 +29,20 @@ export default function ForgotPasswordPage() {
    }
 
    return (
-      <section className="container posRel">
-         <div className="container oHidden posAbs">
-            <div className="bg-chess"></div>
+      <section className={`${s.container} ${s.posRel}`}>
+         <div className={`${s.container} ${s.oHidden} ${s.posAbs}`}>
+            <div className={s.bg_chess}></div>
          </div>
-         <div className="default-menu">
-            <div className="def-menu-header">
+         <div className={s.default_menu}>
+            <div className={s.def_menu_header}>
                <p>Forgot Password</p>
             </div>
-            <div className="warn-container">
+            <div className={s.warn_container}>
                <AlertNotif {...props} />
             </div>
             <form
                action="/"
-               className="default-form"
+               className={s.default_form}
                onSubmit={(e) => {
                   handleForgotPassword(e)
                }}
@@ -53,12 +54,12 @@ export default function ForgotPasswordPage() {
                   autoComplete="off"
                   required
                   id="resetPwUsername"
-                  className="default-input"
+                  className={s.default_input}
                   disabled={state.isReqProcessing || state.isReqCooldown}
                />
                <button
                   type="submit"
-                  className="button-1"
+                  className={s.button_1}
                   disabled={state.isReqProcessing || state.isReqCooldown}
                >
                   {!state.isReqCooldown && !state.isReqProcessing ? (
@@ -70,7 +71,7 @@ export default function ForgotPasswordPage() {
                   )}
                </button>
                <button
-                  className="button-transparent-1"
+                  className={s.button_transparent_1}
                   type="button"
                   disabled={state.isReqProcessing || state.isReqCooldown}
                   onClick={() => {

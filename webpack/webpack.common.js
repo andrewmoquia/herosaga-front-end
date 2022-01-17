@@ -35,11 +35,11 @@ module.exports = {
                   loader: 'css-loader',
                   options: {
                      // esModule: false,
-                     modules: true,
+                     // modules: true,
                      sourceMap: false,
-                     // modules: {
-                     //    localIdentName: '[local]_[hash:base64:5]',
-                     // },
+                     modules: {
+                        localIdentName: '[local]_[hash:base64:5]',
+                     },
                   },
                },
                'postcss-loader',

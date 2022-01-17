@@ -3,6 +3,7 @@ import { MainStore } from '../../reduceStore/StoreProvider'
 import { useParams } from 'react-router-dom'
 import { changePassword } from '../../actions/changePw'
 import AlertNotif from './AlertNotif'
+import s from '../../../../scss/main.css'
 
 export default function ResetPwForm() {
    const nodeRef: any = useRef()
@@ -30,20 +31,20 @@ export default function ResetPwForm() {
    }
 
    return (
-      <section className="container posRel">
-         <div className="container oHidden posAbs">
-            <div className="bg-chess"></div>
+      <section className={`${s.container} ${s.posRel}`}>
+         <div className={`${s.container} ${s.oHidden} ${s.posAbs}`}>
+            <div className={s.bg_chess}></div>
          </div>
-         <div className="default-menu">
-            <div className="def-menu-header">
+         <div className={s.default_menu}>
+            <div className={s.def_menu_header}>
                <p>Reset Password</p>
             </div>
-            <div className="warn-container">
+            <div className={s.warn_container}>
                <AlertNotif {...props} />
             </div>
             <form
                action="/"
-               className="default-form"
+               className={s.default_form}
                onSubmit={(e) => {
                   handleResetPassword(e)
                }}
@@ -55,7 +56,7 @@ export default function ResetPwForm() {
                   autoComplete="off"
                   required
                   id="newPass"
-                  className="default-input"
+                  className={s.default_input}
                   disabled={state.isReqProcessing || state.isReqCooldown}
                />
                <input
@@ -65,12 +66,12 @@ export default function ResetPwForm() {
                   autoComplete="off"
                   required
                   id="confirmNewPass"
-                  className="default-input"
+                  className={s.default_input}
                   disabled={state.isReqProcessing || state.isReqCooldown}
                />
                <button
                   type="submit"
-                  className="button-1"
+                  className={s.button_1}
                   disabled={state.isReqProcessing || state.isReqCooldown}
                >
                   {!state.isReqCooldown && !state.isReqProcessing ? (
@@ -80,7 +81,7 @@ export default function ResetPwForm() {
                   )}
                </button>
                <button
-                  className="button-transparent-1"
+                  className={s.button_transparent_1}
                   type="button"
                   disabled={state.isReqProcessing || state.isReqCooldown}
                   onClick={() => {
