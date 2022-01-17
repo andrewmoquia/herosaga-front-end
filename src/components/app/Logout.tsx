@@ -35,11 +35,12 @@ export default function Logout() {
             }
          })
          .catch(() => {
-            runDispatch(dispatch, 'UPDATE_AUTH_STATUS', {
-               notifs: [
-                  ...notifs,
-                  { id: uuidv4(), msg: 'Something went wrong. Please try again later' },
-               ],
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
             })
          })
 

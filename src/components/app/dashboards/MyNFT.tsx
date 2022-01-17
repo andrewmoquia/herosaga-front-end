@@ -6,6 +6,7 @@ import { useLocation, useHistory } from 'react-router'
 import NFTCard from '../microsite/NFTCard'
 import { Link } from 'react-router-dom'
 import s from '../../../../scss/main.css'
+import { v4 as uuidv4 } from 'uuid'
 
 function CreateNFTFIlter(props: any) {
    const {
@@ -205,17 +206,29 @@ export default function MyNFT() {
                   isFetchingNFT: false,
                   userNFTs: payload,
                })
-            }
-            if (status === 204) {
+            } else if (status === 204) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetchingNFT: false,
-
                   isFetchingFailed: true,
+               })
+            } else {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
                })
             }
          })
-         .catch((err) => {
-            console.log(err)
+         .catch(() => {
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
+            })
          })
       return handleSetURLSearchParams()
    }, [dispatch, handleSetURLSearchParams, createURLSearchParams])

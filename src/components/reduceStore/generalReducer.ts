@@ -172,6 +172,11 @@ export function NFTActionReducer(state: any, action: any) {
             ...state,
             ...action.payload,
          }
+      case 'SET_NOTIF_STATUS':
+         return {
+            ...state,
+            ...action.payload,
+         }
       default:
          return state
    }

@@ -11,6 +11,7 @@
    font-weight: 700;
    overflow: hidden;
    z-index: 99;
+   position: relative;
 }
 #nav_menu {
    width: auto;
@@ -21,7 +22,7 @@
    margin-top: 0px;
    // background: red;
    // border: 1px solid black;
-   // overflow: hidden;
+   overflow: hidden;
    #menu_changer {
       width: 100%;
    }

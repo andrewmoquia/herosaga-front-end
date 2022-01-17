@@ -6,6 +6,7 @@ import { useLocation, useHistory } from 'react-router'
 import NFTCard from '../microsite/NFTCard'
 import { Link } from 'react-router-dom'
 import s from '../../../../scss/main.css'
+import { v4 as uuidv4 } from 'uuid'
 
 function CustomDropdown(props: any) {
    const { title, options, value, onClick } = props
@@ -188,6 +189,8 @@ export default function Marketplace() {
       const { value, name } = e.target
       runDispatch(dispatch, 'UPDATE_QUERY_FILTER', {
          mpQueryFilters: { ...mpQueryFilters, [name]: value, page: 1 },
+         minPage: 1,
+         maxPage: 5,
       })
       return runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', { isFetchingNFT: true })
    }
@@ -269,17 +272,30 @@ export default function Marketplace() {
                   isFetchingNFT: false,
                   mpNFTs: payload,
                })
-            }
-            if (status === 204) {
+            } else if (status === 204) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetchingNFT: false,
                   mpNFTs: emptyNFTs,
                   isFetchingFailed: true,
                })
+            } else {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
+               })
             }
          })
-         .catch((err) => {
-            console.log(err)
+         .catch(() => {
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
+            })
          })
       return handleSetURLSearchParams()
    }, [dispatch, handleSetURLSearchParams, createURLSearchParams, emptyNFTs])

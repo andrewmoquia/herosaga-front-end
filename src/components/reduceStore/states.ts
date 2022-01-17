@@ -11,7 +11,7 @@ const userState = {
 }
 
 const notifState = {
-   notifs: [],
+   notif: null,
 }
 
 const authState = {

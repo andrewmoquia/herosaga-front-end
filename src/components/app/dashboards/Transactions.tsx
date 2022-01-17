@@ -1,4 +1,3 @@
-// import React from 'react'
 import s from '../../../../scss/main.css'
 import { useCallback, useContext, useEffect, useMemo } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
@@ -6,6 +5,7 @@ import { runDispatch } from '../../actions/dispatch'
 import { useLocation, useHistory } from 'react-router'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function Transactions() {
    return (
@@ -131,14 +131,30 @@ function TransacFilters() {
                   isFetchingTransacs: false,
                   transacsData: payload,
                })
-            }
-            if (status === 204) {
+            } else if (status === 204) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetchingTransacs: false,
                   transacsData: emptyTransacs,
                   isFetchingTransacsFailed: true,
                })
+            } else {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
+               })
             }
+         })
+         .catch(() => {
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
+            })
          })
       return handleSetURLSearchParams()
    }, [dispatch, createURLSearchParams, emptyTransacs, handleSetURLSearchParams])

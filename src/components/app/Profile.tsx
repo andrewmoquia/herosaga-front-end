@@ -1,8 +1,14 @@
 import s from '../../../scss/main.css'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import axios from 'axios'
+import { MainStore } from '../reduceStore/StoreProvider'
+import { v4 as uuidv4 } from 'uuid'
+import { runDispatch } from '../actions/dispatch'
 
 export default function Profile() {
+   const { state, dispatch } = useContext(MainStore)
+   const { balance, username, email } = state.user
+
    const pw = {
       isPwLengthValid: false,
       isPwHasSpecialCharacter: false,
@@ -113,16 +119,43 @@ export default function Profile() {
             }
          )
          .then((res) => {
-            const { status } = res.data
+            const { status, message } = res.data
             console.log(res.data)
             if (status === 200) {
                emptyInputValue()
-            }
-            if (status === 400) {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'success',
+                     message,
+                  },
+               })
+            } else if (status === 400) {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message,
+                  },
+               })
+            } else {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
+               })
             }
          })
          .catch(() => {
-            console.log('err')
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
+            })
          })
    }
 
@@ -131,15 +164,15 @@ export default function Profile() {
          <div className={s.prf_container}>
             <div className={s.prf_details}>
                <div className={s.prf_picture}></div>
-               <div className={s.prf_username}>Sample</div>
+               <div className={s.prf_username}>{username}</div>
                <div className={s.prf_balance}>
                   <p>Balance:</p>
-                  <span>132 INCM</span>
+                  <span>{balance} INCM</span>
                </div>
             </div>
             <div className={s.prf_body}>
                <div className={s.prf_email}>
-                  <p>samples_sample@sample.com</p>
+                  <p>{email}</p>
                   <p>Email</p>
                </div>
 

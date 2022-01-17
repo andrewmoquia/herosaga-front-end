@@ -3,7 +3,7 @@ import { MainStore } from '../../reduceStore/StoreProvider'
 import { runDispatch } from '../../actions/dispatch'
 import axios from 'axios'
 import s from '../../../../scss/main.css'
-// const s = lazy(() => import('../../../../scss/main.css'))
+import { v4 as uuidv4 } from 'uuid'
 
 const generateHeroes = (mintedNFT: any, heroesData: any) => {
    const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -170,13 +170,35 @@ export default function MysteryShop(): JSX.Element {
             })
             .then((res) => {
                if (res.data.status === 200) {
-                  return runDispatch(dispatch, 'MINTING_SUCCESS', res.data.payload)
+                  runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                     notif: {
+                        id: uuidv4(),
+                        type: 'success',
+                        message: 'Successfully mintend a NFT. Please wait...',
+                     },
+                  })
+                  setTimeout(() => {
+                     runDispatch(dispatch, 'MINTING_SUCCESS', res.data.payload)
+                  }, 1500)
                } else {
-                  return runDispatch(dispatch, 'MINTING_SUCCESS', res.data.message)
+                  runDispatch(dispatch, 'MINTING_SUCCESS', '')
+                  runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                     notif: {
+                        id: uuidv4(),
+                        type: 'error',
+                        message: 'Something went wrong. Please try again later',
+                     },
+                  })
                }
             })
-            .catch((err) => {
-               console.log(err)
+            .catch(() => {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
+               })
             })
       }
    }
