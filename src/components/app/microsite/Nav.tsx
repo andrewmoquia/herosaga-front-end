@@ -120,6 +120,12 @@ function CustomNotification() {
       }, 4500)
    }, [])
 
+   const handleRemoveNotif = (notif: any) => {
+      setNotifsData((items: any) => {
+         return items.filter((item: any) => item.id !== notif.id)
+      })
+   }
+
    useEffect(() => {
       if (notif) {
          handleNotificationAction(notif)
@@ -133,7 +139,15 @@ function CustomNotification() {
       <div className={s.notif_container}>
          {notifsData.map((item: any) => {
             const { id, message, type } = item
-            return <CreateNotif key={id} message={message} type={type} />
+            return (
+               <CreateNotif
+                  key={id}
+                  message={message}
+                  type={type}
+                  onClick={() => handleRemoveNotif(item)}
+                  id={id}
+               />
+            )
          })}
          {/* <button onClick={() => addNotif()}>Add notif</button> */}
       </div>
@@ -141,6 +155,10 @@ function CustomNotification() {
 }
 
 function CreateNotif(props: any) {
-   const { message, type } = props
-   return <div className={`${s.notif} ${s[type]}`}>{message}</div>
+   const { message, type, id, onClick } = props
+   return (
+      <div className={`${s.notif} ${s[type]}`} onClick={() => onClick(id)}>
+         {message}
+      </div>
+   )
 }

@@ -387,8 +387,6 @@ function CreateCustomPagination() {
    const { userNFTs, myNFTPages, myNFTMinPage, myNFTMaxPage, userQueryFilters } = state
    const { totalPage, page } = userNFTs
 
-   console.log(userNFTs)
-
    const handlePagiMovePage = (action: any) => {
       if (action === 'next' && myNFTMaxPage < myNFTPages[myNFTPages.length - 1]) {
          return runDispatch(dispatch, 'INC_USER_NFT_PAGES', {
@@ -441,8 +439,6 @@ function CreateCustomPagination() {
          })
       }
    }, [dispatch, myNFTPages.length, page, totalPage])
-
-   console.log(myNFTMaxPage, myNFTMinPage)
 
    //If new nfts data were loaded, update page array data for pagination
    useEffect(() => {

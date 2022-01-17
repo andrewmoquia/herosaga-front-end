@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { runDispatch } from '../../actions/dispatch'
 import s from '../../../../scss/main.css'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function ViewNFT() {
    const { state, dispatch } = useContext(MainStore)
@@ -150,7 +151,6 @@ function CreateNFTCard(props: any) {
    const { nftData, userData, dispatch, heroesData, isFetchingProcessing }: any = props
    const { name, rarity, attributes, sellPrice, isForSale, ownerID, _id } = nftData
    const { physicalAttack, magicAttack, health, defense, speed } = attributes
-   const url = window.location.href
    const [isProcessing, setIsProcessing] = useState(false)
 
    useEffect(() => {
@@ -168,14 +168,35 @@ function CreateNFTCard(props: any) {
             withCredentials: true,
          })
          .then((res) => {
-            const { data, status } = res
-            console.log(data, url)
+            const { status } = res
             if (status === 200) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetching: true,
                   isFetchingProcessing: true,
+                  notif: {
+                     id: uuidv4(),
+                     type: 'success',
+                     message: 'Successfully put NFT on marketplace.',
+                  },
+               })
+            } else {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
                })
             }
+         })
+         .catch(() => {
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
+            })
          })
       setIsProcessing(!isProcessing)
    }
@@ -190,16 +211,37 @@ function CreateNFTCard(props: any) {
             withCredentials: true,
          })
          .then((res) => {
-            const { data, status } = res
-            console.log(data)
+            const { status } = res
             if (status === 200) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetching: false,
                   isFetchingProcessing: false,
                   isSold: false,
                   isBuySuccessful: true,
+                  notif: {
+                     id: uuidv4(),
+                     type: 'success',
+                     message: 'Successfully bought a NFT.',
+                  },
+               })
+            } else {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
                })
             }
+         })
+         .catch(() => {
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
+            })
          })
       setIsProcessing(!isProcessing)
    }
@@ -217,8 +259,30 @@ function CreateNFTCard(props: any) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetching: true,
                   isFetchingProcessing: true,
+                  notif: {
+                     id: uuidv4(),
+                     type: 'success',
+                     message: 'Successfully cancelled selling a NFT',
+                  },
+               })
+            } else {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
                })
             }
+         })
+         .catch(() => {
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
+            })
          })
       setIsProcessing(!isProcessing)
    }

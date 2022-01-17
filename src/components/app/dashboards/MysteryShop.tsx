@@ -174,7 +174,7 @@ export default function MysteryShop(): JSX.Element {
                      notif: {
                         id: uuidv4(),
                         type: 'success',
-                        message: 'Successfully mintend a NFT. Please wait...',
+                        message: 'Successfully minted a NFT. Please wait...',
                      },
                   })
                   setTimeout(() => {
