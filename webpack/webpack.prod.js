@@ -1,5 +1,6 @@
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const webpack = require('webpack')
 
 let target = 'browserslist'
 
@@ -37,4 +38,13 @@ module.exports = {
          }),
       ],
    },
+   plugins: [
+      new webpack.DefinePlugin({
+         'process.env.GOOGLE_AUTH_API': JSON.stringify(process.env.GOOGLE_AUTH_API),
+         'process.env.TWITTER_AUTH_API': JSON.stringify(process.env.TWITTER_AUTH_API),
+         'process.env.LOGOUT_API': JSON.stringify(process.env.LOGOUT_API),
+         'process.env.LOGIN_API': JSON.stringify(process.env.LOGIN_API),
+         'process.env.AUTH_API': JSON.stringify(process.env.AUTH_API),
+      }),
+   ],
 }
