@@ -26,7 +26,7 @@ export default function Logout() {
             const { status } = res
             console.log(res)
             if (status === 200) {
-               Cookies.remove('jwt', { path: '/', domain: 'localhost' })
+               Cookies.remove('jwt', { path: '/' })
                runDispatch(dispatch, 'UPDATE_AUTH_STATUS', {
                   isAuthenticated: false,
                })
