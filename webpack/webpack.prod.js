@@ -1,6 +1,7 @@
 const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const path = require('path')
 
 let target = 'browserslist'
 
