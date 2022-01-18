@@ -9,12 +9,14 @@ import entry from '../../../scss/entry.css'
 
 export default function LandingPage() {
    const { state } = useContext(MainStore)
-   const { isAuthenticated, isAuthDone } = state
+   const { isAuthenticated, isAuthDone, isAuthenticating } = state
 
    return (
       <Suspense fallback={<div className={entry.loading_screen}>Assembling heroes....</div>}>
          <Fragment>
-            {!isAuthenticated && isAuthDone ? (
+            {isAuthenticating ? (
+               <div className={entry.loading_screen}>Assembling heroes....</div>
+            ) : !isAuthenticated && isAuthDone ? (
                <WelcomePage />
             ) : isAuthenticated && isAuthDone ? (
                <MainPage />
