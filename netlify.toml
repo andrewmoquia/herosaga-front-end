@@ -7,3 +7,22 @@
     from="/*"
     to="index.html"
     status=200
+
+[build.environment]
+    URL=https://incumons.herokuapp.com
+    AUTH=https://incumons.herokuapp.com/check-logged-in-user
+    LOGOUT=https://incumons.herokuapp.com/logout
+    CHANGE_PASSWORD=https://incumons.herokuapp.com/change/password
+    CANCEL_SELL=https://incumons.herokuapp.com/cancel/sell/nft
+    BUY_NFT=https://incumons.herokuapp.com/buy/nft
+    SELL_NFT=https://incumons.herokuapp.com/sell/nft
+    GET_TRANSACS=https://incumons.herokuapp.com/user/transactions/get-all
+    MINT_BOX=https://incumons.herokuapp.com/mint/box
+    GET_ALL_NFT=https://incumons.herokuapp.com/user/nft/get-all
+    GET_MP_NFT=https://incumons.herokuapp.com/nft/get-all
+    VERIF_EMAIL=https://incumons.herokuapp.com/verify/email
+    REG_USER=https://incumons.herokuapp.com/register
+    LOGIN_USER=https://incumons.herokuapp.com/login
+    GET_TOKEN=https://incumons.herokuapp.com/getToken
+    FORGET_PW=https://incumons.herokuapp.com/forgot-password
+    RESET_PW=https://incumons.herokuapp.com/reset/password
