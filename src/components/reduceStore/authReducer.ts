@@ -3,7 +3,7 @@ export function AuthReducer(state: any, action: any) {
       case 'AUTH_PROCESSING':
          return {
             ...state,
-            isAuthDone: true,
+            isAuthDone: false,
             isAuthenticated: false,
             isAuthenticating: true,
          }

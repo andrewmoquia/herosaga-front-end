@@ -35,22 +35,41 @@ export default function App() {
                   payload: response.data,
                })
             } else {
-               return dispatch({
+               dispatch({
                   type: 'AUTH_FAILED',
+               })
+               return dispatch({
+                  type: 'LOGIN_FAILED',
+                  payload: 'Something went wrong. Please try again later.',
                })
             }
          })
          .catch(() => {
+            dispatch({
+               type: 'AUTH_FAILED',
+            })
             axios
                .get(`${LOGOUT}`, {
                   withCredentials: true,
                })
-               .then((response) => {
-                  console.log(response.data)
+               .then((res) => {
+                  if (res.status !== 200) {
+                     return dispatch({
+                        type: 'LOGIN_FAILED',
+                        payload: 'Something went wrong. Please try again later.',
+                     })
+                  }
                })
-               .catch((error) => {
-                  console.log(error)
+               .catch(() => {
+                  return dispatch({
+                     type: 'LOGIN_FAILED',
+                     payload: 'Something went wrong. Please try again later.',
+                  })
                })
+            return dispatch({
+               type: 'LOGIN_FAILED',
+               payload: 'Something went wrong. Please try again later.',
+            })
          })
    }
 
