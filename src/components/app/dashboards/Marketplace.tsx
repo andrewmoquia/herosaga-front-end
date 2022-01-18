@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom'
 import s from '../../../../scss/main.css'
 import { v4 as uuidv4 } from 'uuid'
 import { LoadingSVG } from '../misc/svg'
+import { config } from '../../../api'
+
+const { GET_MP_NFT } = config
 
 export default function Marketplace() {
    const [resetFilter, setResetFilter] = useState(true)
@@ -122,7 +125,7 @@ export default function Marketplace() {
    const getMPNfts = useCallback(() => {
       const queryParams = createURLSearchParams()
       axios
-         .get(`http://localhost:5000/nft/get-all/?${queryParams.toString()}`, {
+         .get(`${GET_MP_NFT}/?${queryParams.toString()}`, {
             withCredentials: true,
          })
          .then((res) => {

@@ -3,6 +3,7 @@ import { Fragment, useCallback, useContext, useEffect, lazy, Suspense } from 're
 import { MainStore } from '../reduceStore/StoreProvider'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { getCsrfToken } from '../actions/getCsrfToken'
+import { config } from '../../api'
 
 const LandingPage = lazy(() => import('./LandingPage'))
 const ForgotPasswordPage = lazy(() => import('./microsite/ForgotPasswordPage'))
@@ -11,6 +12,8 @@ const VerifyAcc = lazy(() => import('./microsite/VerifyForm'))
 const ResetPwForm = lazy(() => import('./microsite/ResetPwForm'))
 
 import entry from '../../../scss/entry.css'
+
+const { AUTH, LOGOUT } = config
 
 export default function App() {
    const { dispatch } = useContext(MainStore)
@@ -21,7 +24,7 @@ export default function App() {
          type: 'AUTH_PROCESSING',
       })
       axios
-         .get('http://localhost:5000/check-logged-in-user', {
+         .get(`${AUTH}`, {
             withCredentials: true,
          })
          .then((response) => {
@@ -39,7 +42,7 @@ export default function App() {
          })
          .catch(() => {
             axios
-               .get('http://localhost:5000/logout', {
+               .get(`${LOGOUT}`, {
                   withCredentials: true,
                })
                .then((response) => {

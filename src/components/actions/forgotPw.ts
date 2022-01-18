@@ -1,5 +1,8 @@
 import axios from 'axios'
+import { config } from '../../api'
 import { runDispatch, sixtySecTimer } from './dispatch'
+
+const { FORGET_PW } = config
 
 export const sendReqChangePass = (props: any) => {
    const { dispatch, username, token } = props
@@ -8,7 +11,7 @@ export const sendReqChangePass = (props: any) => {
    //Send request to change password.
    axios
       .post(
-         'http://localhost:5000/forgot-password',
+         `${FORGET_PW}`,
          {
             username,
          },
@@ -26,10 +29,15 @@ export const sendReqChangePass = (props: any) => {
             runDispatch(dispatch, 'FORGOT_PW_PROCESSING', res.data.message)
             //Start 60s timer to make request again.
             return sixtySecTimer(dispatch)
-         }
-         //Failed reset password, user fault.
-         if (res.data.status === 400 || 500) {
+         } else if (res.data.status === 400 || 500) {
+            //Failed reset password, user fault.
             return runDispatch(dispatch, 'FORGOT_PW_FAILED', res.data.message)
+         } else {
+            return runDispatch(
+               dispatch,
+               'FORGOT_PW_FAILED',
+               'Something went wrong. Please try again later.'
+            )
          }
       })
       //Failed reset password, server fault or expired token.

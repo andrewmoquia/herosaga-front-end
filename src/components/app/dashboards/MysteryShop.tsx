@@ -4,6 +4,9 @@ import { runDispatch } from '../../actions/dispatch'
 import axios from 'axios'
 import s from '../../../../scss/main.css'
 import { v4 as uuidv4 } from 'uuid'
+import { config } from '../../../api'
+
+const { MINT_BOX } = config
 
 const generateHeroes = (mintedNFT: any, heroesData: any) => {
    const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -31,7 +34,7 @@ export default function MysteryShop(): JSX.Element {
       if (!isMinting) {
          runDispatch(dispatch, 'MINTING_ON_PROCESS', '')
          axios
-            .get(`http://localhost:5000/mint/box/${boxType}`, {
+            .get(`${MINT_BOX}/${boxType}`, {
                withCredentials: true,
             })
             .then((res) => {

@@ -5,6 +5,9 @@ import { MainStore } from '../reduceStore/StoreProvider'
 import { v4 as uuidv4 } from 'uuid'
 import { runDispatch } from '../actions/dispatch'
 import { CheckCircle, CheckCircleFill, EyeFill, EyeLash } from './misc/svg'
+import { config } from '../../api'
+
+const { CHANGE_PASSWORD } = config
 
 export default function Profile() {
    const { state, dispatch } = useContext(MainStore)
@@ -109,7 +112,7 @@ export default function Profile() {
 
       axios
          .put(
-            'http://localhost:5000/change/password',
+            `${CHANGE_PASSWORD}`,
             {
                password: oldPw,
                newPw,

@@ -1,8 +1,11 @@
 import axios from 'axios'
+import { config } from '../../api'
+
+const { GET_TOKEN } = config
 
 export const getCsrfToken = (dispatch: any) => {
    axios
-      .get('http://localhost:5000/getToken', {
+      .get(`${GET_TOKEN}`, {
          withCredentials: true,
       })
       .then((response) => {

@@ -1,12 +1,15 @@
 import axios from 'axios'
 import { runDispatch, sixtySecTimer } from './dispatch'
+import { config } from '../../api'
+
+const { VERIF_EMAIL } = config
 
 export const verifyUser = (dispatch: Function) => {
    //Activate processing to disable buttons.
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //Login the user to check if it's not verified.
    axios
-      .get('http://localhost:5000/verify/email', {
+      .get(`${VERIF_EMAIL}`, {
          withCredentials: true,
       })
       .then((res) => {
@@ -31,7 +34,7 @@ export const checkVerificationToken = (token: any, dispatch: Function) => {
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //Send request to verify the token sent to email.
    axios
-      .get(`http://localhost:5000/verify/email/${token}`, {
+      .get(`${VERIF_EMAIL}/${token}`, {
          withCredentials: true,
       })
       .then((res) => {
@@ -43,10 +46,15 @@ export const checkVerificationToken = (token: any, dispatch: Function) => {
                runDispatch(dispatch, 'REQ_PROCESSING_DONE', '')
                window.open('/welcome', '_self')
             }, 3000)
-         }
-         //Expired token or server error.
-         if (res.data.status === 400 || 500) {
+         } else if (res.data.status === 400 || 500) {
+            //Expired token or server error.
             return runDispatch(dispatch, 'VERIFICATION_FAILED', res.data.message)
+         } else {
+            return runDispatch(
+               dispatch,
+               'VERIFICATION_FAILED',
+               'Something went wrong. Please try again later.'
+            )
          }
       })
       //Failed verification, server fault or expired token.

@@ -4,6 +4,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
    entry: {
@@ -77,6 +78,12 @@ module.exports = {
       publicPath: '/',
    },
    plugins: [
+      new Dotenv({
+         safe: true,
+         allowEmptyValues: false,
+         silent: true,
+         defaults: false,
+      }),
       new NodePolyfillPlugin(),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin(),
