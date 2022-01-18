@@ -71,12 +71,6 @@ module.exports = {
          chunks: 'all',
       },
    },
-   output: {
-      path: path.resolve(__dirname, '..', './build'),
-      assetModuleFilename: 'images/[hash][ext][quesry]', //Hash images name
-      filename: '[name].js', //Hash bundle name
-      publicPath: '/',
-   },
    plugins: [
       new Dotenv({
          safe: true,

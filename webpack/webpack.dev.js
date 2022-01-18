@@ -15,5 +15,11 @@ module.exports = {
    },
    //Fixed ChunkLoadError: Loading hot update chunk app failed.
    optimization: { runtimeChunk: 'single' },
+   output: {
+      path: path.resolve(__dirname, '..', './build'),
+      assetModuleFilename: 'images/[hash][ext][quesry]', //Hash images name
+      filename: '[name].js', //Hash bundle name
+      publicPath: '/',
+   },
    plugins: [new BundleAnalyzerPlugin()],
 }
