@@ -1,13 +1,32 @@
 const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 let target = 'browserslist'
 
 module.exports = {
    mode: 'production',
    target: target,
+   module: {
+      rules: [
+         {
+            test: /\.(s[ac]ss|css)$/i,
+            use: [
+               MiniCssExtractPlugin.loader,
+               {
+                  loader: 'css-loader',
+                  options: {
+                     modules: true,
+                     sourceMap: false,
+                  },
+               },
+               'postcss-loader',
+               'sass-loader',
+            ],
+         },
+      ],
+   },
    optimization: {
       minimize: true,
       minimizer: [
@@ -40,10 +59,7 @@ module.exports = {
       ],
    },
    output: {
-      path: path.resolve(__dirname, '..', './build'),
-      assetModuleFilename: 'images/[hash][ext][quesry]', //Hash images name
       filename: '[contenthash].js', //Hash bundle name
-      publicPath: '/',
    },
    plugins: [
       new webpack.DefinePlugin({

@@ -1,5 +1,6 @@
 let target = 'web'
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
    mode: 'development',
@@ -13,13 +14,33 @@ module.exports = {
          disableDotRule: true,
       },
    },
+   module: {
+      rules: [
+         {
+            test: /\.(s[ac]ss|css)$/i,
+            use: [
+               MiniCssExtractPlugin.loader,
+               {
+                  loader: 'css-loader',
+                  options: {
+                     // esModule: false,
+                     // modules: true,
+                     sourceMap: true,
+                     modules: {
+                        localIdentName: '[local]',
+                     },
+                  },
+               },
+               'postcss-loader',
+               'sass-loader',
+            ],
+         },
+      ],
+   },
    //Fixed ChunkLoadError: Loading hot update chunk app failed.
    optimization: { runtimeChunk: 'single' },
    output: {
-      path: path.resolve(__dirname, '..', './build'),
-      assetModuleFilename: 'images/[hash][ext][quesry]', //Hash images name
       filename: '[name].js', //Hash bundle name
-      publicPath: '/',
    },
    plugins: [new BundleAnalyzerPlugin()],
 }

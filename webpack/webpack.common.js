@@ -26,29 +26,29 @@ module.exports = {
                },
             ],
          },
-         {
-            test: /\.(s[ac]ss|css)$/i,
-            use: [
-               // This is required for asset imports in CSS, such as url()
-               MiniCssExtractPlugin.loader,
-               // 'style-loader',
-               {
-                  loader: 'css-loader',
-                  options: {
-                     // esModule: false,
-                     // modules: true,
-                     sourceMap: false,
-                     modules: {
-                        localIdentName: '[local]_[hash:base64:5]',
-                     },
-                  },
-               },
-               'postcss-loader',
-               // according to the docs, sass-loader should be at the bottom, which
-               // loads it first to avoid prefixes in your sourcemaps and other issues.
-               'sass-loader',
-            ],
-         },
+         // {
+         //    test: /\.(s[ac]ss|css)$/i,
+         //    use: [
+         //       // This is required for asset imports in CSS, such as url()
+         //       MiniCssExtractPlugin.loader,
+         //       // 'style-loader',
+         //       {
+         //          loader: 'css-loader',
+         //          options: {
+         //             // esModule: false,
+         //             // modules: true,
+         //             sourceMap: false,
+         //             modules: {
+         //                localIdentName: '[local]_[hash:base64:5]',
+         //             },
+         //          },
+         //       },
+         //       'postcss-loader',
+         //       // according to the docs, sass-loader should be at the bottom, which
+         //       // loads it first to avoid prefixes in your sourcemaps and other issues.
+         //       'sass-loader',
+         //    ],
+         // },
          {
             test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
             loader: 'file-loader',
@@ -70,6 +70,11 @@ module.exports = {
          },
          chunks: 'all',
       },
+   },
+   output: {
+      path: path.resolve(__dirname, '..', './build'),
+      assetModuleFilename: 'images/[hash][ext][quesry]', //Hash images name
+      publicPath: '/',
    },
    plugins: [
       new Dotenv({
