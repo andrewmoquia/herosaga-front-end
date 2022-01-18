@@ -91,11 +91,21 @@ const transactionsState = {
    transacsMaxPage: 5,
 }
 
+const pwValidationState = {
+   inputPw: '',
+   isPwLengthValid: false,
+   isPwHasSpecialCharacter: false,
+   isPwHasCapitalLetter: false,
+   isPwHasSmallLetter: false,
+   isPwHasNumber: false,
+}
+
 export const state = Object.assign(
    userState,
    authState,
    mintingState,
    nftState,
    transactionsState,
-   notifState
+   notifState,
+   pwValidationState
 )

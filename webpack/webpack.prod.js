@@ -26,6 +26,7 @@ module.exports = {
                   defaults: true,
                   arguments: true,
                   drop_console: true,
+                  toplevel: true,
                },
                sourceMap: false,
                // ecma: 5,

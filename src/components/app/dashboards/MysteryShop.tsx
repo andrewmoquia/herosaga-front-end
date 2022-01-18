@@ -22,6 +22,80 @@ const generateHeroes = (mintedNFT: any, heroesData: any) => {
    return generatedHeroes
 }
 
+export default function MysteryShop(): JSX.Element {
+   const { state, dispatch } = useContext(MainStore)
+   const { isMintingSuccess, mintedNFT, isMinting, mintBoxData, heroesData, starStyleOnRoulette } =
+      state
+
+   const handleMinting = (boxType: any) => {
+      if (!isMinting) {
+         runDispatch(dispatch, 'MINTING_ON_PROCESS', '')
+         axios
+            .get(`http://localhost:5000/mint/box/${boxType}`, {
+               withCredentials: true,
+            })
+            .then((res) => {
+               if (res.data.status === 200) {
+                  runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                     notif: {
+                        id: uuidv4(),
+                        type: 'success',
+                        message: 'Successfully minted a NFT. Please wait...',
+                     },
+                  })
+                  setTimeout(() => {
+                     runDispatch(dispatch, 'MINTING_SUCCESS', res.data.payload)
+                  }, 1500)
+               } else {
+                  runDispatch(dispatch, 'MINTING_SUCCESS', '')
+                  runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                     notif: {
+                        id: uuidv4(),
+                        type: 'error',
+                        message: 'Something went wrong. Please try again later',
+                     },
+                  })
+               }
+            })
+            .catch(() => {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
+               })
+            })
+      }
+   }
+
+   const handleExitMinting = () => {
+      runDispatch(dispatch, 'MINTING_DONE', '')
+   }
+
+   const props: any = {
+      data: mintBoxData,
+      handleMinting,
+      heroesData,
+      starStyleOnRoulette,
+      handleExitMinting,
+      mintedNFT,
+      isMinting,
+      dispatch,
+   }
+
+   return (
+      <>
+         {isMintingSuccess && <MintBoxAnim {...props} />}
+         <section className={s.main_bg}>
+            <div className={s.mint_boxes}>
+               <CreateMintBoxes {...props} />
+            </div>
+         </section>
+      </>
+   )
+}
+
 function MintBoxAnim(props: any) {
    const { handleExitMinting, mintedNFT, starStyleOnRoulette, heroesData } = props
    const heroes = generateHeroes(mintedNFT, heroesData)
@@ -154,78 +228,4 @@ function CreateMintBoxes(props: any) {
          </div>
       )
    })
-}
-
-export default function MysteryShop(): JSX.Element {
-   const { state, dispatch } = useContext(MainStore)
-   const { isMintingSuccess, mintedNFT, isMinting, mintBoxData, heroesData, starStyleOnRoulette } =
-      state
-
-   const handleMinting = (boxType: any) => {
-      if (!isMinting) {
-         runDispatch(dispatch, 'MINTING_ON_PROCESS', '')
-         axios
-            .get(`http://localhost:5000/mint/box/${boxType}`, {
-               withCredentials: true,
-            })
-            .then((res) => {
-               if (res.data.status === 200) {
-                  runDispatch(dispatch, 'SET_NOTIF_STATUS', {
-                     notif: {
-                        id: uuidv4(),
-                        type: 'success',
-                        message: 'Successfully minted a NFT. Please wait...',
-                     },
-                  })
-                  setTimeout(() => {
-                     runDispatch(dispatch, 'MINTING_SUCCESS', res.data.payload)
-                  }, 1500)
-               } else {
-                  runDispatch(dispatch, 'MINTING_SUCCESS', '')
-                  runDispatch(dispatch, 'SET_NOTIF_STATUS', {
-                     notif: {
-                        id: uuidv4(),
-                        type: 'error',
-                        message: 'Something went wrong. Please try again later',
-                     },
-                  })
-               }
-            })
-            .catch(() => {
-               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
-                  notif: {
-                     id: uuidv4(),
-                     type: 'error',
-                     message: 'Something went wrong. Please try again later',
-                  },
-               })
-            })
-      }
-   }
-
-   const handleExitMinting = () => {
-      runDispatch(dispatch, 'MINTING_DONE', '')
-   }
-
-   const props: any = {
-      data: mintBoxData,
-      handleMinting,
-      heroesData,
-      starStyleOnRoulette,
-      handleExitMinting,
-      mintedNFT,
-      isMinting,
-      dispatch,
-   }
-
-   return (
-      <>
-         {isMintingSuccess && <MintBoxAnim {...props} />}
-         <section className={s.main_bg}>
-            <div className={s.mint_boxes}>
-               <CreateMintBoxes {...props} />
-            </div>
-         </section>
-      </>
-   )
 }

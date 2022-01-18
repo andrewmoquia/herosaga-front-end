@@ -7,6 +7,14 @@ import s from '../../../../scss/main.css'
 export default function RegisterForm() {
    const { state, dispatch } = useContext(MainStore)
 
+   const {
+      isPwLengthValid,
+      isPwHasSpecialCharacter,
+      isPwHasCapitalLetter,
+      isPwHasSmallLetter,
+      isPwHasNumber,
+   } = state
+
    const handleRegister = (e: any) => {
       e.preventDefault()
       const props = {
@@ -19,6 +27,15 @@ export default function RegisterForm() {
       }
       //Process registering the user.
       registerUser(props)
+   }
+
+   const handlePasswordOnChange = (e: any) => {
+      dispatch({
+         type: 'SET_INPUT_PW',
+         payload: {
+            inputPw: e.target.value,
+         },
+      })
    }
 
    return (
@@ -53,6 +70,7 @@ export default function RegisterForm() {
                required
                className={s.default_input}
                disabled={state.isReqProcessing}
+               onChange={(e) => handlePasswordOnChange(e)}
             />
             <input
                type="password"
@@ -65,14 +83,25 @@ export default function RegisterForm() {
                disabled={state.isReqProcessing}
             />
          </div>
-
-         <button
-            type="submit"
-            className={`${s.button_1} ${s.reg_button}`}
-            disabled={state.isReqProcessing}
-         >
-            <p>Register</p>
-         </button>
+         <div className={s.wl_submit_button}>
+            {isPwLengthValid &&
+            isPwHasSpecialCharacter &&
+            isPwHasCapitalLetter &&
+            isPwHasSmallLetter &&
+            isPwHasNumber ? (
+               <button
+                  type="submit"
+                  className={`${s.button_1} ${s.reg_button}`}
+                  disabled={state.isReqProcessing}
+               >
+                  Register
+               </button>
+            ) : (
+               <button type="submit" className={`${s.button_1} ${s.reg_button}`} disabled={true}>
+                  <p>Register</p>
+               </button>
+            )}
+         </div>
       </form>
    )
 }

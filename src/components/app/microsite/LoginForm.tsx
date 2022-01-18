@@ -41,9 +41,12 @@ export default function LoginForm() {
                className={s.default_input}
                disabled={state.isReqProcessing}
             />
-            <button type="submit" className={s.button_1} disabled={state.isReqProcessing}>
-               <p>Login</p>
-            </button>
+            <div className={s.wl_submit_button}>
+               <button type="submit" className={s.button_1} disabled={state.isReqProcessing}>
+                  Login
+               </button>
+            </div>
+
             <button
                className={s.button_transparent_1}
                type="button"

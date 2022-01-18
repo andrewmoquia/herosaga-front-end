@@ -65,7 +65,7 @@ export default function Nav() {
             {/* Game Logo  */}
             <div className={`${s.logo_icon} ${s.d_none} ${s.d_sm_flex}`}>
                <img
-                  src="https://i.ibb.co/RzZqFb3/Spell-Book-Preface-14.webp"
+                  src="https://i.ibb.co/N3WSt5R/231asaa3ff433112d.webp"
                   alt="Spell-Book-Preface-14"
                   width={400}
                   height={400}

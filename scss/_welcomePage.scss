@@ -1,12 +1,7 @@
-.welcome_logo_banner {
-   @include size(100%, 60px);
-   @include flex(center, center);
-   margin-bottom: 10px;
-}
-
 .login_register_buttons {
    @include size(110%, 60px);
    @include flex(center, none, row, nowrap);
+   min-height: 60px;
 
    .login_button {
       @include size(50%, 100%);
@@ -94,7 +89,8 @@
       }
    }
    .login_form_container {
-      @include size(100%, auto);
+      width: 100%;
+      height: auto;
       flex: 0 0 100%;
       position: absolute;
       left: 0%;
@@ -102,8 +98,10 @@
    }
 
    .reg_form_container {
-      @include size(100%, auto);
+      width: 100%;
+      height: auto;
       flex: 0 0 100%;
+      padding: 1em;
    }
 }
 
@@ -125,4 +123,94 @@
    opacity: 0;
    width: 0;
    transition: opacity 300ms, transform 300ms, width 300ms;
+}
+
+.wl_container {
+   width: 100%;
+   min-height: 100vh;
+   overflow: hidden;
+   position: relative;
+   &::before {
+      width: 200%;
+      height: 100%;
+      position: absolute;
+      content: '';
+      background: url('https://i.ibb.co/mCcPbBM/green-checkboard.webp');
+      background-size: cover;
+      z-index: -1;
+      animation: bg_slide 35s linear infinite;
+      @keyframes bg_slide {
+         0% {
+            transform: translateX(0) translateZ(0);
+         }
+         50% {
+            transform: translateX(-25%) translateZ(0);
+         }
+         100% {
+            transform: translateX(-50%) translateZ(0);
+         }
+      }
+   }
+}
+
+.wl_submit_button {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.wl_forms_container {
+   width: 100%;
+   min-height: 100vh;
+   overflow: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   padding: 1em;
+}
+.wl_validator_container {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+.wl_validator {
+   width: 330px;
+   height: auto;
+   padding: 1em;
+   margin: 10px;
+   background: white;
+   clip-path: polygon(
+      15px 0,
+      100% 0,
+      100% calc(100% - 15px),
+      calc(100% - 15px) 100%,
+      0 100%,
+      0 15px
+   );
+   display: flex;
+   flex-direction: column;
+}
+.ws_stats_container {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.welcome_logo_banner {
+   @include size(100%, 60px);
+   @include flex(center, center);
+   display: flex;
+   flex-direction: row;
+   img {
+      margin-right: 10px;
+   }
+}
+
+@media only screen and (max-width: 500px) {
+   .wl_forms_container {
+      justify-content: flex-start;
+      padding-bottom: 1em;
+      overflow: auto;
+   }
 }

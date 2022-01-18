@@ -177,6 +177,16 @@ export function NFTActionReducer(state: any, action: any) {
             ...state,
             ...action.payload,
          }
+      case 'SET_INPUT_PW':
+         return {
+            ...state,
+            ...action.payload,
+         }
+      case 'UPDATE_PW_VALID_STATUS':
+         return {
+            ...state,
+            ...action.payload,
+         }
       default:
          return state
    }

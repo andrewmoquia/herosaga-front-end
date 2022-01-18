@@ -482,6 +482,7 @@ body {
   overflow: hidden;
   background: linear-gradient(97deg, #80e7c3 0%, #b3e06a 100%);
   position: relative;
+  margin-top: 60px;
 }
 
 .backdrop {
@@ -507,6 +508,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: hidden;
 }
 
 .container.oHidden {
@@ -522,7 +524,7 @@ body {
 }
 
 .bg_chess {
-  background: url("https://i.ibb.co/hx54g49/green-checkboard.png") no-repeat;
+  background: url("https://i.ibb.co/mCcPbBM/green-checkboard.webp") no-repeat;
   -webkit-animation: bg_slide 35s linear infinite;
           animation: bg_slide 35s linear infinite;
   -webkit-animation-delay: 1s;
@@ -567,7 +569,7 @@ body {
 }
 
 .default_menu {
-  width: 95%;
+  width: 100%;
   max-width: 700px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -576,8 +578,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: url("https://i.ibb.co/3MQH9gr/circle-pattern-right.png") 100% 100% repeat-y, linear-gradient(97deg, #f79c6f 0%, #f6a83c 100%, #f9ffad 100%);
-  margin: 0px 5px;
+  background: url(https://i.ibb.co/xFKd5MM/circle-pattern-right.webp) 100% 100% repeat-y, linear-gradient(97deg, #f79c6f 0%, #f6a83c 100%, #f9ffad 100%);
   position: relative;
   overflow: hidden;
   border-radius: 0px 5px 0px 5px;
@@ -609,7 +610,7 @@ body {
 }
 
 .default_input {
-  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat, #fff;
+  background: url("https://i.ibb.co/wWmLhgH/circle-dark-pattern-left-2.webp") 0% 0% no-repeat, #fff;
   background-size: 150px 150px;
   padding: 15px 10px;
   border: 2px solid #000;
@@ -621,6 +622,39 @@ body {
   transition: all ease-in-out 0.2s;
   -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
           clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
+}
+
+.default_input::-webkit-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1;
+  /* Firefox */
+}
+
+.default_input:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1;
+  /* Firefox */
+}
+
+.default_input::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1;
+  /* Firefox */
+}
+
+.default_input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1;
+  /* Firefox */
+}
+
+.default_input :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: black;
 }
 
 .default_input:not(:first-child) {
@@ -699,7 +733,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 15px 23px 0px 23px;
-  background: url("https://i.ibb.co/m5t76xG/circle-red-pattern-left.png") 0% 0% no-repeat, #fca4ad;
+  background: url("https://i.ibb.co/0XLbQwV/circle-red-pattern-left.webp") 0% 0% no-repeat, #fca4ad;
   background-size: 150px 150px;
   border: 2px solid #6e0707;
   border-radius: 5px 0px 5px 0px;
@@ -726,7 +760,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 15px 23px 0px 23px;
-  background: url("https://i.ibb.co/m5t76xG/circle-red-pattern-left.png") 0% 0% no-repeat, #fca4ad;
+  background: url("https://i.ibb.co/0XLbQwV/circle-red-pattern-left.webp") 0% 0% no-repeat, #fca4ad;
   background-size: 150px 150px;
   border: 2px solid #6e0707;
   border-radius: 5px 0px 5px 0px;
@@ -741,11 +775,11 @@ body {
 }
 
 .alert_notif.success {
-  background: url("https://i.ibb.co/XWh8RFK/circle-green-pattern-left.png") 0% 0% no-repeat, #85f08f;
+  background: url("https://i.ibb.co/T1zkfwb/circle-green-pattern-left.webp") 0% 0% no-repeat, #85f08f;
 }
 
 .alert_notif.failed {
-  background: url("https://i.ibb.co/VJwZkG1/circle-red-2-pattern-left.png") 0% 0% no-repeat, #fca4ad;
+  background: url("https://i.ibb.co/4Kv83YR/circle-red-2-pattern-left.webp") 0% 0% no-repeat, #fca4ad;
 }
 
 #main_nav {
@@ -760,13 +794,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: -webkit-sticky;
-  position: sticky;
   top: 0;
   font-weight: 700;
   overflow: hidden;
   z-index: 99;
-  position: relative;
+  position: fixed;
 }
 
 #nav_menu {
@@ -880,8 +912,6 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0px 15px;
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(236, 255, 154, 0.5);
-          box-shadow: 0px 0px 10px 2px rgba(236, 255, 154, 0.5);
 }
 
 .logo_icon img {
@@ -989,7 +1019,7 @@ body {
   max-width: 300px;
   margin: 15px auto;
   border: 2px solid #000;
-  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat;
+  background: url("https://i.ibb.co/wWmLhgH/circle-dark-pattern-left-2.webp") 0% 0% no-repeat;
   background-size: 150px 150px;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
@@ -1007,7 +1037,7 @@ body {
   border: 2px solid rgba(0, 0, 0, 0);
   outline: 2px solid #000;
   outline-offset: 5px;
-  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat, #a9e2f8;
+  background: url("https://i.ibb.co/wWmLhgH/circle-dark-pattern-left-2.webp") 0% 0% no-repeat, #a9e2f8;
   background-size: 150px 150px, 100%;
   -webkit-transition: all ease-in-out 0.2s;
   transition: all ease-in-out 0.2s;
@@ -1028,13 +1058,20 @@ body {
           box-sizing: border-box;
   padding: 15px 90px;
   min-width: 100px;
-  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat, #fff;
+  background: url("https://i.ibb.co/wWmLhgH/circle-dark-pattern-left-2.webp") 0% 0% no-repeat, #fff;
   background-size: 150px 150px;
   max-width: 300px;
   font-family: 'Poppins', sans-serif;
-  margin: 15px auto 0px auto;
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border: 2px solid black;
   border-radius: 5px 0px 5px 0px;
+  color: black;
   -webkit-clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
           clip-path: polygon(calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px), 0 0);
   font-weight: 700;
@@ -1045,7 +1082,7 @@ body {
 .button_1:hover {
   cursor: pointer;
   border: 2px solid rgba(0, 0, 0, 0);
-  background: url("https://i.ibb.co/WBLvLfz/circle-dark-pattern-left.png") 0% 0% no-repeat, #a9e2f8;
+  background: url("https://i.ibb.co/wWmLhgH/circle-dark-pattern-left-2.webp") 0% 0% no-repeat, #a9e2f8;
   background-size: 150px 150px, 100%;
   border-radius: 5px;
   outline: 2px solid #000;
@@ -4376,21 +4413,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.welcome_logo_banner {
-  width: 100%;
-  height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 10px;
-}
-
 .login_register_buttons {
   width: 110%;
   height: 60px;
@@ -4409,6 +4431,7 @@ body {
           flex-direction: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  min-height: 60px;
 }
 
 .login_register_buttons .login_button {
@@ -4555,6 +4578,7 @@ body {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
+  padding: 1em;
 }
 
 .alert_enter {
@@ -4585,6 +4609,140 @@ body {
   transition: opacity 300ms, width 300ms, -webkit-transform 300ms;
   transition: opacity 300ms, transform 300ms, width 300ms;
   transition: opacity 300ms, transform 300ms, width 300ms, -webkit-transform 300ms;
+}
+
+.wl_container {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.wl_container::before {
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  content: '';
+  background: url("https://i.ibb.co/mCcPbBM/green-checkboard.webp");
+  background-size: cover;
+  z-index: -1;
+  -webkit-animation: bg_slide 35s linear infinite;
+          animation: bg_slide 35s linear infinite;
+}
+
+@keyframes bg_slide {
+  0% {
+    -webkit-transform: translateX(0) translateZ(0);
+            transform: translateX(0) translateZ(0);
+  }
+  50% {
+    -webkit-transform: translateX(-25%) translateZ(0);
+            transform: translateX(-25%) translateZ(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) translateZ(0);
+            transform: translateX(-50%) translateZ(0);
+  }
+}
+
+.wl_submit_button {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wl_forms_container {
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em;
+}
+
+.wl_validator_container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wl_validator {
+  width: 330px;
+  height: auto;
+  padding: 1em;
+  margin: 10px;
+  background: white;
+  -webkit-clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+          clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ws_stats_container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.welcome_logo_banner {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.welcome_logo_banner img {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .wl_forms_container {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding-bottom: 1em;
+    overflow: auto;
+  }
 }
 
 .lg_container {

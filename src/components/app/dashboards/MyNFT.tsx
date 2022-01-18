@@ -7,68 +7,7 @@ import NFTCard from '../microsite/NFTCard'
 import { Link } from 'react-router-dom'
 import s from '../../../../scss/main.css'
 import { v4 as uuidv4 } from 'uuid'
-
-function CreateNFTFIlter(props: any) {
-   const {
-      nftTotal,
-      handleDDFilterAnim,
-      filterData,
-      filters,
-      currDDFilter,
-      activeDropdownFilter,
-      handleSetFilter,
-   } = props
-
-   return (
-      <div className={s.user_nfts_filter_cont}>
-         <div className={s.user_nfts_filter}>
-            <div className={s.filter_total_heroes}>
-               <span></span>
-               <p>{`Heroes Owned: ${nftTotal ? nftTotal : 0}`}</p>
-            </div>
-            <div className={s.filter_selection}>
-               <span></span>
-               <div className={s.filter_selection_cont}>
-                  <p>Filter:</p>
-                  {filterData.map((filterSelect: any) => {
-                     const { filterType, options } = filterSelect
-                     return (
-                        <div className={s.custom_select} key={filterType}>
-                           <div
-                              className={s.custom_option_selected}
-                              onClick={() => handleDDFilterAnim(filterType)}
-                           >
-                              {!filters[filterType]
-                                 ? filterType.charAt(0).toUpperCase() + filterType.slice(1)
-                                 : filters[filterType]}
-                           </div>
-                           <div
-                              className={`${s.custom_select_options} ${
-                                 currDDFilter === filterType && activeDropdownFilter ? s.active : ''
-                              }`}
-                           >
-                              {options.map((option: any) => {
-                                 return (
-                                    <div
-                                       className={s.custom_select_option}
-                                       onClick={() => handleSetFilter({ [filterType]: option })}
-                                       key={option}
-                                    >
-                                       {option}
-                                    </div>
-                                 )
-                              })}
-                           </div>
-                           <div className={s.custom_arrow}></div>
-                        </div>
-                     )
-                  })}
-               </div>
-            </div>
-         </div>
-      </div>
-   )
-}
+import { LoadingSVG } from '../misc/svg'
 
 export default function MyNFT() {
    const { state, dispatch } = useContext(MainStore)
@@ -320,45 +259,7 @@ export default function MyNFT() {
                   )}
                   {isFetchingNFT && (
                      <div className={s.loading_container_for_myNFT}>
-                        <svg
-                           version="1.1"
-                           id="L4"
-                           xmlns="http://www.w3.org/2000/svg"
-                           xmlnsXlink="http://www.w3.org/1999/xlink"
-                           x="0px"
-                           y="0px"
-                           viewBox="0 0 100 100"
-                           enableBackground="new 0 0 0 0"
-                           xmlSpace="preserve"
-                        >
-                           <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
-                              <animate
-                                 attributeName="opacity"
-                                 dur="1s"
-                                 values="0;1;0"
-                                 repeatCount="indefinite"
-                                 begin="0.1"
-                              ></animate>
-                           </circle>
-                           <circle fill="#fff" stroke="none" cx="26" cy="50" r="6">
-                              <animate
-                                 attributeName="opacity"
-                                 dur="1s"
-                                 values="0;1;0"
-                                 repeatCount="indefinite"
-                                 begin="0.2"
-                              ></animate>
-                           </circle>
-                           <circle fill="#fff" stroke="none" cx="46" cy="50" r="6">
-                              <animate
-                                 attributeName="opacity"
-                                 dur="1s"
-                                 values="0;1;0"
-                                 repeatCount="indefinite"
-                                 begin="0.3"
-                              ></animate>
-                           </circle>
-                        </svg>
+                        <LoadingSVG />
                      </div>
                   )}
                   {nfts && !isFetchingNFT
@@ -379,6 +280,68 @@ export default function MyNFT() {
             <CreateCustomPagination />
          </div>
       </section>
+   )
+}
+
+function CreateNFTFIlter(props: any) {
+   const {
+      nftTotal,
+      handleDDFilterAnim,
+      filterData,
+      filters,
+      currDDFilter,
+      activeDropdownFilter,
+      handleSetFilter,
+   } = props
+
+   return (
+      <div className={s.user_nfts_filter_cont}>
+         <div className={s.user_nfts_filter}>
+            <div className={s.filter_total_heroes}>
+               <span></span>
+               <p>{`Heroes Owned: ${nftTotal ? nftTotal : 0}`}</p>
+            </div>
+            <div className={s.filter_selection}>
+               <span></span>
+               <div className={s.filter_selection_cont}>
+                  <p>Filter:</p>
+                  {filterData.map((filterSelect: any) => {
+                     const { filterType, options } = filterSelect
+                     return (
+                        <div className={s.custom_select} key={filterType}>
+                           <div
+                              className={s.custom_option_selected}
+                              onClick={() => handleDDFilterAnim(filterType)}
+                           >
+                              {!filters[filterType]
+                                 ? filterType.charAt(0).toUpperCase() + filterType.slice(1)
+                                 : filters[filterType]}
+                           </div>
+                           <div
+                              className={`${s.custom_select_options} ${
+                                 currDDFilter === filterType && activeDropdownFilter ? s.active : ''
+                              }`}
+                           >
+                              {options.map((option: any) => {
+                                 return (
+                                    <div
+                                       className={s.custom_select_option}
+                                       onClick={() => handleSetFilter({ [filterType]: option })}
+                                       key={option}
+                                    >
+                                       {option}
+                                    </div>
+                                 )
+                              })}
+                           </div>
+                           <div className={s.custom_arrow}></div>
+                        </div>
+                     )
+                  })}
+               </div>
+            </div>
+         </div>
+      </div>
    )
 }
 

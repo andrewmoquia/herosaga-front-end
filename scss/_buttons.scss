@@ -38,9 +38,12 @@
    background-size: 150px 150px;
    max-width: 300px;
    font-family: 'Poppins', sans-serif;
-   margin: 15px auto 0px auto;
+   margin-top: 15px;
+   display: flex;
+   justify-content: center;
    border: 2px solid black;
    border-radius: 5px 0px 5px 0px;
+   color: black;
    clip-path: polygon($slantSide 0, 100% 15px, 100% 100%, 15px 100%, 0 $slantSide, 0 0);
    font-weight: 700;
    transition: all ease-in-out 0.2s;

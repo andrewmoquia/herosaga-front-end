@@ -24,6 +24,7 @@ body {
    overflow: hidden;
    background: linear-gradient(97deg, rgba(128, 231, 195, 1) 0%, rgba(179, 224, 106, 1) 100%);
    position: relative;
+   margin-top: 60px;
 }
 
 .backdrop {
@@ -45,6 +46,7 @@ body {
    &.posRel {
       position: relative;
    }
+   overflow: hidden;
 }
 
 .bg_chess {
@@ -73,21 +75,23 @@ body {
 }
 
 .default_menu {
-   @include size(95%, $max-width: 700px);
-   @include flex($flex-direction: column);
-   // @include bg-url($yellow, no-repeat, cover);
-   background: $circle-pattern-right 100% 100% repeat-y,
-      linear-gradient(
-         97deg,
-         rgba(247, 156, 111, 1) 0%,
-         rgba(246, 168, 60, 1) 100%,
-         rgba(249, 255, 173, 1) 100%
-      );
-   margin: 0px 5px;
+   width: 100%;
+   max-width: 700px;
+   display: flex;
+   flex-direction: column;
+   background: url(https://i.ibb.co/xFKd5MM/circle-pattern-right.webp) 100% 100% repeat-y,
+      linear-gradient(97deg, #f79c6f 0%, #f6a83c 100%, #f9ffad 100%);
    position: relative;
    overflow: hidden;
    border-radius: 0px 5px 0px 5px;
-   clip-path: polygon(15px 0, 100% 0, 100% $slantSide, $slantSide 100%, 0 100%, 0 15px);
+   clip-path: polygon(
+      15px 0,
+      100% 0,
+      100% calc(100% - 15px),
+      calc(100% - 15px) 100%,
+      0 100%,
+      0 15px
+   );
    transition: all ease-in-out 0.2s;
 }
 
@@ -112,6 +116,16 @@ body {
    margin-top: 15px;
    font-family: 'Poppins', sans-serif;
    transition: all ease-in-out 0.2s;
+   &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: black;
+      opacity: 1; /* Firefox */
+   }
+   :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: black;
+   }
+
    //    border-radius: 0px 5px 0px 5px;
    //    clip-path: polygon(15px 0, 100% 0, 100% $slantSide, $slantSide 100%, 0 100%, 0 15px);
    clip-path: polygon($slantSide 0, 100% 15px, 100% 100%, 15px 100%, 0 $slantSide, 0 0);

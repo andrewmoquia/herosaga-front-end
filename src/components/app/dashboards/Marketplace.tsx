@@ -7,146 +7,7 @@ import NFTCard from '../microsite/NFTCard'
 import { Link } from 'react-router-dom'
 import s from '../../../../scss/main.css'
 import { v4 as uuidv4 } from 'uuid'
-
-function CustomDropdown(props: any) {
-   const { title, options, value, onClick } = props
-   return (
-      <div className={s.mp_filter_container}>
-         <label className={s.mp_filter_button} htmlFor={title}>
-            <p>{title.charAt(0).toUpperCase() + title.slice(1)}</p>
-            <span></span>
-         </label>
-         <input
-            type="checkbox"
-            name={`${title}_checkbox`}
-            id={title}
-            className={s.mp_dropdown_input}
-         />
-         <div className={s.mp_filter_selections}>
-            {options.map((option: any) => {
-               return (
-                  <label className={s.mp_filter_option} key={option}>
-                     {option.charAt(0).toUpperCase() + option.slice(1)}
-                     {option == 'all' && !value ? (
-                        <input
-                           type="radio"
-                           defaultChecked
-                           name={title}
-                           onClick={(e) => onClick(e)}
-                           value={option}
-                        />
-                     ) : value === option ? (
-                        <input
-                           type="radio"
-                           name={title}
-                           defaultChecked
-                           onClick={(e) => onClick(e)}
-                           value={option}
-                        />
-                     ) : (
-                        <input
-                           type="radio"
-                           name={title}
-                           onClick={(e) => onClick(e)}
-                           value={option}
-                        />
-                     )}
-                     <span className={s.checkmark}></span>
-                  </label>
-               )
-            })}
-         </div>
-      </div>
-   )
-}
-
-function CustomPriceFilter(props: any) {
-   const { onClick, defaultValue } = props
-   const handleOnClick = (e: any) => {
-      e.preventDefault()
-      onClick(e)
-   }
-   return (
-      <form className={s.mp_price_filter} onSubmit={(e) => handleOnClick(e)} action="">
-         <p>Price Range</p>
-         <input
-            type="number"
-            placeholder="Min"
-            min={1}
-            defaultValue={defaultValue}
-            name={'>='}
-            id="min"
-            required
-         />
-         <input
-            type="number"
-            placeholder="Max"
-            min={1}
-            defaultValue={defaultValue}
-            name={'<='}
-            id="max"
-            required
-         />
-         <button type="submit">Set</button>
-      </form>
-   )
-}
-
-function CreateFilter(props: any) {
-   const {
-      mpQueryFilters,
-      marketFilterData,
-      handleSetMPPriceFilter,
-      handleSetMPRarityFilter,
-      handleSetMPHeroesFilter,
-      handleSetMPSortFilter,
-   } = props
-   return (
-      <>
-         {Object.keys(mpQueryFilters).map((filter: any) => {
-            if (filter == 'priceFilter') {
-               return (
-                  <CustomPriceFilter
-                     onClick={(e: any) => handleSetMPPriceFilter(e)}
-                     defaultValue={''}
-                     key={filter}
-                  />
-               )
-            } else if (filter == 'rarity') {
-               return (
-                  <CustomDropdown
-                     value={marketFilterData[filter][0]}
-                     options={marketFilterData[filter]}
-                     title={filter}
-                     onClick={(e: any) => handleSetMPRarityFilter(e)}
-                     key={filter}
-                  />
-               )
-            } else if (filter == 'heroes') {
-               return (
-                  <CustomDropdown
-                     value={marketFilterData[filter][0]}
-                     options={marketFilterData[filter]}
-                     title={filter}
-                     onClick={(e: any) => handleSetMPHeroesFilter(e)}
-                     key={filter}
-                  />
-               )
-            } else if (filter == 'sort') {
-               return (
-                  <CustomDropdown
-                     value={marketFilterData[filter][0]}
-                     options={marketFilterData[filter]}
-                     title={filter}
-                     onClick={(e: any) => handleSetMPSortFilter(e)}
-                     key={filter}
-                  />
-               )
-            }
-         })}
-      </>
-   )
-}
+import { LoadingSVG } from '../misc/svg'
 
 export default function Marketplace() {
    const [resetFilter, setResetFilter] = useState(true)
@@ -378,45 +239,7 @@ export default function Marketplace() {
                   {isFetchingFailed && <div className={s.no_nft_found}>No NFT found.</div>}
                   {isFetchingNFT && (
                      <div className={s.loading_container}>
-                        <svg
-                           version="1.1"
-                           id="L4"
-                           xmlns="http://www.w3.org/2000/svg"
-                           xmlnsXlink="http://www.w3.org/1999/xlink"
-                           x="0px"
-                           y="0px"
-                           viewBox="0 0 100 100"
-                           enableBackground="new 0 0 0 0"
-                           xmlSpace="preserve"
-                        >
-                           <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
-                              <animate
-                                 attributeName="opacity"
-                                 dur="1s"
-                                 values="0;1;0"
-                                 repeatCount="indefinite"
-                                 begin="0.1"
-                              ></animate>
-                           </circle>
-                           <circle fill="#fff" stroke="none" cx="26" cy="50" r="6">
-                              <animate
-                                 attributeName="opacity"
-                                 dur="1s"
-                                 values="0;1;0"
-                                 repeatCount="indefinite"
-                                 begin="0.2"
-                              ></animate>
-                           </circle>
-                           <circle fill="#fff" stroke="none" cx="46" cy="50" r="6">
-                              <animate
-                                 attributeName="opacity"
-                                 dur="1s"
-                                 values="0;1;0"
-                                 repeatCount="indefinite"
-                                 begin="0.3"
-                              ></animate>
-                           </circle>
-                        </svg>
+                        <LoadingSVG />
                      </div>
                   )}
                   {nfts && !isFetchingNFT && !isFetchingFailed
@@ -439,6 +262,146 @@ export default function Marketplace() {
             </div>
          </div>
       </section>
+   )
+}
+
+function CreateFilter(props: any) {
+   const {
+      mpQueryFilters,
+      marketFilterData,
+      handleSetMPPriceFilter,
+      handleSetMPRarityFilter,
+      handleSetMPHeroesFilter,
+      handleSetMPSortFilter,
+   } = props
+   return (
+      <>
+         {Object.keys(mpQueryFilters).map((filter: any) => {
+            if (filter == 'priceFilter') {
+               return (
+                  <CustomPriceFilter
+                     onClick={(e: any) => handleSetMPPriceFilter(e)}
+                     defaultValue={''}
+                     key={filter}
+                  />
+               )
+            } else if (filter == 'rarity') {
+               return (
+                  <CustomDropdown
+                     value={marketFilterData[filter][0]}
+                     options={marketFilterData[filter]}
+                     title={filter}
+                     onClick={(e: any) => handleSetMPRarityFilter(e)}
+                     key={filter}
+                  />
+               )
+            } else if (filter == 'heroes') {
+               return (
+                  <CustomDropdown
+                     value={marketFilterData[filter][0]}
+                     options={marketFilterData[filter]}
+                     title={filter}
+                     onClick={(e: any) => handleSetMPHeroesFilter(e)}
+                     key={filter}
+                  />
+               )
+            } else if (filter == 'sort') {
+               return (
+                  <CustomDropdown
+                     value={marketFilterData[filter][0]}
+                     options={marketFilterData[filter]}
+                     title={filter}
+                     onClick={(e: any) => handleSetMPSortFilter(e)}
+                     key={filter}
+                  />
+               )
+            }
+         })}
+      </>
+   )
+}
+
+function CustomDropdown(props: any) {
+   const { title, options, value, onClick } = props
+   return (
+      <div className={s.mp_filter_container}>
+         <label className={s.mp_filter_button} htmlFor={title}>
+            <p>{title.charAt(0).toUpperCase() + title.slice(1)}</p>
+            <span></span>
+         </label>
+         <input
+            type="checkbox"
+            name={`${title}_checkbox`}
+            id={title}
+            className={s.mp_dropdown_input}
+         />
+         <div className={s.mp_filter_selections}>
+            {options.map((option: any) => {
+               return (
+                  <label className={s.mp_filter_option} key={option}>
+                     {option.charAt(0).toUpperCase() + option.slice(1)}
+                     {option == 'all' && !value ? (
+                        <input
+                           type="radio"
+                           defaultChecked
+                           name={title}
+                           onClick={(e) => onClick(e)}
+                           value={option}
+                        />
+                     ) : value === option ? (
+                        <input
+                           type="radio"
+                           name={title}
+                           defaultChecked
+                           onClick={(e) => onClick(e)}
+                           value={option}
+                        />
+                     ) : (
+                        <input
+                           type="radio"
+                           name={title}
+                           onClick={(e) => onClick(e)}
+                           value={option}
+                        />
+                     )}
+                     <span className={s.checkmark}></span>
+                  </label>
+               )
+            })}
+         </div>
+      </div>
+   )
+}
+
+function CustomPriceFilter(props: any) {
+   const { onClick, defaultValue } = props
+   const handleOnClick = (e: any) => {
+      e.preventDefault()
+      onClick(e)
+   }
+   return (
+      <form className={s.mp_price_filter} onSubmit={(e) => handleOnClick(e)} action="">
+         <p>Price Range</p>
+         <input
+            type="number"
+            placeholder="Min"
+            min={1}
+            defaultValue={defaultValue}
+            name={'>='}
+            id="min"
+            required
+         />
+         <input
+            type="number"
+            placeholder="Max"
+            min={1}
+            defaultValue={defaultValue}
+            name={'<='}
+            id="max"
+            required
+         />
+         <button type="submit">Set</button>
+      </form>
    )
 }
 
