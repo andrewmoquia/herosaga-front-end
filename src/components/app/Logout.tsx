@@ -5,6 +5,7 @@ import { runDispatch } from '../actions/dispatch'
 import { MainStore } from '../reduceStore/StoreProvider'
 import { v4 as uuidv4 } from 'uuid'
 import { config } from '../../api'
+import Cookies from 'js-cookie'
 
 const { LOGOUT } = config
 
@@ -25,6 +26,7 @@ export default function Logout() {
             const { status } = res
             console.log(res)
             if (status === 200) {
+               Cookies.remove('jwt', { path: '/', domain: 'localhost' })
                runDispatch(dispatch, 'UPDATE_AUTH_STATUS', {
                   isAuthenticated: false,
                })
