@@ -34,7 +34,7 @@ export default function ViewNFT() {
    //Sent request to get nft through id
    const getNFTData = useCallback(() => {
       axios
-         .get(`http://localhost:5000/${currDashboard}/nft/${id}`, {
+         .get(`https://incumons.herokuapp.com/${currDashboard}/nft/${id}`, {
             withCredentials: true,
          })
          .then((res) => {
