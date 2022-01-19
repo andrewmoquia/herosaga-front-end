@@ -44,15 +44,12 @@ module.exports = {
             extractComments: 'all',
             terserOptions: {
                compress: {
+                  drop_console: true,
                   defaults: true,
                   arguments: true,
                   toplevel: true,
                   pure_funcs: ['console.log'],
                },
-               mangle: {
-                  reserved: ['console.log'],
-               },
-               sourceMap: false,
                // ecma: 5,
                // format: {
                //    ecma: 5,
