@@ -8,6 +8,7 @@ const userState = {
    spriteBg: {},
    heroesData: [],
    starStyleOnRoulette: {},
+   balance: 0,
 }
 
 const notifState = {

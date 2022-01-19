@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useCallback, useContext, useEffect } from 'react'
 import { MainStore } from '../../reduceStore/StoreProvider'
 import { runDispatch } from '../../actions/dispatch'
 import axios from 'axios'
@@ -27,9 +27,49 @@ const generateHeroes = (mintedNFT: any, heroesData: any) => {
 
 export default function MysteryShop(): JSX.Element {
    const { state, dispatch } = useContext(MainStore)
-   const { isMintingSuccess, mintedNFT, isMinting, mintBoxData, heroesData, starStyleOnRoulette } =
-      state
-   const { balance } = state.user
+   const {
+      isMintingSuccess,
+      mintedNFT,
+      isMinting,
+      mintBoxData,
+      heroesData,
+      starStyleOnRoulette,
+      balance,
+   } = state
+
+   const getUserBalance = useCallback(() => {
+      axios
+         .get('http://localhost:5000/user/balance', {
+            withCredentials: true,
+         })
+         .then((res) => {
+            const { status, balance } = res.data
+            if (status === 200) {
+               console.log(balance)
+               runDispatch(dispatch, 'GET_USER_BALANCE', {
+                  balance,
+               })
+            } else {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
+               })
+            }
+         })
+         .catch(() => {
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
+            })
+         })
+   }, [dispatch])
+
    const handleMinting = (boxType: any) => {
       if (!isMinting) {
          runDispatch(dispatch, 'MINTING_ON_PROCESS', '')
@@ -49,6 +89,7 @@ export default function MysteryShop(): JSX.Element {
                   setTimeout(() => {
                      runDispatch(dispatch, 'MINTING_SUCCESS', res.data.payload)
                   }, 500)
+                  getUserBalance()
                } else {
                   runDispatch(dispatch, 'MINTING_SUCCESS', '')
                   runDispatch(dispatch, 'SET_NOTIF_STATUS', {
@@ -86,6 +127,10 @@ export default function MysteryShop(): JSX.Element {
       isMinting,
       dispatch,
    }
+
+   useEffect(() => {
+      getUserBalance()
+   }, [getUserBalance])
 
    return (
       <>

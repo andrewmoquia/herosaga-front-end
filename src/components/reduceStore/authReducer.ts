@@ -35,6 +35,11 @@ export function AuthReducer(state: any, action: any) {
             ...state,
             ...action.payload,
          }
+      case 'GET_USER_BALANCE':
+         return {
+            ...state,
+            ...action.payload,
+         }
       default:
          return state
    }

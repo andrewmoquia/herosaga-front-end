@@ -20,14 +20,13 @@ export default function Marketplace() {
    const {
       mpQueryFilters,
       isFetchingNFT,
-      user,
       mpNFTs,
       searchMPParamsOnLoad,
       isFetchingFailed,
       marketFilterData,
+      balance,
    } = state
    const { nftTotal, nfts } = mpNFTs
-   const { balance } = user
 
    const emptyNFTs = useMemo(() => {
       return {
@@ -121,6 +120,39 @@ export default function Marketplace() {
       history.replace({ pathname: location.pathname, search: params.toString() })
    }, [history, location.pathname, createURLSearchParams])
 
+   const getUserBalance = useCallback(() => {
+      axios
+         .get('http://localhost:5000/user/balance', {
+            withCredentials: true,
+         })
+         .then((res) => {
+            const { status, balance } = res.data
+            if (status === 200) {
+               console.log(balance)
+               runDispatch(dispatch, 'GET_USER_BALANCE', {
+                  balance,
+               })
+            } else {
+               runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+                  notif: {
+                     id: uuidv4(),
+                     type: 'error',
+                     message: 'Something went wrong. Please try again later',
+                  },
+               })
+            }
+         })
+         .catch(() => {
+            runDispatch(dispatch, 'SET_NOTIF_STATUS', {
+               notif: {
+                  id: uuidv4(),
+                  type: 'error',
+                  message: 'Something went wrong. Please try again later',
+               },
+            })
+         })
+   }, [dispatch])
+
    //Fetch nfts
    const getMPNfts = useCallback(() => {
       const queryParams = createURLSearchParams()
@@ -172,6 +204,10 @@ export default function Marketplace() {
          getMPNfts()
       }
    }, [isFetchingNFT, getMPNfts, dispatch])
+
+   useEffect(() => {
+      getUserBalance()
+   }, [getUserBalance])
 
    //Check url query on firt time website load
    useEffect(() => {
