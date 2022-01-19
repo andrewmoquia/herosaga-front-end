@@ -27,12 +27,17 @@ export default function App() {
          .get(`${AUTH}`, {
             withCredentials: true,
          })
-         .then((response) => {
-            console.log(response.data)
-            if (response.data.status === 200) {
+         .then((res) => {
+            console.log(res.data)
+            const { status } = res.data
+            if (status === 200) {
                return dispatch({
                   type: 'AUTH_SUCCESS',
-                  payload: response.data,
+                  payload: res.data,
+               })
+            } else if (status === 400) {
+               dispatch({
+                  type: 'AUTH_FAILED',
                })
             } else {
                dispatch({
