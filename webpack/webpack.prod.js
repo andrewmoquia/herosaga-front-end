@@ -23,8 +23,10 @@ module.exports = {
                },
                {
                   loader: 'postcss-loader',
-                  postcssOptions: {
-                     plugins: [['postcss-preset-env', 'autoprefixer', {}]],
+                  options: {
+                     postcssOptions: {
+                        plugins: [['postcss-preset-env', 'autoprefixer']],
+                     },
                   },
                },
                'sass-loader',
