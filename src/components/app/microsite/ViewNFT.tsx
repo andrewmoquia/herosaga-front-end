@@ -7,7 +7,7 @@ import s from '../../../../scss/main.css'
 import { v4 as uuidv4 } from 'uuid'
 import { config } from '../../../api'
 
-const { CANCEL_SELL, BUY_NFT, SELL_NFT } = config
+const { CANCEL_SELL, BUY_NFT, SELL_NFT, URL } = config
 
 export default function ViewNFT() {
    const { state, dispatch } = useContext(MainStore)
@@ -34,7 +34,7 @@ export default function ViewNFT() {
    //Sent request to get nft through id
    const getNFTData = useCallback(() => {
       axios
-         .get(`http://localhost:5000/${currDashboard}/nft/${id}`, {
+         .get(`${URL}/${currDashboard}/nft/${id}`, {
             withCredentials: true,
          })
          .then((res) => {
