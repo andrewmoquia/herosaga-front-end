@@ -128,7 +128,6 @@ export default function Marketplace() {
          .then((res) => {
             const { status, balance } = res.data
             if (status === 200) {
-               console.log(balance)
                runDispatch(dispatch, 'GET_USER_BALANCE', {
                   balance,
                })
