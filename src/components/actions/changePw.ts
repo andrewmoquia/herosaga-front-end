@@ -5,12 +5,12 @@ import { config } from '../../api'
 const { RESET_PW } = config
 
 export const changePassword = (props: any) => {
-   const { password, confirmPassword, token, dispatch, csrfToken } = props
+   const { password, confirmPassword, token, dispatch } = props
    //Run
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //
    axios
-      .post(
+      .put(
          `${RESET_PW}/${token}`,
          {
             password,
@@ -18,9 +18,6 @@ export const changePassword = (props: any) => {
          },
          {
             withCredentials: true,
-            headers: {
-               'CSRF-Token': csrfToken,
-            },
          }
       )
       .then((res) => {

@@ -5,7 +5,7 @@ import { config } from '../../api'
 const { REG_USER } = config
 
 export const registerUser = (props: any) => {
-   const { dispatch, username, email, password, confirmPassword, token } = props
+   const { dispatch, username, email, password, confirmPassword } = props
    //Activate processing to disable buttons.
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //Register the user.
@@ -20,9 +20,6 @@ export const registerUser = (props: any) => {
          },
          {
             withCredentials: true,
-            headers: {
-               'CSRF-Token': token,
-            },
          }
       )
       .then((res) => {

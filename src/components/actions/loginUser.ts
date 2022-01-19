@@ -5,13 +5,13 @@ import { config } from '../../api'
 const { LOGIN_USER } = config
 
 export const loginUser = (props: any) => {
-   const { dispatch, username, password, token } = props
+   const { dispatch, username, password } = props
 
    //Activate processing to disable buttons
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //Login user
    axios
-      .post(
+      .put(
          `${LOGIN_USER}`,
          {
             username: username,
@@ -19,9 +19,6 @@ export const loginUser = (props: any) => {
          },
          {
             withCredentials: true,
-            headers: {
-               'CSRF-Token': token,
-            },
          }
       )
       .then((res) => {

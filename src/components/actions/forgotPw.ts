@@ -10,7 +10,7 @@ export const sendReqChangePass = (props: any) => {
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //Send request to change password.
    axios
-      .post(
+      .put(
          `${FORGET_PW}`,
          {
             username,
