@@ -4,10 +4,19 @@ import { useParams } from 'react-router-dom'
 import { changePassword } from '../../actions/changePw'
 import AlertNotif from './AlertNotif'
 import s from '../../../../scss/main.css'
+import { CreatePasswordValidation } from '../WelcomePage'
 
 export default function ResetPwForm() {
    const nodeRef: any = useRef()
    const { state, dispatch } = useContext(MainStore)
+
+   const {
+      isPwLengthValid,
+      isPwHasSpecialCharacter,
+      isPwHasCapitalLetter,
+      isPwHasSmallLetter,
+      isPwHasNumber,
+   } = state
 
    const { token }: any = useParams()
 
@@ -30,6 +39,15 @@ export default function ResetPwForm() {
       dispatch,
    }
 
+   const handlePasswordOnChange = (e: any) => {
+      dispatch({
+         type: 'SET_INPUT_PW',
+         payload: {
+            inputPw: e.target.value,
+         },
+      })
+   }
+
    return (
       <main className={`${s.wl_container}`}>
          <div className={s.wl_forms_fp_container}>
@@ -47,6 +65,7 @@ export default function ResetPwForm() {
                      handleResetPassword(e)
                   }}
                >
+                  <CreatePasswordValidation />
                   <input
                      type="text"
                      name="newPass"
@@ -56,6 +75,7 @@ export default function ResetPwForm() {
                      id="newPass"
                      className={s.default_input}
                      disabled={state.isReqProcessing || state.isReqCooldown}
+                     onChange={(e) => handlePasswordOnChange(e)}
                   />
                   <input
                      type="text"
@@ -67,17 +87,28 @@ export default function ResetPwForm() {
                      className={s.default_input}
                      disabled={state.isReqProcessing || state.isReqCooldown}
                   />
-                  <button
-                     type="submit"
-                     className={s.button_1}
-                     disabled={state.isReqProcessing || state.isReqCooldown}
-                  >
-                     {!state.isReqCooldown && !state.isReqProcessing ? (
-                        <p>Change</p>
-                     ) : (
-                        <p>Changing...</p>
-                     )}
-                  </button>
+                  {isPwLengthValid &&
+                  isPwHasSpecialCharacter &&
+                  isPwHasCapitalLetter &&
+                  isPwHasSmallLetter &&
+                  isPwHasNumber ? (
+                     <button
+                        type="submit"
+                        className={s.button_1}
+                        disabled={state.isReqProcessing || state.isReqCooldown}
+                     >
+                        {!state.isReqCooldown && !state.isReqProcessing ? (
+                           <p>Change</p>
+                        ) : (
+                           <p>Changing...</p>
+                        )}
+                     </button>
+                  ) : (
+                     <button type="button" className={s.button_1} disabled={true}>
+                        <p>Weak password</p>
+                     </button>
+                  )}
+
                   <button
                      className={s.button_transparent_1}
                      type="button"

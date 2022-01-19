@@ -85,7 +85,7 @@ export default function WelcomePage() {
    )
 }
 
-function CreatePasswordValidation() {
+export function CreatePasswordValidation() {
    const { state, dispatch } = useContext(MainStore)
 
    const {

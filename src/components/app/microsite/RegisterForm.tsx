@@ -97,8 +97,8 @@ export default function RegisterForm() {
                   Register
                </button>
             ) : (
-               <button type="submit" className={`${s.button_1} ${s.reg_button}`} disabled={true}>
-                  <p>Register</p>
+               <button type="button" className={`${s.button_1} ${s.reg_button}`} disabled={true}>
+                  <p>Weak Password</p>
                </button>
             )}
          </div>
