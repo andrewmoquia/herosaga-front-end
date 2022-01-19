@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import s from '../../../scss/main.css'
 import axios from 'axios'
 import { runDispatch } from '../actions/dispatch'
 import { MainStore } from '../reduceStore/StoreProvider'
 import { v4 as uuidv4 } from 'uuid'
 import { config } from '../../api'
-import Cookies from 'js-cookie'
 
 const { LOGOUT } = config
 
@@ -25,10 +24,10 @@ export default function Logout() {
          .then((res) => {
             const { status } = res
             if (status === 200) {
-               Cookies.remove('jwt', { path: '/', domain: 'localhost' })
                runDispatch(dispatch, 'UPDATE_AUTH_STATUS', {
                   isAuthenticated: false,
                })
+               return (window.location.href = '/')
             } else {
                runDispatch(dispatch, 'UPDATE_AUTH_STATUS', {
                   notifs: [
