@@ -21,7 +21,12 @@ module.exports = {
                      sourceMap: false,
                   },
                },
-               'postcss-loader',
+               {
+                  loader: 'postcss-loader',
+                  postcssOptions: {
+                     plugins: [['postcss-preset-env', 'autoprefixer', {}]],
+                  },
+               },
                'sass-loader',
             ],
          },
