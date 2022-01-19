@@ -122,7 +122,7 @@ export default function Marketplace() {
 
    const getUserBalance = useCallback(() => {
       axios
-         .get('http://localhost:5000/user/balance', {
+         .get(`${URL}/user/balance`, {
             withCredentials: true,
          })
          .then((res) => {
