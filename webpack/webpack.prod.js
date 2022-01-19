@@ -48,7 +48,6 @@ module.exports = {
                   defaults: true,
                   arguments: true,
                   toplevel: true,
-                  cache: true,
                },
                sourceMap: false,
                // ecma: 5,
