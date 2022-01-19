@@ -25,7 +25,6 @@ export const loginUser = (props: any) => {
          }
       )
       .then((res) => {
-         console.log(res.data)
          //Run if the user is not yet verified.
          if (res.data.status === 401) {
             return (window.location.href = `/verify/account?first-step=${res.data.jwt}`)

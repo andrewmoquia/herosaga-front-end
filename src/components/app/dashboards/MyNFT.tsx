@@ -142,7 +142,6 @@ export default function MyNFT() {
          })
          .then((res) => {
             const { status, payload } = res.data
-            console.log(res.data)
             if (status === 200) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetchingNFT: false,

@@ -28,7 +28,6 @@ export default function App() {
             withCredentials: true,
          })
          .then((res) => {
-            console.log(res.data)
             const { status } = res.data
             if (status === 200) {
                return dispatch({

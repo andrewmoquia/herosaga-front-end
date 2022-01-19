@@ -48,9 +48,9 @@ module.exports = {
                   defaults: true,
                   arguments: true,
                   toplevel: true,
-                  pure_funcs: ['console.log'],
+                  cache: true,
                },
-               sourceMap: true,
+               sourceMap: false,
                // ecma: 5,
                // format: {
                //    ecma: 5,

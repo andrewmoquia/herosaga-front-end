@@ -38,7 +38,6 @@ export const checkVerificationToken = (token: any, dispatch: Function) => {
          withCredentials: true,
       })
       .then((res) => {
-         console.log(res.data)
          //Verification success.
          if (res.data.status === 200) {
             runDispatch(dispatch, 'VERIFICATION_SUCCESS', res.data.message)

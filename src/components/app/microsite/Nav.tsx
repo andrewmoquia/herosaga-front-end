@@ -25,7 +25,6 @@ export default function Nav() {
       setActiveMenu((prevObj: NavMenus) => {
          return { ...prevObj, ...newObj }
       })
-      // console.log(activeMenu.class)
    }
 
    const handleChangeNavMenu = () => {

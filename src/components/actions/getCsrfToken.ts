@@ -11,7 +11,5 @@ export const getCsrfToken = (dispatch: any) => {
       .then((response) => {
          return dispatch({ type: 'GET_CSRF_TOKEN', payload: response.data })
       })
-      .catch((error) => {
-         console.log(error)
-      })
+      .catch()
 }

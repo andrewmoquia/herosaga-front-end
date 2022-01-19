@@ -124,7 +124,6 @@ export default function Profile() {
          )
          .then((res) => {
             const { status, message } = res.data
-            console.log(res.data)
             if (status === 200) {
                emptyInputValue()
                runDispatch(dispatch, 'SET_NOTIF_STATUS', {

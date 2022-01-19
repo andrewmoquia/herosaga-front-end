@@ -26,7 +26,6 @@ export const registerUser = (props: any) => {
          }
       )
       .then((res) => {
-         console.log(res.data)
          //Success registration
          if (res.data.status === 200) {
             return runDispatch(dispatch, 'REGISTRATION_SUCCESS', res.data.message)

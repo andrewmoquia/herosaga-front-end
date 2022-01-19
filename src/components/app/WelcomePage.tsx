@@ -169,7 +169,6 @@ function CreatePasswordValidation() {
 
    useEffect(() => {
       if (inputPw || !inputPw) {
-         console.log(inputPw)
          handlePwValidation(inputPw)
       }
    }, [inputPw, handlePwValidation])

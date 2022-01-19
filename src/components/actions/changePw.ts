@@ -6,7 +6,6 @@ const { RESET_PW } = config
 
 export const changePassword = (props: any) => {
    const { password, confirmPassword, token, dispatch, csrfToken } = props
-   console.log(password, confirmPassword)
    //Run
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //
@@ -25,7 +24,6 @@ export const changePassword = (props: any) => {
          }
       )
       .then((res) => {
-         console.log(res.data)
          if (res.data.status === 403) {
             return runDispatch(dispatch, 'FORGOT_PW_FAILED', 'Invalid request. Repeat the process.')
          } else if (res.data.status === 400) {

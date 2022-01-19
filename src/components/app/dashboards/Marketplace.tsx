@@ -130,7 +130,6 @@ export default function Marketplace() {
          })
          .then((res) => {
             const { status, payload } = res.data
-            console.log(payload)
             if (status === 200) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetchingNFT: false,

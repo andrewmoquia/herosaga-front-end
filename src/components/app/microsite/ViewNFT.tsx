@@ -38,7 +38,6 @@ export default function ViewNFT() {
             withCredentials: true,
          })
          .then((res) => {
-            console.log(res)
             const { status, payload }: any = res.data
             if (status == 200) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
@@ -256,8 +255,7 @@ function CreateNFTCard(props: any) {
             withCredentials: true,
          })
          .then((res) => {
-            const { data, status } = res
-            console.log(data)
+            const { status } = res
             if (status === 200) {
                runDispatch(dispatch, 'UPDATE_NFT_FETCH_STATUS', {
                   isFetching: true,

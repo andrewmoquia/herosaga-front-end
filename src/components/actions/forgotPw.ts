@@ -23,7 +23,6 @@ export const sendReqChangePass = (props: any) => {
          }
       )
       .then((res) => {
-         console.log(res.data)
          if (res.data.status === 200) {
             //Reset token was sent to email disable buttons and input
             runDispatch(dispatch, 'FORGOT_PW_PROCESSING', res.data.message)

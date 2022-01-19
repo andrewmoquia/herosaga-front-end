@@ -81,7 +81,6 @@ function TransacFilters() {
 
    //Control filter to show only selected transaction type
    const handleSetTransacTypeFilter = (transacType: string) => {
-      // console.log(transacQueryFilters)
       if (transacType == 'All') {
          const removeTransacQuery = Object.keys(transacQueryFilters).reduce(
             (newQuery: any, query: any) => {
