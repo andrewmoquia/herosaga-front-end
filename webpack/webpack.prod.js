@@ -48,6 +48,10 @@ module.exports = {
                   arguments: true,
                   drop_console: true,
                   toplevel: true,
+                  pure_funcs: ['console.log'],
+               },
+               mangle: {
+                  reserved: ['console.log'],
                },
                sourceMap: false,
                // ecma: 5,
