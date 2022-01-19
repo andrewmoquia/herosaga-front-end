@@ -207,6 +207,17 @@
    }
 }
 
+.wl_forms_fp_container {
+   width: 100%;
+   min-height: 100vh;
+   overflow: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   padding: 1em;
+}
+
 @media only screen and (max-width: 500px) {
    .wl_forms_container {
       justify-content: flex-start;

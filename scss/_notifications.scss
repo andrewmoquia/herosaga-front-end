@@ -38,6 +38,18 @@
       border-radius: 0px 0px 10px 10px;
       animation: box_shadow_loading 4s linear;
    }
+   .error {
+      background: linear-gradient(0deg, rgba(255, 191, 191, 1) 0%, rgba(255, 175, 175, 1) 100%);
+      box-shadow: inset 0 -3px 0 rgb(241, 155, 140);
+   }
+   .success {
+      background: linear-gradient(0deg, rgba(234, 246, 149, 1) 0%, rgba(229, 246, 98, 1) 100%);
+      box-shadow: inset 0 -3px 0 #c3d442;
+   }
+   .default {
+      background: linear-gradient(0deg, rgba(242, 242, 242, 1) 0%, rgba(207, 207, 207, 1) 100%);
+      box-shadow: inset 0 -3px 0 white;
+   }
 }
 @keyframes notif_fade_out {
    0% {
@@ -62,18 +74,7 @@
       border-radius: 0px 0px 10px 10px;
    }
 }
-.error {
-   background: linear-gradient(0deg, rgba(255, 191, 191, 1) 0%, rgba(255, 175, 175, 1) 100%);
-   box-shadow: inset 0 -3px 0 rgb(241, 155, 140);
-}
-.success {
-   background: linear-gradient(0deg, rgba(234, 246, 149, 1) 0%, rgba(229, 246, 98, 1) 100%);
-   box-shadow: inset 0 -3px 0 #c3d442;
-}
-.default {
-   background: linear-gradient(0deg, rgba(242, 242, 242, 1) 0%, rgba(207, 207, 207, 1) 100%);
-   box-shadow: inset 0 -3px 0 white;
-}
+
 @media only screen and (min-width: 600px) {
    .notif {
       width: 350px;

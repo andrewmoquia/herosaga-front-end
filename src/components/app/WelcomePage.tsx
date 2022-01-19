@@ -28,9 +28,6 @@ export default function WelcomePage() {
 
    return (
       <main className={`${s.wl_container}`}>
-         {/* <div className={`${s.container} ${s.posAbs} ${s.oHidden}`}>
-            <div className={s.bg_chess}></div>
-         </div> */}
          <div className={s.wl_forms_container}>
             <div className={s.welcome_logo_banner}>
                <img
