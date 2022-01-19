@@ -46,7 +46,6 @@ module.exports = {
                compress: {
                   defaults: true,
                   arguments: true,
-                  drop_console: true,
                   toplevel: true,
                   pure_funcs: ['console.log'],
                },
