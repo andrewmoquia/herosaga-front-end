@@ -47,7 +47,6 @@ export default function Nav() {
 
    useEffect(() => {
       if (onStartUp) {
-         console.log('trigger')
          if (currDashboard == 'logout' || currDashboard == 'profile') {
             const newObj = {
                class: s.menu_change_to_profile,
