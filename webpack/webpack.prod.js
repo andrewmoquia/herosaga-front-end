@@ -46,9 +46,11 @@ module.exports = {
                compress: {
                   drop_console: true,
                   defaults: true,
+                  arguments: true,
                   toplevel: true,
                   pure_funcs: ['console.log'],
                },
+               sourceMap: true,
                // ecma: 5,
                // format: {
                //    ecma: 5,
