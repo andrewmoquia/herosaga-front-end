@@ -48,7 +48,7 @@ export default function MysteryShop(): JSX.Element {
                   })
                   setTimeout(() => {
                      runDispatch(dispatch, 'MINTING_SUCCESS', res.data.payload)
-                  }, 1500)
+                  }, 500)
                } else {
                   runDispatch(dispatch, 'MINTING_SUCCESS', '')
                   runDispatch(dispatch, 'SET_NOTIF_STATUS', {
