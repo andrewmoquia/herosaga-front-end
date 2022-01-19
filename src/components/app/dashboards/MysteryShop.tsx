@@ -29,7 +29,7 @@ export default function MysteryShop(): JSX.Element {
    const { state, dispatch } = useContext(MainStore)
    const { isMintingSuccess, mintedNFT, isMinting, mintBoxData, heroesData, starStyleOnRoulette } =
       state
-
+   const { balance } = state.user
    const handleMinting = (boxType: any) => {
       if (!isMinting) {
          runDispatch(dispatch, 'MINTING_ON_PROCESS', '')
@@ -91,6 +91,9 @@ export default function MysteryShop(): JSX.Element {
       <>
          {isMintingSuccess && <MintBoxAnim {...props} />}
          <section className={s.main_bg}>
+            <div className={s.balance_container}>
+               <span className={s.balance}>Balance {balance}</span>
+            </div>
             <div className={s.mint_boxes}>
                <CreateMintBoxes {...props} />
             </div>

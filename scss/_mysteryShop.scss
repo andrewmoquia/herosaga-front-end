@@ -7,8 +7,7 @@
    justify-content: center;
    flex-wrap: wrap;
    gap: 100px;
-   align-items: center;
-   padding: 20px;
+   padding: 0em 1em 1em 1em;
 }
 
 .mint_box {
@@ -596,5 +595,31 @@
    }
    100% {
       top: 22%;
+   }
+}
+
+.balance_container {
+   width: 100%;
+   height: 50px;
+   padding-top: 2em;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   margin-bottom: 10px;
+   padding-left: 2em;
+   .balance {
+      padding: 0 0.9em 0 0.7em;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: 3px solid #333;
+      min-width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background: linear-gradient(0deg, #83edd4 0%, #49dd4a 100%);
+      box-shadow: inset 0 -2px 0 #37b837;
    }
 }
