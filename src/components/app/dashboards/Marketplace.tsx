@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { LoadingSVG } from '../misc/svg'
 import { config } from '../../../api'
 
-const { GET_MP_NFT } = config
+const { GET_MP_NFT, URL } = config
 
 export default function Marketplace() {
    const [resetFilter, setResetFilter] = useState(true)
