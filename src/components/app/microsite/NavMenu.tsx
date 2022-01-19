@@ -87,10 +87,10 @@ export default function NavMenu(props: any): any {
                return (
                   <Link
                      to={`/${key.type.route}`}
-                     className={activeDashboard[key.type.route]}
+                     className={activeDashboard[key.type.class]}
                      key={key.type.route}
                   >
-                     <li onClick={() => handleChangeDashboard(key.type.route)}>
+                     <li onClick={() => handleChangeDashboard(key.type.class)}>
                         <div className={s.nav_icon}>
                            <img src={key.img} alt={key.alt} width={400} height={400} />
                         </div>

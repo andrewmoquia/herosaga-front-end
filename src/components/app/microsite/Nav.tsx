@@ -9,6 +9,7 @@ import s from '../../../../scss/main.css'
 
 export default function Nav() {
    const { state } = useContext(MainStore)
+   const [onStartUp, setOnStartUp] = useState(true)
    const { navMenuLogoData } = state
    const navMenus: NavMenus = {
       class: s.menu_change_to_main,
@@ -45,14 +46,18 @@ export default function Nav() {
    }
 
    useEffect(() => {
-      if (currDashboard == 'logout' || currDashboard == 'profile') {
-         const newObj = {
-            class: s.menu_change_to_profile,
-            status: false,
+      if (onStartUp) {
+         console.log('trigger')
+         if (currDashboard == 'logout' || currDashboard == 'profile') {
+            const newObj = {
+               class: s.menu_change_to_profile,
+               status: false,
+            }
+            changeMenuClass(newObj)
          }
-         changeMenuClass(newObj)
+         return setOnStartUp(false)
       }
-   }, [currDashboard])
+   }, [currDashboard, onStartUp])
 
    const props = {
       data: navMenuLogoData,
