@@ -190,8 +190,9 @@ body {
 }
 
 .alert_notif {
-   @include size(100%, 53px);
+   @include size(100%);
    @include flex(center, center);
+   min-height: 53px;
    margin: 15px 23px 0px 23px;
    background: $circle-red-pattern-left 0% 0% no-repeat, #fca4ad;
    background-size: 150px 150px;

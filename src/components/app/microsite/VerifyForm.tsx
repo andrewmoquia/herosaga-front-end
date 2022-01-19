@@ -48,49 +48,50 @@ export default function VerifyAcc() {
    }
 
    return (
-      <section className={`${s.container} ${s.posRel}`}>
-         <div className={`${s.container} ${s.oHidden} ${s.posAbs}`}>
-            <div className={s.bg_chess}></div>
-         </div>
-         <div className={s.default_menu}>
-            <div className={s.def_menu_header}>
-               <p>Verify Account</p>
-            </div>
-            <div className={s.warn_container}>
-               <AlertNotif {...alertProps} />
-            </div>
-            <form
-               action="/"
-               className={s.default_form}
-               onSubmit={(e) => {
-                  handleVerifyUser(e)
-               }}
-            >
-               <button
-                  type="submit"
-                  className={s.button_1}
-                  disabled={state.isReqCooldown || state.isReqProcessing}
-               >
-                  {!state.isReqCooldown && !state.isReqProcessing ? (
-                     <p>Verify</p>
-                  ) : !state.isReqCooldown && state.isReqProcessing ? (
-                     <p>Please wait processing...</p>
-                  ) : (
-                     <p>Try again in: {state.reqTimer}</p>
-                  )}
-               </button>
-               <button
-                  className={s.button_transparent_1}
-                  type="button"
-                  disabled={state.isReqCooldown || state.isReqProcessing}
-                  onClick={() => {
-                     window.open('/welcome', '_self')
+      <main className={`${s.wl_container}`}>
+         <div className={s.wl_forms_fp_container}>
+            <div className={s.default_menu}>
+               <div className={s.def_menu_header}>
+                  <p>Verify Account</p>
+               </div>
+               <div className={s.warn_container}>
+                  <AlertNotif {...alertProps} />
+               </div>
+               <form
+                  action="/"
+                  className={s.default_form}
+                  onSubmit={(e) => {
+                     handleVerifyUser(e)
                   }}
                >
-                  Back
-               </button>
-            </form>
+                  <div className={s.wl_submit_button}>
+                     <button
+                        type="submit"
+                        className={s.button_1}
+                        disabled={state.isReqCooldown || state.isReqProcessing}
+                     >
+                        {!state.isReqCooldown && !state.isReqProcessing ? (
+                           <p>Verify</p>
+                        ) : !state.isReqCooldown && state.isReqProcessing ? (
+                           <p>Please wait processing...</p>
+                        ) : (
+                           <p>Try again in: {state.reqTimer}</p>
+                        )}
+                     </button>
+                  </div>
+                  <button
+                     className={s.button_transparent_1}
+                     type="button"
+                     disabled={state.isReqCooldown || state.isReqProcessing}
+                     onClick={() => {
+                        window.open('/welcome', '_self')
+                     }}
+                  >
+                     Back
+                  </button>
+               </form>
+            </div>
          </div>
-      </section>
+      </main>
    )
 }
