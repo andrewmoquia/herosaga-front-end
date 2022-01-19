@@ -1,8 +1,5 @@
 import axios from 'axios'
 import { runDispatch } from './dispatch'
-import { config } from '../../api'
-
-const { RESET_PW } = config
 
 export const changePassword = (props: any) => {
    const { password, confirmPassword, token, dispatch } = props
@@ -11,7 +8,7 @@ export const changePassword = (props: any) => {
    //
    axios
       .put(
-         `${RESET_PW}/${token}`,
+         `${process.env.RESET_PW}/${token}`,
          {
             password,
             confirmPassword,

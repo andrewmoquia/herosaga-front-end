@@ -1,8 +1,5 @@
 import axios from 'axios'
 import { runDispatch } from './dispatch'
-import { config } from '../../api'
-
-const { REG_USER } = config
 
 export const registerUser = (props: any) => {
    const { dispatch, username, email, password, confirmPassword } = props
@@ -11,7 +8,7 @@ export const registerUser = (props: any) => {
    //Register the user.
    axios
       .post(
-         `${REG_USER}`,
+         `${process.env.REG_USER}`,
          {
             username: username,
             email: email,

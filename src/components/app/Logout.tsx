@@ -4,9 +4,6 @@ import axios from 'axios'
 import { runDispatch } from '../actions/dispatch'
 import { MainStore } from '../reduceStore/StoreProvider'
 import { v4 as uuidv4 } from 'uuid'
-import { config } from '../../api'
-
-const { LOGOUT } = config
 
 export default function Logout() {
    const { state, dispatch } = useContext(MainStore)
@@ -18,7 +15,7 @@ export default function Logout() {
       })
 
       axios
-         .get(`${LOGOUT}`, {
+         .get(`${process.env.LOGOUT}`, {
             withCredentials: true,
          })
          .then((res) => {

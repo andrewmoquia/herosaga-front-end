@@ -1,15 +1,12 @@
 import axios from 'axios'
 import { runDispatch, sixtySecTimer } from './dispatch'
-import { config } from '../../api'
-
-const { VERIF_EMAIL } = config
 
 export const verifyUser = (dispatch: Function) => {
    //Activate processing to disable buttons.
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //Login the user to check if it's not verified.
    axios
-      .get(`${VERIF_EMAIL}`, {
+      .get(`${process.env.VERIF_EMAIL}`, {
          withCredentials: true,
       })
       .then((res) => {
@@ -34,7 +31,7 @@ export const checkVerificationToken = (token: any, dispatch: Function) => {
    runDispatch(dispatch, 'REQ_PROCESSING', '')
    //Send request to verify the token sent to email.
    axios
-      .get(`${VERIF_EMAIL}/${token}`, {
+      .get(`${process.env.VERIF_EMAIL}/${token}`, {
          withCredentials: true,
       })
       .then((res) => {

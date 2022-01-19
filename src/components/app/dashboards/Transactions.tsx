@@ -7,9 +7,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import { EmptyArrowUp, EmptyArrowDown, FilledArrowUp, FilledArrowDown } from '../misc/svg'
-import { config } from '../../../api'
-
-const { GET_TRANSACS } = config
 
 export default function Transactions() {
    return (
@@ -124,7 +121,7 @@ function TransacFilters() {
    const getTransactions = useCallback(() => {
       const queries = createURLSearchParams()
       axios
-         .get(`${GET_TRANSACS}?${queries}`, {
+         .get(`${process.env.GET_TRANSACS}?${queries}`, {
             withCredentials: true,
          })
          .then((res) => {

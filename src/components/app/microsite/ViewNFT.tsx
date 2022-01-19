@@ -5,9 +5,6 @@ import { MainStore } from '../../reduceStore/StoreProvider'
 import { runDispatch } from '../../actions/dispatch'
 import s from '../../../../scss/main.css'
 import { v4 as uuidv4 } from 'uuid'
-import { config } from '../../../api'
-
-const { CANCEL_SELL, BUY_NFT, SELL_NFT, URL } = config
 
 export default function ViewNFT() {
    const { state, dispatch } = useContext(MainStore)
@@ -34,7 +31,7 @@ export default function ViewNFT() {
    //Sent request to get nft through id
    const getNFTData = useCallback(() => {
       axios
-         .get(`${URL}/${currDashboard}/nft/${id}`, {
+         .get(`${process.env.URL}/${currDashboard}/nft/${id}`, {
             withCredentials: true,
          })
          .then((res) => {
@@ -166,7 +163,7 @@ function CreateNFTCard(props: any) {
       e.preventDefault()
       const sellPrice = e.target.auctionPrice.value
       axios
-         .get(`${SELL_NFT}/${_id}/${sellPrice}`, {
+         .get(`${process.env.SELL_NFT}/${_id}/${sellPrice}`, {
             withCredentials: true,
          })
          .then((res) => {
@@ -209,7 +206,7 @@ function CreateNFTCard(props: any) {
          isFetchingProcessing: true,
       })
       axios
-         .get(`${BUY_NFT}/${_id}`, {
+         .get(`${process.env.BUY_NFT}/${_id}`, {
             withCredentials: true,
          })
          .then((res) => {
@@ -251,7 +248,7 @@ function CreateNFTCard(props: any) {
    //Cancel sell of nft
    const handleCancelSellNFT = () => {
       axios
-         .get(`${CANCEL_SELL}/${_id}`, {
+         .get(`${process.env.CANCEL_SELL}/${_id}`, {
             withCredentials: true,
          })
          .then((res) => {

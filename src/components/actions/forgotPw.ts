@@ -1,8 +1,5 @@
 import axios from 'axios'
-import { config } from '../../api'
 import { runDispatch, sixtySecTimer } from './dispatch'
-
-const { FORGET_PW } = config
 
 export const sendReqChangePass = (props: any) => {
    const { dispatch, username, token } = props
@@ -11,7 +8,7 @@ export const sendReqChangePass = (props: any) => {
    //Send request to change password.
    axios
       .put(
-         `${FORGET_PW}`,
+         `${process.env.FORGET_PW}`,
          {
             username,
          },

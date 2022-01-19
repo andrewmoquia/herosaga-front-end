@@ -4,9 +4,6 @@ import { runDispatch } from '../../actions/dispatch'
 import axios from 'axios'
 import s from '../../../../scss/main.css'
 import { v4 as uuidv4 } from 'uuid'
-import { config } from '../../../api'
-
-const { MINT_BOX, URL } = config
 
 const generateHeroes = (mintedNFT: any, heroesData: any) => {
    const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -39,7 +36,7 @@ export default function MysteryShop(): JSX.Element {
 
    const getUserBalance = useCallback(() => {
       axios
-         .get(`${URL}/user/balance`, {
+         .get(`${process.env.URL}/user/balance`, {
             withCredentials: true,
          })
          .then((res) => {
@@ -73,7 +70,7 @@ export default function MysteryShop(): JSX.Element {
       if (!isMinting) {
          runDispatch(dispatch, 'MINTING_ON_PROCESS', '')
          axios
-            .get(`${MINT_BOX}/${boxType}`, {
+            .get(`${process.env.MINT_BOX}/${boxType}`, {
                withCredentials: true,
             })
             .then((res) => {

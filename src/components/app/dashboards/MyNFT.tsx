@@ -8,9 +8,6 @@ import { Link } from 'react-router-dom'
 import s from '../../../../scss/main.css'
 import { v4 as uuidv4 } from 'uuid'
 import { LoadingSVG } from '../misc/svg'
-import { config } from '../../../api'
-
-const { GET_ALL_NFT } = config
 
 export default function MyNFT() {
    const { state, dispatch } = useContext(MainStore)
@@ -137,7 +134,7 @@ export default function MyNFT() {
    const getUserNFTs = useCallback(() => {
       const queryParams = createURLSearchParams()
       axios
-         .get(`${GET_ALL_NFT}/?${queryParams.toString()}`, {
+         .get(`${process.env.GET_ALL_NFT}/?${queryParams.toString()}`, {
             withCredentials: true,
          })
          .then((res) => {

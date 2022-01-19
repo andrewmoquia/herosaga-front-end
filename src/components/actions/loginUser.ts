@@ -1,8 +1,5 @@
 import axios from 'axios'
 import { runDispatch } from './dispatch'
-import { config } from '../../api'
-
-const { LOGIN_USER } = config
 
 export const loginUser = (props: any) => {
    const { dispatch, username, password } = props
@@ -12,7 +9,7 @@ export const loginUser = (props: any) => {
    //Login user
    axios
       .put(
-         `${LOGIN_USER}`,
+         `${process.env.LOGIN_USER}`,
          {
             username: username,
             password: password,

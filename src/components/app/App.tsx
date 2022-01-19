@@ -21,7 +21,7 @@ export default function App() {
          type: 'AUTH_PROCESSING',
       })
       axios
-         .get(`https://incumons.herokuapp.com/check-logged-in-user`, {
+         .get(`${process.env.AUTH}`, {
             withCredentials: true,
          })
          .then((res) => {
@@ -50,7 +50,7 @@ export default function App() {
                type: 'AUTH_FAILED',
             })
             axios
-               .get('https://incumons.herokuapp.com/logout', {
+               .get(`${process.env.LOGOUT}`, {
                   withCredentials: true,
                })
                .then((res) => {
