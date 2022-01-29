@@ -36,6 +36,9 @@ export default function App() {
                   type: 'AUTH_FAILED',
                })
             } else if (status === 401) {
+               dispatch({
+                  type: 'AUTH_FAILED',
+               })
                return (window.location.href = `/verify/account?first-step`)
             } else {
                dispatch({
