@@ -41,7 +41,8 @@ export default function App() {
                })
                return dispatch({
                   type: 'LOGIN_FAILED',
-                  payload: 'Please verify your account.',
+                  payload:
+                     'Please verify your account. If not in verification page, try to login again.',
                })
             } else {
                dispatch({
