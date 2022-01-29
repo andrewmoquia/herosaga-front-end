@@ -36,10 +36,10 @@ export default function App() {
                   type: 'AUTH_FAILED',
                })
             } else if (status === 401) {
-               dispatch({
-                  type: 'AUTH_FAILED',
+               return dispatch({
+                  type: 'LOGIN_FAILED',
+                  payload: 'Please verify your account.',
                })
-               return (window.location.href = `/verify/account?first-step`)
             } else {
                dispatch({
                   type: 'AUTH_FAILED',
