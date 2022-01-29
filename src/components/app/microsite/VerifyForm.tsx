@@ -26,8 +26,8 @@ export default function VerifyAcc() {
 
    useEffect(() => {
       if (quary.get('first-step')) {
-         const jwtToken = quary.get('first-step') //Get the query of first-step
-         Cookies.set('jwt', `${jwtToken}`, { path: '' }) //Create cookie
+         quary.get('first-step') //Get the query of first-step
+         // Cookies.set('jwt', `${jwtToken}`, { path: '' }) //Create cookie
       }
       if (quary.get('second-step')) {
          const token = quary.get('second-step') //Get the query of second-step

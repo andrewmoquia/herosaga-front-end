@@ -21,7 +21,8 @@ export const loginUser = (props: any) => {
       .then((res) => {
          //Run if the user is not yet verified.
          if (res.data.status === 401) {
-            return (window.location.href = `/verify/account?first-step=${res.data.jwt}`)
+            // return (window.location.href = `/verify/account?first-step=${res.data.jwt}`)
+            return (window.location.href = `/verify/account?first-step`)
          } else if (res.data.status === 200) {
             //Login the verified user to the dashboard.
             runDispatch(dispatch, 'LOGIN_SUCCESS', res.data.message)
