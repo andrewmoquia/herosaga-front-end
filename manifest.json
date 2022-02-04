@@ -2,14 +2,7 @@
    "name": "Incomons",
    "short_name": "Incomons",
    "start_url": "/",
-   "icons": [
-      {
-         "src": "/logo.webp",
-         "sizes": "100x100",
-         "type": "image/webp",
-         "purpose": "any"
-      }
-   ],
+   "icons": [],
    "theme_color": "#000000",
    "background_color": "#FFFFFF",
    "display": "standalone",
