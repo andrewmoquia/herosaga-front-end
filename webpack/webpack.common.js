@@ -89,7 +89,7 @@ module.exports = {
       new webpack.optimize.AggressiveMergingPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
       new HTMLWebpackPlugin({
-         favicon: './favicon/231asaa3ff433112d.webp',
+         favicon: './favicon/2194asd14ggr1241a.png',
          template: path.resolve(__dirname, '..', './src/index.html'),
       }),
    ],
