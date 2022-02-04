@@ -43,9 +43,11 @@
         must-revalidate
     '''
     Content-Security-Policy = '''
-        default-src 'self';
+        default-src 'self' 'strict-dynamic' https:;
         frame-ancestors 'none';
         frame-src 'none';
+        object-src 'none';
+        base-uri 'none';
         script-src 'self';
         style-src *;
         img-src *;
