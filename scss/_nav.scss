@@ -39,7 +39,7 @@
       display: inline-flex;
       align-items: center;
       padding: 0px 5px;
-      li {
+      .menu_wrapper {
          padding: 0px 8px;
          height: 100%;
          display: flex;
@@ -128,7 +128,7 @@
 
 .active_nav {
    background: rgba(26, 36, 77, 0.6);
-   li {
+   .menu_wrapper {
       p {
          color: white;
       }

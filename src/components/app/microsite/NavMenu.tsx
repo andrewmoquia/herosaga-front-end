@@ -67,12 +67,14 @@ export default function NavMenu(props: any): any {
             {data.generalMenu.map((key: any) => {
                return (
                   <li onClick={() => handleChangeDashboard(key.type.class)} key={key.type.route}>
-                     <Link to={`/${key.type.route}`} className={activeDashboard[key.type.class]}>
-                        <div className={s.nav_icon}>
-                           <img src={key.img} alt={key.alt} width={400} height={400} />
-                        </div>
-                        <p className={`${s.d_none} ${s.d_lg_block}`}>{key.type.label}</p>
-                     </Link>
+                     <div className={s.menu_wrapper}>
+                        <Link to={`/${key.type.route}`} className={activeDashboard[key.type.class]}>
+                           <div className={s.nav_icon}>
+                              <img src={key.img} alt={key.alt} width={400} height={400} />
+                           </div>
+                           <p className={`${s.d_none} ${s.d_lg_block}`}>{key.type.label}</p>
+                        </Link>
+                     </div>
                   </li>
                )
             })}
