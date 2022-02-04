@@ -43,11 +43,11 @@
         must-revalidate
     '''
     Content-Security-Policy = '''
-        default-src 'self' incumons.herokuapp.com *.incumons.herokuapp.com;
+        default-src 'self';
         style-src * 'unsafe-inline';
         img-src *;
         font-src *;
-        connect-src i.ibb.co *i.ibb.co;
+        connect-src i.ibb.co *i.ibb.co incumons.herokuapp.com *.incumons.herokuapp.com;
     '''
     Feature-Policy = "accelerometer 'none'; autoplay 'none'; camera 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; usb 'none'"
     Permissions-Policy = '''
