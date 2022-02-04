@@ -31,9 +31,37 @@
 [[headers]]
     for = "/*"
     [headers.values]
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
     X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "sameorigin"
+    X-Frame-Options: deny
     X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "same-origin"
-    Feature-Policy = "microphone 'none'; camera 'none; geolocation: 'none'"
-    Content-Security-Policy = "default-src 'self'"
+    Referrer-Policy = "no-referrer"
+    cache-control = '''
+        must-revalidate
+    '''
+    Content-Security-Policy = '''
+        style-src 'https://fonts.googleapis.com/' 'unsafe-inline';
+        img-src 'https://ibb.co/';
+        connect-src 'https://incumons.herokuapp.com/';
+        default-src 'self';
+    '''
+    Feature-Policy = "microphone 'none'; camera 'none; geolocation: 'none'; payment 'none'; usb 'none'; midi 'none'; encrypted-media 'none'"
+    Permissions-Policy = '''
+        accelerometer=(none),
+        ambient-light-sensor=(none),
+        autoplay=(none),
+        camera=(none),
+        encrypted-media=(none),
+        fullscreen=(none),
+        geolocation=(none),
+        gyroscope=(none),
+        magnetometer=(none),
+        microphone=(none),
+        midi=(none),
+        payment=(none),
+        picture-in-picture=(none),
+        speaker=(none),
+        usb=(none),
+        vibrate=(none),
+        vr=(none)
+    '''
