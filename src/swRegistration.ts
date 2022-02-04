@@ -3,7 +3,7 @@ import { Workbox } from 'workbox-window'
 export default function RegisterServiceWorker() {
    if ('serviceWorker' in navigator) {
       //Instantiate workbox
-      const wb = new Workbox('%PUBLIC_URL%/sw.js')
+      const wb = new Workbox('/sw.js')
       //Show pop up if theres any change in the codebase
       wb.addEventListener('installed', (event) => {
          if (event.isUpdate) {
