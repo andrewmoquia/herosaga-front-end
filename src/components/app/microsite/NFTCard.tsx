@@ -61,7 +61,7 @@ export default function NFTCard(props: any) {
             </div>
             <div className={s.hero_card_desc}>{name}</div>
             <div className={s.hero_card_sell_button}>
-               <button id={type}>
+               <button className={type}>
                   {type === 'Buy'
                      ? type
                      : type === 'Sell' && isForSale
