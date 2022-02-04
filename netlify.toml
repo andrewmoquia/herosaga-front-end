@@ -42,12 +42,6 @@
     cache-control = '''
         must-revalidate
     '''
-    Content-Security-Policy = '''
-        style-src 'https://fonts.googleapis.com/' 'unsafe-inline';
-        img-src 'https://ibb.co/';
-        connect-src 'https://incumons.herokuapp.com/';
-        default-src 'self';
-    '''
     Feature-Policy = "microphone 'none'; camera 'none; geolocation: 'none'; payment 'none'; usb 'none'; midi 'none'; encrypted-media 'none'"
     Permissions-Policy = '''
         accelerometer=(none),
