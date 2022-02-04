@@ -246,18 +246,17 @@ export default function Marketplace() {
          <div className={s.mp_container}>
             <div className={s.mp_filters_1}>
                <label
-                  htmlFor="filter-checkbox"
+                  htmlFor={s.filter_checkbox}
                   className={`${s.mp_filter_mobile} ${s.d_flex} ${s.d_md_none}`}
                >
                   Open Filter Menu
-                  <input
-                     type="checkbox"
-                     className={s.mp_filter_1_input}
-                     id="filter-checkbox"
-                     aria-labelledby="filter-checkbox"
-                  />
                </label>
-
+               <input
+                  type="checkbox"
+                  className={s.mp_filter_1_input}
+                  id={s.filter_checkbox}
+                  aria-labelledby={s.filter_checkbox}
+               />
                <div className={s.mp_filters_container}>
                   <div className={s.mp_filters_header}>
                      <span>Filters:</span>

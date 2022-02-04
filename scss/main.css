@@ -1682,6 +1682,10 @@ body {
   }
 }
 
+#filter_checkbox {
+  color: black;
+}
+
 .mynft_container {
   min-height: 100%;
   width: 100%;
