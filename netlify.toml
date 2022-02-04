@@ -26,5 +26,4 @@
     GET_TOKEN="https://incumons.herokuapp.com/getToken"
     FORGET_PW="https://incumons.herokuapp.com/forgot-password"
     RESET_PW="https://incumons.herokuapp.com/reset/password"
-    NODE_ENV="development"
-"
+    NODE_ENV=development
