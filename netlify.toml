@@ -42,7 +42,7 @@
     cache-control = '''
         must-revalidate
     '''
-    Feature-Policy = "microphone 'none'; camera 'none; geolocation: 'none'; payment 'none'; usb 'none'; midi 'none'; encrypted-media 'none'"
+    Feature-Policy: accelerometer none; ambient-light-sensor none; autoplay none; camera none; encrypted-media none; fullscreen none; geolocation none; gyroscope none; magnetometer none; microphone none; midi none; payment none; picture-in-picture none; speaker none; usb none; vibrate none; vr none;
     Permissions-Policy = '''
         accelerometer=(none),
         ambient-light-sensor=(none),
