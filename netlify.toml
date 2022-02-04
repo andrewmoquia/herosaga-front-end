@@ -44,25 +44,26 @@
     '''
     Content-Security-Policy = '''
         default-src 'self';
+        img-src i.ibb.co *.i.ibb.co;
         connect-src i.ibb.co *.i.ibb.co incumons.herokuapp.com *.incumons.herokuapp.com incumon.netlify.app *.incumon.netlify.app fonts.googleapis.com *.fonts.googleapis.com;
     '''
     Feature-Policy = "accelerometer 'none'; autoplay 'none'; camera 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; usb 'none'"
     Permissions-Policy = '''
-        accelerometer=('self'),
-        ambient-light-sensor=('self'),
-        autoplay=('self'),
-        camera=('self'),
-        encrypted-media=('self'),
-        fullscreen=('self'),
-        geolocation=('self'),
-        gyroscope=('self'),
-        magnetometer=('self'),
-        microphone=('self'),
-        midi=('self'),
-        payment=('self'),
-        picture-in-picture=('self'),
-        speaker=('self'),
-        usb=('self'),
-        vibrate=('self'),
-        vr=('self')
+        accelerometer=(),
+        ambient-light-sensor=(),
+        autoplay=(),
+        camera=(),
+        encrypted-media=(),
+        fullscreen=(),
+        geolocation=(),
+        gyroscope=(),
+        magnetometer=(),
+        microphone=(),
+        midi=(),
+        payment=(),
+        picture-in-picture=(),
+        speaker=(),
+        usb=(),
+        vibrate=(),
+        vr=()
     '''
