@@ -44,6 +44,9 @@
     '''
     Content-Security-Policy = '''
         default-src 'self';
+        frame-ancestors 'none';
+        frame-src 'none';
+        script-src 'self';
         style-src *;
         img-src *;
         font-src *;
