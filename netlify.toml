@@ -63,5 +63,5 @@
         midi=(),
         payment=(),
         picture-in-picture=(),
-        usb=(),
+        usb=()
     '''
