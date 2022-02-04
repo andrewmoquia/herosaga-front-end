@@ -66,12 +66,8 @@ export default function NavMenu(props: any): any {
          <ul className={`${s.menu}`}>
             {data.generalMenu.map((key: any) => {
                return (
-                  <li
-                     onClick={() => handleChangeDashboard(key.type.class)}
-                     className={activeDashboard[key.type.class]}
-                     key={key.type.route}
-                  >
-                     <Link to={`/${key.type.route}`}>
+                  <li onClick={() => handleChangeDashboard(key.type.class)} key={key.type.route}>
+                     <Link to={`/${key.type.route}`} className={activeDashboard[key.type.class]}>
                         <div className={s.nav_icon}>
                            <img src={key.img} alt={key.alt} width={400} height={400} />
                         </div>
