@@ -43,28 +43,29 @@
         must-revalidate
     '''
     Content-Security-Policy = '''
-            default-src 'self' incumons.herokuapp.com *.incumons.herokuapp.com;
-            style-src * 'unsafe-inline';
-            img-src *;
-            font-src *;
+        default-src 'self' incumons.herokuapp.com *.incumons.herokuapp.com;
+        style-src * 'unsafe-inline';
+        img-src *;
+        font-src *;
+        connect-src i.ibb.co *i.ibb.co;
     '''
-    Feature-Policy = "accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; camera 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; speaker 'none'; usb 'none'; vibrate 'none'; vr 'none'"
+    Feature-Policy = "accelerometer 'none'; autoplay 'none'; camera 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; usb 'none'"
     Permissions-Policy = '''
-       accelerometer=('none'),
-            ambient-light-sensor=('none'),
-            autoplay=('none'),
-            camera=('none'),
-            encrypted-media=('none'),
-            fullscreen=('none'),
-            geolocation=('none'),
-            gyroscope=('none'),
-            magnetometer=('none'),
-            microphone=('none'),
-            midi=('none'),
-            payment=('none'),
-            picture-in-picture=('none'),
-            speaker=('none'),
-            usb=('none'),
-            vibrate=('none'),
-            vr=('none')
+        accelerometer=('none'),
+        ambient-light-sensor=('none'),
+        autoplay=('none'),
+        camera=('none'),
+        encrypted-media=('none'),
+        fullscreen=('none'),
+        geolocation=('none'),
+        gyroscope=('none'),
+        magnetometer=('none'),
+        microphone=('none'),
+        midi=('none'),
+        payment=('none'),
+        picture-in-picture=('none'),
+        speaker=('none'),
+        usb=('none'),
+        vibrate=('none'),
+        vr=('none')
     '''
