@@ -27,3 +27,13 @@
     FORGET_PW="https://incumons.herokuapp.com/forgot-password"
     RESET_PW="https://incumons.herokuapp.com/reset/password"
     NODE_ENV="development"
+
+[[headers]]
+    for = "/*"
+    [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "sameorigin"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "same-origin"
+    Feature-Policy = "microphone 'none'; camera 'none; geolocation: 'none'"
+    Content-Security-Policy = "default-src 'self'"
