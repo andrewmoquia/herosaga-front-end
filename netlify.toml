@@ -44,13 +44,13 @@
     '''
     Content-Security-Policy = '''
         default-src 'self';
-        img-src i.ibb.co *.i.ibb.co;
+        img-src *;
+        font-src *;
         connect-src i.ibb.co *.i.ibb.co incumons.herokuapp.com *.incumons.herokuapp.com incumon.netlify.app *.incumon.netlify.app fonts.googleapis.com *.fonts.googleapis.com;
     '''
     Feature-Policy = "accelerometer 'none'; autoplay 'none'; camera 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; usb 'none'"
     Permissions-Policy = '''
         accelerometer=(),
-        ambient-light-sensor=(),
         autoplay=(),
         camera=(),
         encrypted-media=(),
@@ -62,8 +62,5 @@
         midi=(),
         payment=(),
         picture-in-picture=(),
-        speaker=(),
         usb=(),
-        vibrate=(),
-        vr=()
     '''
