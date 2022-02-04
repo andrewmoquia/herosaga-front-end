@@ -47,7 +47,7 @@
         style-src *;
         img-src *;
         font-src *;
-        connect-src i.ibb.co *.i.ibb.co incumons.herokuapp.com *.incumons.herokuapp.com incumon.netlify.app *.incumon.netlify.app fonts.googleapis.com *.fonts.googleapis.com fonts.gstatic.com *.onts.gstatic.com;
+        connect-src i.ibb.co *.i.ibb.co incumons.herokuapp.com *.incumons.herokuapp.com incumon.netlify.app *.incumon.netlify.app fonts.googleapis.com *.fonts.googleapis.com fonts.gstatic.com *.fonts.gstatic.com;
     '''
     Feature-Policy = "accelerometer 'none'; autoplay 'none'; camera 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; usb 'none'"
     Permissions-Policy = '''
