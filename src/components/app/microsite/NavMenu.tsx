@@ -64,6 +64,7 @@ export default function NavMenu(props: any): any {
       <>
          {/* Main Menu  */}
          <ul className={`${s.menu}`}>
+            {/* Create Menu  */}
             {data.generalMenu.map((key: any) => {
                return (
                   <li onClick={() => handleChangeDashboard(key.type.class)} key={key.type.route}>
