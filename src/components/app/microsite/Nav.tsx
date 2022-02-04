@@ -70,8 +70,6 @@ export default function Nav() {
                <img
                   src="https://i.ibb.co/N3WSt5R/231asaa3ff433112d.webp"
                   alt="Spell-Book-Preface-14"
-                  width={400}
-                  height={400}
                />
             </div>
             <div className={`${s.game_logo} ${s.d_none} ${s.d_sm_flex}`}>INCU MONSTERS</div>
@@ -83,12 +81,7 @@ export default function Nav() {
             </div>
             {/* Profile Icon  */}
             <div id={s.profile} onClick={() => handleChangeNavMenu()}>
-               <img
-                  src="https://i.ibb.co/M1SK1sq/Electromancer16.webp"
-                  alt="Electromancer16"
-                  width={200}
-                  height={200}
-               />
+               <img src="https://i.ibb.co/M1SK1sq/Electromancer16.webp" alt="Electromancer16" />
             </div>
          </nav>
          <CustomNotification />
