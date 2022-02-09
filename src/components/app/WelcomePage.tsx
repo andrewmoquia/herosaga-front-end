@@ -36,7 +36,10 @@ export default function WelcomePage() {
                   width={50}
                   height={50}
                />
-               INCU MONSTERS
+               <p>INCU MONSTERS</p>
+               <p>Test Account</p>
+               <p>Username: test</p>
+               <p>Password: Test123!</p>
             </div>
             <section className={s.default_menu}>
                {/*-------------------*/}
