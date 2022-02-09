@@ -36,7 +36,7 @@ export default function WelcomePage() {
                   width={50}
                   height={50}
                />
-               <p>INCU MONSTERS</p>
+               <p>HEROSAGA</p>
                <p>Test Account</p>
                <p>Username: test</p>
                <p>Password: Test123!</p>
