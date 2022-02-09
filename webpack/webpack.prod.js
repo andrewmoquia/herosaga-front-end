@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const { InjectManifest } = require('workbox-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
 
 let target = 'browserslist'
 
@@ -75,12 +74,6 @@ module.exports = {
       //    swSrc: './sw.js',
       //    swDest: 'sw.js',
       // }),
-      new CopyPlugin({
-         patterns: [
-            { from: './manifest.json', to: '' },
-            { from: './robots.txt', to: '' },
-         ],
-      }),
       new webpack.DefinePlugin({
          'process.env.URL': JSON.stringify(process.env.URL),
          'process.env.AUTH': JSON.stringify(process.env.AUTH),

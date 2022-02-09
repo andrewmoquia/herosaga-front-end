@@ -38,18 +38,18 @@ $linear-blue-darkblue: linear-gradient(
 );
 
 //Background images
-$circle-pattern-left: url('https://i.ibb.co/BsvwHS0/circle-pattern-left.png');
-$circle-pattern-right: url('https://i.ibb.co/xFKd5MM/circle-pattern-right.webp');
-$circle-dark-pattern-left: url('https://i.ibb.co/wWmLhgH/circle-dark-pattern-left-2.webp');
-$circle-dark-pattern-right: url('https://i.ibb.co/5KSMXgj/circle-dark-pattern-right.png');
-$circle-red-pattern-left: url('https://i.ibb.co/0XLbQwV/circle-red-pattern-left.webp');
-$circle-red-2-pattern-left: url('https://i.ibb.co/4Kv83YR/circle-red-2-pattern-left.webp');
-$circle-green-pattern-left: url('https://i.ibb.co/T1zkfwb/circle-green-pattern-left.webp');
-$bg-pattern-green: url('https://i.ibb.co/mCcPbBM/green-checkboard.webp');
+$circle-pattern-left: url('https://herosaga.netlify.app/images/misc/circle-pattern-left.png');
+$circle-pattern-right: url('https://herosaga.netlify.app/images/misc/circle-pattern-right.webp');
+$circle-dark-pattern-left: url('https://herosaga.netlify.app/images/misc/circle-dark-pattern-left-2.webp');
+$circle-dark-pattern-right: url('https://herosaga.netlify.app/images/misc/circle-dark-pattern-right.png');
+$circle-red-pattern-left: url('https://herosaga.netlify.app/images/misc/circle-red-pattern-left.webp');
+$circle-red-2-pattern-left: url('https://herosaga.netlify.app/images/misc/circle-red-2-pattern-left.webp');
+$circle-green-pattern-left: url('https://herosaga.netlify.app/images/misc/circle-green-pattern-left.webp');
+$bg-pattern-green: url('https://herosaga.netlify.app/images/misc/green-checkboard.webp');
 
-$circle-lemon-pattern-right: url('https://i.ibb.co/cvVGJgS/circle-lemon-pattern-right.png');
-$circle-orange-pattern-right: url('https://i.ibb.co/4MX0mvq/circle-orange-pattern-left.png');
-$circle-orange-pattern-left: url('https://i.ibb.co/JzjH01M/circle-orange-pattern-right.png');
+$circle-lemon-pattern-right: url('https://herosaga.netlify.app/images/misc/circle-lemon-pattern-right.webp');
+$circle-orange-pattern-right: url('https://herosaga.netlify.app/images/misc/circle-orange-pattern-left.webp');
+$circle-orange-pattern-left: url('https://herosaga.netlify.app/images/misc/circle-orange-pattern-right.webp');
 
 //Calculations
 $slantSide: calc(100% - 15px);
@@ -57,6 +57,3 @@ $slantSide: calc(100% - 15px);
 //Set
 $input-outline-1: $skyblue;
 $input-outline-2: $black;
-
-//Images
-$login-image: 'https://source.unsplash.com/K4mSJ7kc0As/600x800' !default;

@@ -79,7 +79,9 @@ body {
    max-width: 700px;
    display: flex;
    flex-direction: column;
-   background: url(https://i.ibb.co/xFKd5MM/circle-pattern-right.webp) 100% 100% repeat-y,
+
+   background: url('https://herosaga.netlify.app/images/misc/circle-pattern-right.webp') 100% 100%
+         repeat-y,
       linear-gradient(97deg, #f79c6f 0%, #f6a83c 100%, #f9ffad 100%);
    position: relative;
    overflow: hidden;

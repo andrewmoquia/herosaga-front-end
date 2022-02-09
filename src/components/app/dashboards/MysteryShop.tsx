@@ -158,14 +158,14 @@ function MintBoxAnim(props: any) {
             <img
                src={
                   mintedNFT.rarity == 'common'
-                     ? 'https://i.ibb.co/YX3c3CY/you-got-common.png'
+                     ? 'https://herosaga.netlify.app/images/misc/you-got-common.png'
                      : mintedNFT.rarity == 'uncommon'
-                     ? 'https://i.ibb.co/XWcnTdv/you-got-uncommon.png'
+                     ? 'https://herosaga.netlify.app/images/misc/you-got-uncommon.png'
                      : mintedNFT.rarity == 'rare'
-                     ? 'https://i.ibb.co/3Nwrcs3/you-got-rare.png'
+                     ? 'https://herosaga.netlify.app/images/misc/you-got-rare.png'
                      : mintedNFT.rarity == 'epic'
-                     ? 'https://i.ibb.co/bFkCvYt/you-got-epic.png'
-                     : 'https://i.ibb.co/CbfYFsP/you-got-legendary.png'
+                     ? 'https://herosaga.netlify.app/images/misc/you-got-epic.png'
+                     : 'https://herosaga.netlify.app/images/misc/you-got-legendary.png'
                }
                alt="Rarity text."
                className={s.rarity_img}
@@ -190,7 +190,7 @@ function MintBoxAnim(props: any) {
          </div>
          <div className={s.mint_frame_cont}>
             <img
-               src="https://i.ibb.co/0Vkbrbj/mint-frame.png"
+               src="https://herosaga.netlify.app/images/misc/mint-frame.png"
                alt="Mint Frame"
                className={s.mint_frame_img}
             />
@@ -205,7 +205,11 @@ function MintBoxAnim(props: any) {
                      className={`${s[starCSS]} ${s[starPosCSS]} ${s[starAnimCSS]} ${s[starFinalAnimCSS]}`}
                      key={index}
                   >
-                     <img src="https://i.ibb.co/svqGsXc/star.png" alt="Star" width={22} />
+                     <img
+                        src="https://herosaga.netlify.app/images/misc/star.png"
+                        alt="Star"
+                        width={22}
+                     />
                   </div>
                )
             })}
@@ -220,7 +224,7 @@ function MintBoxAnim(props: any) {
             />
          </div>
          <div className={s.mint_anim_back_button} onClick={() => handleExitMinting()}>
-            <img src="https://i.ibb.co/YXrfGdk/BACK.png" alt="Back" width={90} />
+            <img src="https://herosaga.netlify.app/images/misc/BACK.png" alt="Back" width={90} />
          </div>
       </div>
    )

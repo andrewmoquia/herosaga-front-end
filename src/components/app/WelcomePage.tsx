@@ -31,7 +31,7 @@ export default function WelcomePage() {
          <div className={s.wl_forms_container}>
             <div className={s.welcome_logo_banner}>
                <img
-                  src="https://i.ibb.co/N3WSt5R/231asaa3ff433112d.webp"
+                  src="https://herosaga.netlify.app/images/bg/Spell-Book-Preface-14.webp"
                   alt="Spell-Book-Preface-14"
                   width={50}
                   height={50}

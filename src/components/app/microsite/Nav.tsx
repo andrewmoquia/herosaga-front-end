@@ -68,7 +68,7 @@ export default function Nav() {
             {/* Game Logo  */}
             <div className={`${s.logo_icon} ${s.d_none} ${s.d_sm_flex}`}>
                <img
-                  src="https://i.ibb.co/N3WSt5R/231asaa3ff433112d.webp"
+                  src="https://herosaga.netlify.app/images/misc/231asaa3ff433112d.webp"
                   alt="Spell-Book-Preface-14"
                />
             </div>
@@ -81,7 +81,10 @@ export default function Nav() {
             </div>
             {/* Profile Icon  */}
             <div id={s.profile} onClick={() => handleChangeNavMenu()}>
-               <img src="https://i.ibb.co/M1SK1sq/Electromancer16.webp" alt="Electromancer16" />
+               <img
+                  src="https://herosaga.netlify.app/images/bg/Electromancer16-1.webp"
+                  alt="Electromancer16"
+               />
             </div>
          </nav>
          <CustomNotification />

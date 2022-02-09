@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
    entry: {
@@ -26,29 +27,6 @@ module.exports = {
                },
             ],
          },
-         // {
-         //    test: /\.(s[ac]ss|css)$/i,
-         //    use: [
-         //       // This is required for asset imports in CSS, such as url()
-         //       MiniCssExtractPlugin.loader,
-         //       // 'style-loader',
-         //       {
-         //          loader: 'css-loader',
-         //          options: {
-         //             // esModule: false,
-         //             // modules: true,
-         //             sourceMap: false,
-         //             modules: {
-         //                localIdentName: '[local]_[hash:base64:5]',
-         //             },
-         //          },
-         //       },
-         //       'postcss-loader',
-         //       // according to the docs, sass-loader should be at the bottom, which
-         //       // loads it first to avoid prefixes in your sourcemaps and other issues.
-         //       'sass-loader',
-         //    ],
-         // },
          {
             test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
             loader: 'file-loader',
@@ -77,6 +55,13 @@ module.exports = {
       publicPath: '/',
    },
    plugins: [
+      new CopyPlugin({
+         patterns: [
+            { from: './images', to: 'images' },
+            { from: './manifest.json', to: '' },
+            { from: './robots.txt', to: '' },
+         ],
+      }),
       new Dotenv({
          safe: true,
          allowEmptyValues: false,
