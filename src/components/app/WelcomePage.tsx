@@ -40,6 +40,8 @@ export default function WelcomePage() {
                <p>Test Account</p>
                <p>Username: test</p>
                <p>Password: Test123!</p>
+               <br />
+               <p>This app uses cookies to make a session. Please allow it.</p>
             </div>
             <section className={s.default_menu}>
                {/*-------------------*/}
