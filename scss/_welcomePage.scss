@@ -198,10 +198,11 @@
 }
 
 .welcome_logo_banner {
-   @include size(100%, 60px);
+   @include size(100%, auto);
    @include flex(center, center);
    display: flex;
    flex-direction: column;
+   margin-bottom: 1rem;
    img {
       margin-right: 10px;
    }

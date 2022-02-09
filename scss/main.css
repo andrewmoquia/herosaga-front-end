@@ -4766,7 +4766,7 @@ body {
 
 .welcome_logo_banner {
   width: 100%;
-  height: 60px;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4781,6 +4781,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .welcome_logo_banner img {
