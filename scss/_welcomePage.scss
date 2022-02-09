@@ -201,7 +201,7 @@
    @include size(100%, 60px);
    @include flex(center, center);
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    img {
       margin-right: 10px;
    }
