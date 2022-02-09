@@ -49,10 +49,10 @@
         object-src 'none';
         base-uri 'none';
         script-src 'self';
-        style-src *;
-        img-src *;
-        font-src *;
-        connect-src i.ibb.co *.i.ibb.co incumons.herokuapp.com *.incumons.herokuapp.com incumon.netlify.app *.incumon.netlify.app fonts.googleapis.com *.fonts.googleapis.com fonts.gstatic.com *.fonts.gstatic.com;
+        style-src 'self fonts.googleapis.com *.fonts.googleapis.com fonts.gstatic.com *.fonts.gstatic.com;
+        img-src 'self';
+        font-src 'self' fonts.googleapis.com *.fonts.googleapis.com fonts.gstatic.com *.fonts.gstatic.com;
+        connect-src 'self 'i.ibb.co *.i.ibb.co incumons.herokuapp.com *.incumons.herokuapp.com fonts.googleapis.com *.fonts.googleapis.com fonts.gstatic.com *.fonts.gstatic.com;
     '''
     Permissions-Policy = '''
         accelerometer=(), 

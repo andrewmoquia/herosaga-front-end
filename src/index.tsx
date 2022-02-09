@@ -3,7 +3,7 @@ import { StrictMode, Suspense, lazy } from 'react'
 import { StoreProvider } from './components/reduceStore/StoreProvider'
 const App = lazy(() => import('./components/app/App'))
 import entry from '../scss/entry.css'
-import RegisterServiceWorker from './swRegistration'
+// import RegisterServiceWorker from './swRegistration'
 
 ReactDOM.render(
    <StrictMode>
@@ -16,4 +16,4 @@ ReactDOM.render(
    document.getElementById('root')
 )
 
-RegisterServiceWorker()
+// RegisterServiceWorker()
