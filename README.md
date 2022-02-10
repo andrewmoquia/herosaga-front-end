@@ -33,7 +33,7 @@ $ npm i
 ## Run locally
 Before running the app in your local server, make sure you set the env and this api from the server
 
-* URL=http://localhost:5000
+* URL=http://your-server.com/
 * AUTH=http://your-server.com/check-logged-in-user
 * LOGOUT=http://your-server.com/logout
 * CHANGE_PASSWORD=http://your-server.com/change/password
