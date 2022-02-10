@@ -57,7 +57,7 @@ $ npm start
 ```
 
 ## Deployment
-Deploy your server in [Netlify](https://www.netlify.com/)
+Deploy the app in [Netlify](https://www.netlify.com/)
 
 
 
